@@ -1,18 +1,18 @@
-/* @font-face {
+@font-face {
   font-family: 'DGM';
   src: local('DGM'), url(./fonts/DGM.ttf) format('truetype');
 }
 * {
   font-family: 'DGM';
-} */
+}
 
-@font-face {
+/* @font-face {
   font-family: 'cheesefont';
   src: local('cheesefont'), url(./fonts/cheesefont.ttf) format('truetype');
 }
 * {
   font-family: 'cheesefont';
-}
+} */
 
 body {
   margin: 0;
@@ -75,79 +75,139 @@ span {
   flex-direction: column;
 }
 
+.keyboard a {
+  text-decoration: none !important;
+  color: black;
+}
+
 .row {
   margin-top: 2px;
   overflow: hidden;
 }
 
-.key {
+.keyboard-container {
+  width: 830px;
+  height: 290px;
+  background-color: var(--off-white);
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+
+.topRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 10px 0px 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  padding: 3px 10px 0px 10px;
+}
+
+.numbers {
+  display: flex;
+  flex-direction: row;
+}
+
+.key-number {
   width: 50px;
   height: 50px;
-  float: left;
-  cursor: pointer;
   background-color: white;
-  color: #000000;
-  line-height: 48px;
-  text-align: center;
-  margin-left: 2px;
-  border-radius: 4px;
-}
-
-.key__symbols {
-  line-height: 28px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 3px;
 }
 
-.key__delete {
+.key-regular {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
+}
+
+.key-home {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 3px;
+}
+
+.key-backspace {
   width: 100px;
-  background: var(--blue);
+  height: 50px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
 }
 
-.key__oneandhalf {
-  width: 75px;
+.key-tab {
+  width: 80px;
+  height: 50px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
 }
 
-.key__esc {
-  background: var(--peach);
-}
-
-.key__enter {
-  width: 112px;
-}
-
-.key__caps {
-  width: 90px;
-}
-
-.key__shift-left {
+.key-caps {
   width: 100px;
-  background: var(--blue);
+  height: 50px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
 }
 
-.key__spacebar {
-  width: 300px;
+.key-shift {
+  width: 147px;
+  height: 50px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
 }
 
-.heart {
-  background: var(--peach);
+.key-enter {
+  width: 120px;
+  height: 50px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.key__bottom-funct {
-  width: 70px;
-  background: var(--blue);
-}
-
-.key__bottom-funct2 {
-  width: 70px;
-  background: var(--blue);
-}
-
-.key__arrow {
-  background: var(--peach);
-}
-
-.feather {
-  margin-top: 10px;
+.key-space {
+  width: 302px;
+  height: 50px;
+  background-color: white;
+  border-radius: 5px;
+  margin-right: 3px;
 }
 /* end of keyboard */

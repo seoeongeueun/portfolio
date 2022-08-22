@@ -115,7 +115,7 @@ function Keyboard(){
                 <div className="key-regular">
                     <span>{'}'}</span>
                 </div>
-                <div className="key-caps">
+                <div className="key-tab">
                     <span>|</span>
                     <span>\</span>
                 </div>
@@ -201,7 +201,7 @@ function Keyboard(){
                 <div className="key-regular">
                     <span>{'Help'}</span>
                 </div>
-                <div className="key-regular">
+                <div className="key-arrow">
                     <span>{' '}</span>
                 </div>
                 <div className="key-regular">
@@ -212,13 +212,13 @@ function Keyboard(){
                 <div className="key-caps">
                     <span>Ctrl</span>
                 </div>
-                <div className="key-regular">
+                <div className="key-color">
                     <span>Fn</span>
                 </div>
-                <div className="key-regular">
+                <div className="key-color">
                     <span>Win</span>
                 </div>
-                <div className="key-regular">
+                <div className="key-color">
                     <span>Alt</span>
                 </div>
                 <div className="key-space">
@@ -230,13 +230,13 @@ function Keyboard(){
                 <div className="key-regular">
                     <span>Win</span>
                 </div>
-                <div className="key-regular">
+                <div className="key-arrow">
                     <span></span>
                 </div>
-                <div className="key-regular">
+                <div className="key-arrow">
                     <span></span>
                 </div>
-                <div className="key-regular">
+                <div className="key-arrow">
                     <span></span>
                 </div>
             </div>

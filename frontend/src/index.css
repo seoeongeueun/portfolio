@@ -47,10 +47,12 @@ main {
 
 /* start of keyboard */
 :root {
-  --blue: #69b1f3;
+  --blue: #6db3fb;
   --yellow: #FFFFF4;
-  --peach: #f7546b;
+  --peach: #f3938e;
   --off-white: #f5ebd4;
+  --white: #ffffff;
+  --green: #A2ccb6;
 }
 
 body {
@@ -88,9 +90,10 @@ span {
 .keyboard-container {
   width: 830px;
   height: 290px;
-  background-color: var(--off-white);
+  border: 10px solid var(--off-white);
   border-radius: 10px;
   font-size: 1.5rem;
+  background-color: var(--off-white);
 }
 
 .topRow {
@@ -122,6 +125,7 @@ span {
   justify-content: space-around;
   align-items: center;
   margin-right: 3px;
+  
 }
 
 .key-regular {
@@ -136,10 +140,22 @@ span {
   margin-right: 3px;
 }
 
+.key-arrow {
+  width: 50px;
+  height: 50px;
+  background-color: var(--blue);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
+}
+
 .key-home {
   width: 50px;
   height: 50px;
-  background-color: white;
+  background-color: var(--blue);
   border-radius: 5px;
   margin-top: 3px;
 }
@@ -147,7 +163,7 @@ span {
 .key-backspace {
   width: 100px;
   height: 50px;
-  background-color: white;
+  background-color: var(--peach);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -157,7 +173,7 @@ span {
 }
 
 .key-tab {
-  width: 80px;
+  width: 85px;
   height: 50px;
   background-color: white;
   border-radius: 5px;
@@ -171,7 +187,19 @@ span {
 .key-caps {
   width: 100px;
   height: 50px;
-  background-color: white;
+  background-color: var(--peach);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
+}
+
+.key-color {
+  width: 50px;
+  height: 50px;
+  background-color: var(--green);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -183,7 +211,7 @@ span {
 .key-shift {
   width: 147px;
   height: 50px;
-  background-color: white;
+  background-color: var(--peach);
   border-radius: 5px;
   display: flex;
   flex-direction: column;

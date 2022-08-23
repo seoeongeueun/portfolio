@@ -14,6 +14,12 @@
   font-family: 'cheesefont';
 } */
 
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -31,18 +37,41 @@ code {
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr min-content;
+  grid-template-rows: 0 1fr 0;
   height: 100%;
 }
 
 main {
-  height: 80vh;
-  font-size: 2.5rem;
-  background-color: #FFFFFF;
+  background-color: black;
   display: flex;
   flex-direction: column;
-  padding: 5rem 10rem 0rem 10rem;
-  
+  align-items: center;
+  justify-content: flex-s;
+  padding: 3rem 5rem 0rem 5rem;
+
+}
+
+.main-screen {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 6rem;
+  width: 70%;
+  height: 40rem;
+  border-radius: 10px;
+}
+
+.main-screen img {
+  width: 50px;
+  margin-top: 10rem;
+}
+
+.intro {
+  font-size: 2rem;
+  animation: blink-effect 2s step-end infinite;
 }
 
 /* start of keyboard */
@@ -53,6 +82,7 @@ main {
   --off-white: #f5ebd4;
   --white: #ffffff;
   --green: #A2ccb6;
+  --dark-blue: rgba(64, 89, 145, 1);
 }
 
 span {
@@ -67,12 +97,13 @@ span {
 
 .keyboard-container {
   width: 830px;
-  height: 304px;
+  height: 303px;
   border: 15px solid var(--off-white);
   border-radius: 10px;
   font-size: 1.5rem;
   background-color: black;
   filter: drop-shadow(0px 20px 0.5px rgb(245, 220, 203));
+  transform: scale(0.7);
 }
 
 .topRow {
@@ -173,6 +204,15 @@ span {
   margin-top: 2px;
   margin-right: 3px;
   filter: drop-shadow(0px 8px 0.5px rgba(64, 89, 145, 1));
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.key-home a{
+  text-decoration: none;
+  color: black;
 }
 
 .key-backspace {
@@ -270,7 +310,7 @@ span {
   background-color: white;
   border-radius: 5px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
@@ -285,3 +325,33 @@ span {
   filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
 }
 /* end of keyboard */
+
+/* start of window */
+
+.windows {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.window {
+  width: 13rem;
+  height: 12rem;
+  border: 2px solid var(--blue);
+  font-size: 2rem;
+
+}
+
+.window-header {
+  height: 2rem;
+  background-color: var(--blue);
+}
+
+.window-body {
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* end of window */

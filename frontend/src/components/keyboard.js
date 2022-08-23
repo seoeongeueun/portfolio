@@ -2,16 +2,16 @@ import {useEffect, useState} from 'react';
 //import { Link, useHistory } from "react-router-dom";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
-import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
 import DesktopWindowsOutlinedIcon from '@mui/icons-material/DesktopWindowsOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
+import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
-import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
 import BackspaceOutlinedIcon from '@mui/icons-material/BackspaceOutlined';
+import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
 
 function Keyboard(){
     const [clicked, setClicked] = useState();
@@ -43,6 +43,9 @@ function Keyboard(){
             if (e === 'space'){
                 setTyped(typed.concat(' '));
             }
+            if (e === 'enter'){
+                setTyped('');
+            }
             if (!["home","space", "fn", 'shift', 'backspace', 'tab', 'caps', 'enter', 'fav', 'project', 'contact', 'design', 'bio'].includes(e)){
                 console.log('ya')
                 setTyped(typed.concat(e))
@@ -55,8 +58,6 @@ function Keyboard(){
     }
 
     return (
-        <div>
-            <p>{typed}</p>
         <div className='keyboard-container'>
             <div className='topRow'>
                 <div className='key-home' onClick={(e) => handleClick('home')} style={clicked === 'home' ? {transform: `translateY(5px)`} : null}>
@@ -209,6 +210,7 @@ function Keyboard(){
                 </div>
                 <div className="key-enter" onClick={(e) => handleClick('enter')} style={clicked === 'enter' ? {transform: `translateY(5px)`} : null}>
                     <span>enter</span>
+                    <span><KeyboardReturnOutlinedIcon sx={{verticalAlign: 'middle'}}/></span>
                 </div>
             </div>
 
@@ -263,22 +265,22 @@ function Keyboard(){
                 <div className="key-ctrl">
                     <span>Ctrl</span>
                 </div>
-                <div className="key-color" onClick={(e) => handleClick('bio')} style={clicked === 'bio' ? {transform: `translateY(5px)`} : null}>
+                <div className="key-color" onClick={(e) => handleClick('bio')} style={clicked === 'bio' ? {transform: `translateY(5px)`, filter: "drop-shadow(0px 3px 0.5px rgb(124, 143, 119))"} : null}>
                     <span><SentimentSatisfiedAltOutlinedIcon sx={{verticalAlign: 'middle'}} /></span>
                 </div>
-                <div className="key-color" onClick={(e) => handleClick('project')} style={clicked === 'project' ? {transform: `translateY(5px)`} : null}>
+                <div className="key-color" onClick={(e) => handleClick('project')} style={clicked === 'project' ? {transform: `translateY(5px)`, filter: "drop-shadow(0px 3px 0.5px rgb(124, 143, 119))"} : null}>
                     <span><DesktopWindowsOutlinedIcon sx={{verticalAlign: 'middle'}} /></span>
                 </div>
-                <div className="key-color" onClick={(e) => handleClick('design')} style={clicked === 'design' ? {transform: `translateY(5px)`} : null}>
+                <div className="key-color" onClick={(e) => handleClick('design')} style={clicked === 'design' ? {transform: `translateY(5px)`, filter: "drop-shadow(0px 3px 0.5px rgb(124, 143, 119))"} : null}>
                     <span><InsertPhotoOutlinedIcon sx={{verticalAlign: 'middle'}} /></span>
                 </div>
-                <div className="key-space" onClick={(e) => handleClick('space')} style={clicked === 'space' ? {transform: `translateY(5px)`} : null}>
+                <div className="key-space" onClick={(e) => handleClick('space')} style={clicked === 'space' ? {transform: `translateY(5px)`, filter: "drop-shadow(0px 3px 0.5px rgb(248, 219, 211))"} : null}>
                     <span></span>
                 </div>
-                <div className="key-color" onClick={(e) => handleClick('fav')} style={clicked === 'fav' ? {transform: `translateY(5px)`} : null}>
+                <div className="key-color" onClick={(e) => handleClick('fav')} style={clicked === 'fav' ? {transform: `translateY(5px)`, filter: "drop-shadow(0px 3px 0.5px rgb(124, 143, 119))"} : null}>
                     <span><FavoriteBorderOutlinedIcon sx={{verticalAlign: 'middle'}} /></span>
                 </div>
-                <div className="key-color" onClick={(e) => handleClick('contact')} style={clicked === 'contact' ? {transform: `translateY(5px)`} : null}>
+                <div className="key-color" onClick={(e) => handleClick('contact')} style={clicked === 'contact' ? {transform: `translateY(5px)`, filter: "drop-shadow(0px 3px 0.5px rgb(124, 143, 119))"} : null}>
                     <span><ContactSupportOutlinedIcon sx={{verticalAlign: 'middle'}} /></span>
                 </div>
                 <div className="key-arrow">
@@ -291,10 +293,6 @@ function Keyboard(){
                     <span><ArrowForwardOutlinedIcon sx={{verticalAlign: 'middle'}} /></span>
                 </div>
             </div>
-
-            
-
-        </div>
         </div>
     )
 }

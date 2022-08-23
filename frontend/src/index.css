@@ -229,6 +229,8 @@ main {
   border-radius: 10px;
   margin-top: 2rem;
   z-index: 2;
+  display: grid;
+  place-items: center;
 }
 
 .main-screen img {
@@ -288,6 +290,7 @@ main {
   align-items: center;
   justify-content: flex-start;
   margin-top: 1rem;
+  cursor: pointer;
 }
 
 .menuKey img {
@@ -370,6 +373,7 @@ span {
   align-items: center;
   margin-right: 3px;
   filter: drop-shadow(0px 8px 0.5px rgb(245, 220, 203));
+  cursor: pointer;
 }
 
 .key-regular {
@@ -383,6 +387,7 @@ span {
   align-items: center;
   margin-right: 3px;
   filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
+  cursor: pointer;
 }
 
 .key-last {
@@ -395,6 +400,7 @@ span {
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
+  cursor: pointer;
 }
 
 .key-arrow {
@@ -408,6 +414,7 @@ span {
   align-items: center;
   margin-right: 3px;
   filter: drop-shadow(0px 8px 0.5px rgba(64, 89, 145, 1));
+  cursor: pointer;
 }
 
 .key-arrowlast {
@@ -420,6 +427,7 @@ span {
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0px 8px 0.5px rgba(64, 89, 145, 1));
+  cursor: pointer;
 }
 
 .key-home {
@@ -434,6 +442,7 @@ span {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .key-home a{
@@ -451,6 +460,7 @@ span {
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0px 8px 0.5px rgb(211, 112, 112, 1));
+  cursor: pointer;
 }
 
 .key-tab {
@@ -464,6 +474,7 @@ span {
   align-items: center;
   margin-right: 3px;
   filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
+  cursor: pointer;
 }
 
 .key-tab2 {
@@ -476,6 +487,7 @@ span {
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
+  cursor: pointer;
 }
 
 .key-caps {
@@ -489,6 +501,7 @@ span {
   align-items: center;
   margin-right: 3px;
   filter: drop-shadow(0px 8px 0.5px rgb(211, 112, 112, 1));
+  cursor: pointer;
 }
 
 .key-ctrl {
@@ -502,6 +515,7 @@ span {
   align-items: center;
   margin-right: 3px;
   filter: drop-shadow(0px 8px 0.5px rgb(211, 112, 112, 1));
+  cursor: pointer;
 }
 
 .key-color {
@@ -515,6 +529,7 @@ span {
   align-items: center;
   margin-right: 3px;
   filter: drop-shadow(0px 8px 0.5px rgb(124, 143, 119));
+  cursor: pointer;
 }
 
 .key-shift {
@@ -528,6 +543,7 @@ span {
   align-items: center;
   margin-right: 3px;
   filter: drop-shadow(0px 8px 0.5px rgb(211, 112, 112, 1));
+  cursor: pointer;
 }
 
 .key-enter {
@@ -540,6 +556,7 @@ span {
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
+  cursor: pointer;
 }
 
 .key-space {
@@ -549,6 +566,7 @@ span {
   border-radius: 5px;
   margin-right: 3px;
   filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
+  cursor: pointer;
 }
 /* end of keyboard */
 
@@ -627,3 +645,35 @@ span {
   }
 }
 /* end of animations */
+
+/*typing effct */
+.wrapper {
+  height: 100vh;
+  /*This part is important for centering*/
+  display: grid;
+  place-items: center;
+}
+
+.intro {
+  width: 48rem;
+  animation: typing 3s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  /*border-right: 3px solid;*/
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+  to {
+    width: 48rem
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+/* */

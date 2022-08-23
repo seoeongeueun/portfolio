@@ -7,51 +7,52 @@ import Note2 from '../icons/note2.png';
 import Play from '../icons/play.png';
 import Twinkling from '../icons/twinkling.png';
 import Stars from '../icons/stars.png';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Theme from "../music/HoliznaCC0 - NPC Theme.mp3"
 import Theme2 from "../music/HoliznaCC0 - ICE temple.mp3"
 
 function Home({menu, onSetMenu, clicked}) {
-  const [musicOn, setMusicOn] = useState(true);
-  const [audio, setAudio] = useState(new Audio(Theme2));
-  const [index, setIndex] = useState(0);
-  const menusList = ['about', 'project', 'other', 'interest', 'contact'];
+    const [musicOn, setMusicOn] = useState(true);
+    const [audio, setAudio] = useState(new Audio(Theme2));
+    const [index, setIndex] = useState(0);
+    const [intro, setIntro] = useState('')
+    const menusList = ['about', 'project', 'other', 'interest', 'contact'];
+    
+    useEffect(() => {
+      audio.play()
+    }, [])
 
-  useEffect(() => {
-    audio.play()
-  }, [])
+    useEffect(() => {
 
-  useEffect(() => {
+    }, [menu, index])
 
-  }, [menu, index])
-
-  useEffect(() => {
-    if (clicked === 'down'){
-        if (index + 1 > 4) {
-            onSetMenu(menusList[0]);
-            setIndex(0);
+    useEffect(() => {
+        if (clicked === 'down'){
+            if (index + 1 > 4) {
+                onSetMenu(menusList[0]);
+                setIndex(0);
+            }
+            else {
+                onSetMenu(menusList[index+1])
+                setIndex(index+1);
+            }
+        }
+        else if (clicked === 'up'){
+            if (index - 1 < 0){
+                onSetMenu(menusList[4]);
+                setIndex(4);
+            }
+            else {
+                onSetMenu(menusList[index-1])
+                setIndex(index-1);
+            }
         }
         else {
-            onSetMenu(menusList[index+1])
-            setIndex(index+1);
+            if (['interest', 'project', 'contact', 'other', 'about'].includes(clicked)){
+                onSetMenu(clicked);
+            }
         }
-    }
-    else if (clicked === 'up'){
-        if (index - 1 < 0){
-            onSetMenu(menusList[4]);
-            setIndex(4);
-        }
-        else {
-            onSetMenu(menusList[index-1])
-            setIndex(index-1);
-        }
-    }
-    else {
-        if (['interest', 'project', 'contact', 'other', 'about'].includes(clicked)){
-            onSetMenu(clicked);
-        }
-    }
-  }, [clicked])
+    }, [clicked])
 
   useEffect(() => {
     musicOn ? audio.play() : audio.pause()
@@ -66,7 +67,7 @@ function Home({menu, onSetMenu, clicked}) {
         <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
         <div className='main-screen'>
           <span style={{marginTop: "5rem", marginBottom: '2rem'}}>HELLO</span>
-          <span  className='intro'>MY NAME IS SEONGEUN PARK AND WELCOME TO MY PAGE!</span>
+          <span className='intro'>MY NAME IS SEONGEUN PARK AND WELCOME TO MY PAGE!</span>
           <div className='menus'>
             <div className='menuKey'>
               <img className="play" src={Play} alt="play" style={ menu === 'about' ? {width: '25px', marginRight: '5px'} : {width: '25px', marginRight: '5px', display: 'none'}}/>

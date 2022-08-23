@@ -4,6 +4,8 @@
 }
 * {
   font-family: 'DGM';
+  margin: 0;
+  padding: 0;
 }
 
 /* @font-face {
@@ -20,17 +22,16 @@
   }
 }
 
+@keyframes move-twinkle-back {
+  from {background-position: 0 0;}
+  to {background-position: -10000px 5000px;}
+}
+
 *{
   -ms-overflow-style: none;
 }
 ::-webkit-scrollbar {
   display: none;
-}
-.container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0 1fr 0;
-  height: 100%;
 }
 
 main {
@@ -38,13 +39,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 0rem 5rem 0rem 5rem;
-  margin: 0
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
 
 }
 
 .main-screen {
-  background-color: black;
   color: white;
   display: flex;
   flex-direction: column;
@@ -55,6 +58,7 @@ main {
   height: 40rem;
   border-radius: 10px;
   margin-top: 4rem;
+  z-index: 2;
 }
 
 .main-screen img {
@@ -68,6 +72,18 @@ main {
 .start {
   font-size: 2rem;
   animation: blink-effect 2s step-end infinite;
+}
+
+.twinkling {
+  z-index: 0;
+  animation: move-twinkle-back 200s linear infinite;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
 }
 
 /* start of keyboard */
@@ -267,7 +283,7 @@ span {
 }
 
 .key-ctrl {
-  width: 90px;
+  width: 103px;
   height: 50px;
   background-color: var(--peach);
   border-radius: 5px;
@@ -293,7 +309,7 @@ span {
 }
 
 .key-shift {
-  width: 150px;
+  width: 156px;
   height: 50px;
   background-color: var(--peach);
   border-radius: 5px;

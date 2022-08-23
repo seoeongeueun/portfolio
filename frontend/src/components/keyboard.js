@@ -66,61 +66,61 @@ function Keyboard(){
                     <a href="/"><HomeOutlinedIcon sx={{verticalAlign: 'middle'}} /></a> 
                 </div>
                 <div className='numbers'>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('~') : (e) => handleClick('`')} style={clicked === '~' || clicked === '`' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('~') : (e) => handleClick('`')} style={clicked === '~' || clicked === '`' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>{'~'}</span>
                         <span>{'`'}</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('!') : (e) => handleClick('1')} style={clicked === '!' || clicked === '1' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('!') : (e) => handleClick('1')} style={clicked === '!' || clicked === '1' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>!</span>
                         <span>1</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('@') : (e) => handleClick('2')} style={clicked === '@' || clicked === '2' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('@') : (e) => handleClick('2')} style={clicked === '@' || clicked === '2' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>@</span>
                         <span>2</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('#') : (e) => handleClick('3')} style={clicked === '#' || clicked === '3' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('#') : (e) => handleClick('3')} style={clicked === '#' || clicked === '3' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>#</span>
                         <span>3</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('$') : (e) => handleClick('4')} style={clicked === '$' || clicked === '4' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('$') : (e) => handleClick('4')} style={clicked === '$' || clicked === '4' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>$</span>
                         <span>4</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('%') : (e) => handleClick('5')} style={clicked === '%' || clicked === '5' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('%') : (e) => handleClick('5')} style={clicked === '%' || clicked === '5' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>%</span>
                         <span>5</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('^') : (e) => handleClick('6')} style={clicked === '^' || clicked === '6' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('^') : (e) => handleClick('6')} style={clicked === '^' || clicked === '6' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span></span>
                         <span>^</span>
                         <span>6</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('&') : (e) => handleClick('7')} style={clicked === '&' || clicked === '7' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('&') : (e) => handleClick('7')} style={clicked === '&' || clicked === '7' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>{'&'}</span>
                         <span>7</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('*') : (e) => handleClick('8')} style={clicked === '*' || clicked === '8' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('*') : (e) => handleClick('8')} style={clicked === '*' || clicked === '8' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>{'*'}</span>
                         <span>8</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('(') : (e) => handleClick('9')} style={clicked === '(' || clicked === '9' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('(') : (e) => handleClick('9')} style={clicked === '(' || clicked === '9' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>{'('}</span>
                         <span>9</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick(')') : (e) => handleClick('0')} style={clicked === ')' || clicked === '0' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick(')') : (e) => handleClick('0')} style={clicked === ')' || clicked === '0' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>{')'}</span>
                         <span>0</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('_') : (e) => handleClick('-')} style={clicked === '_' || clicked === '-' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('_') : (e) => handleClick('-')} style={clicked === '_' || clicked === '-' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>{'_'}</span>
                         <span>-</span>
                     </div>
-                    <div className='key-number' onClick={ shift ? (e) => handleClick('+') : (e) => handleClick('=')} style={clicked === '+' || clicked === '=' ? {transform: `translateY(5px)`} : null }>
+                    <div className='key-number' onClick={ shift ? (e) => handleClick('+') : (e) => handleClick('=')} style={clicked === '+' || clicked === '=' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(245, 220, 203))'} : null }>
                         <span>{'+'}</span>
                         <span>=</span>
                     </div>
                 </div>
-                <div className='key-backspace' onClick={(e) => handleClick('backspace')} style={clicked === 'backspace' ? {transform: `translateY(5px)`} : null}>
+                <div className='key-backspace' onClick={(e) => handleClick('backspace')} style={clicked === 'backspace' ? {transform: `translateY(5px)`, filter: 'drop-shadow(0px 3px 0.5px rgb(211, 112, 112, 1))'} : null }>
                     <span><BackspaceOutlinedIcon sx={{verticalAlign: 'middle'}} /></span>
                 </div>
             </div>

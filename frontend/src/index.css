@@ -55,31 +55,9 @@ main {
   --green: #A2ccb6;
 }
 
-body {
-  background-color: #FFFFFF;
-  margin-top: 50px;
-  font-family: Arial;
-}
-
 span {
   display: block;
   margin-top: -5px;
-}
-
-.keyboard {
-  width: 780px;
-  height: 262px;
-  margin: 0px auto;
-  border: 10px solid var(--off-white);
-  border-radius: 10px;
-  background: black;
-  display: flex;
-  flex-direction: column;
-}
-
-.keyboard a {
-  text-decoration: none !important;
-  color: black;
 }
 
 .row {
@@ -89,11 +67,12 @@ span {
 
 .keyboard-container {
   width: 830px;
-  height: 290px;
-  border: 10px solid var(--off-white);
+  height: 304px;
+  border: 15px solid var(--off-white);
   border-radius: 10px;
   font-size: 1.5rem;
-  background-color: var(--off-white);
+  background-color: black;
+  filter: drop-shadow(0px 20px 0.5px rgb(245, 220, 203));
 }
 
 .topRow {
@@ -101,13 +80,21 @@ span {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 7px 10px 0px 10px;
+  padding: 0px 2px 7px 2px;
 }
 
 .row {
   display: flex;
   flex-direction: row;
-  padding: 3px 10px 0px 10px;
+  padding: 0px 2px 8px 2px;
+  align-items: center;
+}
+
+.lastrow {
+  display: flex;
+  flex-direction: row;
+  padding: 2px 2px 5px 2px;
+  align-items: center;
 }
 
 .numbers {
@@ -125,7 +112,7 @@ span {
   justify-content: space-around;
   align-items: center;
   margin-right: 3px;
-  
+  filter: drop-shadow(0px 8px 0.5px rgb(245, 220, 203));
 }
 
 .key-regular {
@@ -138,6 +125,19 @@ span {
   justify-content: center;
   align-items: center;
   margin-right: 3px;
+  filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
+}
+
+.key-last {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
 }
 
 .key-arrow {
@@ -150,18 +150,33 @@ span {
   justify-content: center;
   align-items: center;
   margin-right: 3px;
+  filter: drop-shadow(0px 8px 0.5px rgba(64, 89, 145, 1));
 }
 
-.key-home {
+.key-arrowlast {
   width: 50px;
   height: 50px;
   background-color: var(--blue);
   border-radius: 5px;
-  margin-top: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 8px 0.5px rgba(64, 89, 145, 1));
+}
+
+.key-home {
+  width: 70px;
+  height: 50px;
+  background-color: var(--blue);
+  border-radius: 5px;
+  margin-top: 2px;
+  margin-right: 3px;
+  filter: drop-shadow(0px 8px 0.5px rgba(64, 89, 145, 1));
 }
 
 .key-backspace {
-  width: 100px;
+  width: 70px;
   height: 50px;
   background-color: var(--peach);
   border-radius: 5px;
@@ -169,11 +184,11 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: 3px;
+  filter: drop-shadow(0px 8px 0.5px rgb(211, 112, 112, 1));
 }
 
 .key-tab {
-  width: 85px;
+  width: 100px;
   height: 50px;
   background-color: white;
   border-radius: 5px;
@@ -182,10 +197,23 @@ span {
   justify-content: center;
   align-items: center;
   margin-right: 3px;
+  filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
+}
+
+.key-tab2 {
+  width: 100px;
+  height: 50px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
 }
 
 .key-caps {
-  width: 100px;
+  width: 120px;
   height: 50px;
   background-color: var(--peach);
   border-radius: 5px;
@@ -194,6 +222,20 @@ span {
   justify-content: center;
   align-items: center;
   margin-right: 3px;
+  filter: drop-shadow(0px 8px 0.5px rgb(211, 112, 112, 1));
+}
+
+.key-ctrl {
+  width: 90px;
+  height: 50px;
+  background-color: var(--peach);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
+  filter: drop-shadow(0px 8px 0.5px rgb(211, 112, 112, 1));
 }
 
 .key-color {
@@ -206,10 +248,11 @@ span {
   justify-content: center;
   align-items: center;
   margin-right: 3px;
+  filter: drop-shadow(0px 8px 0.5px rgb(124, 143, 119));
 }
 
 .key-shift {
-  width: 147px;
+  width: 150px;
   height: 50px;
   background-color: var(--peach);
   border-radius: 5px;
@@ -218,6 +261,7 @@ span {
   justify-content: center;
   align-items: center;
   margin-right: 3px;
+  filter: drop-shadow(0px 8px 0.5px rgb(211, 112, 112, 1));
 }
 
 .key-enter {
@@ -229,13 +273,15 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
 }
 
 .key-space {
-  width: 302px;
+  width: 330px;
   height: 50px;
   background-color: white;
   border-radius: 5px;
   margin-right: 3px;
+  filter: drop-shadow(0px 8px 0.5px rgb(248, 219, 211));
 }
 /* end of keyboard */

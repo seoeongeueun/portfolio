@@ -49,8 +49,9 @@ function Keyboard(){
             if (!["home","space", "fn", 'shift', 'backspace', 'tab', 'caps', 'enter', 'fav', 'project', 'contact', 'design', 'bio'].includes(e)){
                 console.log('ya')
                 setTyped(typed.concat(e))
-                setShift(false);
+                
             }
+            setShift(false);
         }
         setTimeout(() => {
             setClicked(null);
@@ -58,6 +59,7 @@ function Keyboard(){
     }
 
     return (
+        <div className='keyboard'>
         <div className='keyboard-container'>
             <div className='topRow'>
                 <div className='key-home' onClick={(e) => handleClick('home')} style={clicked === 'home' ? {transform: `translateY(5px)`} : null}>
@@ -293,6 +295,7 @@ function Keyboard(){
                     <span><ArrowForwardOutlinedIcon sx={{verticalAlign: 'middle'}} /></span>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

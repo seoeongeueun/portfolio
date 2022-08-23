@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import Keyboard from './components/keyboard';
+import KeyboardContainer from './containers/KeyboardContainer';
 import Windows from './components/windows';
 import Alien from './icons/alien.png';
 import Twinkling from './icons/twinkling.png';
@@ -16,7 +15,7 @@ function App() {
           <span className='start'>CLICK ANY KEY TO START</span>
           <img src={Alien} alt="alien"/>
         </div>
-        <Keyboard/>
+        <KeyboardContainer/>
       </main>
   );
 }

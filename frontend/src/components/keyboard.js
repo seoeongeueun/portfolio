@@ -13,48 +13,43 @@ import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import BackspaceOutlinedIcon from '@mui/icons-material/BackspaceOutlined';
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
 
-function Keyboard(){
-    const [clicked, setClicked] = useState();
-    const [typed, setTyped] = useState('');
+function Keyboard({clicked, text, onSetClicked, onSetText}){
     const [shift, setShift] = useState(false);
     const [caps, setCaps] = useState(false);
 
-
     useEffect(()=> {
 
-    }, [clicked, typed, shift, caps])
+    }, [clicked, text, shift, caps])
 
 
     const handleClick = (e) => {
-        setClicked(e);
+        onSetClicked(e);
         if (e === 'shift'){
             setShift(!shift)
         }
         else {
             if (e === 'backspace'){
-                setTyped(typed.slice(0, -1))
+                onSetText(text.slice(0, -1))
             }
             if (e === 'tab'){
-                setTyped(typed.concat(' '));
+                onSetText(text.concat(' '));
             }
             if (e === 'caps'){
                 setCaps(!caps)
             }
             if (e === 'space'){
-                setTyped(typed.concat(' '));
+                onSetText(text.concat(' '));
             }
             if (e === 'enter'){
-                setTyped('');
+                onSetText('');
             }
             if (!["home","space", "fn", 'shift', 'backspace', 'tab', 'caps', 'enter', 'fav', 'project', 'contact', 'design', 'bio'].includes(e)){
-                console.log('ya')
-                setTyped(typed.concat(e))
-                
+                onSetText(text.concat(e))
             }
             setShift(false);
         }
         setTimeout(() => {
-            setClicked(null);
+            onSetClicked(null);
         }, 200);
     }
 

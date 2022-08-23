@@ -16,7 +16,7 @@ export const setClicked = (clicked) => ({
     clicked
 })
 
-export default function reducer(state = initialState, action) {
+export default function input(state = initialState, action) {
     switch (action.type) {
         case CHANGE_TEXT:
             return {

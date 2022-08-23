@@ -224,9 +224,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 8rem;
+  font-size: 8.5rem;
   width: 80%;
-  height: 80rem;
   border-radius: 10px;
   margin-top: 2rem;
   z-index: 2;
@@ -239,11 +238,18 @@ main {
 
 .intro {
   font-size: 2rem;
-  margin-bottom: 10rem;
+  margin-bottom: 3rem;
+}
+
+.menus {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 10rem;
+  margin-left: 2rem;
 }
 .start {
   font-size: 2rem;
-  animation: blink-effect 2s step-end infinite;
 }
 
 .twinkling {
@@ -262,6 +268,8 @@ main {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  cursor: pointer;
+  margin-top: 2rem;
 }
 
 .note {
@@ -273,6 +281,20 @@ main {
 	-webkit-animation: shake-bottom 8s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
 	        animation: shake-bottom 8s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
 }
+
+.menuKey {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.menuKey img {
+  margin-top: 0rem;
+  animation: blink-effect 1s step-end infinite;
+}
+
 /* start of keyboard */
 :root {
   --blue: #6db3fb;

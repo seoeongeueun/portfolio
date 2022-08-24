@@ -1,21 +1,22 @@
 import KeyboardContainer from '../containers/KeyboardContainer';
 import Windows from '../components/windows';
 import AlienNo from '../icons/alienNo.png';
+import Alien3 from '../icons/alien3.png';
 import AlienSing from '../icons/alienSing.gif';
 import Note from '../icons/note.png';
 import Note2 from '../icons/note2.png';
 import Play from '../icons/play.png';
 import Twinkling from '../icons/twinkling.png';
 import Stars from '../icons/stars.png';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Theme from "../music/HoliznaCC0 - NPC Theme.mp3"
 import Theme2 from "../music/HoliznaCC0 - ICE temple.mp3"
 
-function Home({menu, onSetMenu, clicked}) {
+function Home({menu, onSetMenu, clicked, onSetMove, move}) {
     const [musicOn, setMusicOn] = useState(true);
     const [audio, setAudio] = useState(new Audio(Theme2));
     const [index, setIndex] = useState(0);
-    const [intro, setIntro] = useState('')
+    const [jump, setJump] = useState(false);
     const menusList = ['about', 'project', 'other', 'interest', 'contact'];
     
     useEffect(() => {
@@ -24,7 +25,11 @@ function Home({menu, onSetMenu, clicked}) {
 
     useEffect(() => {
 
-    }, [menu, index])
+    }, [menu, index, jump])
+
+    useEffect(() => {
+        clicked === 'enter' && onSetMove(true);
+    }, [clicked])
 
     useEffect(() => {
         if (clicked === 'down'){
@@ -59,7 +64,14 @@ function Home({menu, onSetMenu, clicked}) {
   }, [musicOn])
 
   const handleClick = (e) => {
-    onSetMenu(e);
+    if (e === menu){
+        setJump(true);
+        setTimeout(() => {
+            onSetMove(true);
+        }, 1500);
+    } else {
+        onSetMenu(e);
+    }
   }
 
   return (
@@ -90,11 +102,14 @@ function Home({menu, onSetMenu, clicked}) {
               <span className='start' onClick={(e) => {handleClick('contact'); setIndex(4);}}>CONTACT</span>
             </div>
           </div>
-          <div className='alienIcon'>
+          {jump ? <div className='alienIconJump'>
+            <img src={Alien3} alt="alien3"/>
+          </div> :
+          <div className={musicOn ? 'alienIcon' : 'alienIconMute'}>
             {musicOn ? <img className="note2" src={Note2} alt="note2" style={{width: '20px', marginRight: '5px'}}/> : <img className="note2" src={Note2} alt="note2" style={{width: '20px', marginRight: '5px', opacity: '0'}}/>}
             {musicOn ? <img src={AlienSing} alt="aliensing" onClick={() => setMusicOn(false)}/> : <img src={AlienNo} alt="alien" onClick={() => setMusicOn(true)}/>}
             {musicOn ? <img className="note" src={Note} alt="note" style={{width: '20px', marginLeft: '2px'}}/> : <img src={Note} alt="note" style={{width: '20px', marginRight: '2px', opacity: '0'}}/>}
-          </div>
+          </div>}
         </div>
         <KeyboardContainer/>
       </main>

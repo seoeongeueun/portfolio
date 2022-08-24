@@ -123,7 +123,7 @@ function Keyboard({clicked, text, onSetClicked, onSetText}){
 
             <div className="row">
                 <div className="key-tab" onClick={(e) => handleClick('tab')} style={clicked === 'tab' ? {transform: `translateY(5px)`} : null}>
-                    <span>tab</span>
+                    <span>Tab</span>
                 </div>
                 <div className="key-regular" onClick={caps || shift ? (e) => handleClick('Q') : (e) => handleClick('q')} style={clicked === 'Q' || clicked === 'q' ? {transform: `translateY(5px)`} : null }>
                     <span>Q</span>
@@ -207,7 +207,7 @@ function Keyboard({clicked, text, onSetClicked, onSetText}){
                     <span>{`'`}</span>
                 </div>
                 <div className="key-enter" onClick={(e) => handleClick('enter')} style={clicked === 'enter' ? {transform: `translateY(5px)`} : null}>
-                    <span>enter</span>
+                    <span>Enter</span>
                     <span><KeyboardReturnOutlinedIcon sx={{verticalAlign: 'middle'}}/></span>
                 </div>
             </div>

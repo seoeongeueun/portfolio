@@ -18,11 +18,6 @@ function Keyboard({clicked, text, onSetClicked, onSetText}){
     const [shift, setShift] = useState(false);
     const [caps, setCaps] = useState(false);
 
-    useEffect(()=> {
-
-    }, [clicked, text, shift, caps])
-
-
     const handleClick = (e) => {
         onSetClicked(e);
         if (e === 'shift'){

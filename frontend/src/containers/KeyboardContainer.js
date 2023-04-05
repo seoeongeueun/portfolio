@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Keyboard from '../components/Keyboard.js';
+import Keyboard from '../components/keyboard.js';
 import { setClicked, setText } from '../modules/input.js';
 
 function KeyboardContainer(){

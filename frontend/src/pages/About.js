@@ -10,8 +10,9 @@ function About() {
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div className='aboutPage'>
                 <div className='aboutPageIntro'>
-                    <p>Seongeun Park</p>
-                    <span>I am a full stack developer who is passionate about asethetics and designs. I am proficient in JavaScript, HTML, CSS, and Adobe CC. I love coding, designing, and learning new things!</span>
+                    <p>About Me</p>
+                    <span>I am a front end developer who is proficient in JavaScript, HTML, CSS, and Adobe PS6.</span>
+                    <span><br/>I love coding, designing, and learning new things!</span>
                 </div>
             </div>
         </main>

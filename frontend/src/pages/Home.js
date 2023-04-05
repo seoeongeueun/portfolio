@@ -12,23 +12,39 @@ import { useEffect, useState } from 'react';
 import Theme from "../music/HoliznaCC0 - NPC Theme.mp3"
 import Theme2 from "../music/HoliznaCC0 - ICE temple.mp3"
 
-function Home({menu, onSetMenu, clicked, onSetMove, move}) {
-    const [musicOn, setMusicOn] = useState(true);
-    const [audio, setAudio] = useState(new Audio(Theme2));
+function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
+    const [musicOn, setMusicOn] = useState(false);
+    const [audio, setAudio] = useState();
     const [index, setIndex] = useState(0);
     const [jump, setJump] = useState(false);
     const menusList = ['about', 'project', 'other', 'interest', 'contact'];
-    
+
     useEffect(() => {
-      audio.play()
+      setAudio(new Audio(Theme2))
     }, [])
 
     useEffect(() => {
-
-    }, [menu, index, jump])
+      if (audio) musicOn ? audio.play() : audio.pause()
+    }, [musicOn])
 
     useEffect(() => {
         clicked === 'enter' && onSetMove(true);
+    }, [clicked])
+
+    useEffect(() => {
+      document.addEventListener("keydown", (e) => {
+        e = e || window.event;
+        if (e.key === "ArrowUp") {
+          onSetClicked('up')
+        } else if (e.key === "ArrowDown") {
+          onSetClicked('down')
+        } else if (e.key === "Enter") {
+          onSetClicked('enter')
+        }
+        setTimeout(() => {
+            onSetClicked(null);
+        }, 100);
+      });
     }, [clicked])
 
     useEffect(() => {
@@ -59,9 +75,6 @@ function Home({menu, onSetMenu, clicked, onSetMove, move}) {
         }
     }, [clicked])
 
-  useEffect(() => {
-    musicOn ? audio.play() : audio.pause()
-  }, [musicOn])
 
   const handleClick = (e) => {
     if (e === menu){
@@ -78,7 +91,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move}) {
       <main style={{backgroundImage: `url(${Stars})`}}>
         <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
         <div className='main-screen'>
-          <span style={{marginTop: "5rem", marginBottom: '2rem'}}>HELLO</span>
+          <span style={{marginTop: "0rem", marginBottom: '2rem'}}>HELLO</span>
           <span className='intro'>MY NAME IS SEONGEUN PARK AND WELCOME TO MY PAGE!</span>
           <div className='menus'>
             <div className='menuKey'>

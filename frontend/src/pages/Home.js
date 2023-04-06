@@ -11,6 +11,7 @@ import Stars from '../icons/stars.png';
 import { useEffect, useState } from 'react';
 import Theme from "../music/HoliznaCC0 - NPC Theme.mp3"
 import Theme2 from "../music/HoliznaCC0 - ICE temple.mp3"
+import Bleep from "../music/arcade-bleep-sound-6071.mp3";
 
 function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
     const [musicOn, setMusicOn] = useState(false);
@@ -79,8 +80,11 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
   const handleClick = (e) => {
     if (e === menu){
         setJump(true);
+        const audio = new Audio(Bleep);
+        audio.play();
         setTimeout(() => {
             onSetMove(true);
+            audio.pause();
         }, 1500);
     } else {
         onSetMenu(e);

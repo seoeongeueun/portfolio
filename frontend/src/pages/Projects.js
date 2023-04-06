@@ -55,7 +55,7 @@ function Projects() {
         else setLives(0)
         setInterval(() => {
             audio.pause();
-        }, 200)
+        }, 500)
     }
 
     const handleReturn = () => {
@@ -82,19 +82,19 @@ function Projects() {
                     <div className='project'>
 
                         <div className='projectName'>
-                            <span>Cheese Me</span>
+                            <span>CHEESE ME</span>
                         </div>
                         
-                        
+                        {showDesc2 && <div><span>Cheese Me is a your journal moved to PC!</span>
+                            <span>It provides a todo list, reminder, calendar, notes, and a d-day counter, along with the plain journal.
+                                Customize your journal by adding your own stickers and placing them freely. Sign up and add friends to connect with them and view their entries.</span></div>}
                         <div className='projectDetail'>
                             {!showDesc2 && <div className='description'>
                                 {showFruit4 && <img className="grape" src={Grape} alt="grape" style={{width: '30px', height: '35px', display: showFruit2, position: 'relative'}} onClick={() => handleClickFruit('grape')}/>}
                                 {(showScore && clicked === 'grape') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
                                 <span onClick={() => setShowDesc2(true)}>DESCRIPTION</span>
                             </div>}
-                            {showDesc2 && <div><span>Cheese Me is a your journal moved to PC!</span>
-                            <span>It provides a todo list, reminder, calendar, notes, and a d-day counter, along with the plain journal.
-                                Customize your journal by adding your own stickers and placing them freely. Sign up and add friends to connect with them and view their entries.</span></div>}
+                            
                             <div className='description'>
                                 {showFruit2 && <img className="cherry" src={Cherry} alt="cherry" style={{width: '30px', height: '35px', display: showFruit2, position: 'relative'}} onClick={() => handleClickFruit('cherry')}/>}
                                 {(showScore && clicked === 'cherry') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
@@ -104,9 +104,9 @@ function Projects() {
                                 {showThund && <img className='thunder' src={Thunder} alt='thunder' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder()}/>}
                                 <span>GITHUB</span>
                             </div>
-                            {showDesc2 && <img src={Arrow} alt="arrow" className='arrow' style={{width: '30px'}} onClick={() => handleReturn()}/>}
+                            
                         </div>
-                        
+                        {showDesc2 && <img src={Arrow} alt="arrow" className='arrow' style={{width: '30px'}} onClick={() => handleReturn()}/>}
                     </div>
                 </div>
                 <div className='projectFooter'>

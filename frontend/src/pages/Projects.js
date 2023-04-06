@@ -7,8 +7,9 @@ import Cherry from '../icons/cherry.png';
 import Grape from '../icons/grape.png';
 import Lemon from '../icons/lemon.png';
 import AlienCyan from '../icons/alien-cyan.png';
-import Bomb from '../icons/bomb.png';
+import Thunder from '../icons/thunder.png';
 import CoinPick from "../music/coin-collect-retro-8-bit-sound-effect-145251.mp3"
+import Hurt from "../music/hurt_c_08-102842.mp3"
 
 function Projects() {
     const [showFruit, setShowFruit] = useState(true);
@@ -19,6 +20,12 @@ function Projects() {
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [lives, setLives] = useState(3);
+    const [showThund, setShowThund] = useState(true);
+
+    useEffect(() => {
+        const audio = new Audio(CoinPick);
+        audio.pause()
+    }, [])
 
     const handleClickFruit = (e) => {
         if (e === 'apple') setShowFruit(false);
@@ -36,6 +43,17 @@ function Projects() {
             setClicked('');
             audio.pause();
         }, 800);
+    }
+
+    const handleClickThunder = () => {
+        setShowThund(false);
+        const audio = new Audio(Hurt);
+        audio.play();
+        if (lives > 0) setLives(lives-1)
+        else setLives(0)
+        setInterval(() => {
+            audio.pause();
+        }, 200)
     }
 
     return(
@@ -59,7 +77,7 @@ function Projects() {
                         <span>CheeseMe</span>
                         {showFruit4 && <img className="grape" src={Grape} alt="grape" style={{width: '30px', height: '35px', display: showFruit2, position: 'relative'}} onClick={() => handleClickFruit('grape')}/>}
                         {(showScore && clicked === 'grape') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
-                        {<img className='bomb' src={Bomb} alt='bomb' style={{width: '30px', height: '30px'}}/>}
+                        {showThund && <img className='thunder' src={Thunder} alt='thunder' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder()}/>}
                     </div>
                 </div>
                 <div className='projectFooter'>

@@ -195,6 +195,13 @@
   }
 }
 
+@keyframes twinkle {
+  20% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+}
+
 
 
 
@@ -897,8 +904,8 @@ span {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  justify-content: space-evenly;
+  height: 100vh;
 }
 
 .projectPage p{
@@ -912,22 +919,57 @@ span {
 .projectInfo {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
 }
 
 .project {
-  width: 20rem;
-  height: 20rem;
+  width: 30%;
+  height: 30rem;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='yellow' stroke-width='5' stroke-dasharray='3%2c 16' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
-  border-radius: 16px;
+  border-radius: 20px;
   display: flex;
 }
 
-.project span {
+.projectName span {
   align-self: flex-end;
   text-align: center;
   margin-bottom: 1rem;
+}
+
+.project img {
+  cursor: pointer;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: twinkle;
+}
+
+.projectFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scoreInfo {
+  display: flex;
+  flex-direction: row;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.livesInfo {
+  display: flex;
+  flex-direction: row;
+  font-size: 2.5rem;
+  color: white;
+  align-items: center;
+  width: 17rem;
+}
+
+.livesInfo img{
+  width: 2.5rem;
+  margin-left: 1rem;
 }
 /* end of about page */
 

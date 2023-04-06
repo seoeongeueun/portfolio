@@ -2,6 +2,7 @@ import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
 import HomeContainer from './containers/HomeContainer';
 import About from './pages/About';
+import Projects from './pages/Projects';
 
 function App() {
 
@@ -12,7 +13,9 @@ function App() {
 
   return (
       <div>
-        {(move && menu === 'about') ? <About/> : <HomeContainer/>}
+        {(move && menu === 'about') ? <About/>
+          : (move && menu === 'project') ? <Projects/>
+        : <HomeContainer/>}
       </div>
   );
 }

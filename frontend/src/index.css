@@ -197,7 +197,7 @@
 
 @keyframes twinkle {
   20% {
-    transform: scale(0.9);
+    transform: scale(0.85);
     opacity: 0.8;
   }
 }
@@ -940,11 +940,32 @@ span {
   font-size: 1.5rem;
 }
 
+.projectName {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .projectName span {
   align-self: flex-end;
   text-align: center;
-  margin-bottom: 1rem;
   font-size: 2rem;
+}
+
+.projectName img {
+  cursor: pointer;
+  margin-left: 1rem;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: twinkle;
+  margin-right: 0.5rem;
+}
+
+.projectLower {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .projectDetail {

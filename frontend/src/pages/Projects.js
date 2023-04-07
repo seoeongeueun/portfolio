@@ -88,26 +88,27 @@ function Projects() {
                         </div>
                         {showDesc && <div><span>Blue Space is a quiz making website where you can make your own quizes under your own platform about any topic of your choice.</span>
                         <span>Test your knowledge on any topic and compete with other users who share the same interest as you!</span></div>}
-                        <div className='projectDetail'>
-                            {!showDesc && <div className='description'>
-                                {showFruit && <img className="apple" src={Apple} alt="apple" style={{width: '30px', height: '35px', display: showFruit, position: 'relative'}} onClick={() => handleClickFruit('apple')}/>}
-                                {(showScore && clicked === 'apple') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
-                                <span onClick={() => setShowDesc(true)}>DESCRIPTION</span>
-                            </div>}
-                            
-                            <div className='description'>
-                                {showFruit3 && <img className="lemon" src={Lemon} alt="lemon" style={{width: '30px', height: '35px', display: showFruit3, position: 'relative'}} onClick={() => handleClickFruit('lemon')}/>}
-                                {(showScore && clicked === 'lemon') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
-                                <span>LINK</span>
+                        <div className='projectLower'>
+                            <div className='projectDetail'>
+                                {!showDesc && <div className='description'>
+                                    {showFruit && <img className="apple" src={Apple} alt="apple" style={{width: '30px', height: '35px', display: showFruit, position: 'relative'}} onClick={() => handleClickFruit('apple')}/>}
+                                    {(showScore && clicked === 'apple') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
+                                    <span onClick={() => setShowDesc(true)}>DESCRIPTION</span>
+                                </div>}
+                                
+                                <div className='description'>
+                                    {showFruit3 && <img className="lemon" src={Lemon} alt="lemon" style={{width: '30px', height: '35px', display: showFruit3, position: 'relative'}} onClick={() => handleClickFruit('lemon')}/>}
+                                    {(showScore && clicked === 'lemon') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
+                                    <span>LINK</span>
+                                </div>
+                                <div className='description'>
+                                    {showFruit5 && <img className="watermelon" src={Watermelon} alt="watermelon" style={{width: '30px', height: '35px', display: showFruit5, position: 'relative'}} onClick={() => handleClickFruit('watermelon')}/>}
+                                    {(showScore && clicked === 'watermelon') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
+                                    <span>GITHUB</span>
+                                </div>
                             </div>
-                            <div className='description'>
-                                {showFruit5 && <img className="watermelon" src={Watermelon} alt="watermelon" style={{width: '30px', height: '35px', display: showFruit5, position: 'relative'}} onClick={() => handleClickFruit('watermelon')}/>}
-                                {(showScore && clicked === 'watermelon') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
-                                <span>GITHUB</span>
-                            </div>
-                            
+                            {showDesc && <img src={Arrow} alt="arrow" className='arrow' style={{width: '30px'}} onClick={() => handleReturn(1)}/>}
                         </div>
-                        {showDesc && <img src={Arrow} alt="arrow" className='arrow' style={{width: '30px'}} onClick={() => handleReturn(1)}/>}
                     </div>
                     <div className='project'>
                         <div className='projectName'>

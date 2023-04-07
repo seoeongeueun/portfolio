@@ -924,7 +924,7 @@ span {
 }
 
 .projectPage p{
-  font-size: 4rem;
+  font-size: 5rem;
 }
 
 .projectPageIntro {
@@ -952,7 +952,7 @@ span {
 }
 
 .project span{
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .projectName {
@@ -1008,21 +1008,21 @@ span {
 .scoreInfo {
   display: flex;
   flex-direction: row;
-  font-size: 2.5rem;
+  font-size: 2.7rem;
   color: white;
 }
 
 .livesInfo {
   display: flex;
   flex-direction: row;
-  font-size: 2.5rem;
+  font-size: 2.7rem;
   color: white;
   align-items: center;
   width: 17rem;
 }
 
 .livesInfo img{
-  width: 2.5rem;
+  width: 2.7rem;
   margin-left: 1rem;
 }
 

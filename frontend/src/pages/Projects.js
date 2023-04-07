@@ -92,20 +92,20 @@ function Projects() {
                             <div className='projectDetail'>
                                 {!showDesc && <div className='description'>
                                     {showFruit && <img className="apple" src={Apple} alt="apple" style={{width: '30px', height: '35px', display: showFruit, position: 'relative'}} onClick={() => handleClickFruit('apple')}/>}
-                                    {(showScore && clicked === 'apple') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
+                                    {(showScore && clicked === 'apple') && <span style={{color: 'cyan'}}>{score}</span>}
                                     <span onClick={() => setShowDesc(true)}>DESCRIPTION</span>
                                 </div>}
                                 
-                                <div className='description'>
+                                {!showDesc && <div className='description'>
                                     {showFruit3 && <img className="lemon" src={Lemon} alt="lemon" style={{width: '30px', height: '35px', display: showFruit3, position: 'relative'}} onClick={() => handleClickFruit('lemon')}/>}
-                                    {(showScore && clicked === 'lemon') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
+                                    {(showScore && clicked === 'lemon') && <span style={{color: 'cyan'}}>{score}</span>}
                                     <span>LINK</span>
-                                </div>
-                                <div className='description'>
+                                </div>}
+                                {!showDesc && <div className='description'>
                                     {showFruit5 && <img className="watermelon" src={Watermelon} alt="watermelon" style={{width: '30px', height: '35px', display: showFruit5, position: 'relative'}} onClick={() => handleClickFruit('watermelon')}/>}
-                                    {(showScore && clicked === 'watermelon') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
+                                    {(showScore && clicked === 'watermelon') && <span style={{color: 'cyan'}}>{score}</span>}
                                     <span>GITHUB</span>
-                                </div>
+                                </div>}
                             </div>
                             {showDesc && <img src={Arrow} alt="arrow" className='arrow' style={{width: '30px'}} onClick={() => handleReturn(1)}/>}
                         </div>
@@ -123,20 +123,19 @@ function Projects() {
                             <div className='projectDetail'>
                                 {!showDesc2 && <div className='description'>
                                     {showFruit4 && <img className="grape" src={Grape} alt="grape" style={{width: '30px', height: '35px', display: showFruit2, position: 'relative'}} onClick={() => handleClickFruit('grape')}/>}
-                                    {(showScore && clicked === 'grape') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
+                                    {(showScore && clicked === 'grape') && <span style={{color: 'cyan'}}>{score}</span>}
                                     <span onClick={() => setShowDesc2(true)}>DESCRIPTION</span>
                                 </div>}
                                 
-                                <div className='description'>
+                                {!showDesc2 && <div className='description'>
                                     {showFruit2 && <img className="cherry" src={Cherry} alt="cherry" style={{width: '30px', height: '35px', display: showFruit2, position: 'relative'}} onClick={() => handleClickFruit('cherry')}/>}
-                                    {(showScore && clicked === 'cherry') && <span style={{position: 'absolute', transform: 'translate(-20%, 20%)', color: 'cyan'}}>{score}</span>}
+                                    {(showScore && clicked === 'cherry') && <span style={{color: 'cyan'}}>{score}</span>}
                                     <span>LINK</span>
-                                </div>
-                                <div className='description'>
+                                </div>}
+                                {!showDesc2 && <div className='description'>
                                     {showThund && <img className='thunder' src={Thunder} alt='thunder' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder('thunder')}/>}
                                     <span>GITHUB</span>
-                                </div>
-                                
+                                </div>}
                             </div>
                             {showDesc2 && <img src={Arrow} alt="arrow" className='arrow' style={{width: '30px'}} onClick={() => handleReturn(2)}/>}
                         </div>

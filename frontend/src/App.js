@@ -37,20 +37,17 @@ function App() {
         };
         const outerRefCurr = outerRef.current;
         outerRefCurr.addEventListener("wheel", wheelHandler);
+        if (menu === 'project') {
+          outerRef.current?.scrollTo({ 
+            top: window.innerHeight * 1,
+            behavior: 'auto',
+          });
+        }
         return () => {
             outerRefCurr.removeEventListener("wheel", wheelHandler);
         };
       }
     }, [move]);
-
-    useEffect(() => {
-      if (move) {
-        if (menu === 'project') {
-          console.log('eyey')
-          projectRef.current?.scrollIntoView({ behavior: 'auto' });
-        }
-      }
-    }, [menu, move]);
 
   return (
       <div>

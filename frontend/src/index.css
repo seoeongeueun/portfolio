@@ -877,16 +877,31 @@ span {
   }
 }
 
+/* start of outer css */
+.outer {
+  margin: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.outer::-webkit-scrollbar {
+  display: none;
+}
+
+/* end of outer css*/
+
 /* start of about page */
 .aboutPage {
   color: white;
   z-index: 1;
   font-size: 2rem;
   width: 100%;
+  height: 100vh;
 }
 
 .aboutPage p{
   font-size: 7rem;
+  z-index: 10;
 }
 
 .aboutPageIntro span{

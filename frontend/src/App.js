@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react';
 import HomeContainer from './containers/HomeContainer';
 import About from './pages/About';
 import Projects from './pages/Projects';
+import Other from './pages/Other';
 
 function App() {
   const { menu, move } = useSelector(state => ({
@@ -14,7 +15,6 @@ function App() {
   console.log('menu: ', menu);
 
   const outerRef = useRef();
-  const projectRef = useRef();
 
     useEffect(() => {
       if (move){
@@ -43,6 +43,12 @@ function App() {
             behavior: 'auto',
           });
         }
+        if (menu === 'other') {
+          outerRef.current?.scrollTo({ 
+            top: window.innerHeight * 2,
+            behavior: 'auto',
+          });
+        }
         return () => {
             outerRefCurr.removeEventListener("wheel", wheelHandler);
         };
@@ -53,7 +59,8 @@ function App() {
       <div>
         {move ? <div ref={outerRef} className='outer'>
           <About/>
-          <Projects ref={projectRef}/>
+          <Projects/>
+          <Other/>
         </div>
         : <HomeContainer/>}
       </div>

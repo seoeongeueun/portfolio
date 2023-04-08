@@ -1040,3 +1040,28 @@ span {
 }
 /* end of about page */
 
+/* start of other page */
+.otherPage {
+  color: white;
+  z-index: 1;
+  font-size: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.otherPage p{
+  font-size: 5rem;
+}
+
+
+.gameboy {
+  background-color: white;
+  width: 70%;
+  height: 70vh;
+  border: 1px solid white;
+}
+/* end of other page */
+

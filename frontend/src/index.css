@@ -1058,10 +1058,97 @@ span {
 
 
 .gameboy {
-  background-color: white;
-  width: 70%;
-  height: 70vh;
+  background-color: #e2dade;
+  width: 50%;
+  height: 80vh;
   border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 2rem 2rem 0 0;
+  
+}
+
+.gameboyButtons {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 5rem 0 5rem;
+  transform: translateY(8.3rem);
+}
+
+.buttonMove {
+  /* width: 15rem;
+  height: 15rem;
+  background-color: #070811;
+  clip-path: polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 35% 50%, 10% 50%);
+  box-shadow: 2px 0px 0px 0px #54526c inset;
+  border: 3px solid black; */
+  background: #54526c;
+  height: 11rem;
+  position: relative;
+  width: 4rem;
+  border: 5px solid #070811;
+  border-radius: 5px;
+}
+
+.buttonMove::after{
+  background: #54526c;
+  content: "";
+  height: 4rem;
+  left: -60px;
+  position: absolute;
+  top: 60px;
+  width: 11rem;
+  border: 5px solid #070811;
+  border-radius: 5px;
+}
+
+.buttonMoveBox {
+  width: 4.3rem;
+  height: 4.3rem;
+  background: #070811;
+  position: relative;
+  transform: translate(3%, -175%);
+}
+
+.buttonMoveCircle {
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+  background: #070811;
+  position: relative;
+  transform: translate(3%, -280%) rotate(-0.9turn);
+  border: 3px solid #54526c;
+  box-shadow: 3px 0px 2px 0px #474754 inset, 2px 0px 2px 1px #c0bdc5;
+}
+
+.miniButtons {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonA {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: #840c5f;
+  border: 3px solid #5a1c3b;
+  box-shadow: 3px 0px 2px 0px #f29cc9 inset, 3px 0px 2px 1px #250816;
+  transform: rotate(0.1turn);
+  margin-top: 5rem;
+  margin-right: 2rem;
+}
+
+.buttonB {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: #840c5f;
+  border: 3px solid #5a1c3b;
+  box-shadow: 3px 0px 2px 0px #f29cc9 inset, 3px 0px 2px 1px #250816;
+  transform: rotate(0.1turn);
 }
 /* end of other page */
 

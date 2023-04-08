@@ -12,6 +12,20 @@ function Other() {
                     <p>Other</p>
                 </div>
                 <div className='gameboy'>
+                    <div className='gameboyScreen'>
+
+                    </div>
+                    <div className='gameboyButtons'>
+                        <div className='buttonMoveContainer'>
+                            <div className='buttonMove'/>
+                            <div className='buttonMoveBox'/>
+                            <div className='buttonMoveCircle'/>
+                        </div>
+                        <div className='miniButtons'>
+                            <div className='buttonA'/>
+                            <div className='buttonB'/>
+                        </div>
+                    </div>
                     
                 </div>
             </div>

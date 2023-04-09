@@ -1075,7 +1075,7 @@ span {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 0 4.7rem 0 4.7rem;
+  margin: 0 0rem 0 4.7rem;
   transform: translateY(14rem) scale(1.2, 1.2);
 }
 

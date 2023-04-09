@@ -1050,6 +1050,7 @@ span {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .otherPage p{
@@ -1073,9 +1074,9 @@ span {
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin: 0 5rem 0 5rem;
-  transform: translateY(8.3rem);
+  justify-content: space-around;
+  margin: 0 4.7rem 0 4.7rem;
+  transform: translateY(14rem) scale(1.2, 1.2);
 }
 
 .buttonMove {
@@ -1135,7 +1136,7 @@ span {
   border-radius: 50%;
   background-color: #840c5f;
   border: 3px solid #5a1c3b;
-  box-shadow: 3px 0px 2px 0px #f29cc9 inset, 3px 0px 2px 1px #250816;
+  box-shadow: 3px 0px 2px 0px #f29cc9 inset, 3px 0px 3px 2px #250816;
   transform: rotate(0.1turn);
   margin-top: 5rem;
   margin-right: 2rem;
@@ -1147,7 +1148,7 @@ span {
   border-radius: 50%;
   background-color: #840c5f;
   border: 3px solid #5a1c3b;
-  box-shadow: 3px 0px 2px 0px #f29cc9 inset, 3px 0px 2px 1px #250816;
+  box-shadow: 3px 0px 2px 0px #f29cc9 inset, 3px 0px 3px 2px #250816;
   transform: rotate(0.1turn);
 }
 /* end of other page */

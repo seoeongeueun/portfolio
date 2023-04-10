@@ -336,7 +336,7 @@ main {
   --dark-blue: rgba(64, 89, 145, 1);
 }
 
-span {
+.keyboard span {
   display: block;
   margin-top: -5px;
 }
@@ -1057,26 +1057,125 @@ span {
   font-size: 5rem;
 }
 
+.gameboyHead {
+  height: 5vh;
+  width: 50%;
+  background-color: #e2dade;
+  border-radius: 2rem 2rem 0 0;
+}
+
+.gameboyDarkLine {
+  background-color: #e0d9dd;
+  height: 2vh;
+  width: 50%;
+  border-top: 2px solid #b1a0a6;
+  border-radius: 2rem 2rem 0 0;
+  border-bottom: 2px solid #f9f2f5;
+}
 
 .gameboy {
   background-color: #e2dade;
   width: 50%;
-  height: 80vh;
-  border: 1px solid white;
+  height: 70vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border-radius: 2rem 2rem 0 0;
+  align-items: center;
   
 }
 
+.gameboySwitch {
+  font-family: Arial;
+}
+
+.gameboyScreen {
+  width: 85%;
+  height: 60vh;
+  border-radius: 15px 15px 100px 15px;
+  box-shadow: 6px 6px 0px 0px #817294 inset;
+  background-color: #968da6;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #a99bb4;
+}
+
+.gameboyTopDeco {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+  font-family: Arial;
+  font-size: 1rem;
+}
+
+.gameboyBottomDeco {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+}
+
+.gameboyLight span {
+  font-size: 1rem;
+  font-family: Arial;
+}
+
+.gameboyLight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redLighting {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #db0e0e;
+  border: 2px solid #8d1014;
+  box-shadow: 2px 0px 5px 1px #ff835c inset;
+  outline: 2px solid #b8a3b6;
+  transform: rotate(0.5turn);
+  margin-bottom: 1rem;
+}
+
+
+.gameboyGreen {
+  background-color: #a6b327;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 5px;
+  border: 2px solid #a49ca6;
+  box-shadow: 3px 3px 10px 2px #323412 inset;
+}
+
+.gameboyLine1 {
+  background: #943874;
+  width: 3rem;
+  height: 3px;
+  margin-bottom: 0.3rem;
+}
+
+.gameboyLine2 {
+  background: #351660;
+  width: 3rem;
+  height: 3px;
+}
+
 .gameboyButtons {
+  width: 100%;
   cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin: 0 0rem 0 4.7rem;
   transform: translateY(14rem) scale(1.2, 1.2);
+}
+
+.buttonShadow {
+  width: 11rem;
+  height: 11rem;
+  border-radius: 50%;
+  background-color: #cbc1c7;
+  position: absolute;
 }
 
 .buttonMove {
@@ -1115,12 +1214,12 @@ span {
 }
 
 .buttonMoveCircle {
-  width: 3.8rem;
-  height: 3.8rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   background: #070811;
   position: relative;
-  transform: translate(3%, -280%) rotate(-0.9turn);
+  transform: translate(16%, -340%) rotate(-0.9turn);
   border: 3px solid #54526c;
   box-shadow: 3px 0px 2px 0px #474754 inset, 2px 0px 2px 1px #c0bdc5;
 }

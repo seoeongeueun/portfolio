@@ -63,9 +63,9 @@ function Other() {
         <main style={{backgroundImage: `url(${Stars})`}}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div className='otherPage'>
-                <div className='otherPageIntro'>
+                {/* <div className='otherPageIntro'>
                     <p>Other</p>
-                </div>
+                </div> */}
                 <div className='gameboyHead'>
                     <div className='gameboySwitch'>
                         <IOSSwitch sx={{ m: 1 }} checked={checked} onChange={() => setChecked(!checked)}/>
@@ -95,7 +95,6 @@ function Other() {
 
                         </div>
                     </div>
-                    <span>es</span>
                     <div className='gameboyButtons'>
                         <div className='buttonMoveContainer'>
                             <div className='buttonMove'/>

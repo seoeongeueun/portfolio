@@ -99,12 +99,12 @@ function Projects() {
                                 {!showDesc && <div className='description'>
                                     {showFruit3 && <img className="lemon" src={Lemon} alt="lemon" style={{width: '30px', height: '35px', display: showFruit3, position: 'relative'}} onClick={() => handleClickFruit('lemon')}/>}
                                     {(showScore && clicked === 'lemon') && <span style={{color: 'cyan'}}>{score}</span>}
-                                    <span>LINK</span>
+                                    <a href="https://cheeseme.netlify.com" rel="noopener noreferrer" target="_blank"><span>LINK</span></a>
                                 </div>}
                                 {!showDesc && <div className='description'>
                                     {showFruit5 && <img className="watermelon" src={Watermelon} alt="watermelon" style={{width: '30px', height: '35px', display: showFruit5, position: 'relative'}} onClick={() => handleClickFruit('watermelon')}/>}
                                     {(showScore && clicked === 'watermelon') && <span style={{color: 'cyan'}}>{score}</span>}
-                                    <span>GITHUB</span>
+                                    <a href="https://github.com/seoeongeueun/cheeseme" rel="noopener noreferrer" target="_blank"><span>GITHUB</span></a>
                                 </div>}
                             </div>
                             {showDesc && <img src={Arrow} alt="arrow" className='arrow' style={{width: '30px'}} onClick={() => handleReturn(1)}/>}
@@ -130,11 +130,11 @@ function Projects() {
                                 {!showDesc2 && <div className='description'>
                                     {showFruit2 && <img className="cherry" src={Cherry} alt="cherry" style={{width: '30px', height: '35px', display: showFruit2, position: 'relative'}} onClick={() => handleClickFruit('cherry')}/>}
                                     {(showScore && clicked === 'cherry') && <span style={{color: 'cyan'}}>{score}</span>}
-                                    <span>LINK</span>
+                                    <a href="https://cheeseme.netlify.com" rel="noopener noreferrer" target="_blank"><span>LINK</span></a>
                                 </div>}
                                 {!showDesc2 && <div className='description'>
                                     {showThund && <img className='thunder' src={Thunder} alt='thunder' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder('thunder')}/>}
-                                    <span>GITHUB</span>
+                                    <a href="https://github.com/seoeongeueun/cheeseme" rel="noopener noreferrer" target="_blank"><span>GITHUB</span></a>
                                 </div>}
                             </div>
                             {showDesc2 && <img src={Arrow} alt="arrow" className='arrow' style={{width: '30px'}} onClick={() => handleReturn(2)}/>}

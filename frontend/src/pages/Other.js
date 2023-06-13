@@ -63,50 +63,55 @@ function Other() {
         <main style={{backgroundImage: `url(${Stars})`}}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div className='otherPage'>
-                {/* <div className='otherPageIntro'>
+                <div className='otherPageIntro'>
                     <p>Other</p>
-                </div> */}
-                <div className='gameboyHead'>
-                    <div className='gameboySwitch'>
-                        <IOSSwitch sx={{ m: 1 }} checked={checked} onChange={() => setChecked(!checked)}/>
-                        {checked ? <span>ON</span> : <span>OFF</span>}
-                    </div>
                 </div>
-                <div className='gameboyDarkLine'/>
-                <div className='gameboy'>
-                    <div className='gameboyScreen'>
-                        <div className='gameboyTopDeco'>
-                            <div className='gameboyLines'>
-                                <div className='gameboyLine1' style={{width: '10rem'}}/>
-                                <div className='gameboyLine2' style={{width: '10rem'}}/>
-                            </div>
-                            <span>OTHER STUFF I WORKED ON</span>
-                            <div className='gameboyLines'>
-                                <div className='gameboyLine1'/>
-                                <div className='gameboyLine2'/>
-                            </div>
-                        </div>
-                        <div className='gameboyBottomDeco'>
-                            <div className='gameboyLight'>
-                                <div className='redLighting'/>
-                                <span>BATTERY</span>
-                            </div>
-                            <div className='gameboyGreen'/>
+                <div className='gameboyContainer'>
+                  <div className='gameboyHead'>
+                      <div className='gameboySwitch'>
+                          <IOSSwitch sx={{ m: 1 }} checked={checked} onChange={() => setChecked(!checked)}/>
+                          {checked ? <span>ON</span> : <span>OFF</span>}
+                      </div>
+                  </div>
+                  <div className='gameboyDarkLine'/>
+                  <div className='gameboy'>
+                      <div className='gameboyScreen'>
+                          <div className='gameboyTopDeco'>
+                              <div className='gameboyLines'>
+                                  <div className='gameboyLine1' style={{width: '14rem', marginLeft: '2rem', marginRight: '0.5rem'}}/>
+                                  <div className='gameboyLine2' style={{width: '14rem', marginLeft: '2rem', marginRight: '0.5rem'}}/>
+                              </div>
+                              <span>OTHER PROJECTS I WORKED ON BEFORE</span>
+                              <div className='gameboyLines'>
+                                  <div className='gameboyLine1'/>
+                                  <div className='gameboyLine2'/>
+                              </div>
+                          </div>
+                          <div className='gameboyBottomDeco'>
+                              <div className='gameboyLight'>
+                                  {checked ? <div className='redLighting'/> : <div className='redLightingOff'/>}
+                                  <span>BATTERY</span>
+                              </div>
+                              <div className='gameboyGreen'/>
 
-                        </div>
-                    </div>
-                    <div className='gameboyButtons'>
-                        <div className='buttonMoveContainer'>
-                            <div className='buttonMove'/>
-                            <div className='buttonMoveBox'/>
-                            <div className='buttonMoveCircle'/>
-                        </div>
-                        <div className='miniButtons'>
-                            <div className='buttonA'/>
-                            <div className='buttonB'/>
-                        </div>
-                    </div>
-                    
+                          </div>
+                      </div>
+                      <div className='gameboyTitle'>
+                        <span>Nintendo GAMEBOY</span>
+                      </div>
+                      <div className='gameboyButtons'>
+                          <div className='buttonMoveContainer'>
+                              <div className='buttonMove'/>
+                              <div className='buttonMoveBox'/>
+                              <div className='buttonMoveCircle'/>
+                          </div>
+                          <div className='miniButtons'>
+                              <div className='buttonA'/>
+                              <div className='buttonB'/>
+                          </div>
+                      </div>
+
+                  </div>
                 </div>
             </div>
         </main>

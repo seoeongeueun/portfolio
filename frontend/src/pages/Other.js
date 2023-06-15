@@ -68,12 +68,16 @@ function Other() {
                 </div>
                 <div className='gameboyContainer'>
                   <div className='gameboyHead'>
+                    <div className='gameboyHeadLeft'/>
+                    <div className='gameboyHeadMiddle'>
                       <div className='gameboySwitch'>
                           <IOSSwitch sx={{ m: 1 }} checked={checked} onChange={() => setChecked(!checked)}/>
                           {checked ? <span>ON</span> : <span>OFF</span>}
                       </div>
+                    </div>
+                    <div className='gameboyHeadRight'/>
                   </div>
-                  <div className='gameboyDarkLine'/>
+                  
                   <div className='gameboy'>
                       <div className='gameboyScreen'>
                           <div className='gameboyTopDeco'>
@@ -97,7 +101,8 @@ function Other() {
                           </div>
                       </div>
                       <div className='gameboyTitle'>
-                        <span>Nintendo GAMEBOY</span>
+                        <span className='title1'>Nintendo</span>
+                        <span className='title2'>GAMEBOY</span>
                       </div>
                       <div className='gameboyButtons'>
                           <div className='buttonMoveContainer'>

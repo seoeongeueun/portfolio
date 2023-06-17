@@ -4,6 +4,7 @@ import HomeContainer from './containers/HomeContainer';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Other from './pages/Other';
+import Contact from './pages/Contact';
 
 function App() {
   const { menu, move } = useSelector(state => ({
@@ -49,6 +50,12 @@ function App() {
             behavior: 'auto',
           });
         }
+        if (menu === 'contact') {
+          outerRef.current?.scrollTo({ 
+            top: window.innerHeight * 3,
+            behavior: 'auto',
+          });
+        }
         return () => {
             outerRefCurr.removeEventListener("wheel", wheelHandler);
         };
@@ -61,6 +68,7 @@ function App() {
           <About/>
           <Projects/>
           <Other/>
+          <Contact/>
         </div>
         : <HomeContainer/>}
       </div>

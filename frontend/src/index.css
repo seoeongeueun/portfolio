@@ -1493,6 +1493,7 @@ main {
   height: 100%;
   justify-content: flex-start;
   font-size: 2.3rem;
+  align-items: center;
 }
 
 .bestPlayer {
@@ -1509,7 +1510,7 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 70%;
+  height: 50%;
 }
 
 .playerSpec {
@@ -1581,6 +1582,10 @@ main {
   margin-right: 0.4rem;
 }
 
+.scoreboardName {
+  margin-bottom: 3rem;
+}
+
 .nameLine1 {
   cursor: pointer;
 }
@@ -1589,6 +1594,80 @@ main {
   margin-right: 1rem;
 }
 
+.continue {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+  color: cyan;
+}
+
+.coin {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  background-color: #FFFF00;;
+  cursor: pointer;
+}
+
 
 /* end of contact page */
+
+/* coin animation from jh3y */
+/**
+  * Spinning coin fall
+  *
+  * @author jh3y
+*/
+@-webkit-keyframes spinning-coin-fall {
+  0% {
+    -webkit-transform: translate(-50%, -50%) perspective(160px) rotateY(0deg) rotateX(0deg);
+            transform: translate(-50%, -50%) perspective(160px) rotateY(0deg) rotateX(0deg); }
+  10% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) perspective(160px) rotateY(-65deg) rotateX(0deg);
+            transform: translate(-50%, -50%) perspective(160px) rotateY(-65deg) rotateX(0deg); }
+  70% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) perspective(160px) rotateY(1440deg) rotateX(0deg);
+            transform: translate(-50%, -50%) perspective(160px) rotateY(1440deg) rotateX(0deg); }
+  90%,
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) perspective(160px) rotateY(2880deg) rotateX(90deg);
+            transform: translate(-50%, -50%) perspective(160px) rotateY(2880deg) rotateX(90deg); } }
+@keyframes spinning-coin-fall {
+  0% {
+    -webkit-transform: translate(-50%, -50%) perspective(160px) rotateY(0deg) rotateX(0deg);
+            transform: translate(-50%, -50%) perspective(160px) rotateY(0deg) rotateX(0deg); }
+  10% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) perspective(160px) rotateY(-65deg) rotateX(0deg);
+            transform: translate(-50%, -50%) perspective(160px) rotateY(-65deg) rotateX(0deg); }
+  70% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) perspective(160px) rotateY(1440deg) rotateX(0deg);
+            transform: translate(-50%, -50%) perspective(160px) rotateY(1440deg) rotateX(0deg); }
+  90%,
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) perspective(160px) rotateY(2880deg) rotateX(90deg);
+            transform: translate(-50%, -50%) perspective(160px) rotateY(2880deg) rotateX(90deg); } }
+
+.spinning-coin-fall:before {
+  -webkit-animation: spinning-coin-fall 3s ;
+          animation: spinning-coin-fall 3s ;
+  background-color: #FFFF00;
+  border-radius: 100%;
+  content: '';
+  height: 30px;
+  position: absolute;
+  top: 87%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  width: 30px; 
+}
 

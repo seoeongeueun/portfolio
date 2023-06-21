@@ -6,21 +6,28 @@ import Projects from './Projects.js';
 import { useSelector, useDispatch } from 'react-redux';
 import AlienCyan from '../icons/alien-cyan.png';
 import Zap from "../music/zap_c_07-82067.mp3"
+import Coin from "../music/coin-collect-retro-8-bit-sound-effect-145251.mp3";
 
 function Contact() {
     const [name, setName] = useState('');
     const [change, setChange] = useState(false);
     const [audio, setAudio] = useState(new Audio(Zap));
+    const [audio2, setAudio2] = useState(new Audio(Coin));
     const { score, life } = useSelector(state => ({
         score: state.score.score,
         life: state.score.life
     }));
+    const [click, setClick] = useState(false);
 
     useEffect(() => {
         if (name.length > 3 ) {
             setName(name.substring(0,3));
         }
-    }, [name])
+    }, [name]);
+
+    useEffect(() => {
+
+    }, [click])
 
     return(
         <main style={{backgroundImage: `url(${Stars})`}}>
@@ -53,7 +60,7 @@ function Contact() {
                             </div>
                             
                         </div>
-                        <div className='plyers'>
+                        <div className='players'>
                             <div className='playerSpec'>
                                 <div className='boardTitle'>
                                     <span style={{marginBottom: '1rem'}}>NAME</span>
@@ -90,48 +97,54 @@ function Contact() {
                             </div>
                             
                         </div>
-                        {!change && <div className='scoardboardName'>
-                            <div className='nameLine1'>
-                                <span onClick={() => setName(name+'A')}>A</span>
-                                <span onClick={() => setName(name+'B')}>B</span>
-                                <span onClick={() => setName(name+'C')}>C</span>
-                                <span onClick={() => setName(name+'D')}>D</span>
-                                <span onClick={() => setName(name+'E')}>E</span>
-                                <span onClick={() => setName(name+'F')}>F</span>
-                            </div>
-                            <div className='nameLine1'>
-                                <span onClick={() => setName(name+'G')}>G</span>
-                                <span onClick={() => setName(name+'H')}>H</span>
-                                <span onClick={() => setName(name+'I')}>I</span>
-                                <span onClick={() => setName(name+'J')}>J</span>
-                                <span onClick={() => setName(name+'K')}>K</span>
-                                <span onClick={() => setName(name+'L')}>L</span>
-                            </div>
-                            <div className='nameLine1'>
-                                <span onClick={() => setName(name+'M')}>M</span>
-                                <span onClick={() => setName(name+'N')}>N</span>
-                                <span onClick={() => setName(name+'O')}>O</span>
-                                <span onClick={() => setName(name+'P')}>P</span>
-                                <span onClick={() => setName(name+'Q')}>Q</span>
-                                <span onClick={() => setName(name+'R')}>R</span>
-                            </div>
-                            <div className='nameLine1'>
-                                <span onClick={() => setName(name+'S')}>S</span>
-                                <span onClick={() => setName(name+'T')}>T</span>
-                                <span onClick={() => setName(name+'U')}>U</span>
-                                <span onClick={() => setName(name+'V')}>V</span>
-                                <span onClick={() => setName(name+'W')}>W</span>
-                                <span onClick={() => setName(name+'X')}>X</span>
-                            </div>
-                            <div className='nameLine1'>
-                                <span onClick={() => setName(name+'Y')}>Y</span>
-                                <span onClick={() => setName(name+'Z')}>Z</span>
-                                <span onClick={() => setName(name.substring(0, name.length - 1))}>DEL</span>
-                                {name?.length === 3 ? <span onClick={() => {setChange(true); audio.play();}}>ENT</span>
-                                : <span>ENT</span>}
-                                
-                            </div>
-                        </div>}
+                            {!change && <div className='scoreboardName'>
+                                <div className='nameLine1'>
+                                    <span onClick={() => setName(name+'A')}>A</span>
+                                    <span onClick={() => setName(name+'B')}>B</span>
+                                    <span onClick={() => setName(name+'C')}>C</span>
+                                    <span onClick={() => setName(name+'D')}>D</span>
+                                    <span onClick={() => setName(name+'E')}>E</span>
+                                    <span onClick={() => setName(name+'F')}>F</span>
+                                </div>
+                                <div className='nameLine1'>
+                                    <span onClick={() => setName(name+'G')}>G</span>
+                                    <span onClick={() => setName(name+'H')}>H</span>
+                                    <span onClick={() => setName(name+'I')}>I</span>
+                                    <span onClick={() => setName(name+'J')}>J</span>
+                                    <span onClick={() => setName(name+'K')}>K</span>
+                                    <span onClick={() => setName(name+'L')}>L</span>
+                                </div>
+                                <div className='nameLine1'>
+                                    <span onClick={() => setName(name+'M')}>M</span>
+                                    <span onClick={() => setName(name+'N')}>N</span>
+                                    <span onClick={() => setName(name+'O')}>O</span>
+                                    <span onClick={() => setName(name+'P')}>P</span>
+                                    <span onClick={() => setName(name+'Q')}>Q</span>
+                                    <span onClick={() => setName(name+'R')}>R</span>
+                                </div>
+                                <div className='nameLine1'>
+                                    <span onClick={() => setName(name+'S')}>S</span>
+                                    <span onClick={() => setName(name+'T')}>T</span>
+                                    <span onClick={() => setName(name+'U')}>U</span>
+                                    <span onClick={() => setName(name+'V')}>V</span>
+                                    <span onClick={() => setName(name+'W')}>W</span>
+                                    <span onClick={() => setName(name+'X')}>X</span>
+                                </div>
+                                <div className='nameLine1'>
+                                    <span onClick={() => setName(name+'Y')}>Y</span>
+                                    <span onClick={() => setName(name+'Z')}>Z</span>
+                                    <span onClick={() => setName(name.substring(0, name.length - 1))}>DEL</span>
+                                    {name?.length === 3 ? <span onClick={() => {setChange(true); audio.play();}}>ENT</span>
+                                    : <span>ENT</span>}
+
+                                </div>
+                            </div>}
+                            {change && <div className='continue'>
+                                {!click && <span>CLICK COIN TO RESTART</span>}
+                                {click ? <div className='spinning-coin-fall'/> :<div className='coin' onClick={() => {setClick(true); audio2.play();}}/>}
+                            </div>}
+                        
+                        
                     </div>
                 </div>
             </div>

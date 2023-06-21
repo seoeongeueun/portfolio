@@ -7,12 +7,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import AlienCyan from '../icons/alien-cyan.png';
 import Zap from "../music/zap_c_07-82067.mp3"
 import Coin from "../music/coin-collect-retro-8-bit-sound-effect-145251.mp3";
+import Drop from "../music/dropping-single-coin-on-floor-2-38987.mp3";
 
 function Contact() {
     const [name, setName] = useState('');
     const [change, setChange] = useState(false);
     const [audio, setAudio] = useState(new Audio(Zap));
     const [audio2, setAudio2] = useState(new Audio(Coin));
+    const [audio3, setAudio3] = useState(new Audio(Drop));
     const { score, life } = useSelector(state => ({
         score: state.score.score,
         life: state.score.life
@@ -26,7 +28,14 @@ function Contact() {
     }, [name]);
 
     useEffect(() => {
-
+        if (click) {
+            setTimeout(() => {
+                audio3.play();
+            }, 1800);
+            setTimeout(() => {
+                window.location.reload(false);
+            }, 3500);
+        }
     }, [click])
 
     return(
@@ -68,9 +77,9 @@ function Contact() {
                                         {change && <span>SEONGEUN PARK</span>}
                                         <span>JKP</span>
                                         <div className='currentName'>
-                                            <span style={name[0] && {color: 'cyan', marginRight: '0'}}>{name[0] ? name[0] : '_'}</span>
-                                            <span style={name[1] && {color: 'cyan', marginRight: '0'}}>{name[1] ? name[1] : '_'}</span>
-                                            <span style={name[2] && {color: 'cyan', marginRight: '0'}}>{name[2] ? name[2] : '_'}</span>
+                                            <span style={name[0] && {color: !change && 'cyan', marginRight: '0'}}>{name[0] ? name[0] : '_'}</span>
+                                            <span style={name[1] && {color: !change && 'cyan', marginRight: '0'}}>{name[1] ? name[1] : '_'}</span>
+                                            <span style={name[2] && {color: !change && 'cyan', marginRight: '0'}}>{name[2] ? name[2] : '_'}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +88,7 @@ function Contact() {
                                     <div className='boardContent'>
                                         {change && <span>SEONGEUN9901@GMAIL.COM</span>}
                                         <span>300</span>
-                                        <span style={{color: 'cyan'}}>{score}</span>
+                                        <span style={{color: !change && 'cyan'}}>{score}</span>
                                     </div>
                                 </div>
                                 <div className='boardTitle'>
@@ -98,6 +107,7 @@ function Contact() {
                             
                         </div>
                             {!change && <div className='scoreboardName'>
+                                <span>YOUR INITIAL</span>
                                 <div className='nameLine1'>
                                     <span onClick={() => setName(name+'A')}>A</span>
                                     <span onClick={() => setName(name+'B')}>B</span>

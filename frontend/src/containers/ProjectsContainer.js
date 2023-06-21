@@ -5,8 +5,8 @@ import { setScore, setLife } from '../modules/score.js';
 
 function ProjectsContainer(){
     const { score, life } = useSelector(state => ({
-        score: state.input.score,
-        life: state.input.life
+        score: state.score.score,
+        life: state.score.life
     }));
 
     const dispatch = useDispatch();

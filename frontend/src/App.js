@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react';
 import HomeContainer from './containers/HomeContainer';
 import About from './pages/About';
 import Projects from './pages/Projects';
+import ProjectsContainer from './containers/ProjectsContainer';
 import Other from './pages/Other';
 import Contact from './pages/Contact';
 
@@ -66,7 +67,7 @@ function App() {
       <div>
         {move ? <div ref={outerRef} className='outer'>
           <About/>
-          <Projects/>
+          <ProjectsContainer/>
           <Other/>
           <Contact/>
         </div>

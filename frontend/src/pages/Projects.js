@@ -15,16 +15,14 @@ import Watermelon from '../icons/watermelon.png';
 import CoinPick from "../music/coin-collect-retro-8-bit-sound-effect-145251.mp3"
 import Hurt from "../music/hurt_c_08-102842.mp3";
 
-function Projects() {
+function Projects({score, life, onSetScore, onSetLife}) {
     const [showFruit, setShowFruit] = useState(true);
     const [showFruit2, setShowFruit2] = useState(true);
     const [showFruit3, setShowFruit3] = useState(true);
     const [showFruit4, setShowFruit4] = useState(true);
     const [showFruit5, setShowFruit5] = useState(true);
     const [clicked, setClicked] = useState('');
-    const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
-    const [lives, setLives] = useState(3);
     const [showThund, setShowThund] = useState(true);
     const [showDesc, setShowDesc] = useState(false);
     const [showDesc2, setShowDesc2] = useState(false);
@@ -42,7 +40,7 @@ function Projects() {
         if (e === 'lemon') setShowFruit3(false);
         if (e === 'grape') setShowFruit4(false);
         if (e === 'watermelon') setShowFruit5(false);
-        setScore(score + 100);
+        onSetScore(score + 100);
         setShowScore(true);
         setClicked(e);
         const audio = new Audio(CoinPick);
@@ -61,8 +59,8 @@ function Projects() {
         if (e === 'cheese') setShowCheese(false);
         const audio = new Audio(Hurt);
         audio.play();
-        if (lives > 0) setLives(lives-1)
-        else setLives(0)
+        if (life > 0) onSetLife(life-1)
+        else onSetLife(0)
         setInterval(() => {
             audio.pause();
         }, 400)
@@ -148,7 +146,7 @@ function Projects() {
                         </div>
                         <div className='livesInfo'>
                             <span className='lives'>LIVES</span>
-                            {[...Array(lives).keys()].map((item) => (
+                            {[...Array(life).keys()].map((item) => (
                                 <img src={AlienCyan} alt='alienCyan' className='alienCyan'/>
                             ))}
                         </div>

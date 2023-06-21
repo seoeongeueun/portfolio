@@ -1381,6 +1381,7 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100vh;
 }
 
 .contactTitle {
@@ -1481,21 +1482,47 @@ main {
   font-size: 2rem;
   color: cyan;
   margin-bottom: 4rem;
+  -webkit-animation: tracking-in-contract-bck-bottom 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-contract-bck-bottom 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
 .scoreboard {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 90%;
-  justify-content: space-between;
+  height: 100%;
+  justify-content: flex-start;
   font-size: 2.3rem;
+}
+
+.bestPlayer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+  font-size: 3rem;
+}
+
+.players {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 70%;
+}
+
+.playerSpec {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .boardTitle {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
+  width: 33.33%;
 }
 
 @-webkit-keyframes blink-1 {
@@ -1523,6 +1550,7 @@ main {
 
 .cursor {
   font-weight: lighter;
+  font-size: 2rem;
   -webkit-animation: blink-1 2s infinite both;
     animation: blink-1 2s infinite both;
 }
@@ -1530,7 +1558,7 @@ main {
 .boardContent {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .boardContent span {
@@ -1540,8 +1568,26 @@ main {
 .boardContent img {
   width: 2rem;
   height: 2rem;
+  margin-right: 1rem;
 }
 
+.currentName {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.currentName span {
+  margin-right: 0.4rem;
+}
+
+.nameLine1 {
+  cursor: pointer;
+}
+
+.nameLine1 span {
+  margin-right: 1rem;
+}
 
 
 /* end of contact page */

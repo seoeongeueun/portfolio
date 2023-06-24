@@ -1085,15 +1085,32 @@ main {
   font-size: 2rem;
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   height: 100vh;
   overflow-y: hidden;
 }
 
-.otherPage p{
+.otherPageIntro {
+	width: 100%
+}
+
+.otherPageIntro p{
   font-size: 5rem;
   margin-top: 1rem;
+}
+
+.otherPageBody {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.otherPageDesc {
+	width: 40%;
+	display: flex;
+	flex-direction: column;
 }
 
 .gameboyContainer {

@@ -7,6 +7,8 @@ import { styled } from '@mui/material/styles';
 function Other() {
 
     const [checked, setChecked] = useState(false);
+    const [page, setPage] = useState(0);
+    const projectPics = [Project1, Project2, Project3, Project4]
 
     const IOSSwitch = styled((props) => (
         <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -66,6 +68,10 @@ function Other() {
                 <div className='otherPageIntro'>
                     <p>Other</p>
                 </div>
+                <div className='otherPageBody'>
+                    <div className='otherPageDesc>
+                        <span>Description</span>
+                    </div>
                 <div className='gameboyContainer'>
                   <div className='gameboyHead'>
                     <div className='gameboyHeadLeft'/>
@@ -96,8 +102,9 @@ function Other() {
                                   {checked ? <div className='redLighting'/> : <div className='redLightingOff'/>}
                                   <span>BATTERY</span>
                               </div>
-                              <div className='gameboyGreen'/>
-
+                              <div className='gameboyGreen'>
+                                  <img src={projectPics[page]} alt='project1' style={{width: '100%', height: '100%'}}/>
+                              </div>
                           </div>
                       </div>
                       <div className='gameboyTitle'>
@@ -105,7 +112,7 @@ function Other() {
                         <span className='title2'>GAMEBOY</span>
                       </div>
                       <div className='gameboyButtons'>
-                          <div className='buttonMoveContainer'>
+                          <div className='buttonMoveContainer' onClick={() => setPage(page >= projectPics.length-1 ? 0 : page+1)}>
                               <div className='buttonMove'/>
                               <div className='buttonMoveBox'/>
                               <div className='buttonMoveCircle'/>
@@ -116,7 +123,8 @@ function Other() {
                           </div>
                       </div>
 
-                  </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </main>

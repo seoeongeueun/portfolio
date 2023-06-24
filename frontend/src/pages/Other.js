@@ -8,6 +8,7 @@ function Other() {
 
     const [checked, setChecked] = useState(false);
     const [page, setPage] = useState(0);
+    const [lang, setLang] = useState('English');
     const projectPics = [Project1, Project2, Project3, Project4]
 
     const IOSSwitch = styled((props) => (
@@ -67,10 +68,24 @@ function Other() {
             <div className='otherPage'>
                 <div className='otherPageIntro'>
                     <p>Other</p>
+                    <div className='otherPageLang>
+                        <button onClick={() => setLang('Korean')} disabled={lang === 'Korean' && true}>한국어</button>
+                        <button onClick={() => setLang('English')} disabled={lang === 'English' && true}>English</button>
+                    </div>
                 </div>
                 <div className='otherPageBody'>
                     <div className='otherPageDesc>
-                        <span>Description</span>
+                        {lang === 'Korean' ? <div className='descTitle'>
+                                                <span>설명</span>
+                                                <div className='descBody>
+                                                    <span>내용</span>
+                                                </div>
+                            : <div className='descTitle'>
+                                <span>설명</span>
+                                <div className='descBody>
+                                    <span>내용</span>
+                                </div>
+                            </div>}
                     </div>
                 <div className='gameboyContainer'>
                   <div className='gameboyHead'>

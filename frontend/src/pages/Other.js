@@ -104,11 +104,11 @@ function Other() {
                             : <div className='descTitle'>
                                 <span>3D Game Items</span>
                                 <div className='descBody'>
-                                    {page === 0 && <span>Programs Used: Blender, Marvelous Designer, Milkshape, and Adobe CC<br></br>
+                                    {page === 0 && <span>Programs Used: Blender, Marvelous Designer, Milkshape, and Adobe Photoshop<br></br>
                                       I used to make Custom Content (cc) items for The Sims 3 and Second Life, and shared them online.</span>}
-                                    {page === 1 && <span>These are some of the promotional images for my items. <br>
-                                      </br>I mostly made clothing items, but sometimes decorative objects too.</span>}
-                                    {page === 2 && <span>I had a lot of fun designing and creating meshes, making promotional images, and connecting with other users.</span>}
+                                    {page === 2 && <span>These are some of the promotional images for my items. </span>}
+                                     {page === 3 && <span>Mostly I made clothing items, but sometimes decorative objects too.</span>}
+                                    {page === 4 && <span>I had a lot of fun designing and creating meshes, making promotional images, and connecting with other users.</span>}
                                 </div>
                             </div>}
                     </div>
@@ -145,8 +145,8 @@ function Other() {
                               <div className='gameboyGreen'>
                                   {(checked && loading) && <div className='loading'><span>LOADING..</span></div>}
                                   {(checked && !loading) && <div className='screenImages'>
-                                    {page+1 !== 2 && page !== 2 && <img src={projectPics[page]} alt='projectPic'/>}
-                                    {<img src={page+1 >= projectPics.length ? projectPics[0] : projectPics[page+1]} alt='project1'/>}
+                                      {page === 1 ? setPage(page+1) : <img src={projectPics[page]} alt='projectPic'/>}
+                                    {(page !== 2 || page !== 3) && <img src={page+1 >= projectPics.length ? projectPics[0] : projectPics[page+1]} alt='project1'/>}
                                     <div className='shadow'/>
                                   </div>}
                               </div>

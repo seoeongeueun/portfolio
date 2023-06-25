@@ -28,6 +28,7 @@ function Projects({score, life, onSetScore, onSetLife}) {
     const [showDesc2, setShowDesc2] = useState(false);
     const [showCheese, setShowCheese] = useState(true);
     const [showMoon, setShowMoon] = useState(true);
+    const [lang, setLang] = useState('English');
 
     useEffect(() => {
         const audio = new Audio(CoinPick);
@@ -77,6 +78,10 @@ function Projects({score, life, onSetScore, onSetLife}) {
             <div className='projectPage'>
                 <div className='projectPageIntro'>
                     <p>Projects</p>
+                    <div className='otherPageLang'>
+                        <button onClick={() => setLang('Korean')} disabled={lang === 'Korean'}>한국어</button>
+                        <button onClick={() => setLang('English')} disabled={lang === 'English'}>ENGLISH</button>
+                    </div>
                 </div>
                 <div className='projectInfo'>
                     <div className='project'>
@@ -85,7 +90,9 @@ function Projects({score, life, onSetScore, onSetLife}) {
                             {showMoon && <img className='moon' src={Moon} alt='moon' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder('moon')}/>}
                         </div>
                         {showDesc && <div><span>Blue Space is a quiz making website where you can make your own quizes under your own platform about any topic of your choice.</span>
-                        <span>Test your knowledge on any topic and compete with other users who share the same interest as you!</span></div>}
+                        <span>Test your knowledge on any topic and compete with other users who share the same interest as you!</span>
+                            <span>Major Features: Google Auth login, create platforms, create quizzes, take quizzes, Leaderboard, Item Shop, customizable profile</span>
+                            <span>My Roles: Fig</span></div>}
                         <div className='projectLower'>
                             <div className='projectDetail'>
                                 {!showDesc && <div className='description'>

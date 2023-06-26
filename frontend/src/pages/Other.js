@@ -78,7 +78,7 @@ function Other() {
           audio.play()
           setInterval(() => {
             setLoading(false);
-          }, 5000);
+          }, 3000);
         } else if (!checked) {
           setPage(0)
         }

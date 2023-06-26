@@ -78,11 +78,17 @@ function Other() {
           audio.play()
           setInterval(() => {
             setLoading(false);
-          }, 4000);
+          }, 5000);
         } else if (!checked) {
           setPage(0)
         }
-      }, [checked, loading])
+      }, [checked, loading, audio]);
+
+      useEffect(() => {
+        if (!checked) {
+          setLoading(true);
+        }
+      }, [checked])
 
     return(
         <main style={{backgroundImage: `url(${Stars})`}}>
@@ -163,7 +169,6 @@ function Other() {
                           <div className='buttonMoveContainer' onClick={() => setPage(page >= projectPics.length-1 ? 0 : page+1)}>
                               <div className='buttonMove'/>
                               <div className='buttonMoveBox'/>
-                              <div className='buttonMoveCircle'/>
                           </div>
                           <div className='miniButtons'>
                               <div className='buttonA'/>

@@ -24,8 +24,8 @@ function Other() {
         <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
       ))(({ theme }) => ({
         width: 42,
-        height: 26,
-        padding: 0,
+        height: 20,
+        padding: 1,
         '& .MuiSwitch-switchBase': {
           padding: 0,
           margin: 2,
@@ -37,6 +37,8 @@ function Other() {
               backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
               opacity: 1,
               border: 0,
+              marign: 2,
+
             },
             '&.Mui-disabled + .MuiSwitch-track': {
               opacity: 0.5,
@@ -58,11 +60,11 @@ function Other() {
         },
         '& .MuiSwitch-thumb': {
           boxSizing: 'border-box',
-          width: 22,
-          height: 22,
+          width: 16,
+          height: 16,
         },
         '& .MuiSwitch-track': {
-          borderRadius: 26 / 2,
+          borderRadius: 18 / 2,
           backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
           opacity: 1,
           transition: theme.transitions.create(['background-color'], {
@@ -114,6 +116,7 @@ function Other() {
                     </div>
                 <div className='gameboyContainer'>
                   <div className='gameboyHead'>
+                    <div className='gameboyHeadDeco'/>
                     <div className='gameboyHeadLeft'/>
                     <div className='gameboyHeadMiddle'>
                       <div className='gameboySwitch'>
@@ -153,8 +156,8 @@ function Other() {
                           </div>
                       </div>
                       <div className='gameboyTitle'>
-                        <span className='title1'>Project</span>
-                        <span className='title2'>GAMETOY</span>
+                        <span className='title1' style={{fontSize: '1.7rem'}}>Minitendo</span>
+                        <span className='title2'>GAME TOY</span>
                       </div>
                       <div className='gameboyButtons'>
                           <div className='buttonMoveContainer' onClick={() => setPage(page >= projectPics.length-1 ? 0 : page+1)}>

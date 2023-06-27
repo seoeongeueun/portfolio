@@ -1242,7 +1242,7 @@ main {
 }
 
 .gameboyScreen {
-  width: 42rem;
+  width: 41rem;
   height: 27.5rem;
   border-radius: 15px 15px 100px 15px;
   box-shadow: 5px 5px 2px 0px #817294 inset, -2px -2px 2px 0px #817294 inset;
@@ -1385,7 +1385,7 @@ main {
   /* margin-left: 5rem;
   transform: translateY(14rem) scale(1.15, 1.15);
   margin-top: -8rem; */
-  margin: 3rem 5rem 0rem 5rem;
+  margin: 5rem 5rem 0rem 5rem;
 }
 
 .buttonShadow {
@@ -1413,7 +1413,7 @@ main {
   width: 4rem;
   outline: 5px solid #070811;
   border-radius: 5px;
-  margin-left: 7.3rem;
+  margin-left: 7.8rem;
   border: 2px solid rgba(125,117,128,0.75);
 }
 
@@ -1435,7 +1435,7 @@ main {
   height: 4.9rem;
   background: #090a13;
   position: relative;
-  transform: translate(171%, -178%);
+  transform: translate(179%, -178%);
 }
 
 .buttonMoveCircle {
@@ -1480,7 +1480,7 @@ main {
 .gameboyTitle {
   width: 100%;
   display: flex;
-  margin-left: 5.5rem;
+  margin-left: 7rem;
   align-items: center;
   justify-content: flex-start;
   margin-top: 0.4rem;

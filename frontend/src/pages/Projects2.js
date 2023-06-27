@@ -25,7 +25,7 @@ import Project1Categories from '../images/project1-categories.png';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-function Projects({score, life, onSetScore, onSetLife}) {
+function Projects2({score, life, onSetScore, onSetLife}) {
     const [showFruit, setShowFruit] = useState(true);
     const [showFruit2, setShowFruit2] = useState(true);
     const [showFruit3, setShowFruit3] = useState(true);
@@ -90,7 +90,7 @@ function Projects({score, life, onSetScore, onSetLife}) {
         <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div className='projectPage'>
                 <div className='projectPageIntro'>
-                    <p>Project 1</p>
+                    <p>Project 2</p>
                     <div className='otherPageLang'>
                         <button onClick={() => setLang('Korean')} disabled={lang === 'Korean'}>한국어</button>
                         <button onClick={() => setLang('English')} disabled={lang === 'English'}>ENGLISH</button>
@@ -100,10 +100,10 @@ function Projects({score, life, onSetScore, onSetLife}) {
                     <div className='project'>
                         <div className='projectName'>
                             <div className='projectTitle'>
-                                <span>BLUE SPACE</span>
-                                {showMoon && <img className='moon' src={Moon} alt='moon' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder('moon')}/>}
+                                <span>CHEESE ME</span>
+                                {showCheese && <img className='cheese' src={Cheese} alt='cheese' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder('cheese')}/>}
                             </div>
-                            {lang === 'English' ? <span className='projectTitleDetail'>3 People Project</span> : <span className='projectTitleDetail'>3인 그룹 프로젝트</span>}
+                            {lang === 'English' ? <span className='projectTitleDetail'>1 Person Project</span> : <span className='projectTitleDetail'>1인 개인 프로젝트</span>}
                         </div>
                         <div className='projectImageAndDetail'>
                             <div className='projectImage'>
@@ -116,63 +116,70 @@ function Projects({score, life, onSetScore, onSetLife}) {
                             </div>
                             <div className='projectLower'>
                                 <div className='projectDetail'>
-                                    {lang === 'English' && <div className='descriptionKor'><span>Blue Space is a quiz-making website where users can select a category of their choice and create quizzes on that topic.
-                                        Users can test their knowledge and compete with other users by taking the quzzes.</span>
-                                    <span>Similar to YouTube channels, users can manage their own platforms and subscribe to others' platforms.</span>
-                                    <span>Points are earned for correct answers, which can be used to purchase items from the shop or obtain hints while taking quizzes.</span><br></br>
+                                    {lang === 'English' && <div className='descriptionKor'><span>I made CheeseMe because while there are other blog-like applications out there, very few offer all those features within a single interface, along with the freedom to creatively decorate your pages.</span>
+                                    <span>CheeseMe is a personalized and customizable journal application for PC that brings together convenient widgets, journal entries, and social connections all in one place.</span><br></br>
                                     <div className='descriptionKor2'>
-                                        <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Google Auth Login, Create Platforms, Create Quizzes, Take Quizzes, Leaderboard, Item Shop, Customizable Profile</span>
-                                        <span style={{color: 'cyan'}}>My Roles</span><span style={{marginBottom: '1rem'}}>Figma Design, Leaderboard Page (back & front), Shop Page (back & front), Quiz Taking Page (back & front), My Page (front only), Main Page (front only)</span>
+                                        <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Login, Todo List, Calendar, World Clock, Reminder, Notes, Journal Posts, Drag & Move Widgets, Make Sticker Widgets, Add Friends</span>
+                                        <span style={{color: 'cyan'}}>My Roles</span><span style={{marginBottom: '1rem'}}>Design, Backend, Frontend, Deloyment</span>
                                         <span style={{color: 'cyan'}}>Stacks Used</span>
                                         <div className='stacks'>
                                             <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
                                             <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+                                            <img src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white"/>
                                             <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
                                             <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
                                             <img src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=html5&logoColor=white"/>
+                                        </div>
+                                        <div className='stacks'>
                                             <img src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
                                             <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"/>
                                             <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/heroku-430098?style=for-the-badge&logo=Heroku&logoColor=white"/>
+                                            <img src="https://img.shields.io/badge/amazons3-FF9900?style=for-the-badge&logo=AmazonS3&logoColor=white"/>
+                                            <img src="https://img.shields.io/badge/netlify-00C7B7?style=for-the-badge&logo=Netlify&logoColor=white"/>
+                                            <img src="https://img.shields.io/badge/fly.io-8D33E8?style=for-the-badge&logo=express&logoColor=white"/>
+                                            <img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=Docker&logoColor=white"/>
                                         </div>
                                     </div>    
                                     </div>}
-                                    {lang === 'Korean' && <div className='descriptionKor'><span>Blue Space는 유저가 카테고리를 골라 해당하는 분야의 퀴즈를 만들고 다른 유저와 그 분야의 지식을 겨룰 수 있는 퀴즈 사이트입니다.</span>
-                                    <span>유저는 유튜브 채널처럼 본인의 플랫폼에서 퀴즈를 관리하고 다른 유저의 플랫폼에 구독하고 퀴즈를 풀어볼 수 있습니다.</span>
-                                    <span>퀴즈를 풀어 포인트를 얻고 포인트로 상점 아이템을 사거나, 퀴즈를 풀 때 힌트를 사용하는 방법으로 포인트를 사용할 수 있습니다.</span><br></br>
+                                    {lang === 'Korean' && <div className='descriptionKor'><span>CheeseMe는 전자기기에서만 사용할 수 있는 편리한 체계적인 위젯과 자유롭게 꾸미고 커스터마이징할 수 있는 실제 종이 일기장의 장점을 합쳐 만든 PC 스케쥴러입니다.</span>
+                                    <span>블로그 비슷한 사이트는 많지만, 꾸미는 자유도가 높고 모든 기능이 한 곳에 있는 스케쥴러 사이트는 찾기 어려워 만들게 되었습니다.</span><br></br>
                                     <div className='descriptionKor2'>
-                                        <span style={{color: 'cyan'}}>주요 기능</span><span style={{marginBottom: '1rem'}}>구글 로그인, 플랫폼 생성, 퀴즈 제작, 퀴즈 풀기, 순위표, 아이템 상점, 커스터마이징 가능한 프로필</span>
-                                        <span style={{color: 'cyan'}}>나의 역할</span><span style={{marginBottom: '1rem'}}>Figma 디자인, 순위표 페이지 (back & front), 상점 페이지 (back & front), 퀴즈 푸는 페이지 (back & front), 마이페이지 (front only), 메인 페이지 (front only)</span>
+                                        <span style={{color: 'cyan'}}>주요 기능</span><span style={{marginBottom: '1rem'}}>로그인, 투두 리스트, 캘린더, 세계 시간, 리마인더, 노트, 일기장 포스트, 자유 배치 가능한 위젯 그리드, 원하는 사진으로 제작하는 스티커, 친구 추가</span>
+                                        <span style={{color: 'cyan'}}>나의 역할</span><span style={{marginBottom: '1rem'}}>디자인, 백엔드, 프론트엔드, 배포</span>
                                         <span style={{color: 'cyan'}}>사용 스택</span>
                                         <div className='stacks'>
                                             <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
                                             <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+                                            <img src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white"/>
                                             <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
                                             <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
                                             <img src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=html5&logoColor=white"/>
+                                        </div>
+                                        <div className='stacks'>
                                             <img src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
                                             <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"/>
                                             <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/heroku-430098?style=for-the-badge&logo=Heroku&logoColor=white"/>
+                                            <img src="https://img.shields.io/badge/amazons3-FF9900?style=for-the-badge&logo=AmazonS3&logoColor=white"/>
+                                            <img src="https://img.shields.io/badge/netlify-00C7B7?style=for-the-badge&logo=Netlify&logoColor=white"/>
+                                            <img src="https://img.shields.io/badge/fly.io-8D33E8?style=for-the-badge&logo=express&logoColor=white"/>
+                                            <img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=Docker&logoColor=white"/>
                                         </div>
                                     </div>    
                                     </div>}
                                     <div className='descriptionButtons'>
                                         <div className='description'>
-                                            {showFruit && <img className="apple" src={Apple} alt="apple" style={{width: '30px', height: '35px', display: showFruit, position: 'relative'}} onClick={() => handleClickFruit('apple')}/>}
-                                            {(showScore && clicked === 'apple') && <span style={{color: 'cyan'}}>{score}</span>}
-                                            <a href="https://www.figma.com/file/Pe8tN6vaKn5O0z7pIbWmds/Blue_Space_Project?type=design&node-id=18%3A83&mode=design&t=M2hXxl6YqQMv84a9-1" rel="noopener noreferrer" target="_blank"><span>FIGMA</span></a>
-                                        </div>
-                                    
-                                        <div className='description'>
-                                            {showFruit3 && <img className="lemon" src={Lemon} alt="lemon" style={{width: '30px', height: '35px', display: showFruit3, position: 'relative'}} onClick={() => handleClickFruit('lemon')}/>}
-                                            {(showScore && clicked === 'lemon') && <span style={{color: 'cyan'}}>{score}</span>}
-                                            <a href="https://github.com/Subii98/Blue-Space" rel="noopener noreferrer" target="_blank"><span>GITHUB (ORIGINAL)</span></a>
+                                            {showFruit2 && <img className="cherry" src={Cherry} alt="cherry" style={{width: '30px', height: '35px', display: showFruit2, position: 'relative'}} onClick={() => handleClickFruit('cherry')}/>}
+                                            {(showScore && clicked === 'cherry') && <span style={{color: 'cyan'}}>{score}</span>}
+                                            <a href="https://cheeseme.netlify.com" rel="noopener noreferrer" target="_blank"><span>URL</span></a>
                                         </div>
                                         <div className='description'>
-                                            {showFruit5 && <img className="watermelon" src={Watermelon} alt="watermelon" style={{width: '30px', height: '35px', display: showFruit5, position: 'relative'}} onClick={() => handleClickFruit('watermelon')}/>}
-                                            {(showScore && clicked === 'watermelon') && <span style={{color: 'cyan'}}>{score}</span>}
-                                            <a href="https://github.com/Subii98/Blue-Space-Update" rel="noopener noreferrer" target="_blank"><span>GITHUB (CSS FIX)</span></a>
+                                            {showThund && <img className='thunder' src={Thunder} alt='thunder' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder('thunder')}/>}
+                                            <a href="https://github.com/seoeseongeueun/cheeseme" rel="noopener noreferrer" target="_blank"><span>GITHUB</span></a>
+                                        </div>
+                                        <div className='description'>
+                                            {showFruit4 && <img className="grape" src={Grape} alt="grape" style={{width: '30px', height: '35px', display: showFruit2, position: 'relative'}} onClick={() => handleClickFruit('grape')}/>}
+                                            {(showScore && clicked === 'grape') && <span style={{color: 'cyan'}}>{score}</span>}
+                                            <a href="https://github.com/seoeongeueun/cheeseme#pages-help" rel="noopener noreferrer" target="_blank"><span>README</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +190,7 @@ function Projects({score, life, onSetScore, onSetLife}) {
                     {/* <div className='project'>
                         <div className='projectName'>
                             <span>CHEESE ME</span>
-                            {showCheese && <img className='cheese' src={Cheese} alt='cheese' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder('cheese')}/>}
+                            
                         </div>
                         
                         {showDesc2 && <div><span>Cheese Me is a your journal moved to PC!</span>
@@ -228,4 +235,4 @@ function Projects({score, life, onSetScore, onSetLife}) {
         </main>
     )
 }
-export default Projects;
+export default Projects2;

@@ -957,16 +957,21 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   height: 100vh;
 }
 
 .projectPage p{
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 .projectPageIntro {
   display: flex;
+  height: 10%;
+  margin: 0 1rem 0 1rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .projectInfo {
@@ -974,11 +979,12 @@ main {
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+  height: 85%;
 }
 
 .project {
-  width: 30%;
-  height: 30rem;
+  width: 90%;
+  height: 90%;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='yellow' stroke-width='5' stroke-dasharray='3%2c 16' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
   border-radius: 20px;
   display: flex;
@@ -986,23 +992,86 @@ main {
   align-items: center;
   text-align: justify;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1rem 2rem 2rem 2rem;
 }
 
 .project span{
   font-size: 2rem;
 }
 
+.projectImageAndDetail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.projectImage img{
+  height: 70vh;
+}
+
+.projectImageButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: -0.5rem;
+}
+
+.descriptionKor {
+  display: flex;
+  flex-direction: column;
+}
+
+.descriptionKor span {
+  font-size: 1.7rem;
+}
+
+.descriptionKor2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.descriptionButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 2rem;
+  
+}
+
 .projectName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.stacks {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.5rem;
+}
+.projectTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 8rem;
+}
+
+.projectTitleDetail{
+  font-size: 2rem !important;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .projectName span {
-  align-self: flex-end;
-  text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .projectName img {
@@ -1015,10 +1084,11 @@ main {
 }
 
 .projectLower {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 3rem;
+  margin-left: 3rem;
 }
 
 .projectDetail {
@@ -1046,6 +1116,8 @@ main {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  height: 5%;
+  margin: 0 2rem 1rem 2rem;
 }
 
 .scoreInfo {

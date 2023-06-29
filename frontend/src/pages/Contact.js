@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Twinkling from '../icons/twinkling.png';
-import Stars from '../icons/stars.png'; 
+import Stars from '../icons/stars.png';
+import GithubIcon from '../icons/github.png'; 
 import { useSelector } from 'react-redux';
 import AlienCyan from '../icons/alien-cyan.png';
 import Zap from "../music/zap_c_07-82067.mp3"
@@ -45,7 +46,7 @@ function Contact() {
                     <span className='contactDesc'>CONNECT WITH ME!</span>
                     <div className='scoreboard'>
                         <div className='bestPlayer'>
-                            <span style={{marginBottom: '1rem'}}>NEW SCORE</span>
+                            {change ? <span style={{marginBottom: '1rem'}}>NEW SCORE</span> : <span style={{marginBottom: '1rem'}}>MY INFO</span>}
                             <div className='playerSpec'>
                                 <div className='boardTitle'>
                                     <div className='boardContent'>
@@ -61,7 +62,7 @@ function Contact() {
                                     <div className='boardContent'>
                                         {change ? <span>{[...Array(life).keys()].map((item) => (
                                         <img src={AlienCyan} alt='alienCyan' className='alienCyan'/>
-                                        ))}</span> : <span>??</span>}
+                                        ))}</span> : <a href="https://github.com/seoeongeueun" target="_blank"><img src={GithubIcon} alt='github' style={{cursor: 'pointer', marginTop: '5px'}}/></a>}
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +93,7 @@ function Contact() {
                                 <div className='boardTitle'>
                                     <span style={{marginBottom: '1rem'}}>LIVES</span>
                                     <div className='boardContent'>
-                                        {change && <span>???</span>}
+                                        {change && <a href="https://github.com/seoeongeueun" target="_blank"><img src={GithubIcon} alt='github' style={{cursor: 'pointer', marginBottom: '1.5rem'}}/></a>}
                                         <span>{[...Array(2).keys()].map((item) => (
                                         <img src={AlienCyan} alt='alienCyan' className='alienCyan'/>
                                         ))}</span>

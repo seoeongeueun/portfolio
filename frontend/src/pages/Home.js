@@ -1,5 +1,4 @@
 import KeyboardContainer from '../containers/KeyboardContainer';
-import Windows from '../components/windows';
 import AlienNo from '../icons/alienNo.png';
 import Alien3 from '../icons/alien3.png';
 import AlienSing from '../icons/alienSing.gif';
@@ -9,7 +8,6 @@ import Play from '../icons/play.png';
 import Twinkling from '../icons/twinkling.png';
 import Stars from '../icons/stars.png';
 import { useEffect, useState } from 'react';
-import Theme from "../music/HoliznaCC0 - NPC Theme.mp3"
 import Theme2 from "../music/HoliznaCC0 - ICE temple.mp3"
 import Bleep from "../music/arcade-bleep-sound-6071.mp3";
 
@@ -22,15 +20,17 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
 
     useEffect(() => {
       setAudio(new Audio(Theme2))
-    }, [])
+    }, []);
 
     useEffect(() => {
       if (audio) musicOn ? audio.play() : audio.pause()
-    }, [musicOn])
+    }, [musicOn, audio])
 
     useEffect(() => {
-        clicked === 'enter' && onSetMove(true);
-    }, [clicked])
+        if (clicked === 'enter'){
+          onSetMove(true);
+        }
+    }, [clicked, onSetMove])
 
     useEffect(() => {
       document.addEventListener("keydown", (e) => {
@@ -46,7 +46,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
             onSetClicked(null);
         }, 100);
       });
-    }, [clicked])
+    }, [clicked, onSetClicked])
 
     useEffect(() => {
         if (clicked === 'down'){

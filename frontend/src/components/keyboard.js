@@ -1,5 +1,4 @@
-import {useEffect, useState} from 'react';
-//import { Link, useHistory } from "react-router-dom";
+import {useState} from 'react';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
 import DesktopWindowsOutlinedIcon from '@mui/icons-material/DesktopWindowsOutlined';

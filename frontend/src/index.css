@@ -709,6 +709,35 @@ main {
             transform-origin: 50% 50%;
   }
 }
+
+@-webkit-keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
 /* end of animations */
 
 /*typing effct */
@@ -1191,17 +1220,115 @@ main {
 .otherPageBody {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between;
 	width: 100%;
 }
 
 .otherPageDesc {
-	width: 40%;
+	width: 50%;
 	display: flex;
 	flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.otherPageInstruction {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid white;
+  padding: 1rem 1rem 2rem 1rem;
+  border-radius: 10px;
+}
+
+.instructionsContent {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.steps {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 1.3rem;
+}
+
+.instructionsButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.cylinder {
+  width: 4rem;
+  height: 1.5rem;
+  border-radius: 50px;
+  border: 2px solid white;
+  position: relative;
+}
+
+.innerCircle {
+  position: absolute;
+  left: 0px;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background-color: white;
+  top: 2px;
+}
+
+.cross {
+  background: white;
+  height: 100px;
+  position: relative;
+  width: 35px;
+  border-radius: 5px;
+  transform: scale(0.7);
+}
+.cross:after {
+  background: white;
+  content: "";
+  height: 35px;
+  left: -32px;
+  position: absolute;
+  top: 33px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.buttonAB {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 2rem;
+  margin-left: 50px;
+}
+
+.circle1 {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  margin-top: 1.5rem;
+}
+
+.circle2 {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  left: 35px;
 }
 
 .descTitle {
@@ -1217,6 +1344,7 @@ main {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 50%;
 }
 
 .gameboyHead {
@@ -1282,6 +1410,12 @@ main {
   font-size: 1rem;
 }
 
+.MuiSwitch-thumb {
+  -webkit-animation: pulsate-fwd 0.5s ease-in-out infinite both;
+  animation: pulsate-fwd 0.5s ease-in-out infinite both;
+  
+}
+
 .gameboyDarkLine {
   background-color: #e0d9dd;
   height: 1rem;
@@ -1291,9 +1425,14 @@ main {
   border-bottom: 5px solid #f9f2f5;
 }
 
+.gameboySwitch {
+  margin-top: 0.2rem;
+}
+
 .gameboySwitch span {
-  color: #8b336e;
+  color: #817394;
   font-family: 'Gill Sans';
+  font-weight: bold;
 }
 
 .gameboy {

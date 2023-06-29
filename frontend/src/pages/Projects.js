@@ -1,15 +1,9 @@
 import { useEffect, useState } from 'react';
 import Twinkling from '../icons/twinkling.png';
 import Stars from '../icons/stars.png';
-import KeyboardContainer from '../containers/KeyboardContainer';
 import Apple from '../icons/apple.png';
-import Cherry from '../icons/cherry.png';
-import Grape from '../icons/grape.png';
 import Lemon from '../icons/lemon.png';
-import Arrow from '../icons/arrow.png';
 import AlienCyan from '../icons/alien-cyan.png';
-import Thunder from '../icons/thunder.png';
-import Cheese from '../icons/cheese.png';
 import Moon from '../icons/moon.png';
 import Watermelon from '../icons/watermelon.png';
 import CoinPick from "../music/coin-collect-retro-8-bit-sound-effect-145251.mp3"
@@ -27,16 +21,10 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 function Projects({score, life, onSetScore, onSetLife}) {
     const [showFruit, setShowFruit] = useState(true);
-    const [showFruit2, setShowFruit2] = useState(true);
     const [showFruit3, setShowFruit3] = useState(true);
-    const [showFruit4, setShowFruit4] = useState(true);
     const [showFruit5, setShowFruit5] = useState(true);
     const [clicked, setClicked] = useState('');
     const [showScore, setShowScore] = useState(false);
-    const [showThund, setShowThund] = useState(true);
-    const [showDesc, setShowDesc] = useState(false);
-    const [showDesc2, setShowDesc2] = useState(false);
-    const [showCheese, setShowCheese] = useState(true);
     const [showMoon, setShowMoon] = useState(true);
     const [lang, setLang] = useState('English');
     const [index1, setIndex1] = useState(0);
@@ -50,9 +38,7 @@ function Projects({score, life, onSetScore, onSetLife}) {
 
     const handleClickFruit = (e) => {
         if (e === 'apple') setShowFruit(false);
-        if (e === 'cherry') setShowFruit2(false);
         if (e === 'lemon') setShowFruit3(false);
-        if (e === 'grape') setShowFruit4(false);
         if (e === 'watermelon') setShowFruit5(false);
         onSetScore(score + 100);
         setShowScore(true);
@@ -68,9 +54,7 @@ function Projects({score, life, onSetScore, onSetLife}) {
     }
 
     const handleClickThunder = (e) => {
-        if (e === 'thunder') setShowThund(false);
         if (e === 'moon') setShowMoon(false);
-        if (e === 'cheese') setShowCheese(false);
         const audio = new Audio(Hurt);
         audio.play();
         if (life > 0) onSetLife(life-1)
@@ -78,11 +62,6 @@ function Projects({score, life, onSetScore, onSetLife}) {
         setInterval(() => {
             audio.pause();
         }, 400)
-    }
-
-    const handleReturn = (e) => {
-        if (e === 2) setShowDesc2(false);
-        if (e === 1) setShowDesc(false);
     }
 
     return(
@@ -125,15 +104,15 @@ function Projects({score, life, onSetScore, onSetLife}) {
                                         <span style={{color: 'cyan'}}>My Roles</span><span style={{marginBottom: '1rem'}}>Figma Design, Leaderboard Page (back & front), Shop Page (back & front), Quiz Taking Page (back & front), My Page (front only), Main Page (front only)</span>
                                         <span style={{color: 'cyan'}}>Stacks Used</span>
                                         <div className='stacks'>
-                                            <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
-                                            <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
-                                            <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
-                                            <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=html5&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/heroku-430098?style=for-the-badge&logo=Heroku&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
+                                            <img alt='project1' src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=html5&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/heroku-430098?style=for-the-badge&logo=Heroku&logoColor=white"/>
                                         </div>
                                     </div>    
                                     </div>}
@@ -145,15 +124,15 @@ function Projects({score, life, onSetScore, onSetLife}) {
                                         <span style={{color: 'cyan'}}>나의 역할</span><span style={{marginBottom: '1rem'}}>Figma 디자인, 순위표 페이지 (back & front), 상점 페이지 (back & front), 퀴즈 푸는 페이지 (back & front), 마이페이지 (front only), 메인 페이지 (front only)</span>
                                         <span style={{color: 'cyan'}}>사용 스택</span>
                                         <div className='stacks'>
-                                            <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
-                                            <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
-                                            <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
-                                            <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=html5&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
-                                            <img src="https://img.shields.io/badge/heroku-430098?style=for-the-badge&logo=Heroku&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
+                                            <img alt='project1' src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=html5&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
+                                            <img alt='project1' src="https://img.shields.io/badge/heroku-430098?style=for-the-badge&logo=Heroku&logoColor=white"/>
                                         </div>
                                     </div>    
                                     </div>}
@@ -176,40 +155,9 @@ function Projects({score, life, onSetScore, onSetLife}) {
                                         </div>
                                     </div>
                                 </div>
-                                {showDesc && <img src={Arrow} alt="arrow" className='arrow' style={{width: '30px'}} onClick={() => handleReturn(1)}/>}
                             </div>
                         </div>
                     </div>
-                    {/* <div className='project'>
-                        <div className='projectName'>
-                            <span>CHEESE ME</span>
-                            {showCheese && <img className='cheese' src={Cheese} alt='cheese' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder('cheese')}/>}
-                        </div>
-                        
-                        {showDesc2 && <div><span>Cheese Me is a your journal moved to PC!</span>
-                            <span>It provides a todo list, reminder, calendar, notes, and a d-day counter, along with the plain journal.
-                                Customize your journal by adding your own stickers and placing them freely. Sign up and add friends to connect with them and view their entries.</span></div>}
-                        <div className='projectLower'>
-                            <div className='projectDetail'>
-                                {!showDesc2 && <div className='description'>
-                                    {showFruit4 && <img className="grape" src={Grape} alt="grape" style={{width: '30px', height: '35px', display: showFruit2, position: 'relative'}} onClick={() => handleClickFruit('grape')}/>}
-                                    {(showScore && clicked === 'grape') && <span style={{color: 'cyan'}}>{score}</span>}
-                                    <span onClick={() => setShowDesc2(true)}>DESCRIPTION</span>
-                                </div>}
-                                
-                                {!showDesc2 && <div className='description'>
-                                    {showFruit2 && <img className="cherry" src={Cherry} alt="cherry" style={{width: '30px', height: '35px', display: showFruit2, position: 'relative'}} onClick={() => handleClickFruit('cherry')}/>}
-                                    {(showScore && clicked === 'cherry') && <span style={{color: 'cyan'}}>{score}</span>}
-                                    <a href="https://cheeseme.netlify.com" rel="noopener noreferrer" target="_blank"><span>LINK</span></a>
-                                </div>}
-                                {!showDesc2 && <div className='description'>
-                                    {showThund && <img className='thunder' src={Thunder} alt='thunder' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder('thunder')}/>}
-                                    <a href="https://github.com/seoeongeueun/cheeseme" rel="noopener noreferrer" target="_blank"><span>GITHUB</span></a>
-                                </div>}
-                            </div>
-                            {showDesc2 && <img src={Arrow} alt="arrow" className='arrow' style={{width: '30px'}} onClick={() => handleReturn(2)}/>}
-                        </div>
-                    </div> */}
                 </div>
                 <div className='projectFooter'>
                         <div className='scoreInfo'>

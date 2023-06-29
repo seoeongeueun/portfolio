@@ -1,9 +1,7 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Twinkling from '../icons/twinkling.png';
-import Stars from '../icons/stars.png';
-import KeyboardContainer from '../containers/KeyboardContainer';
-import Projects from './Projects.js';
-import { useSelector, useDispatch } from 'react-redux';
+import Stars from '../icons/stars.png'; 
+import { useSelector } from 'react-redux';
 import AlienCyan from '../icons/alien-cyan.png';
 import Zap from "../music/zap_c_07-82067.mp3"
 import Coin from "../music/coin-collect-retro-8-bit-sound-effect-145251.mp3";
@@ -12,9 +10,9 @@ import Drop from "../music/dropping-single-coin-on-floor-2-38987.mp3";
 function Contact() {
     const [name, setName] = useState('');
     const [change, setChange] = useState(false);
-    const [audio, setAudio] = useState(new Audio(Zap));
-    const [audio2, setAudio2] = useState(new Audio(Coin));
-    const [audio3, setAudio3] = useState(new Audio(Drop));
+    const [audio] = useState(new Audio(Zap));
+    const [audio2] = useState(new Audio(Coin));
+    const [audio3] = useState(new Audio(Drop));
     const { score, life } = useSelector(state => ({
         score: state.score.score,
         life: state.score.life
@@ -36,7 +34,7 @@ function Contact() {
                 window.location.reload(false);
             }, 3500);
         }
-    }, [click])
+    }, [click, audio3])
 
     return(
         <main style={{backgroundImage: `url(${Stars})`}}>

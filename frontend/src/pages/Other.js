@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Twinkling from '../icons/twinkling.png';
 import Stars from '../icons/stars.png';
 import Switch from '@mui/material/Switch';
@@ -12,18 +12,17 @@ import Project6 from '../icons/project6.png';
 import Loading from '../music/mixkit-arcade-bonus-alert-767.wav';
 
 function Other() {
-
     const [checked, setChecked] = useState(false);
     const [page, setPage] = useState(0);
     const [lang, setLang] = useState('English');
     const [loading, setLoading] = useState(true);
-    const [audio, setAudio] = useState(new Audio(Loading))
+    const [audio] = useState(new Audio(Loading))
     const projectPics = [Project1, Project2, Project5, Project3, Project4, Project6];
 
     const IOSSwitch = styled((props) => (
         <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
       ))(({ theme }) => ({
-        width: 42,
+        width: 55,
         height: 20,
         padding: 1,
         '& .MuiSwitch-switchBase': {
@@ -31,13 +30,15 @@ function Other() {
           margin: 2,
           transitionDuration: '300ms',
           '&.Mui-checked': {
-            transform: 'translateX(16px)',
+            transform: 'translateX(33px)',
             color: '#fff',
             '& + .MuiSwitch-track': {
-              backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
+              backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#E6DFE3',
               opacity: 1,
               border: 0,
               marign: 2,
+              borderBottom: '3px solid #F5F0F0',
+              borderRight: '3px solid #F5F0F0',
 
             },
             '&.Mui-disabled + .MuiSwitch-track': {
@@ -60,16 +61,20 @@ function Other() {
         },
         '& .MuiSwitch-thumb': {
           boxSizing: 'border-box',
-          width: 16,
-          height: 16,
+          width: 17,
+          height: 17,
+          color: '#817294'
         },
         '& .MuiSwitch-track': {
-          borderRadius: 18 / 2,
-          backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+          borderRadius: 17 / 2,
+          backgroundColor: theme.palette.mode === 'light' ? '#E6DFE3' : '#39393D',
           opacity: 1,
           transition: theme.transitions.create(['background-color'], {
             duration: 500,
           }),
+          boxShadow: '2px 1px 2px 1px rgb(190, 182, 188) inset',
+          borderBottom: '3px solid #F5F0F0',
+          borderRight: '3px solid #F5F0F0'
         },
       }));
 
@@ -102,7 +107,7 @@ function Other() {
                     </div>
                 </div>
                 <div className='otherPageBody'>
-                    <div className='otherPageDesc'>
+                    {checked ? <div className='otherPageDesc'>
                         {lang === 'Korean' ? <div className='descTitle'>
                                                 <span>설명</span>
                                                 <div className='descBody'>
@@ -120,6 +125,30 @@ function Other() {
                                 </div>
                             </div>}
                     </div>
+                    : <div className='otherPageDesc'>
+                        <div className='otherPageInstruction'>
+                          <span style={{fontSize: '3rem', color: 'cyan', marginBottom: '1rem'}}>HELP</span>
+                            <div className='instructionsContent'>
+                              <div className='instructionsButtons'>
+                                <div className='cylinder'>
+                                  <div className='innerCircle'/>
+                                </div>
+                              </div>
+                              <div className='instructionsButtons' style={{marginRight: '1.5rem'}}>
+                                <div className='cross'/>
+                                <dic className='buttonAB'>
+                                  <div class='circle1'/>
+                                  <div class='circle2'/>
+                                </dic>
+                              </div>
+                              
+                            </div>
+                            <div className='steps'>
+                              <span>Turn on the switch</span>
+                              <span>Click on any button</span>
+                            </div>
+                        </div>
+                      </div>}
                 <div className='gameboyContainer'>
                   <div className='gameboyHead'>
                     <div className='gameboyHeadDeco'/>
@@ -127,7 +156,7 @@ function Other() {
                     <div className='gameboyHeadMiddle'>
                       <div className='gameboySwitch'>
                           <IOSSwitch sx={{ m: 1 }} checked={checked} onChange={() => {checked && setLoading(true); setChecked(!checked);}}/>
-                          {checked ? <span>ON</span> : <span>OFF</span>}
+                          {checked ? <span style={{color: '#AA9BA5'}}>ON</span> : <span style={{color: '#AA9BA5'}}>OFF</span>}
                       </div>
                     </div>
                     <div className='gameboyHeadRight'/>

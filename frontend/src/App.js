@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useRef, useEffect } from 'react';
 import HomeContainer from './containers/HomeContainer';
 import About from './pages/About';
@@ -61,7 +61,7 @@ function App() {
             outerRefCurr.removeEventListener("wheel", wheelHandler);
         };
       }
-    }, [move]);
+    }, [move, menu]);
 
   return (
       <div>

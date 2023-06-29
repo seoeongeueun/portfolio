@@ -19,14 +19,13 @@ import Project1Categories from '../images/project1-categories.png';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-function Projects2({score, life, onSetScore, onSetLife}) {
+function Projects2({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [showFruit2, setShowFruit2] = useState(true);
     const [showFruit4, setShowFruit4] = useState(true);
     const [clicked, setClicked] = useState('');
     const [showScore, setShowScore] = useState(false);
     const [showThund, setShowThund] = useState(true);
     const [showCheese, setShowCheese] = useState(true);
-    const [lang, setLang] = useState('English');
     const [index1, setIndex1] = useState(0);
 
     const project1 = [Project1Main, Project1Mypage, Project1Quizedit, Project1Takequiz, Project1Score, Project1Store, Project1Categories];

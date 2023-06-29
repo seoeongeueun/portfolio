@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Projects2 from '../pages/Projects2.js';
 import { setScore, setLife } from '../modules/score.js';
 
-function ProjectsContainer2(){
+function ProjectsContainer2(props){
     const { score, life } = useSelector(state => ({
         score: state.score.score,
         life: state.score.life
@@ -16,7 +16,7 @@ function ProjectsContainer2(){
     }
     
     return (
-        <Projects2 life={life} score={score} onSetScore={onSetScore} onSetLife={onSetLife}/>
+        <Projects2 life={life} score={score} onSetScore={onSetScore} onSetLife={onSetLife} lang={props.lang} setLang={props.setLang}/>
     );
 }
 

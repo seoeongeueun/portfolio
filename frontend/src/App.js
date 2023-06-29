@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import HomeContainer from './containers/HomeContainer';
 import About from './pages/About';
 import ProjectsContainer from './containers/ProjectsContainer';
@@ -12,6 +12,7 @@ function App() {
     menu: state.menus.menu,
     move: state.menus.move
   }));
+  const [lang, setLang] = useState('English');
 
   const outerRef = useRef();
 
@@ -63,10 +64,10 @@ function App() {
   return (
       <div>
         {move ? <div ref={outerRef} className='outer'>
-          <About/>
-          <ProjectsContainer/>
-          <ProjectsContainer2/>
-          <Other/>
+          <About lang={lang} setLang={setLang}/>
+          <ProjectsContainer lang={lang} setLang={setLang}/>
+          <ProjectsContainer2 lang={lang} setLang={setLang}/>
+          <Other lang={lang} setLang={setLang}/>
           <Contact/>
         </div>
         : <HomeContainer/>}

@@ -2,8 +2,7 @@ import { useEffect, useState} from 'react';
 import Twinkling from '../icons/twinkling.png';
 import Stars from '../icons/stars.png';
 
-function About() {
-
+function About(props) {
     return(
         <main style={{backgroundImage: `url(${Stars})`}}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>

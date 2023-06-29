@@ -12,10 +12,9 @@ import Project6 from '../icons/project6.png';
 import Project7 from '../icons/project7.png';
 import Loading from '../music/mixkit-arcade-bonus-alert-767.wav';
 
-function Other() {
+function Other(props) {
     const [checked, setChecked] = useState(false);
     const [page, setPage] = useState(0);
-    const [lang, setLang] = useState('English');
     const [loading, setLoading] = useState(true);
     const [audio] = useState(new Audio(Loading))
     const projectPics = [Project1, Project2, Project5, Project4, Project3, Project6, Project7];
@@ -122,13 +121,13 @@ function Other() {
                 <div className='otherPageIntro'>
                     <p>Other</p>
                     <div className='otherPageLang'>
-                        <button onClick={() => setLang('Korean')} disabled={lang === 'Korean'}>한국어</button>
-                        <button onClick={() => setLang('English')} disabled={lang === 'English'}>ENGLISH</button>
+                        <button onClick={() => props.setLang('Korean')} disabled={props.lang === 'Korean'}>한국어</button>
+                        <button onClick={() => props.setLang('English')} disabled={props.lang === 'English'}>ENGLISH</button>
                     </div>
                 </div>
                 <div className='otherPageBody'>
                     {checked ? <div className='otherPageDesc'>
-                        {lang === 'Korean' ? <div className='descTitle'>
+                        {props.lang === 'Korean' ? <div className='descTitle'>
                                                 {page === 0 && <span style={{fontSize: '2.5rem', color: 'cyan'}}>3D 게임 아이템</span>}
                                                 <div className='descBody'>
                                                 {page === 0 && <span>사용 프로그램: 블렌더, 마블러스 디자이너, 밀크셰이프, 포토샵<br></br>
@@ -162,7 +161,7 @@ function Other() {
                                   <div className='innerCircle'/>
                                 </div>
                               </div>
-                              <div className='instructionsButtons' style={{marginRight: '1.5rem'}}>
+                              <div className='instructionsButtons' style={{marginRight: props.lang === 'Korean' ? '2.5rem' : '1.5rem'}}>
                                 <div className='cross'/>
                                 <dic className='buttonAB'>
                                   <div class='circle1'/>
@@ -172,8 +171,8 @@ function Other() {
                               
                             </div>
                             <div className='steps'>
-                              <span>Turn on the switch</span>
-                              <span>Click on any button</span>
+                              {props.lang === 'English' ? <span>Turn on the switch</span> : <span>스위치를 켜세요</span>}
+                              {props.lang === 'English' ? <span>Click on any button</span> : <span>아무 버튼이나 누르세요</span>}
                             </div>
                         </div>
                       </div>}

@@ -13,9 +13,6 @@ function App() {
     move: state.menus.move
   }));
 
-  console.log('move: ', move);
-  console.log('menu: ', menu);
-
   const outerRef = useRef();
 
     useEffect(() => {

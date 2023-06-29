@@ -9,6 +9,7 @@ import Project3 from '../icons/project3.png';
 import Project4 from '../icons/project4.png';
 import Project5 from '../icons/project5.png';
 import Project6 from '../icons/project6.png';
+import Project7 from '../icons/project7.png';
 import Loading from '../music/mixkit-arcade-bonus-alert-767.wav';
 
 function Other() {
@@ -17,7 +18,7 @@ function Other() {
     const [lang, setLang] = useState('English');
     const [loading, setLoading] = useState(true);
     const [audio] = useState(new Audio(Loading))
-    const projectPics = [Project1, Project2, Project5, Project3, Project4, Project6];
+    const projectPics = [Project1, Project2, Project5, Project4, Project3, Project6, Project7];
 
     const IOSSwitch = styled((props) => (
         <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -79,6 +80,22 @@ function Other() {
       }));
 
       useEffect(() => {
+        const handleKeyDown = (event) => {
+          if (event.keyCode === 39) {
+            setPage(page < projectPics?.length - 1 ? page + 1 : 0)
+          } else if (event.keyCode === 37) {
+            if (page === 2) setPage(0)
+            else setPage(page > 0 ? page -1 : projectPics?.length - 1)
+          }
+        };
+    
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+          window.removeEventListener('keydown', handleKeyDown);
+        };
+      }, [page]);
+
+      useEffect(() => {
         if (checked && loading) {
           audio.play()
           setInterval(() => {
@@ -92,8 +109,11 @@ function Other() {
       useEffect(() => {
         if (!checked) {
           setLoading(true);
+          setPage(0)
         }
-      }, [checked])
+      }, [checked]);
+
+      
 
     return(
         <main style={{backgroundImage: `url(${Stars})`}}>
@@ -109,20 +129,28 @@ function Other() {
                 <div className='otherPageBody'>
                     {checked ? <div className='otherPageDesc'>
                         {lang === 'Korean' ? <div className='descTitle'>
-                                                <span>설명</span>
+                                                {page === 0 && <span style={{fontSize: '2.5rem', color: 'cyan'}}>3D 게임 아이템</span>}
                                                 <div className='descBody'>
-                                                    <span>내용</span>
+                                                {page === 0 && <span>사용 프로그램: 블렌더, 마블러스 디자이너, 밀크셰이프, 포토샵<br></br>
+                                                심즈3와 세컨드라이프 게임 전용 커스텀 제작 아이템 (CC)를 만들어서 배포하는게 취미였습니다.</span>}
+                                                {page === 2 && <span>옆의 예시는 제가 제작한 아이템을 홍보하기 위해 만든 이미지의 일부입니다. </span>}
+                                                {page === 3 && <span>주로 옷을 제작했지만 가끔 데코 아이템이나 헤어도 만들었습니다.</span>}
+                                                {page === 4 && <span>아이템을 디자인하고 3d 메쉬를 제작하고 다른 유저들 교류하며 많이 배우고 다양한 기술을 공부하는 좋은 경험이었습니다.</span>}
+                                                {page === 5 && <span>튜토리얼을 찾아보고, 다른 사람들에게 질문하고, 다양한 문제에 부딪히면서, 독학하는 것을 겁내지 않게 되는 첫 계기가 되었습니다.</span>}
                                                 </div>
+                                                <span style={{float: 'right', marginTop: '1rem'}}>{page === 0 ? 1 : page}/{5}</span>
                                               </div>
                             : <div className='descTitle'>
-                                <span>3D Game Items</span>
+                                {page === 0 && <span style={{fontSize: '2.5rem', color: 'cyan'}}>3D Game Items</span>}
                                 <div className='descBody'>
                                     {page === 0 && <span>Programs Used: Blender, Marvelous Designer, Milkshape, and Adobe Photoshop<br></br>
                                       I used to make Custom Content (cc) items for The Sims 3 and Second Life, and shared them online.</span>}
-                                    {page === 2 && <span>These are some of the promotional images for my items. </span>}
-                                     {page === 3 && <span>Mostly I made clothing items, but sometimes decorative objects too.</span>}
-                                    {page === 4 && <span>I had a lot of fun designing and creating meshes, making promotional images, and connecting with other users.</span>}
+                                    {page === 2 && <span>These are some of the promotional images I made for my items. </span>}
+                                    {page === 3 && <span>Mostly I made clothing items, but sometimes decorative objects too.</span>}
+                                    {page === 4 && <span>It was a fun opportunity to study new skills and I had a lot of fun designing and creating meshes, making promotional images, and connecting with other users. </span>}
+                                    {page === 5 && <span>Looking up tutorials online, asking other people questions, and going through lots of trial and error helped me get used to studying by myself.</span>}
                                 </div>
+                                <span style={{float: 'right', marginTop: '1rem'}}>{page === 0 ? 1 : page}/{5}</span>
                             </div>}
                     </div>
                     : <div className='otherPageDesc'>
@@ -184,7 +212,8 @@ function Other() {
                                   {(checked && loading) && <div className='loading'><span>LOADING..</span></div>}
                                   {(checked && !loading) && <div className='screenImages'>
                                       {page === 1 ? setPage(page+1) : <img src={projectPics[page]} alt='projectPic'/>}
-                                    {(page !== 2 || page !== 3) && <img src={page+1 >= projectPics.length ? projectPics[0] : projectPics[page+1]} alt='project1'/>}
+                                      {page === 6 && setPage(0)}
+                                    {(page !== 2 && page !== 3) && <img src={page+1 >= projectPics.length ? projectPics[0] : projectPics[page+1]} alt='project1'/>}
                                     <div className='shadow'/>
                                   </div>}
                               </div>
@@ -195,7 +224,7 @@ function Other() {
                         <span className='title2'>GAME TOY</span>
                       </div>
                       <div className='gameboyButtons'>
-                          <div className='buttonMoveContainer' onClick={() => setPage(page >= projectPics.length-1 ? 0 : page+1)}>
+                          <div className='buttonMoveContainer' onClick={() => checked && setPage(page >= projectPics.length-1 ? 0 : page+1)}>
                               <div className='buttonMove'/>
                               <div className='buttonMoveBox'/>
                           </div>

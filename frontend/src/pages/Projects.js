@@ -94,10 +94,10 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                             </div>
                             <div className='projectLower'>
                                 <div className='projectDetail'>
-                                    {lang === 'English' && <div className='descriptionKor'><span>Blue Space is a quiz-making website where users can select a category of their choice and create quizzes on that topic.
-                                        Users can test their knowledge and compete with other users by taking the quzzes.</span>
-                                    <span>Similar to YouTube channels, users can manage their own platforms and subscribe to others' platforms.</span>
-                                    <span>Points are earned for correct answers, which can be used to purchase items from the shop or obtain hints while taking quizzes.</span><br></br>
+                                    {lang === 'English' && <div className='descriptionKor'><span>Blue Space is a quiz-making website where users select a category of their choice and create quizzes on the topic.
+                                        Users can test their knowledge and compete with other users by taking the quizzes. 
+                                        Similar to YouTube channels, users can manage their own platforms and subscribe to others. 
+                                        Points are earned for correct answers, which can be used to purchase items from the shop or obtain hints while taking quizzes.</span><br></br>
                                     <div className='descriptionKor2'>
                                         <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Google Auth Login, Create Platforms, Create Quizzes, Take Quizzes, Leaderboard, Item Shop, Customizable Profile</span>
                                         <span style={{color: 'cyan'}}>My Roles</span><span style={{marginBottom: '1rem'}}>Figma Design, Leaderboard Page (back & front), Shop Page (back & front), Quiz Taking Page (back & front), My Page (front only), Main Page (front only)</span>
@@ -115,9 +115,9 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                                         </div>
                                     </div>    
                                     </div>}
-                                    {lang === 'Korean' && <div className='descriptionKor'><span>Blue Space는 유저가 카테고리를 골라 해당하는 분야의 퀴즈를 만들고 다른 유저와 그 분야의 지식을 겨룰 수 있는 퀴즈 사이트입니다.</span>
-                                    <span>유저는 유튜브 채널처럼 본인의 플랫폼에서 퀴즈를 관리하고 다른 유저의 플랫폼에 구독하고 퀴즈를 풀어볼 수 있습니다.</span>
-                                    <span>퀴즈를 풀어 포인트를 얻고 포인트로 상점 아이템을 사거나, 퀴즈를 풀 때 힌트를 사용하는 방법으로 포인트를 사용할 수 있습니다.</span><br></br>
+                                    {lang === 'Korean' && <div className='descriptionKor'><span>Blue Space는 유저가 카테고리를 골라 해당하는 분야의 퀴즈를 만들고 다른 유저와 그 분야의 지식을 겨룰 수 있는 퀴즈 사이트입니다. 
+                                        유저는 유튜브 채널처럼 본인의 플랫폼에서 퀴즈를 관리하고 다른 유저의 플랫폼에 구독하고 퀴즈를 풀어볼 수 있습니다. 
+                                        퀴즈를 풀어 포인트를 얻고 포인트로 상점 아이템을 사거나, 퀴즈를 풀 때 힌트를 사용하는 방법으로 포인트를 사용할 수 있습니다.</span><br></br>
                                     <div className='descriptionKor2'>
                                         <span style={{color: 'cyan'}}>주요 기능</span><span style={{marginBottom: '1rem'}}>구글 로그인, 플랫폼 생성, 퀴즈 제작, 퀴즈 풀기, 순위표, 아이템 상점, 커스터마이징 가능한 프로필</span>
                                         <span style={{color: 'cyan'}}>나의 역할</span><span style={{marginBottom: '1rem'}}>Figma 디자인, 순위표 페이지 (back & front), 상점 페이지 (back & front), 퀴즈 푸는 페이지 (back & front), 마이페이지 (front only), 메인 페이지 (front only)</span>

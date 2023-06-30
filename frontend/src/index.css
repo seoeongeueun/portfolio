@@ -963,18 +963,40 @@ main {
   z-index: 1;
   font-size: 2rem;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .aboutPage p{
   font-size: 7rem;
-  z-index: 10;
+  z-index: 2;
 }
 
 .aboutPageIntro span{
   animation: typing 3s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.missile {
+  width: 5px;
+  height: 30px;
+  background-color: cyan;
+  animation-name: shoot-up;
+  position: relative;
+  animation: shoot-up 1s ease-in-out;
+}
+
+@keyframes shoot-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
 }
 /* end of about page */
 
@@ -1067,7 +1089,7 @@ main {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
   
 }
 
@@ -1234,7 +1256,7 @@ main {
 }
 
 .otherPageInstruction {
-  width: 50%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1344,7 +1366,7 @@ main {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 50%;
+  width: 55%;
 }
 
 .gameboyHead {

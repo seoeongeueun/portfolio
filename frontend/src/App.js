@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { useRef, useEffect, useState } from 'react';
 import HomeContainer from './containers/HomeContainer';
-import About from './pages/About';
 import ProjectsContainer from './containers/ProjectsContainer';
 import ProjectsContainer2 from './containers/ProjectsContainer2';
+import AboutContainer from './containers/AboutContainer';
 import Other from './pages/Other';
 import Contact from './pages/Contact';
 
@@ -64,7 +64,7 @@ function App() {
   return (
       <div>
         {move ? <div ref={outerRef} className='outer'>
-          <About lang={lang} setLang={setLang}/>
+          <AboutContainer lang={lang} setLang={setLang}/>
           <ProjectsContainer lang={lang} setLang={setLang}/>
           <ProjectsContainer2 lang={lang} setLang={setLang}/>
           <Other lang={lang} setLang={setLang}/>

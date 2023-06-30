@@ -968,6 +968,7 @@ main {
   justify-content: flex-start;
   height: 100vh;
   overflow-y: hidden;
+  position: relative;
 }
 
 .aboutPage p{
@@ -984,10 +985,12 @@ main {
 .missile {
   width: 5px;
   height: 30px;
-  background-color: cyan;
+  background-color: white;
   animation-name: shoot-up;
   position: relative;
-  animation: shoot-up 1s ease-in-out;
+  animation-name: shoot-up;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
 }
 
 @keyframes shoot-up {
@@ -998,6 +1001,71 @@ main {
     transform: translateY(-100vh);
   }
 }
+
+@-webkit-keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+            transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+            transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+.monster {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  z-index: 5;
+  -webkit-animation: slide-in-fwd-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+  animation: slide-in-fwd-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+}
+
+.boom {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  z-index: 5;
+  -webkit-animation: fade-out 0.4s ease-out 1s both;
+	        animation: fade-out 0.4s ease-out 1s both;
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.aboutCard img{
+  width: 10rem;
+}
+
 /* end of about page */
 
 /* start of project page */

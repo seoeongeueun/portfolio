@@ -1,17 +1,29 @@
 @font-face {
   font-family: 'DGM';
   src: local('DGM'), url(./fonts/DGM.ttf) format('truetype');
+};
+@font-face {
+  font-family: 'Gill Sans';
+  src: local('Gill Sans'), url(./fonts/Gill\ Sans.otf) format('opentype');
+};
+@font-face {
+  font-family: 'Rhesmanisa';
+  src: local('Rhesmanisa'), url(./fonts/Rhesmanisa.otf) format('opentype');
 }
+
+@font-face {
+  font-family: 'NanumSquareNeo';
+  src: local('NanumSquareNeo'), url(./fonts/NanumSquareNeo.ttf) format('truetype');
+}
+
+
 * {
   font-family: 'DGM';
   margin: 0;
   padding: 0;
 }
 
-@font-face {
-  font-family: 'Gill Sans';
-  src: local('Gill Sans'), url(./fonts/Gill\ Sans.otf) format('opentype');
-}
+
 
 
 /* @font-face {
@@ -738,6 +750,48 @@ main {
             transform: scale(1);
   }
 }
+@-webkit-keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF, 0 0 98px #0077ff;
+    color: white;
+  }
+}
+
+@keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF, 0 0 98px #0077ff;
+    color: white;
+  }
+}
+
 /* end of animations */
 
 /*typing effct */
@@ -971,6 +1025,11 @@ main {
   position: relative;
 }
 
+.aboutPage span {
+  font-family: 'NanumSquareNeo';
+  font-weight: lighter;
+}
+
 .aboutPage p{
   font-size: 7rem;
   z-index: 2;
@@ -999,6 +1058,9 @@ main {
 
 .aboutIntroductionText {
   margin-top: 3rem;
+  font-size: 1.7rem;
+  word-wrap: break-word;
+  line-height: 2.4rem;
 }
 
 .missile {
@@ -1010,6 +1072,7 @@ main {
   animation-name: shoot-up;
   animation-duration: 0.8s;
   animation-timing-function: ease-out;
+  z-index: 10;
 }
 
 @keyframes shoot-up {
@@ -1055,9 +1118,23 @@ main {
   animation: slide-in-fwd-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
 }
 
-.boom {
+.starBorder{
+  font-size: 60px;
   width: 60px;
   height: 60px;
+  position: absolute;
+  z-index: 3;
+  -webkit-animation: slide-in-fwd-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+  animation: slide-in-fwd-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+  text-shadow: 0 0 5px #00FFFF, 0 0 15px rgb(0, 255, 255), 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF, 0 0 98px #0077ff;
+}
+svg {
+  filter: drop-shadow(0px 0px 8px rgb(253 253 0 / 1));
+}
+
+.boom {
+  width: 50px;
+  height: 50px;
   position: absolute;
   z-index: 5;
   -webkit-animation: fade-out 0.4s ease-out 1s both;
@@ -1080,11 +1157,38 @@ main {
     opacity: 0;
   }
 }
+
+ @-webkit-keyframes flip-vertical-right {
+  0% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+  }
+  100% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+}
+@keyframes flip-vertical-right {
+  0% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+            
+  }
+  100% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+}
+
 .aboutCardContainer {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .aboutCard {
@@ -1092,17 +1196,45 @@ main {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: 50%;
+  width: 100%;
 }
 
-.aboutCard img{
+.aboutCardImageContainer {
+  position: relative;
+  width: 100%;
+}
+
+.myPic{
   width: 20rem;
-  border: 2px dashed white;
-  border-radius: 10px;
-  margin-right: 3rem;
-  -webkit-animation: flip-in-ver-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: flip-in-ver-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  height: 20rem;
+  object-fit: cover;
+  border: 2px solid white;
+  border-radius: 100%;
+  box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem cyan,
+            0 0 0.8rem cyan,
+            inset 0 0 1.3rem cyan;
+  padding: 0.5rem;
   
+}
+
+.ring {
+  width: 27rem;
+  height: 26rem;
+  border-left: 10px solid cyan;
+  border-top: 10px solid cyan;
+  border-radius: 50%;
+  top: -3rem; 
+  left: -3rem;
+  padding: 0.5rem;
+  position: absolute;
+  transform: rotate3d(1, 2, -3, 170deg);
+}
+
+.aboutCardImageContainer img:hover {
+  -webkit-animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
+	        animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
 }
 
 .aboutCard span {
@@ -1119,13 +1251,22 @@ main {
 .detailCategoryContainer {
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
+  width: 100%;
+  margin-left: 0.5rem;
+}
+
+.detailCategory span {
+  font-size: 1rem;
 }
 
 .cardTitle {
-  font-size: 3rem;
-  color: cyan;
-
+  font-family: "Rhesmanisa" !important;
+  font-weight: 200;
+  font-size: 5rem;
+  color: white;
+  text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF, 0 0 98px #0077ff;
+  -webkit-animation: flicker-4 18s linear 2s infinite both;
+	        animation: flicker-4 18s linear 2s infinite both;
 }
 
 .timeline {
@@ -1135,6 +1276,13 @@ main {
   border-radius: 5px;
   position: relative;
   margin-top: 7rem;
+  border: 0.1rem solid #fff;
+  box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #fff,
+            0 0 0.8rem #fff,
+            0 0 2.8rem #fff,
+            inset 0 0 1.3rem #fff;
 }
 
 .timelineSection {
@@ -1328,10 +1476,13 @@ main {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  line-height: 2.5rem;
 }
 
 .projectImage img{
   height: 70vh;
+  -webkit-animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
+  animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
 }
 
 .projectImageButtons {

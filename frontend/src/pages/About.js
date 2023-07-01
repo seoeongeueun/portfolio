@@ -8,6 +8,8 @@ import Zap from "../music/zap_c_07-82067.mp3";
 import AlienCyan from "../icons/alien-cyan.png";
 import School from "../icons/Stony_Brook_University_seal.png";
 import Me from '../icons/me.png';
+import StarIcon from '@mui/icons-material/Star';
+import BlurOnIcon from '@mui/icons-material/BlurOn';
 
 function About({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [mouseX, setMouseX] = useState(0);
@@ -33,7 +35,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                 setShoot(false);
             });
         }
-    }, [shoot])
+    }, [shoot]);
 
     useEffect(() => {
         let tmp = [...hit];
@@ -45,21 +47,21 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                 setTitleHit(true);
                 clearInterval(trackMovement);
             }
-            else if (hit.filter(e => e.id === 0).length === 0 && element?.getBoundingClientRect().top <= 300  && element?.getBoundingClientRect().top >= 150 && element?.getBoundingClientRect().left >= 280 && element?.getBoundingClientRect().left <=350) {
+            else if (hit.filter(e => e.id === 0).length === 0 && element?.getBoundingClientRect().top <= 300  && element?.getBoundingClientRect().top >= 140 && element?.getBoundingClientRect().left >= 280 && element?.getBoundingClientRect().left <=350) {
                 setShoot(false);
                 tmp.push({ id: 0, hit: true });
                 setHit(tmp);
                 onSetScore(score+100);
                 clearInterval(trackMovement);
             }
-            else if (hit.filter(e => e.id === 1).length === 0 && element?.getBoundingClientRect().top <= 500 && element?.getBoundingClientRect().top >= 350 && element?.getBoundingClientRect().left >= 490 && element?.getBoundingClientRect().left <= 570) {
+            else if (hit.filter(e => e.id === 1).length === 0 && element?.getBoundingClientRect().top <= 500 && element?.getBoundingClientRect().top >= 260 && element?.getBoundingClientRect().left >= 490 && element?.getBoundingClientRect().left <= 570) {
                 setShoot(false);
                 tmp.push({ id: 1, hit: true });
                 setHit(tmp);
                 onSetScore(score+100);
                 clearInterval(trackMovement);
             }
-            else if (hit.filter(e => e.id === 2).length === 0 && element?.getBoundingClientRect().top <= 150 && element?.getBoundingClientRect().top >= 20 && element?.getBoundingClientRect().left >= 890 && element?.getBoundingClientRect().left <= 960 ) {
+            else if (hit.filter(e => e.id === 2).length === 0 && element?.getBoundingClientRect().top <= 150 && element?.getBoundingClientRect().top >= 80 && element?.getBoundingClientRect().left >= 890 && element?.getBoundingClientRect().left <= 960 ) {
                 setShoot(false);
                 tmp.push({ id: 2, hit: true });
                 setHit(tmp);
@@ -69,6 +71,13 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
             else if (hit.filter(e => e.id === 3).length === 0 && element?.getBoundingClientRect().top <= height-300+100 && element?.getBoundingClientRect().top >=  height-400 && element?.getBoundingClientRect().left >= width-170 && element?.getBoundingClientRect().left <= width-70) {
                 setShoot(false);
                 tmp.push({ id: 3, hit: true });
+                setHit(tmp);
+                onSetScore(score+100);
+                clearInterval(trackMovement);
+            }
+            else if (hit.filter(e => e.id === 4).length === 0 && element?.getBoundingClientRect().top <= height-500+100 && element?.getBoundingClientRect().top >=  height-600 && element?.getBoundingClientRect().left >= width-520 && element?.getBoundingClientRect().left <= width-450) {
+                setShoot(false);
+                tmp.push({ id: 4, hit: true });
                 setHit(tmp);
                 onSetScore(score+100);
                 clearInterval(trackMovement);
@@ -105,13 +114,14 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
         <main style={{backgroundImage: `url(${Stars})`}}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div id='aboutPage' className='aboutPage' onClick={(e) => {audio1.play(); setShoot(true); handleMouseClick(e)}} style={{ cursor: "url(" + Ufo + "), auto"}}>
-                {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '290px', top: '200px'}}/> : <img className='monster' src={Monster1} alt='monster1' style={{left: '290px', top: '200px'}}/>}
-                {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : <img className='monster' src={Monster1} alt='monster1' style={{left: '500px', top: '400px'}}/>}
-                {hit.some(e => e.id === 2) ? <img className='boom' src={Boom} alt='boom' style={{left: '900px', top: '50px'}}/> : <img className='monster' src={Monster1} alt='monster1' style={{left: '900px', top: '50px'}}/>}
-                {hit.some(e => e.id === 3) ? <img className='boom' src={Boom} alt='boom' style={{left: width-150, top: height-300}}/> : <img className='monster' src={Monster1} alt='monster1' style={{left: width-150, top: height-300}}/>}
+                {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '290px', top: '200px'}}/> : <StarIcon sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '290px', top: '200px'}}/>}
+                {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : <StarIcon sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '500px', top: '400px'}}/>}
+                {hit.some(e => e.id === 2) ? <img className='boom' src={Boom} alt='boom' style={{left: '900px', top: '50px'}}/> : <StarIcon sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '900px', top: '50px'}}/>}
+                {hit.some(e => e.id === 3) ? <img className='boom' src={Boom} alt='boom' style={{left: width-150, top: height-300}}/> : <StarIcon sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: width-150, top: height-300}}/>}
+                {hit.some(e => e.id === 4) ? <img className='boom' src={Boom} alt='boom' style={{left: width-500, top: height-500}}/> : <StarIcon sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: width-500, top: height-500}}/>}
                 {shoot && <div key='missile' className='missile' style={{left: mouseX+16, top: mouseY-30}} />}
                 <div className='otherPageIntro' style={{marginTop: shoot && '-23px'}}>
-                    {titleHit ? <p className='titleHit'>About Me</p> : <p>About Me</p>}
+                    {titleHit ? <p className='titleHitcard'>About Me</p> : <span className='cardTitle' style={{margin: '2rem 0 1rem 4rem'}}>About Me</span>}
                     <div className='otherPageLang'>
                         <button onClick={() => setLang('Korean')} disabled={lang === 'Korean'}>한국어</button>
                         <button onClick={() => setLang('English')} disabled={lang === 'English'}>ENGLISH</button>
@@ -120,26 +130,26 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                 <div className='aboutIntroduction'>
                     <div className='aboutCardContainer'>
                         <div className='aboutCard'>
-                            <img alt='me' src={Me}/>
-                            <div className='aboutCardDetails'>
-                                <span className='cardTitle'>Profile</span>
-                                <div className='detailCategoryContainer'>
-                                    <div className='detailCategory'>
-                                        <span style={{color: 'cyan'}}>NAME</span>
-                                        {lang === 'English' ? <span>Seongeun Park</span> : <span>박성은</span>}
-                                    </div>
-                                    <div className='detailCategory'>
-                                        <span style={{color: 'cyan'}}>AGE</span>
-                                        <span>1999.01.25</span>
-                                    </div>
-                                    <div className='detailCategory'>
-                                        <span style={{color: 'cyan'}}>EDU</span>
-                                        {lang === 'English' ? <span>Stony Brook University</span> : <span>뉴욕주립대학교</span>}
-                                    </div>
-                                    <div className='detailCategory'>
-                                        <span style={{color: 'cyan'}}>MAJOR</span>
-                                        {lang === 'English' ? <span>Computer Science</span> : <span>컴퓨터공학부</span>}
-                                    </div>
+                            <div className='aboutCardImageContainer'>
+                                <img className='myPic' alt='me' src={Me}/>
+                                <div className='ring'/>
+                            </div>
+                            <div className='detailCategoryContainer'>
+                                <div className='detailCategory'>
+                                    <span style={{color: 'cyan'}}>NAME</span>
+                                    {lang === 'English' ? <span>Seongeun Park</span> : <span>박성은</span>}
+                                </div>
+                                <div className='detailCategory'>
+                                    <span style={{color: 'cyan'}}>AGE</span>
+                                    <span>1999.01.25</span>
+                                </div>
+                                <div className='detailCategory'>
+                                    <span style={{color: 'cyan'}}>EDU</span>
+                                    {lang === 'English' ? <span>Stony Brook University</span> : <span>뉴욕주립대학교</span>}
+                                </div>
+                                <div className='detailCategory'>
+                                    <span style={{color: 'cyan'}}>MAJOR</span>
+                                    {lang === 'English' ? <span>Computer Science</span> : <span>컴퓨터공학부</span>}
                                 </div>
                             </div>
                         </div>
@@ -187,20 +197,20 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                         </dic>
                     </div>
                     <div className='aboutIntroductionText'>
-                        {lang === 'English' ? <span style={{fontSize: '2.5rem', color: 'cyan', marginBottom: '1rem'}}>Introduction<br></br></span> : <span style={{fontSize: '2.5rem', color: 'cyan', marginBottom: '1rem'}}>소개글<br></br></span>}
-                        <span>I am a frontend developer who is passionate about blending functionality and aesthetics. While I have worked on both frontend and backend development, my attention to subtle details and my passion for crafting delightful user interactions have driven me to pursue a frontend development career. </span>
-                        <span>I like designing and I have experience in using designing tools like Figma and Photoshop. With my creative ideas, I hope to make the user interface visually appealing, intuitive, and interesting. </span><br></br>
+                        <span className='cardTitle' style={{marginBottom: '5rem !important'}}>Introduction<br></br></span>
+                        <span>Hello! I'm a frontend developer who is passionate about blending functionality and aesthetics. While I've worked on both frontend and backend development, my attention to subtle details and my passion for crafting delightful user interactions have driven me to pursue a frontend development career. </span>
+                        <span>I like designing and I've experience in using designing tools like Figma and Photoshop. With my creative ideas, I hope to make the user interface visually appealing, intuitive, and interesting. </span><br></br>
                         <span>Feel free to explore my portfolio to see examples of my work, and don't hesitate to reach out if you have any questions!</span>
                     </div>
-                    {help && <span style={{marginTop: '5rem', color: 'cyan', display: 'block',textAlign: 'center', fontSize: '3rem'}}>CLICK ANYWHERE TO FIRE!</span>}
+                    {help && <span style={{marginTop: '5rem', color: 'cyan', display: 'block',textAlign: 'center', fontSize: '3rem', fontFamily: 'DGM'}}>CLICK ANYWHERE TO FIRE!</span>}
                 </div>
                 {!help && <div className='projectFooter'>
                         <div className='scoreInfo'>
-                            <span className='score'>SCORE</span>
-                            <span style={{color: 'cyan', marginLeft: '1rem'}}>{score}</span>
+                            <span className='score' style={{fontFamily: 'DGM'}}>SCORE</span>
+                            <span style={{color: 'cyan', marginLeft: '1rem', fontFamily: 'DGM'}}>{score}</span>
                         </div>
                         <div className='livesInfo'>
-                            <span className='lives'>LIVES</span>
+                            <span className='lives' style={{fontFamily: 'DGM'}}>LIVES</span>
                             {[...Array(life).keys()].map((item) => (
                                 <img src={AlienCyan} alt='alienCyan' className='alienCyan'/>
                             ))}

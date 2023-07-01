@@ -77,7 +77,11 @@ function Other(props) {
           borderRight: '3px solid #F5F0F0'
         },
       }));
-
+      const svgStyle = {
+          textShadow: '0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF, 0 0 98px #0077ff',
+          fontSize: '60px',
+          color: 'white',
+      }
       useEffect(() => {
         const handleKeyDown = (event) => {
           if (event.keyCode === 39) {

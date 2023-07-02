@@ -1014,7 +1014,7 @@ section {
   color: white;
   z-index: 1;
   font-size: 2rem;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1061,7 +1061,7 @@ section {
 }
 
 .missile {
-  width: 5px;
+  width: 7px;
   height: 30px;
   background-color: white;
   animation-name: shoot-up;
@@ -1437,7 +1437,7 @@ svg {
 
 .projectPageIntro {
   display: flex;
-  height: 10%;
+  height: 10vh;
   margin: 0 1rem 0 1rem;
   flex-direction: row;
   align-items: center;
@@ -1446,14 +1446,13 @@ svg {
 
 .project {
   width: 100vw;
-  height: 90%;
+  height: 85vh;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='yellow' stroke-width='5' stroke-dasharray='3%2c 16' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin: 1rem 2rem 2rem 2rem;
 }
 
 .project span{
@@ -1465,12 +1464,12 @@ svg {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 97%;
   height: 100%;
 }
 
 .projectImage img{
-  height: 85vh;
+  height: 76vh;
   -webkit-animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
   animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
 }
@@ -1549,7 +1548,8 @@ svg {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 3rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
 }
 
 .projectDetail {
@@ -1577,7 +1577,7 @@ svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 5%;
+  height: 5vh;
   margin: 0 2rem 1rem 2rem;
 }
 
@@ -1621,7 +1621,7 @@ svg {
   color: white;
   z-index: 1;
   font-size: 2rem;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -2151,7 +2151,7 @@ svg {
   color: white;
   z-index: 1;
   font-size: 2rem;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;

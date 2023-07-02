@@ -91,7 +91,7 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                                 {showMoon && <img className='moon' src={Moon} alt='moon' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder('moon')}/>}
                             </div>
                             {lang === 'English' ? <span className='projectTitleDetail'>3 People Project</span> : <span className='projectTitleDetail'>3인 그룹 프로젝트</span>}
-                        </div>
+                            </div>
                             <div className='projectDetail'>
                                 {lang === 'English' && <div className='descriptionKor'><span>Blue Space is a quiz-making website where users select a category of their choice and create quizzes on the topic.
                                     Users can test their knowledge and compete with other users by taking the quizzes. 

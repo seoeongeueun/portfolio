@@ -19,7 +19,7 @@ import Project1Categories from '../images/project1-categories.png';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-function Projects2({score, life, onSetScore, onSetLife, lang, setLang}) {
+function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu}) {
     const [showFruit2, setShowFruit2] = useState(true);
     const [showFruit4, setShowFruit4] = useState(true);
     const [clicked, setClicked] = useState('');
@@ -32,7 +32,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang}) {
 
     useEffect(() => {
         const audio = new Audio(CoinPick);
-        audio.pause()
+        audio.pause();
     }, [])
 
     const handleClickFruit = (e) => {

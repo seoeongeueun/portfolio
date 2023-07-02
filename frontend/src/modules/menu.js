@@ -2,7 +2,7 @@ const SELECT_MENU = 'menu/SELECT_MENU';
 const PAGE_MOVE = 'menu/PAGE_MOVE';
 
 const initialState = {
-    menu: 'about',
+    menu: null,
     move: false
 };
 

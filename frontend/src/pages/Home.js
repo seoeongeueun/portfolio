@@ -1,4 +1,9 @@
 import KeyboardContainer from '../containers/KeyboardContainer';
+import ProjectsContainer from '../containers/ProjectsContainer';
+import ProjectsContainer2 from '../containers/ProjectsContainer2';
+import AboutContainer from '../containers/AboutContainer';
+import Other from './Other';
+import Contact from './Contact';
 import AlienNo from '../icons/alienNo.png';
 import Alien3 from '../icons/alien3.png';
 import AlienSing from '../icons/alienSing.gif';
@@ -7,7 +12,7 @@ import Note2 from '../icons/note2.png';
 import Play from '../icons/play.png';
 import Twinkling from '../icons/twinkling.png';
 import Stars from '../icons/stars.png';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Theme2 from "../music/HoliznaCC0 - ICE temple.mp3"
 import Bleep from "../music/arcade-bleep-sound-6071.mp3";
 
@@ -16,10 +21,14 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
     const [audio, setAudio] = useState();
     const [index, setIndex] = useState(0);
     const [jump, setJump] = useState(false);
-    const menusList = ['about', 'project', 'other', 'interest', 'contact'];
+    const [lang, setLang] = useState('English');
+    const outerRef = useRef();
+    const menusList = ['about', 'project', 'other', 'contact'];
 
     useEffect(() => {
-      setAudio(new Audio(Theme2))
+      setAudio(new Audio(Theme2));
+      onSetMove(false);
+      onSetMenu(null);
     }, []);
 
     useEffect(() => {
@@ -30,7 +39,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
         if (clicked === 'enter'){
           onSetMove(true);
         }
-    }, [clicked, onSetMove])
+    }, [clicked, onSetMove]);
 
     useEffect(() => {
       document.addEventListener("keydown", (e) => {
@@ -46,7 +55,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
             onSetClicked(null);
         }, 100);
       });
-    }, [clicked, onSetClicked])
+    }, [clicked, onSetClicked]);
 
     useEffect(() => {
         if (clicked === 'down'){
@@ -74,7 +83,30 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
                 onSetMenu(clicked);
             }
         }
-    }, [clicked])
+    }, [clicked]);
+
+    useEffect(() => {
+      if (move) {
+        if (menu === 'project') {
+          outerRef.current?.scrollTo({ 
+            top: window.innerHeight * 1,
+            behavior: 'auto',
+          });
+        }
+        if (menu === 'other') {
+          outerRef.current?.scrollTo({ 
+            top: window.innerHeight * 2,
+            behavior: 'auto',
+          });
+        }
+        if (menu === 'contact') {
+          outerRef.current?.scrollTo({ 
+            top: window.innerHeight * 3,
+            behavior: 'auto',
+          });
+        }
+      }
+    }, [menu, move])
 
 
   const handleClick = (e) => {
@@ -92,7 +124,8 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
   }
 
   return (
-      <main style={{backgroundImage: `url(${Stars})`}}>
+    <>
+      {!move ? <main style={{backgroundImage: `url(${Stars})`}}>
         <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
         <div className='main-screen'>
           <span style={{marginTop: "0rem", marginBottom: '2rem'}}>HELLO</span>
@@ -130,6 +163,24 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
         </div>
         <KeyboardContainer/>
       </main>
+      : <div ref={outerRef} className='outer'>
+          <section>
+            <AboutContainer lang={lang} setLang={setLang}/>
+          </section>
+          <section>
+            <ProjectsContainer lang={lang} setLang={setLang}/>
+          </section>
+          <section>
+            <ProjectsContainer2 lang={lang} setLang={setLang}/>
+          </section>
+          <section>
+            <Other lang={lang} setLang={setLang} onSetMenu={onSetMenu}/>
+          </section>
+          <section>
+            <Contact/>
+          </section>
+        </div>}
+    </>
   );
 }
 

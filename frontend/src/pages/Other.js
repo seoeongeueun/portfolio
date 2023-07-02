@@ -11,6 +11,7 @@ import Project5 from '../icons/project5.png';
 import Project6 from '../icons/project6.png';
 import Project7 from '../icons/project7.png';
 import Loading from '../music/mixkit-arcade-bonus-alert-767.wav';
+import { useForkRef } from '@mui/material';
 
 function Other(props) {
     const [checked, setChecked] = useState(false);
@@ -82,6 +83,7 @@ function Other(props) {
           fontSize: '60px',
           color: 'white',
       }
+
       useEffect(() => {
         const handleKeyDown = (event) => {
           if (event.keyCode === 39) {

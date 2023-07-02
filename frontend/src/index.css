@@ -1470,7 +1470,7 @@ svg {
 }
 
 .projectImage img{
-  height: 80%;
+  height: 85vh;
   -webkit-animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
   animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
 }

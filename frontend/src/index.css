@@ -1233,9 +1233,8 @@ section {
  * ----------------------------------------
  */
  @-webkit-keyframes flicker-2 {
-  0%,
-  100% {
-    opacity: 1;
+  0% {
+    opacity: 0.2;
   }
   41.99% {
     opacity: 1;
@@ -1274,13 +1273,12 @@ section {
     opacity: 1;
   }
   100% {
-    font-family: 'DGM' !important;
+    opacity: 1;
   }
 }
 @keyframes flicker-2 {
-  0%,
-  100% {
-    opacity: 1;
+  0% {
+    opacity: 0.2;
   }
   41.99% {
     opacity: 1;
@@ -1319,7 +1317,7 @@ section {
     opacity: 1;
   }
   100% {
-    font-family: 'DGM' !important;
+    opacity: 1;
   }
 }
 
@@ -1434,8 +1432,8 @@ section {
   font-size: 5rem;
   color: white;
   text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF;
-  -webkit-animation: flicker-2 1s linear 2 both;
-  animation: flicker-2 1s linear 1 both;
+  -webkit-animation: flicker-2 1.5s linear 1 both;
+  animation: flicker-2 1.5s linear 1 both;
   font-family: 'Rhesmanisa';
 }
 

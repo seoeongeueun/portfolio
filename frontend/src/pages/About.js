@@ -24,15 +24,26 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [hit, setHit] = useState([]);
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
-    const [titleHit, setTitleHit] = useState(false);
     const [help, setHelp] = useState(true);
     const [changeFont, setChangeFont] = useState([]);
+    const [timeline, setTimeline] = useState({});
+    const [titleHit, setTitleHit] = useState(false);
+    const [timelineHit, setTimelineHit] = useState(false);
 
     const handleMouseClick = (e) => {
         if (help) setHelp(false);
         setMouseX(e.clientX);
         setMouseY(e.clientY);
     };
+
+    useEffect(() => {
+        let element = document.getElementById('timeline')
+        if (element) {
+            let info = {x: element.getBoundingClientRect().x, y: element.getBoundingClientRect().y, w: element.getBoundingClientRect().width, h: element.getBoundingClientRect().height}
+            setTimeline(info);
+            console.log(info);
+        }
+    }, [width, height])
 
     useEffect(() => {
         if (shoot) {
@@ -45,13 +56,22 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
 
     useEffect(() => {
         if (titleHit) {
-            const animation = document.querySelector('.cardTitleHit');
-            animation?.addEventListener("animationend", () => {
-                setChangeFont([...changeFont, {id: 'aboutMe', change: true}]);
-                console.log('donee')
-            });
+            if (changeFont.filter(e => e.id === 'aboutMe').length === 0) {
+                const animation = document.querySelector('.cardTitleHit');
+                animation?.addEventListener("animationend", () => {
+                    setChangeFont([...changeFont, {id: 'aboutMe', change: true}]);
+                });
+            } 
+        } 
+        if (timelineHit) {
+            if (changeFont.filter(e => e.id === 'timeline').length === 0) {
+                const animation = document.querySelector('.cardTitleHit');
+                animation?.addEventListener("animationend", () => {
+                    setChangeFont([...changeFont, {id: 'timeline', change: true}]);
+                });
+            }
         }
-    }, [titleHit, changeFont]);
+    }, [titleHit, changeFont, timelineHit]);
 
     useEffect(() => {
         console.log(changeFont)
@@ -65,6 +85,12 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                 onSetScore(score+100);
                 setShoot(false);
                 setTitleHit(true);
+                clearInterval(trackMovement);
+            }
+            else if (!timelineHit && element?.getBoundingClientRect().top <= timeline.y + timeline.h && element?.getBoundingClientRect().top >=  timeline.y && element?.getBoundingClientRect().left >= timeline.x && element?.getBoundingClientRect().left <= timeline.x + timeline.w) {
+                onSetScore(score+100);
+                setShoot(false);
+                setTimelineHit(true);
                 clearInterval(trackMovement);
             }
             else if (hit.filter(e => e.id === 0).length === 0 && element?.getBoundingClientRect().top <= 300  && element?.getBoundingClientRect().top >= 140 && element?.getBoundingClientRect().left >= 280 && element?.getBoundingClientRect().left <=350) {
@@ -81,7 +107,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                 onSetScore(score+100);
                 clearInterval(trackMovement);
             }
-            else if (hit.filter(e => e.id === 2).length === 0 && element?.getBoundingClientRect().top <= 150 && element?.getBoundingClientRect().top >= 80 && element?.getBoundingClientRect().left >= 890 && element?.getBoundingClientRect().left <= 960 ) {
+            else if (hit.filter(e => e.id === 2).length === 0 && element?.getBoundingClientRect().top >= 60 && element?.getBoundingClientRect().left >= 890 && element?.getBoundingClientRect().left <= 960 ) {
                 setShoot(false);
                 tmp.push({ id: 2, hit: true });
                 setHit(tmp);
@@ -95,13 +121,6 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                 onSetScore(score+100);
                 clearInterval(trackMovement);
             }
-            else if (hit.filter(e => e.id === 4).length === 0 && element?.getBoundingClientRect().top <= height-500+100 && element?.getBoundingClientRect().top >=  height-600 && element?.getBoundingClientRect().left >= width-520 && element?.getBoundingClientRect().left <= width-450) {
-                setShoot(false);
-                tmp.push({ id: 4, hit: true });
-                setHit(tmp);
-                onSetScore(score+100);
-                clearInterval(trackMovement);
-            }
             else if (element?.getBoundingClientRect().bottom <= 50) {
                 setShoot(false);
                 clearInterval(trackMovement);
@@ -111,7 +130,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
         return () => {
             clearInterval(trackMovement);
         };
-    }, [mouseX, mouseY, hit, shoot]);
+    }, [mouseX, mouseY, hit, shoot, changeFont, timeline]);
 
     useEffect(() => {
         const resizeObserver = new ResizeObserver((event) => {
@@ -179,7 +198,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                             </div>
                         </div>
                         <div className='aboutCard' style={{flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', minHeight: '20rem'}}>
-                            <span className='cardTitle'>Timeline</span>
+                            {timelineHit ? <span className='cardTitleHit' style={{fontSize: changeFont.some(e => e.id === 'timeline') && '3rem', fontFamily: changeFont.some(e => e.id === 'timeline') && 'DGM', textShadow: changeFont.some(e => e.id === 'timeline') && 'none'}}>Timeline</span> : <span className='cardTitle' id='timeline'>Timeline</span>}
                             <div className='timeline'>
                                 <div className='timelineSection'>
                                     <div className='timelineStick'/>

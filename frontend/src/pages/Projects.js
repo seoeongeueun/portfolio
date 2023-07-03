@@ -75,14 +75,13 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                     </div>
                 </div>
                 <div className='project'>
-                    <div className='projectImageAndDetail'>
                         <div className='projectImage'>
                             <img src={project1[index1]} alt='project1'/>
                             <div className='projectImageButtons'>
-                                <ArrowBackIosIcon sx={{fontSize: '1.2rem', color: 'white', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 > 0 ? index1-1 : project1.length-1)}/>
+                                <ArrowBackIosIcon sx={{fontSize: '1.2rem', color: 'black', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 > 0 ? index1-1 : project1.length-1)}/>
                                 <span style={{fontSize: '1.5rem'}}>{index1+1}/{project1.length}</span>
-                                <ArrowForwardIosIcon sx={{fontSize: '1.2rem', color: 'white', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 < project1.length-1 ? index1+1 : 0)}/>
-                                </div>
+                                <ArrowForwardIosIcon sx={{fontSize: '1.2rem', color: 'black', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 < project1.length-1 ? index1+1 : 0)}/>
+                            </div>
                         </div>
                         <div className='projectLower'>
                             <div className='projectName'>
@@ -152,7 +151,6 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                                         <a href="https://github.com/Subii98/Blue-Space-Update" rel="noopener noreferrer" target="_blank"><span>GITHUB (CSS FIX)</span></a>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>

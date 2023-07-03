@@ -14,6 +14,7 @@ import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSati
 import CakeOutlinedIcon from '@mui/icons-material/CakeOutlined';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import DesktopWindowsOutlinedIcon from '@mui/icons-material/DesktopWindowsOutlined';
+import AndroidOutlinedIcon from '@mui/icons-material/AndroidOutlined';
 
 function About({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [mouseX, setMouseX] = useState(0);
@@ -25,6 +26,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [height, setHeight] = useState(0);
     const [titleHit, setTitleHit] = useState(false);
     const [help, setHelp] = useState(true);
+    const [changeFont, setChangeFont] = useState([]);
 
     const handleMouseClick = (e) => {
         if (help) setHelp(false);
@@ -40,6 +42,20 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
             });
         }
     }, [shoot]);
+
+    useEffect(() => {
+        if (titleHit) {
+            const animation = document.querySelector('.cardTitleHit');
+            animation?.addEventListener("animationend", () => {
+                setChangeFont([...changeFont, {id: 'aboutMe', change: true}]);
+                console.log('donee')
+            });
+        }
+    }, [titleHit, changeFont]);
+
+    useEffect(() => {
+        console.log(changeFont)
+    }, [changeFont])
 
     useEffect(() => {
         let tmp = [...hit];
@@ -118,14 +134,19 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
         <main style={{backgroundImage: `url(${Stars})`}}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div id='aboutPage' className='aboutPage' onClick={(e) => {audio1.play(); setShoot(true); handleMouseClick(e)}} style={{ cursor: "url(" + Ufo + "), auto"}}>
-                {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '290px', top: '200px'}}/> : <StarIcon className='star' sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '290px', top: '200px'}}/>}
-                {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : <StarIcon className='star' sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '500px', top: '400px'}}/>}
-                {hit.some(e => e.id === 2) ? <img className='boom' src={Boom} alt='boom' style={{left: '900px', top: '50px'}}/> : <StarIcon className='star' sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '900px', top: '50px'}}/>}
-                {hit.some(e => e.id === 3) ? <img className='boom' src={Boom} alt='boom' style={{left: width-150, top: height-300}}/> : <StarIcon className='star' sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: width-150, top: height-300}}/>}
-                {hit.some(e => e.id === 4) ? <img className='boom' src={Boom} alt='boom' style={{left: width-500, top: height-500}}/> : <StarIcon className='star' sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: width-500, top: height-500}}/>}
-                {shoot && <div key='missile' className='missile' style={{left: mouseX+16, top: mouseY-30}}/>}}
-                <div className='otherPageIntro' style={{marginTop: shoot && '-23px'}}>
-                    {titleHit ? <p className='titleHitcard'>About Me</p> : <span className='cardTitle' style={{margin: '2rem 0 1rem 4rem'}}>About Me</span>}
+                {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '290px', top: '200px'}}/> : <img className='monster' src={Monster1} alt='monster' style={{left: '290px', top: '200px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both', 
+                    animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(1) infinite both'}}/>}
+                {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : <img className='monster' src={Monster1} alt='monster' style={{left: '500px', top: '400px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1s infinite both', 
+                    animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(2) infinite both'}}/>}
+                {hit.some(e => e.id === 2) ? <img className='boom' src={Boom} alt='boom' style={{left: '900px', top: '50px'}}/> : <img className='monster' src={Monster1} alt='monster' style={{left: '900px', top: '50px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 2s infinite both', 
+                    animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(3) infinite both'}}/>}
+                {hit.some(e => e.id === 3) ? <img className='boom' src={Boom} alt='boom' style={{left: width-150, top: height-300}}/> : <img className='monster' src={Monster1} alt='monster' style={{left: width-150, top: height-300, 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1.5s infinite both', 
+                    animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(3) infinite both'}}/>}
+                {hit.some(e => e.id === 4) ? <img className='boom' src={Boom} alt='boom' style={{left: width-500, top: height-500}}/> : <img className='monster' src={Monster1} alt='monster' style={{left: width-500, top: height-500, 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 2.5s infinite both', 
+                    animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(3) infinite both'}}/>}
+                {shoot && <div key='missile' className='missile' style={{left: mouseX+16, top: mouseY-30}}/>}
+                <div className='otherPageIntro' style={{marginTop: shoot && '-34px'}}>
+                    {titleHit ? <span className='cardTitleHit' style={{margin: '1rem 0 1rem 4rem', fontSize: '4rem', fontFamily: changeFont.some(e => e.id === 'aboutMe') && 'DGM', textShadow: changeFont.some(e => e.id === 'aboutMe') && 'none'}}>About Me</span> : <span className='cardTitle' style={{margin: '1rem 0 1rem 4rem', fontSize: '4rem'}}>About Me</span>}
                     <div className='otherPageLang'>
                         <button onClick={() => setLang('Korean')} disabled={lang === 'Korean'}>한국어</button>
                         <button onClick={() => setLang('English')} disabled={lang === 'English'}>ENGLISH</button>
@@ -201,12 +222,14 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                         </div>
                     </div>
                     <div className='aboutIntroductionText'>
-                        <span className='cardTitle' style={{marginBottom: '5rem !important'}}>Introduction<br></br></span>
-                        <span>Hello! I'm a frontend developer who is passionate about blending functionality and aesthetics. While I've worked on both frontend and backend development, my attention to subtle details and my passion for crafting delightful user interactions have driven me to pursue a frontend development career. </span>
-                        <span>I like designing and I've experience in using designing tools like Figma and Photoshop. With my creative ideas, I hope to make the user interface visually appealing, intuitive, and interesting. </span><br></br>
-                        <span>Feel free to explore my portfolio to see examples of my work, and don't hesitate to reach out if you have any questions!</span>
+                        <span className='cardTitle'>Introduction<br></br></span>
+                        <div className='textContent' style={{marginTop: '1rem'}}>
+                            <span>Hello! I'm a frontend developer who is passionate about blending functionality and aesthetics. While I've worked on both frontend and backend development, my attention to subtle details and my passion for crafting delightful user interactions have driven me to pursue a frontend development career. </span>
+                            <span>With my creative ideas, I hope to make the user interface visually appealing, intuitive, and interesting. </span><br></br>
+                            <span>Feel free to explore my portfolio to see examples of my work, and don't hesitate to reach out if you have any questions!</span>
+                        </div>
                     </div>
-                    {help && <span style={{marginTop: '5rem', color: 'cyan', display: 'block',textAlign: 'center', fontSize: '3rem', fontFamily: 'DGM'}}>CLICK ANYWHERE TO FIRE!</span>}
+                    {help && <span style={{marginTop: '2rem', color: 'cyan', display: 'block',textAlign: 'center', fontSize: '3rem', fontFamily: 'DGM'}}>CLICK ANYWHERE TO FIRE!</span>}
                 </div>
                 {!help && <div className='projectFooter'>
                         <div className='scoreInfo'>

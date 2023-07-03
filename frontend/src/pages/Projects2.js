@@ -79,9 +79,9 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         <div className='projectImage'>
                             <img src={project1[index1]} alt='project1'/>
                             <div className='projectImageButtons'>
-                                <ArrowBackIosIcon sx={{fontSize: '1.2rem', color: 'white', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 > 0 ? index1-1 : project1.length-1)}/>
+                                <ArrowBackIosIcon sx={{fontSize: '1.2rem', color: 'black', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 > 0 ? index1-1 : project1.length-1)}/>
                                 <span style={{fontSize: '1.5rem'}}>{index1+1}/{project1.length}</span>
-                                <ArrowForwardIosIcon sx={{fontSize: '1.2rem', color: 'white', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 < project1.length-1 ? index1+1 : 0)}/>
+                                <ArrowForwardIosIcon sx={{fontSize: '1.2rem', color: 'black', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 < project1.length-1 ? index1+1 : 0)}/>
                                 </div>
                         </div>
                         <div className='projectLower'>
@@ -97,7 +97,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                     <span>I made CheeseMe because while there are other blog-like applications out there, very few offer all those features within a single interface, along with the freedom to creatively decorate your pages. 
                                     CheeseMe is a personalized and customizable journal application for PC that brings together convenient widgets, journal entries, and social connections all in one place.</span><br></br>
                                 <div className='descriptionKor2'>
-                                    <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Login, Todo List, Calendar, World Clock, Reminder, Notes, Journal Posts, Drag & Move Widgets, Make Sticker Widgets, Add Friends</span>
+                                    <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Login, Todo List, Calendar, World Clock, Reminder, Notes, Journal Posts, Drag & Move Widgets, Sticker Widget Maker, Add Friends</span>
                                     <span style={{color: 'cyan'}}>My Roles</span><span style={{marginBottom: '1rem'}}>Design, Backend, Frontend, Deloyment</span>
                                     <span style={{color: 'cyan'}}>Stacks Used</span>
                                     <div className='stacks'>

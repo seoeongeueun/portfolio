@@ -169,10 +169,10 @@ function Other(props) {
                               </div>
                               <div className='instructionsButtons' style={{marginRight: props.lang === 'Korean' ? '2.5rem' : '1.5rem'}}>
                                 <div className='cross'/>
-                                <dic className='buttonAB'>
-                                  <div class='circle1'/>
-                                  <div class='circle2'/>
-                                </dic>
+                                <div className='buttonAB'>
+                                  <div className='circle1'/>
+                                  <div className='circle2'/>
+                                </div>
                               </div>
                               
                             </div>
@@ -233,7 +233,7 @@ function Other(props) {
                               <div className='buttonMove'/>
                               <div className='buttonMoveBox'/>
                           </div>
-                          <div className='miniButtons'>
+                          <div className='miniButtons' onClick={() => checked && setPage(page >= projectPics.length-1 ? 0 : page+1)}>
                               <div className='buttonA'/>
                               <div className='buttonB'/>
                           </div>

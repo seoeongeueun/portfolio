@@ -171,8 +171,8 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         </div>
                         <div className='livesInfo'>
                             <span className='lives'>LIVES</span>
-                            {[...Array(life).keys()].map((item) => (
-                                <img src={AlienCyan} alt='alienCyan' className='alienCyan'/>
+                            {[...Array(life).keys()].map((item, index) => (
+                                <img src={AlienCyan} key={index} alt='alienCyan' className='alienCyan'/>
                             ))}
                         </div>
                     </div>

@@ -1,14 +1,17 @@
 @font-face {
   font-family: 'DGM';
-  src: local('DGM'), url(./fonts/DGM.ttf) format('truetype');
+  src: url(./fonts/DGM.woff) format('woff'),
+    url(./fonts/DGM.ttf) format('truetype');
 };
+
 @font-face {
   font-family: 'Gill Sans';
   src: local('Gill Sans'), url(./fonts/Gill\ Sans.otf);
 };
+
 @font-face {
-  font-family: 'Rhesmanisa';
-  src: local('Rhesmanisa'), url(./fonts/Rhesmanisa.otf);
+  font-family: 'honeyScript';
+  src: url(./fonts/honeyScript.ttf) format('truetype');
 }
 
 @font-face {
@@ -1062,14 +1065,14 @@ section {
 
 .missile {
   width: 7px;
-  height: 30px;
+  height: 35px;
   background-color: white;
   animation-name: shoot-up;
   position: relative;
   animation-name: shoot-up;
   animation-duration: 0.8s;
   animation-timing-function: ease-out;
-  z-index: 10;
+  z-index: 6;
 }
 
 @keyframes shoot-up {
@@ -1125,7 +1128,8 @@ section {
   animation: slide-in-fwd-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
   text-shadow: 0 0 5px #00FFFF, 0 0 15px rgb(0, 255, 255), 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF, 0 0 98px #0077ff;
 }
-svg {
+
+.star {
   filter: drop-shadow(0px 0px 8px rgb(253 253 0 / 1));
 }
 
@@ -1219,8 +1223,8 @@ svg {
 .ring {
   width: 27rem;
   height: 26rem;
-  border-left: 10px solid cyan;
-  border-top: 10px solid cyan;
+  border-left: 7px solid white;
+  border-top: 7px solid white;
   border-radius: 50%;
   top: -3rem; 
   left: -3rem;
@@ -1249,15 +1253,31 @@ svg {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-left: 0.5rem;
+  margin-left: 4rem;
+  z-index: 4;
+}
+
+.detailCategory {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
 }
 
 .detailCategory span {
   font-size: 1rem;
 }
 
+.categoryIcon {
+  font-size: '2rem';
+  color: 'cyan';
+  filter: 'drop-shadow(0px 0px 8px rgb(0 255 255 / 1))';
+  margin-right: 0.5rem;
+}
+
 .cardTitle {
-  font-family: "Rhesmanisa" !important;
+  font-family: 'honeyScript' !important;
   font-weight: 200;
   font-size: 5rem;
   color: white;
@@ -1326,7 +1346,7 @@ svg {
 }
 
 .sectionDetail {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   position: absolute;
   top: 45px;
   left: 5%;
@@ -1338,7 +1358,7 @@ svg {
 }
 
 .sectionDetail2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   position: absolute;
   top: -143px;
   left: 5%;
@@ -1347,26 +1367,6 @@ svg {
   align-items: center;
   justify-content: center;
   width: 100%;
-}
-
-.line {
-  position: absolute;
-  top: 23px;
-  left: 78px;
-  width: 50px;
-  height: 2px;
-  background-color: #FE0000;
-  border-radius: 5px;
-}
-
-.line2 {
-  position: absolute;
-  top: 23px;
-  left: 78px;
-  width: 50px;
-  height: 2px;
-  background-color: #FEFE00;
-  border-radius: 5px;
 }
 
 /* ----------------------------------------------
@@ -1871,7 +1871,6 @@ svg {
 .gameboy {
   background-color: #e6dfe3;
   width: 48rem;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1887,7 +1886,7 @@ svg {
 
 .gameboyScreen {
   width: 41rem;
-  height: 27.5rem;
+  height: 27rem;
   border-radius: 15px 15px 100px 15px;
   box-shadow: 5px 5px 2px 0px #817294 inset, -2px -2px 2px 0px #817294 inset;
   background-color: #9289a2;
@@ -2026,10 +2025,7 @@ svg {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  /* margin-left: 5rem;
-  transform: translateY(14rem) scale(1.15, 1.15);
-  margin-top: -8rem; */
-  margin: 5rem 5rem 0rem 5rem;
+  margin: 4rem 5rem 0rem 5rem;
 }
 
 .buttonShadow {
@@ -2127,21 +2123,23 @@ svg {
   margin-left: 7rem;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 0.4rem;
+  margin-top: 0.7rem;
 }
-
-.gameboyTitle span{
+.title1 {
   font-family: 'Gill Sans';
-  margin-top: 0.5rem;
-  font-weight: bold;
   color: #443796;
+  font-weight: 600;
 }
 
 .title2 {
   font-size: 3rem;
   margin-left: 0.5rem;
   font-style: italic;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
+  font-family: 'Gill Sans';
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #443796;
 }
 
 /* end of other page */

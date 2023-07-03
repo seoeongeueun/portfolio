@@ -43,7 +43,7 @@ function Contact() {
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div className='contactPage'>
                 <div className='contactPageIntro'>
-                    <span class="contactTitle">CONTACT</span>
+                    <span className="contactTitle">CONTACT</span>
                     <span className='contactDesc'>CONNECT WITH ME!</span>
                     <div className='scoreboard'>
                         <div className='bestPlayer'>
@@ -61,10 +61,10 @@ function Contact() {
                                 </div>
                                 <div className='boardTitle'>
                                     <div className='boardContent'>
-                                        {change ? <span>{[...Array(life).keys()].map((item) => (
-                                        <img src={AlienCyan} alt='alienCyan' className='alienCyan'/>
-                                        ))}</span> : <span><a href="https://github.com/seoeongeueun" target="_blank"><img src={GithubIcon} alt='github' style={{cursor: 'pointer', marginTop: '5px'}}/></a>
-                                            <a href="https://www.linkedin.com/in/seongeun-park-43b73a195/" target="_blank"><img src={LinkedInIcon} alt='linkedin' style={{cursor: 'pointer', marginTop: '5px'}}/></a></span>}
+                                        {change ? <span>{[...Array(life).keys()].map((item, index) => (
+                                        <img key={index} src={AlienCyan} alt='alienCyan' className='alienCyan'/>
+                                        ))}</span> : <span><a href="https://github.com/seoeongeueun" target="_blank" rel="noreferrer"><img src={GithubIcon} alt='github' style={{cursor: 'pointer', marginTop: '5px'}}/></a>
+                                            <a href="https://www.linkedin.com/in/seongeun-park-43b73a195/" target="_blank" rel="noreferrer"><img src={LinkedInIcon} alt='linkedin' style={{cursor: 'pointer', marginTop: '5px'}}/></a></span>}
                                     </div>
                                 </div>
                             </div>
@@ -95,13 +95,13 @@ function Contact() {
                                 <div className='boardTitle'>
                                     <span style={{marginBottom: '1rem'}}>LIVES</span>
                                     <div className='boardContent'>
-                                        {change && <span><a href="https://github.com/seoeongeueun" target="_blank"><img src={GithubIcon} alt='github' style={{cursor: 'pointer', marginTop: '5px'}}/></a>
-                                            <a href="https://www.linkedin.com/in/seongeun-park-43b73a195/" target="_blank"><img src={LinkedInIcon} alt='linkedin' style={{cursor: 'pointer', marginTop: '5px'}}/></a></span>}
-                                        <span>{[...Array(2).keys()].map((item) => (
-                                        <img src={AlienCyan} alt='alienCyan' className='alienCyan'/>
+                                        {change && <span><a href="https://github.com/seoeongeueun" target="_blank" rel="noreferrer"><img src={GithubIcon} alt='github' style={{cursor: 'pointer', marginTop: '5px'}}/></a>
+                                            <a href="https://www.linkedin.com/in/seongeun-park-43b73a195/" target="_blank" rel="noreferrer"><img src={LinkedInIcon} alt='linkedin' style={{cursor: 'pointer', marginTop: '5px'}}/></a></span>}
+                                        <span>{[...Array(2).keys()].map((item, index) => (
+                                        <img src={AlienCyan} key={index} alt='alienCyan' className='alienCyan'/>
                                         ))}</span>
-                                        <span>{[...Array(life).keys()].map((item) => (
-                                        <img src={AlienCyan} alt='alienCyan' className='alienCyan'/>
+                                        <span>{[...Array(life).keys()].map((item, index) => (
+                                        <img src={AlienCyan} key={index} alt='alienCyan' className='alienCyan'/>
                                         ))}</span>
                                     </div>
                                 </div>

@@ -10,6 +10,10 @@ import School from "../icons/Stony_Brook_University_seal.png";
 import Me from '../icons/me.png';
 import StarIcon from '@mui/icons-material/Star';
 import BlurOnIcon from '@mui/icons-material/BlurOn';
+import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
+import CakeOutlinedIcon from '@mui/icons-material/CakeOutlined';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import DesktopWindowsOutlinedIcon from '@mui/icons-material/DesktopWindowsOutlined';
 
 function About({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [mouseX, setMouseX] = useState(0);
@@ -114,12 +118,12 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
         <main style={{backgroundImage: `url(${Stars})`}}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div id='aboutPage' className='aboutPage' onClick={(e) => {audio1.play(); setShoot(true); handleMouseClick(e)}} style={{ cursor: "url(" + Ufo + "), auto"}}>
-                {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '290px', top: '200px'}}/> : <StarIcon sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '290px', top: '200px'}}/>}
-                {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : <StarIcon sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '500px', top: '400px'}}/>}
-                {hit.some(e => e.id === 2) ? <img className='boom' src={Boom} alt='boom' style={{left: '900px', top: '50px'}}/> : <StarIcon sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '900px', top: '50px'}}/>}
-                {hit.some(e => e.id === 3) ? <img className='boom' src={Boom} alt='boom' style={{left: width-150, top: height-300}}/> : <StarIcon sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: width-150, top: height-300}}/>}
-                {hit.some(e => e.id === 4) ? <img className='boom' src={Boom} alt='boom' style={{left: width-500, top: height-500}}/> : <StarIcon sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: width-500, top: height-500}}/>}
-                {shoot && <div key='missile' className='missile' style={{left: mouseX+16, top: mouseY-30}} />}
+                {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '290px', top: '200px'}}/> : <StarIcon className='star' sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '290px', top: '200px'}}/>}
+                {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : <StarIcon className='star' sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '500px', top: '400px'}}/>}
+                {hit.some(e => e.id === 2) ? <img className='boom' src={Boom} alt='boom' style={{left: '900px', top: '50px'}}/> : <StarIcon className='star' sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: '900px', top: '50px'}}/>}
+                {hit.some(e => e.id === 3) ? <img className='boom' src={Boom} alt='boom' style={{left: width-150, top: height-300}}/> : <StarIcon className='star' sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: width-150, top: height-300}}/>}
+                {hit.some(e => e.id === 4) ? <img className='boom' src={Boom} alt='boom' style={{left: width-500, top: height-500}}/> : <StarIcon className='star' sx={{zIndex: '3', position: 'absolute', fontSize: '40px', left: width-500, top: height-500}}/>}
+                {shoot && <div key='missile' className='missile' style={{left: mouseX+16, top: mouseY-30}}/>}}
                 <div className='otherPageIntro' style={{marginTop: shoot && '-23px'}}>
                     {titleHit ? <p className='titleHitcard'>About Me</p> : <span className='cardTitle' style={{margin: '2rem 0 1rem 4rem'}}>About Me</span>}
                     <div className='otherPageLang'>
@@ -136,24 +140,24 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                             </div>
                             <div className='detailCategoryContainer'>
                                 <div className='detailCategory'>
-                                    <span style={{color: 'cyan'}}>NAME</span>
+                                    <SentimentSatisfiedAltOutlinedIcon className='categoryIcon' sx={{fontSize: '1.5rem', color: 'cyan'}}/>
                                     {lang === 'English' ? <span>Seongeun Park</span> : <span>박성은</span>}
                                 </div>
                                 <div className='detailCategory'>
-                                    <span style={{color: 'cyan'}}>AGE</span>
+                                    <CakeOutlinedIcon className='categoryIcon' sx={{fontSize: '1.5rem', color: 'cyan'}}/>
                                     <span>1999.01.25</span>
                                 </div>
                                 <div className='detailCategory'>
-                                    <span style={{color: 'cyan'}}>EDU</span>
+                                    <SchoolOutlinedIcon className='categoryIcon' sx={{fontSize: '1.5rem', color: 'cyan'}}/>
                                     {lang === 'English' ? <span>Stony Brook University</span> : <span>뉴욕주립대학교</span>}
                                 </div>
                                 <div className='detailCategory'>
-                                    <span style={{color: 'cyan'}}>MAJOR</span>
+                                    <DesktopWindowsOutlinedIcon className='categoryIcon' sx={{fontSize: '1.5rem', color: 'cyan'}}/>
                                     {lang === 'English' ? <span>Computer Science</span> : <span>컴퓨터공학부</span>}
                                 </div>
                             </div>
                         </div>
-                        <dic className='aboutCard' style={{flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', minHeight: '20rem'}}>
+                        <div className='aboutCard' style={{flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', minHeight: '20rem'}}>
                             <span className='cardTitle'>Timeline</span>
                             <div className='timeline'>
                                 <div className='timelineSection'>
@@ -161,8 +165,8 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                                     <div className='sectionDetail'>
                                         <span>2020</span>
                                         <div className='line'/>
-                                        {lang === 'English' ? <span style={{marginTop: '7px'}}>Intern</span> : <span style={{marginTop: '10px'}}>학부생</span>}
-                                        {lang === 'English' ? <span>Intern</span> : <span>조교</span>}
+                                        {lang === 'English' ? <span style={{marginTop: '7px'}}>Teaching</span> : <span style={{marginTop: '10px'}}>학부생</span>}
+                                        {lang === 'English' ? <span>Assistant</span> : <span>조교</span>}
                                     </div>
                                 </div>
                                 <div className='timelineSection2' >
@@ -194,7 +198,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                                     </div>
                                 </div>
                             </div>
-                        </dic>
+                        </div>
                     </div>
                     <div className='aboutIntroductionText'>
                         <span className='cardTitle' style={{marginBottom: '5rem !important'}}>Introduction<br></br></span>
@@ -211,8 +215,8 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                         </div>
                         <div className='livesInfo'>
                             <span className='lives' style={{fontFamily: 'DGM'}}>LIVES</span>
-                            {[...Array(life).keys()].map((item) => (
-                                <img src={AlienCyan} alt='alienCyan' className='alienCyan'/>
+                            {[...Array(life).keys()].map((item, index) => (
+                                <img src={AlienCyan} key={index} alt='alienCyan' className='alienCyan'/>
                             ))}
                         </div>
                 </div>}

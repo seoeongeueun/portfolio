@@ -1,6 +1,7 @@
 import KeyboardContainer from '../containers/KeyboardContainer';
 import ProjectsContainer from '../containers/ProjectsContainer';
 import ProjectsContainer2 from '../containers/ProjectsContainer2';
+import ProjectsContainer3 from '../containers/ProjectsContainer3';
 import AboutContainer from '../containers/AboutContainer';
 import Other from './Other';
 import Contact from './Contact';
@@ -191,7 +192,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
             <ProjectsContainer2 lang={lang} setLang={setLang}/>
           </section>
           <section>
-            <ProjectsContainer2 lang={lang} setLang={setLang}/>
+            <ProjectsContainer3 lang={lang} setLang={setLang}/>
           </section>
           <section>
             <Other lang={lang} setLang={setLang} onSetMenu={onSetMenu}/>

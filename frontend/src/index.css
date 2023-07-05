@@ -1062,16 +1062,33 @@ section {
   width: 70vw;
 }
 
+.aboutCardContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 3rem;
+  width: 70%;
+}
+
 .aboutIntroductionText {
-  margin-top: 2rem;
-  font-size: 1.3rem;
+  font-size: 1rem;
   word-wrap: break-word;
   line-height: 1.8rem;
-  width: 90%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-bottom: 4rem;
 }
 .textContent {
   margin-left: 1rem;
@@ -1356,24 +1373,6 @@ section {
   }
 }
 
-
-.aboutCardContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.aboutCard {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width:100rem;
-  margin-right: 4rem;
-}
-
 .aboutCardImageContainer {
   position: relative;
 }
@@ -1390,15 +1389,14 @@ section {
             0 0 0.8rem cyan,
             inset 0 0 1.3rem cyan;
   padding: 0.5rem;
-  -webkit-animation: flip-in-ver-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: flip-in-ver-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: flip-in-ver-right 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: flip-in-ver-right 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-.myPic img:hover {
+.myPic:hover {
   -webkit-animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
 	        animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
 }
-
 
 .picHit{
   width: 20rem;
@@ -1417,8 +1415,8 @@ section {
 }
 
 .picChange{
-  -webkit-animation: flip-vertical-right2 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1 both;
-  animation: flip-vertical-right2 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1 both;
+  -webkit-animation: flip-vertical-right2 1.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1 both;
+  animation: flip-vertical-right2 1.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1 both;
   width: 20rem;
   height: 20rem;
   object-fit: cover;
@@ -1464,7 +1462,7 @@ section {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-left: 4rem;
+  margin-left: 5rem;
   z-index: 4;
 }
 
@@ -1660,7 +1658,7 @@ section {
 .cardTitle {
   font-family: 'Rhesmanisa' !important;
   font-weight: 200;
-  font-size: 5rem;
+  font-size: 4rem;
   color: white;
   text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF;
 	-webkit-animation: flicker-4 10s linear 2s infinite both;
@@ -1669,7 +1667,7 @@ section {
 
 .cardTitleHit {
   font-weight: 200;
-  font-size: 5rem;
+  font-size: 4rem;
   color: white;
   text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF;
   -webkit-animation: flicker-2 1.5s linear 1 both;

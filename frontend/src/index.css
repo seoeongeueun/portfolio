@@ -1053,7 +1053,7 @@ section {
   justify-content: space-between;
   align-items: center;
   margin: 0 1rem 0 1rem;
-  width: 100vw;
+  width: 97vw;
 }
 
 .aboutIntroduction {
@@ -1355,6 +1355,7 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .aboutCard {
@@ -1419,6 +1420,10 @@ section {
   padding: 0.5rem;
 }
 
+.picChange:hover {
+  -webkit-animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
+	        animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
+}
 .ring {
   width: 27rem;
   height: 26rem;
@@ -1678,6 +1683,10 @@ section {
   background-color: white;
   border-radius: 5px;
   z-index: 3;
+}
+
+.projectImageButtons span{
+  font-family: 'DGM';
 }
 
 .descriptionKor {

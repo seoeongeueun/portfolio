@@ -100,7 +100,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
             }
         }
         else {
-            if (['interest', 'project', 'contact', 'other', 'about'].includes(clicked)){
+            if (['project', 'contact', 'other', 'about'].includes(clicked)){
                 onSetMenu(clicked);
             }
         }
@@ -116,13 +116,13 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
         }
         if (menu === 'other') {
           outerRef.current?.scrollTo({ 
-            top: window.innerHeight * 2,
+            top: window.innerHeight * 4,
             behavior: 'auto',
           });
         }
         if (menu === 'contact') {
           outerRef.current?.scrollTo({ 
-            top: window.innerHeight * 3,
+            top: window.innerHeight * 5,
             behavior: 'auto',
           });
         }
@@ -162,15 +162,11 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
             </div>
             <div className='menuKey'>
               <img className="play" src={Play} alt="play" style={ menu === 'other' ? {width: '25px', marginRight: '5px'} : {width: '25px', marginRight: '5px', display: 'none'}}/>
-              <span className='start' onClick={(e) => {handleClick('other'); setIndex(2);}}>OTHER</span>
-            </div>
-            <div className='menuKey'>
-              <img className="play" src={Play} alt="play" style={ menu === 'interest' ? {width: '25px', marginRight: '5px'} : {width: '25px', marginRight: '5px', display: 'none'}}/>
-              <span className='start' onClick={(e) => {handleClick('interest'); setIndex(3);}}>INTERESTS</span>
+              <span className='start' onClick={(e) => {handleClick('other'); setIndex(3);}}>OTHER</span>
             </div>
             <div className='menuKey'>
               <img className="play" src={Play} alt="play" style={ menu === 'contact' ? {width: '25px', marginRight: '5px'} : {width: '25px', marginRight: '5px', display: 'none'}}/>
-              <span className='start' onClick={(e) => {handleClick('contact'); setIndex(4);}}>CONTACT</span>
+              <span className='start' onClick={(e) => {handleClick('contact'); setIndex(5);}}>CONTACT</span>
             </div>
           </div>
           {jump ? <div className='alienIconJump'>
@@ -190,6 +186,9 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
           </section>
           <section>
             <ProjectsContainer lang={lang} setLang={setLang}/>
+          </section>
+          <section>
+            <ProjectsContainer2 lang={lang} setLang={setLang}/>
           </section>
           <section>
             <ProjectsContainer2 lang={lang} setLang={setLang}/>

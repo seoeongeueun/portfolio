@@ -134,7 +134,7 @@ function Other(props) {
                 <div className='otherPageBody'>
                     {checked ? <div className='otherPageDesc'>
                         {props.lang === 'Korean' ? <div className='descTitle'>
-                                                {page === 0 && <span style={{fontSize: '2.5rem', color: 'cyan'}}>3D 게임 아이템</span>}
+                                                {page === 0 && <span style={{fontSize: '2rem', color: 'cyan'}}>3D 게임 아이템</span>}
                                                 <div className='descBody'>
                                                 {page === 0 && <span>사용 프로그램: 블렌더, 마블러스 디자이너, 밀크셰이프, 포토샵<br></br>
                                                 심즈3와 세컨드라이프 게임 전용 커스텀 제작 아이템 (CC)를 만들어서 배포하는게 취미였습니다.</span>}
@@ -143,10 +143,10 @@ function Other(props) {
                                                 {page === 4 && <span>아이템을 디자인하고 3d 메쉬를 제작하고 다른 유저들 교류하며 많이 배우고 다양한 기술을 공부하는 좋은 경험이었습니다.</span>}
                                                 {page === 5 && <span>튜토리얼을 찾아보고, 다른 사람들에게 질문하고, 다양한 문제에 부딪히면서, 독학하는 것을 겁내지 않게 되는 첫 계기가 되었습니다.</span>}
                                                 </div>
-                                                <span style={{float: 'right', marginTop: '1rem'}}>{page === 0 ? 1 : page}/{5}</span>
+                                                <span style={{float: 'right', marginTop: '1rem', fontSize: '1rem' }}>{page === 0 ? 1 : page}/{5}</span>
                                               </div>
                             : <div className='descTitle'>
-                                {page === 0 && <span style={{fontSize: '2.5rem', color: 'cyan'}}>3D Game Items</span>}
+                                {page === 0 && <span style={{fontSize: '2rem', color: 'cyan'}}>3D Game Items</span>}
                                 <div className='descBody'>
                                     {page === 0 && <span>Programs Used: Blender, Marvelous Designer, Milkshape, and Adobe Photoshop<br></br>
                                       I used to make Custom Content (cc) items for The Sims 3 and Second Life, and shared them online.</span>}
@@ -155,7 +155,7 @@ function Other(props) {
                                     {page === 4 && <span>It was a fun opportunity to study new skills and I had a lot of fun designing and creating meshes, making promotional images, and connecting with other users. </span>}
                                     {page === 5 && <span>Looking up tutorials online, asking other people questions, and going through lots of trial and error helped me get used to studying by myself.</span>}
                                 </div>
-                                <span style={{float: 'right', marginTop: '1rem'}}>{page === 0 ? 1 : page}/{5}</span>
+                                <span style={{float: 'right', marginTop: '1rem', fontSize: '1rem'}}>{page === 0 ? 1 : page}/{5}</span>
                             </div>}
                     </div>
                     : <div className='otherPageDesc'>

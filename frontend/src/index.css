@@ -1639,7 +1639,7 @@ section {
 }
 
 .project span{
-  font-size: 2rem;
+  font-family: 'NanumSquareNeo';
 }
 
 .projectImageAndDetail {
@@ -1686,7 +1686,8 @@ section {
 }
 
 .descriptionKor span {
-  font-size: 1.7rem;
+  font-size: 1.3rem;
+  line-height: 2rem;
 }
 
 .descriptionKor2 {
@@ -1700,7 +1701,10 @@ section {
   justify-content: space-between;
   width: 100%;
   margin-top: 1rem;
-  
+}
+
+.descriptionButtons span {
+  font-family: 'DGM';
 }
 
 .projectName {
@@ -1724,14 +1728,17 @@ section {
 }
 
 .projectTitleDetail{
-  font-size: 2rem !important;
+  font-size: 1.2rem !important;
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: 'NanumSquareNeo' !important;
+  margin-right: 0.5rem;
 }
 
 .projectName span {
   font-size: 3rem;
+  font-family: 'DGM';
 }
 
 .projectName img {
@@ -1857,7 +1864,7 @@ section {
 }
 
 .otherPageDesc {
-	width: 50%;
+	width: 45%;
 	display: flex;
 	flex-direction: column;
   justify-content: center;
@@ -1967,8 +1974,14 @@ section {
   width: 80%;
 }
 
+.descTitle span {
+  font-family: 'NanumSquareNeo';
+}
+
 .descBody {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  margin-top: 1rem;
 }
 
 
@@ -1976,7 +1989,7 @@ section {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 55vw;
+  width: 55rem;
 }
 
 .gameboyHead {

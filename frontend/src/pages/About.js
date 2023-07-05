@@ -22,6 +22,7 @@ import ReduxIcon from '../svg/redux-color.svg';
 import NodeIcon from '../svg/nodedotjs-color.svg';
 import Amazons3 from '../svg/amazons3-color.svg';
 import ExpressIcon from '../svg/express-color.svg';
+import KeyboardDoubleArrowDownRoundedIcon from '@mui/icons-material/KeyboardDoubleArrowDownRounded';
 
 function About({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [mouseX, setMouseX] = useState(0);
@@ -230,15 +231,15 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
         <main style={{backgroundImage: `url(${Stars})`}}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div id='aboutPage' className='aboutPage' onClick={(e) => {audio1.play(); setShoot(true); handleMouseClick(e)}} style={{ cursor: "url(" + Ufo + "), auto"}}>
-                {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '290px', top: '200px'}}/> : <img className='monster' src={Monster1} alt='monster' style={{left: '290px', top: '200px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both', 
+                {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '290px', top: '200px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '290px', top: '200px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both', 
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(1) infinite both'}}/>}
-                {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : <img className='monster' src={Monster1} alt='monster' style={{left: '500px', top: '400px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1s infinite both', 
+                {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '500px', top: '400px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1s infinite both', 
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(2) infinite both'}}/>}
-                {hit.some(e => e.id === 2) ? <img className='boom' src={Boom} alt='boom' style={{left: '900px', top: '50px'}}/> : <img className='monster' src={Monster1} alt='monster' style={{left: '900px', top: '50px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 2s infinite both', 
+                {hit.some(e => e.id === 2) ? <img className='boom' src={Boom} alt='boom' style={{left: '900px', top: '50px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '900px', top: '50px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 2s infinite both', 
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(3) infinite both'}}/>}
-                {hit.some(e => e.id === 3) ? <img className='boom' src={Boom} alt='boom' style={{left: width-150, top: height-300}}/> : <img className='monster' src={Monster1} alt='monster' style={{left: width-150, top: height-300, 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1.5s infinite both', 
+                {hit.some(e => e.id === 3) ? <img className='boom' src={Boom} alt='boom' style={{left: width-150, top: height-300}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: width-150, top: height-300, 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1.5s infinite both', 
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(3) infinite both'}}/>}
-                {hit.some(e => e.id === 4) ? <img className='boom' src={Boom} alt='boom' style={{left: width-500, top: height-500}}/> : <img className='monster' src={Monster1} alt='monster' style={{left: width-500, top: height-500, 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 2.5s infinite both', 
+                {hit.some(e => e.id === 4) ? <img className='boom' src={Boom} alt='boom' style={{left: width-500, top: height-500}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: width-500, top: height-500, 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 2.5s infinite both', 
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(3) infinite both'}}/>}
                 {shoot && <div key='missile' className='missile' style={{left: mouseX+16, top: mouseY-30}}/>}
                 <div className='aboutPageIntro'>
@@ -248,7 +249,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                         <button onClick={() => setLang('English')} disabled={lang === 'English'}>ENGLISH</button>
                     </div>
                 </div>
-                <div className='aboutIntroduction' style={{marginTop: !help && '-4rem'}}>
+                <div className='aboutIntroduction' style={{marginTop: !help && '0rem'}}>
                     <div className='aboutCardContainer'>
                         <div className='aboutCard'>
                             <div className='aboutCardImageContainer'>
@@ -274,14 +275,14 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                                 </div>
                             </div>
                         </div>
-                        <div className='aboutIntroductionText' style={{flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', minHeight: '20rem'}}>
+                        <div className='aboutIntroductionText'>
                             {introHit ? <span className={changeFont.some(e => e.id === 'intro') ? 'cardTitleChange' : 'cardTitleHit'}>Introduction</span> : <span className='cardTitle' id='intro'>Introduction</span>}
                             {lang === 'English' ? <div className='textContent' style={{marginTop: !introHit ? '1.5rem' : '1rem'}}>
-                                <span>I'm a frontend developer who is passionate about blending functionality and aesthetics. </span>
-                                <span>With my creative ideas and attention to subtle details, I hope to make the user interface visually appealing, intuitive, and interesting. </span><br></br>
+                                <span>Hello, I'm a frontend developer who is passionate about blending functionality and aesthetics. </span>
+                                <span>With my creative ideas and attention to subtle details, I hope to make the user interface visually appealing, intuitive, and interesting. </span>
                                 <span>Feel free to explore my portfolio to see examples of my work, and reach out if you have any questions!</span>
                             </div>
-                            : <div className='textContent' style={{marginTop: '1rem'}}>
+                            : <div className='textContent' style={{marginTop: !introHit ? '1.5rem' : '1rem'}}>
                                 <span>안녕하세요. 저는 성능과 시각적으로 흥미로운 인터페이스의 밸런스를 추구하는 프론트엔드 개발자입니다. </span>
                                 <span>창의적인 아이디어와 디테일함으로 유저 인터페이스를 흥미롭고, 직관적으로 만들기 위해 노력합니다. </span><br></br>
                                 <span>이 포트폴리오는 제 프로젝트를 소개하고, 다양한 기능을 테스트하기 위해 만들었습니다.</span>
@@ -337,6 +338,10 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                             </div>
                         </div>
                     </div>
+                    {!help && <div className='scrollHelp'>
+                        {lang == 'English' ? <span>SCROLL DOWN TO VIEW</span> : <span>스크롤해서 더보기</span>}
+                        <KeyboardDoubleArrowDownRoundedIcon className='downArrow' sx={{fontSize: '2rem'}}/>
+                    </div>}
                 </div>
                 {help ? <div className='help'>
                             <span>CLICK ANYWHERE TO FIRE!</span>
@@ -347,7 +352,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                             <span className='score' style={{fontFamily: 'DGM'}}>SCORE</span>
                             <span style={{color: 'cyan', marginLeft: '1rem', fontFamily: 'DGM'}}>{score}</span>
                         </div>
-                        <span>{changeFont.length + hit.length}/9 TARGETS</span>
+                        <span style={{marginLeft: '9rem'}}>{changeFont.length + hit.length}/9 TARGETS</span>
                         <div className='livesInfo' style={{marginRight: '1rem'}}>
                             <span className='lives' style={{fontFamily: 'DGM'}}>LIVES</span>
                             {[...Array(life).keys()].map((item, index) => (

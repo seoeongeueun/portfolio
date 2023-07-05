@@ -24,7 +24,7 @@ import Amazons3 from '../svg/amazons3-color.svg';
 import ExpressIcon from '../svg/express-color.svg';
 import KeyboardDoubleArrowDownRoundedIcon from '@mui/icons-material/KeyboardDoubleArrowDownRounded';
 
-function About({score, life, onSetScore, onSetLife, lang, setLang}) {
+function About({score, life, onSetScore, lang, setLang, current}) {
     const [mouseX, setMouseX] = useState(0);
     const [mouseY, setMouseY] = useState(0);
     const [shoot, setShoot] = useState(false);
@@ -42,26 +42,43 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [titleHit, setTitleHit] = useState(false);
     const [introHit, setIntroHit] = useState(false);
     const [skillsHit, setSkillsHit] = useState(false);
-
+    const [reload, setReload] = useState(false);
 
 
     useEffect(() => {
-        let element = document.getElementById('intro')
+        if (current === 0) {
+            onSetScore(score - 100*(hit.length + changeFont.length) <= 0 ? 0 : score - 100*(hit.length + changeFont.length));
+
+            setTitleHit(false);
+            setIntroHit(false);
+            setSkillsHit(false);
+            setPicHit(false);
+            setChangeFont([]);
+            setHit([]);
+            setReload(true);
+            setHelp(true);
+        } else {
+            setReload(false)
+        }
+    }, [current]);
+
+    useEffect(() => {
+        let element = document.getElementById('intro');
         if (element) {
             let info = {x: element.getBoundingClientRect().x, y: element.getBoundingClientRect().y, w: element.getBoundingClientRect().width, h: element.getBoundingClientRect().height}
             setIntro(info);
         }
-        let element2 = document.getElementById('skills')
+        let element2 = document.getElementById('skills');
         if (element2) {
             let info = {x: element2.getBoundingClientRect().x, y: element2.getBoundingClientRect().y, w: element2.getBoundingClientRect().width, h: element2.getBoundingClientRect().height}
             setSkills(info);
         }
-        let element3 = document.getElementById('aboutMe')
+        let element3 = document.getElementById('aboutMe');
         if (element3) {
             let info = {x: element3.getBoundingClientRect().x, y: element3.getBoundingClientRect().y, w: element3.getBoundingClientRect().width, h: element3.getBoundingClientRect().height}
             setTitle(info);
         }
-        let element4 = document.getElementById('pic')
+        let element4 = document.getElementById('pic');
         if (element4) {
             let info = {x: element4.getBoundingClientRect().x, y: element4.getBoundingClientRect().y, w: element4.getBoundingClientRect().width, h: element4.getBoundingClientRect().height}
             setPic(info);
@@ -158,7 +175,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                 setPicHit(true);
                 clearInterval(trackMovement);
             }
-            else if (hit.filter(e => e.id === 0).length === 0 && element?.getBoundingClientRect().top <= 300  && element?.getBoundingClientRect().top >= 140 && element?.getBoundingClientRect().left >= 280 && element?.getBoundingClientRect().left <=350) {
+            else if (hit.filter(e => e.id === 0).length === 0 && element?.getBoundingClientRect().top <= 300  && element?.getBoundingClientRect().top >= 140 && element?.getBoundingClientRect().left >= 80 && element?.getBoundingClientRect().left <=150) {
                 setShoot(false);
                 tmp.push({ id: 0, hit: true });
                 setHit(tmp);
@@ -228,10 +245,10 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
     };
 
     return(
-        <main style={{backgroundImage: `url(${Stars})`}}>
+        <main style={{backgroundImage: `url(${Stars})`}} key={current === 0 ? reload ? 2 : 1 : 2}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div id='aboutPage' className='aboutPage' onClick={(e) => {audio1.play(); setShoot(true); handleMouseClick(e)}} style={{ cursor: "url(" + Ufo + "), auto"}}>
-                {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '290px', top: '200px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '290px', top: '200px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both', 
+                {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '100px', top: '200px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '100px', top: '200px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both', 
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(1) infinite both'}}/>}
                 {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '500px', top: '400px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1s infinite both', 
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(2) infinite both'}}/>}
@@ -243,7 +260,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(3) infinite both'}}/>}
                 {shoot && <div key='missile' className='missile' style={{left: mouseX+16, top: mouseY-30}}/>}
                 <div className='aboutPageIntro'>
-                    {titleHit ? <span className={changeFont.some(e => e.id === 'aboutMe') ? 'cardTitleChange' : 'cardTitleHit'} style={{margin: '1rem 0 1rem 1rem', fontSize: '4rem'}} >About Me</span> : <span id='aboutMe' className='cardTitle' style={{margin: '1rem 0 1rem 1rem', fontSize: '4rem'}}>About Me</span>}
+                    {titleHit ? <span className={changeFont.some(e => e.id === 'aboutMe') ? 'cardTitleChange' : 'cardTitleHit'} style={{margin: '1rem 0 1rem 1rem', fontSize: '4rem'}} >About Me</span> : <span id='aboutMe' className='cardTitle' style={{margin: '1rem 0 1rem 1rem', fontSize: '4rem', WebkitAnimation: 'flicker-4 20s linear 3s both', animation: 'flicker-4 20s linear 3s both'}}>About Me</span>}
                     <div className='otherPageLang'>
                         <button onClick={() => setLang('Korean')} disabled={lang === 'Korean'}>한국어</button>
                         <button onClick={() => setLang('English')} disabled={lang === 'English'}>ENGLISH</button>
@@ -276,7 +293,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                             </div>
                         </div>
                         <div className='aboutIntroductionText'>
-                            {introHit ? <span className={changeFont.some(e => e.id === 'intro') ? 'cardTitleChange' : 'cardTitleHit'}>Introduction</span> : <span className='cardTitle' id='intro'>Introduction</span>}
+                            {introHit ? <span className={changeFont.some(e => e.id === 'intro') ? 'cardTitleChange' : 'cardTitleHit'}>Introduction</span> : <span className='cardTitle' id='intro' style={{WebkitAnimation: 'flicker-4 10s linear 1s both', animation: 'flicker-4 10s linear 1s both'}}>Introduction</span>}
                             {lang === 'English' ? <div className='textContent' style={{marginTop: !introHit ? '1.5rem' : '1rem'}}>
                                 <span>Hello, I'm a frontend developer who is passionate about blending functionality and aesthetics. </span>
                                 <span>With my creative ideas and attention to subtle details, I hope to make the user interface visually appealing, intuitive, and interesting. </span>
@@ -290,7 +307,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                         </div>
                     </div>
                     <div className='aboutPageSkills'>
-                        {skillsHit ? <span className={changeFont.some(e => e.id === 'skills') ? 'cardTitleChange' : 'cardTitleHit'}>Skills</span> : <span className='cardTitle' id='skills'>Skills</span>}
+                        {skillsHit ? <span className={changeFont.some(e => e.id === 'skills') ? 'cardTitleChange' : 'cardTitleHit'}>Skills</span> : <span className='cardTitle' id='skills' style={{WebkitAnimation: 'flicker-4 20s linear 5s both', animation: 'flicker-4 20s linear 5s both'}}>Skills</span>}
                         <div className='skillsIcon'>
                             <div className='icon'>
                                 <img alt='Javascript' src={Javascript}/>

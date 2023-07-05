@@ -9,17 +9,28 @@ import Zap from "../music/zap_c_07-82067.mp3"
 import Coin from "../music/coin-collect-retro-8-bit-sound-effect-145251.mp3";
 import Drop from "../music/dropping-single-coin-on-floor-2-38987.mp3";
 
-function Contact() {
+function Contact(props) {
     const [name, setName] = useState('');
     const [change, setChange] = useState(false);
     const [audio] = useState(new Audio(Zap));
     const [audio2] = useState(new Audio(Coin));
     const [audio3] = useState(new Audio(Drop));
+    const [reload, setReload] = useState(false);
     const { score, life } = useSelector(state => ({
         score: state.score.score,
         life: state.score.life
     }));
     const [click, setClick] = useState(false);
+
+    useEffect(() => {
+        if (props.current === 5) {
+            setChange(false);
+            setName('');
+            setReload(true);
+        } else {
+            setReload(false)
+        }
+    }, [props.current]);
 
     useEffect(() => {
         if (name.length > 3 ) {
@@ -39,7 +50,7 @@ function Contact() {
     }, [click, audio3])
 
     return(
-        <main style={{backgroundImage: `url(${Stars})`}}>
+        <main style={{backgroundImage: `url(${Stars})`}} key={props.current === 5 ? reload ? 2 : 1 : 2}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div className='contactPage'>
                 <div className='contactPageIntro'>

@@ -23,13 +23,34 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
     const [jump, setJump] = useState(false);
     const [lang, setLang] = useState('English');
     const outerRef = useRef();
-    const menusList = ['about', 'project', 'other', 'contact'];
+    const menusList = ['about', 'project1', 'project2', 'project3', 'other', 'contact'];
+    const [current, setCurrent] = useState(0);
 
     useEffect(() => {
       setAudio(new Audio(Theme2));
       onSetMove(false);
       onSetMenu(null);
     }, []);
+      
+    useEffect(() => {
+        const wheelHandler = (e) => {
+
+          const { deltaY } = e;
+          if (deltaY > 0) {
+            setCurrent(current === 5 ? 5 : current + 1)
+          } else {
+            setCurrent(current === 0 ? 0 : current - 1);
+
+          }
+      };
+      const outerRefCurr = outerRef?.current;
+      if (outerRefCurr) {
+          outerRefCurr.addEventListener("wheel", wheelHandler);
+          return () => {
+            outerRefCurr.removeEventListener("wheel", wheelHandler);
+        };
+      }
+  }, [outerRef, move, current]);
 
     useEffect(() => {
       if (audio) musicOn ? audio.play() : audio.pause()
@@ -165,7 +186,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
       </main>
       : <div ref={outerRef} className='outer'>
           <section>
-            <AboutContainer lang={lang} setLang={setLang}/>
+            <AboutContainer lang={lang} setLang={setLang} current={current}/>
           </section>
           <section>
             <ProjectsContainer lang={lang} setLang={setLang}/>
@@ -177,7 +198,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
             <Other lang={lang} setLang={setLang} onSetMenu={onSetMenu}/>
           </section>
           <section>
-            <Contact/>
+            <Contact current={current}/>
           </section>
         </div>}
     </>

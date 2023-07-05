@@ -36,6 +36,8 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [intro, setIntro] = useState({});
     const [title, setTitle] = useState({});
     const [skills, setSkills] = useState({});
+    const [pic, setPic] = useState({});
+    const [picHit, setPicHit] = useState(false);
     const [titleHit, setTitleHit] = useState(false);
     const [introHit, setIntroHit] = useState(false);
     const [skillsHit, setSkillsHit] = useState(false);
@@ -58,21 +60,13 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
             let info = {x: element3.getBoundingClientRect().x, y: element3.getBoundingClientRect().y, w: element3.getBoundingClientRect().width, h: element3.getBoundingClientRect().height}
             setTitle(info);
         }
+        let element4 = document.getElementById('pic')
+        if (element4) {
+            let info = {x: element4.getBoundingClientRect().x, y: element4.getBoundingClientRect().y, w: element4.getBoundingClientRect().width, h: element4.getBoundingClientRect().height}
+            setPic(info);
+        }
         
-    }, [width, height])
-
-    // useEffect(() => {
-    //     if (shoot) {
-    //         const animation = document.querySelector('.missile');
-    //         animation?.addEventListener("animationend", () => {
-    //             setShoot(false);
-    //         });
-    //     }
-    // }, [shoot]);
-
-    useEffect(() => {
-        console.log(changeFont)
-    }, [changeFont])
+    }, [width, height]);
 
     useEffect(() => {
         const animation = document.querySelector('.cardTitleHit');
@@ -99,11 +93,20 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                 });
             }
         }
-    }, [titleHit, skillsHit, introHit]);
+        if (picHit) {
+            if (changeFont.filter(e => e.id === 'pic').length === 0) {
+                const animation2 = document.querySelector('.picHit');
+                animation2?.addEventListener("animationend", () => {
+                    setChangeFont([...changeFont, {id: 'pic', change: true}]);
+                });
+            }
+        }
+    }, [titleHit, skillsHit, introHit, picHit]);
 
 
     useEffect(() => {
         const animation = document.querySelector('.cardTitleHit');
+        const animation2 = document.querySelector('.picHit');
         if (changeFont.some(e => e.id === 'aboutMe')) {
             animation?.removeEventListener("animationend", () => {
                 setChangeFont([...changeFont, {id: 'aboutMe', change: true}]);
@@ -119,28 +122,39 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                 setChangeFont([...changeFont, {id: 'skills', change: true}]);
             });
         }
-    }, [changeFont, titleHit, skillsHit, introHit])
+        if (changeFont.some(e => e.id === 'pic')) {
+            animation2?.removeEventListener("animationend", () => {
+                setChangeFont([...changeFont, {id: 'pic', change: true}]);
+            });
+        }
+    }, [changeFont, titleHit, skillsHit, introHit, picHit])
 
     useEffect(() => {
         let tmp = [...hit];
         let trackMovement = setInterval(() => {
             const element = document.querySelector('.missile');
-            if (!titleHit && element?.getBoundingClientRect().top <= title.y + title.h + 30 && element?.getBoundingClientRect().top >=  title.y - 10 && element?.getBoundingClientRect().left >= title.x && element?.getBoundingClientRect().left <= title.x + title.w) {
+            if (!titleHit && element?.getBoundingClientRect().top <= title.y + title.h && element?.getBoundingClientRect().top >=  title.y - 10 && element?.getBoundingClientRect().left >= title.x - 20 && element?.getBoundingClientRect().left <= title.x + title.w + 20) {
                 onSetScore(score+100);
                 setShoot(false);
                 setTitleHit(true);
                 clearInterval(trackMovement);
             }
-            else if (!introHit && element?.getBoundingClientRect().top <= intro.y + intro.h + 30 && element?.getBoundingClientRect().top >=  intro.y - 10 && element?.getBoundingClientRect().left >= intro.x && element?.getBoundingClientRect().left <= intro.x + intro.w) {
+            else if (!introHit && element?.getBoundingClientRect().top <= intro.y + intro.h && element?.getBoundingClientRect().top >=  intro.y - 10 && element?.getBoundingClientRect().left >= intro.x - 20&& element?.getBoundingClientRect().left <= intro.x + intro.w + 20) {
                 onSetScore(score+100);
                 setShoot(false);
                 setIntroHit(true);
                 clearInterval(trackMovement);
             }
-            else if (!skillsHit && element?.getBoundingClientRect().top <= skills.y + skills.h + 30 && element?.getBoundingClientRect().top >=  skills.y - 10 && element?.getBoundingClientRect().left >= skills.x && element?.getBoundingClientRect().left <= skills.x + skills.w) {
+            else if (!skillsHit && element?.getBoundingClientRect().top <= skills.y + skills.h && element?.getBoundingClientRect().top >=  skills.y - 10 && element?.getBoundingClientRect().left >= skills.x - 20&& element?.getBoundingClientRect().left <= skills.x + skills.w + 20) {
                 onSetScore(score+100);
                 setShoot(false);
                 setSkillsHit(true);
+                clearInterval(trackMovement);
+            }
+            else if (!picHit && element?.getBoundingClientRect().top <= pic.y + pic.h + 30 && element?.getBoundingClientRect().top >=  pic.y - 10 && element?.getBoundingClientRect().left >= pic.x - 30 && element?.getBoundingClientRect().left <= pic.x + pic.w + 30) {
+                onSetScore(score+100);
+                setShoot(false);
+                setPicHit(true);
                 clearInterval(trackMovement);
             }
             else if (hit.filter(e => e.id === 0).length === 0 && element?.getBoundingClientRect().top <= 300  && element?.getBoundingClientRect().top >= 140 && element?.getBoundingClientRect().left >= 280 && element?.getBoundingClientRect().left <=350) {
@@ -157,7 +171,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                 onSetScore(score+100);
                 clearInterval(trackMovement);
             }
-            else if (hit.filter(e => e.id === 2).length === 0 && element?.getBoundingClientRect().top >= 60 && element?.getBoundingClientRect().left >= 890 && element?.getBoundingClientRect().left <= 960 ) {
+            else if (hit.filter(e => e.id === 2).length === 0 && element?.getBoundingClientRect().top >= 60 && element?.getBoundingClientRect().left <= 960 && element?.getBoundingClientRect().left >= 880) {
                 setShoot(false);
                 tmp.push({ id: 2, hit: true });
                 setHit(tmp);
@@ -227,7 +241,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                 {hit.some(e => e.id === 4) ? <img className='boom' src={Boom} alt='boom' style={{left: width-500, top: height-500}}/> : <img className='monster' src={Monster1} alt='monster' style={{left: width-500, top: height-500, 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 2.5s infinite both', 
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(3) infinite both'}}/>}
                 {shoot && <div key='missile' className='missile' style={{left: mouseX+16, top: mouseY-30}}/>}
-                <div className='aboutPageIntro' style={{marginTop: shoot && '-35px'}}>
+                <div className='aboutPageIntro'>
                     {titleHit ? <span className={changeFont.some(e => e.id === 'aboutMe') ? 'cardTitleChange' : 'cardTitleHit'} style={{margin: '1rem 0 1rem 2rem'}} >About Me</span> : <span id='aboutMe' className='cardTitle' style={{margin: '1rem 0 1rem 2rem'}}>About Me</span>}
                     <div className='otherPageLang'>
                         <button onClick={() => setLang('Korean')} disabled={lang === 'Korean'}>한국어</button>
@@ -238,7 +252,7 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                     <div className='aboutCardContainer'>
                         <div className='aboutCard'>
                             <div className='aboutCardImageContainer'>
-                                <img className='myPic' alt='me' src={Me}/>
+                                {picHit ? <img className={changeFont.some(e => e.id === 'pic') ? 'picChange' : 'picHit'} alt='me' src={Me}/> : <img className='myPic' id='pic' alt='me' src={Me}/>}
                                 <div className='ring'/>
                             </div>
                             <div className='detailCategoryContainer'>
@@ -318,9 +332,12 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                             </div>
                         </div>
                     </div>
-                    {help && <span style={{marginTop: '2rem', color: 'cyan', display: 'block',textAlign: 'center', fontSize: '3rem', fontFamily: 'DGM'}}>CLICK ANYWHERE TO FIRE!</span>}
                 </div>
-                {!help && <div className='projectFooter' style={{width: '100vw'}}>
+                {help ? <div className='help'>
+                            <span>CLICK ANYWHERE TO FIRE!</span>
+                            <span style={{fontSize: '2rem', color: 'white'}}>0/9 TARGETS</span>
+                        </div>
+                    : <div className='projectFooter' style={{width: '100vw'}}>
                         <div className='scoreInfo'>
                             <span className='score' style={{fontFamily: 'DGM'}}>SCORE</span>
                             <span style={{color: 'cyan', marginLeft: '1rem', fontFamily: 'DGM'}}>{score}</span>

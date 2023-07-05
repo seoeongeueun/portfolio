@@ -242,13 +242,13 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(3) infinite both'}}/>}
                 {shoot && <div key='missile' className='missile' style={{left: mouseX+16, top: mouseY-30}}/>}
                 <div className='aboutPageIntro'>
-                    {titleHit ? <span className={changeFont.some(e => e.id === 'aboutMe') ? 'cardTitleChange' : 'cardTitleHit'} style={{margin: '1rem 0 1rem 2rem'}} >About Me</span> : <span id='aboutMe' className='cardTitle' style={{margin: '1rem 0 1rem 2rem'}}>About Me</span>}
+                    {titleHit ? <span className={changeFont.some(e => e.id === 'aboutMe') ? 'cardTitleChange' : 'cardTitleHit'} style={{margin: '1rem 0 1rem 2rem', fontSize: '4rem'}} >About Me</span> : <span id='aboutMe' className='cardTitle' style={{margin: '1rem 0 1rem 2rem', fontSize: '4rem'}}>About Me</span>}
                     <div className='otherPageLang'>
                         <button onClick={() => setLang('Korean')} disabled={lang === 'Korean'}>한국어</button>
                         <button onClick={() => setLang('English')} disabled={lang === 'English'}>ENGLISH</button>
                     </div>
                 </div>
-                <div className='aboutIntroduction'>
+                <div className='aboutIntroduction' style={{marginTop: !help && '-4rem'}}>
                     <div className='aboutCardContainer'>
                         <div className='aboutCard'>
                             <div className='aboutCardImageContainer'>
@@ -276,11 +276,16 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                         </div>
                         <div className='aboutIntroductionText' style={{flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', minHeight: '20rem'}}>
                             {introHit ? <span className={changeFont.some(e => e.id === 'intro') ? 'cardTitleChange' : 'cardTitleHit'}>Introduction</span> : <span className='cardTitle' id='intro'>Introduction</span>}
-                            <div className='textContent' style={{marginTop: '1rem'}}>
+                            {lang === 'English' ? <div className='textContent' style={{marginTop: '1rem'}}>
                                 <span>I'm a frontend developer who is passionate about blending functionality and aesthetics. </span>
                                 <span>With my creative ideas and attention to subtle details, I hope to make the user interface visually appealing, intuitive, and interesting. </span><br></br>
                                 <span>Feel free to explore my portfolio to see examples of my work, and reach out if you have any questions!</span>
                             </div>
+                            : <div className='textContent' style={{marginTop: '1rem'}}>
+                                <span>안녕하세요. 저는 성능과 시각적으로 흥미로운 인터페이스의 조화를 추구하는 프론트엔드 개발자입니다. </span>
+                                <span>창의적인 아이디어와 디테일함으로 유저 인터페이스를 흥미롭고, 직관적으로 만들기 위해 노력합니다. </span><br></br>
+                                <span>이 포트폴리오는 제 프로젝트를 소개하고, 다양한 기능을 테스트하기 위해 만들었습니다.</span>
+                            </div>}
                         </div>
                     </div>
                     <div className='aboutPageSkills'>
@@ -337,12 +342,13 @@ function About({score, life, onSetScore, onSetLife, lang, setLang}) {
                             <span>CLICK ANYWHERE TO FIRE!</span>
                             <span style={{fontSize: '2rem', color: 'white'}}>0/9 TARGETS</span>
                         </div>
-                    : <div className='projectFooter' style={{width: '100vw'}}>
+                    : <div className='projectFooter' style={{width: '97vw'}}>
                         <div className='scoreInfo'>
                             <span className='score' style={{fontFamily: 'DGM'}}>SCORE</span>
                             <span style={{color: 'cyan', marginLeft: '1rem', fontFamily: 'DGM'}}>{score}</span>
                         </div>
-                        <div className='livesInfo'>
+                        <span>{changeFont.length + hit.length}/9 TARGETS</span>
+                        <div className='livesInfo' style={{marginRight: '1rem'}}>
                             <span className='lives' style={{fontFamily: 'DGM'}}>LIVES</span>
                             {[...Array(life).keys()].map((item, index) => (
                                 <img src={AlienCyan} key={index} alt='alienCyan' className='alienCyan'/>

@@ -27,6 +27,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
     const [showThund, setShowThund] = useState(true);
     const [showCheese, setShowCheese] = useState(true);
     const [index1, setIndex1] = useState(0);
+    const [found, setFound] = useState(0);
 
     const project1 = [Project1Main, Project1Mypage, Project1Quizedit, Project1Takequiz, Project1Score, Project1Store, Project1Categories];
 
@@ -36,8 +37,14 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
     }, [])
 
     const handleClickFruit = (e) => {
-        if (e === 'cherry') setShowFruit2(false);
-        if (e === 'grape') setShowFruit4(false);
+        if (e === 'cherry') {
+            setShowFruit2(false);
+            setFound(found+1);
+        }
+        if (e === 'grape') {
+            setShowFruit4(false);
+            setFound(found+1);
+        }
         onSetScore(score + 100);
         setShowScore(true);
         setClicked(e);
@@ -106,7 +113,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                         <img alt='project2' src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white"/>
                                         <img alt='project2' src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
                                         <img alt='project2' src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
-                                        <img alt='project2' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=html5&logoColor=white"/>
+                                        <img alt='project2' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=Mui&logoColor=white"/>
                                     </div>
                                     <div className='stacks'>
                                         <img alt='project2' src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
@@ -131,7 +138,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                         <img alt='project2' src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=Redux&logoColor=white"/>
                                         <img alt='project2' src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
                                         <img alt='project2' src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
-                                        <img alt='project2' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=html5&logoColor=white"/>
+                                        <img alt='project2' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=Mui&logoColor=white"/>
                                     </div>
                                     <div className='stacks'>
                                         <img alt='project2' src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
@@ -169,6 +176,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                             <span className='score'>SCORE</span>
                             <span style={{color: 'cyan', marginLeft: '1rem'}}>{score}</span>
                         </div>
+                        <span style={{marginLeft: '7rem'}}>{found}/2 FRUITS</span>
                         <div className='livesInfo'>
                             <span className='lives'>LIVES</span>
                             {[...Array(life).keys()].map((item, index) => (

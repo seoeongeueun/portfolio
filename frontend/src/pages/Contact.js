@@ -157,8 +157,8 @@ function Contact(props) {
                                     <span onClick={() => setName(name+'Y')}>Y</span>
                                     <span onClick={() => setName(name+'Z')}>Z</span>
                                     <span onClick={() => setName(name.substring(0, name.length - 1))}>DEL</span>
-                                    {name?.length === 3 ? <span onClick={() => {setChange(true); audio.play();}}>ENT</span>
-                                    : <span>ENT</span>}
+                                    {name?.length === 3 ? <span style={{color: 'cyan'}} onClick={() => {setChange(true); audio.play();}}>ENT</span>
+                                    : <span style={{color: 'cyan'}}>ENT</span>}
 
                                 </div>
                             </div>}

@@ -27,18 +27,28 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [showScore, setShowScore] = useState(false);
     const [showMoon, setShowMoon] = useState(true);
     const [index1, setIndex1] = useState(0);
+    const [found, setFound] = useState(0)
 
     const project1 = [Project1Main, Project1Mypage, Project1Quizedit, Project1Takequiz, Project1Score, Project1Store, Project1Categories];
 
     useEffect(() => {
         const audio = new Audio(CoinPick);
         audio.pause()
-    }, [])
+    }, []);
 
     const handleClickFruit = (e) => {
-        if (e === 'apple') setShowFruit(false);
-        if (e === 'lemon') setShowFruit3(false);
-        if (e === 'watermelon') setShowFruit5(false);
+        if (e === 'apple') {
+            setShowFruit(false);
+            setFound(found+1);
+        }
+        if (e === 'lemon') {
+            setShowFruit3(false);
+            setFound(found+1);
+        }
+        if (e === 'watermelon') {
+            setShowFruit5(false);
+            setFound(found+1);
+        }
         onSetScore(score + 100);
         setShowScore(true);
         setClicked(e);
@@ -105,7 +115,7 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                                         <img alt='project1' src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
                                         <img alt='project1' src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
                                         <img alt='project1' src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
-                                        <img alt='project1' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=html5&logoColor=white"/>
+                                        <img alt='project1' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=Mui&logoColor=white"/>
                                         <img alt='project1' src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
                                         <img alt='project1' src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"/>
                                         <img alt='project1' src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
@@ -125,7 +135,7 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                                         <img alt='project1' src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
                                         <img alt='project1' src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
                                         <img alt='project1' src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
-                                        <img alt='project1' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=html5&logoColor=white"/>
+                                        <img alt='project1' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=Mui&logoColor=white"/>
                                         <img alt='project1' src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
                                         <img alt='project1' src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"/>
                                         <img alt='project1' src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
@@ -159,6 +169,7 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                             <span className='score'>SCORE</span>
                             <span style={{color: 'cyan', marginLeft: '1rem'}}>{score}</span>
                         </div>
+                        <span style={{marginLeft: '7rem'}}>{found}/3 FRUITS</span>
                         <div className='livesInfo'>
                             <span className='lives'>LIVES</span>
                             {[...Array(life).keys()].map((item, index) => (

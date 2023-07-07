@@ -214,7 +214,8 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                 setShoot(false);
                 clearInterval(trackMovement);
             }
-            
+            setShoot(false);
+            clearInterval(trackMovement);
         }, [100]);
         return () => {
             clearInterval(trackMovement);

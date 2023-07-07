@@ -8,12 +8,12 @@
 @font-face {
   font-family: 'Gill Sans';
   src: local('Gill Sans'),
-    url(./fonts/Gill\ Sans.otf) format('opentype');
+    url(./fonts/Gill\ Sans.otf);
 };
 
 @font-face {
   font-family: 'Rhesmanisa';
-  src: url(./fonts/Rhesmanisa.otf) format('opentype');
+  src: url(./fonts/Rhesmanisa.otf);
 }
 
 @font-face {
@@ -1092,7 +1092,7 @@ section {
   animation-name: shoot-up;
   position: absolute;
   animation-name: shoot-up;
-  animation-duration: 0.8s;
+  animation-duration: 0.5s;
   animation-timing-function: ease-out;
   z-index: 6;
 }
@@ -2753,7 +2753,7 @@ section {
 .boardContent {
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+  align-items: center;
   justify-content: center;
 }
 

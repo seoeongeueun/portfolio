@@ -7,18 +7,9 @@
 
 @font-face {
   font-family: 'Gill Sans';
-  src: local('Gill Sans'), url(./fonts/Gill\ Sans.otf);
+  src: local('Gill Sans'),
+    url(./fonts/Gill\ Sans.otf) format('opentype');
 };
-
-@font-face {
-  font-family: 'MrsSaintDelafield-Regular';
-  src: url(./fonts/MrsSaintDelafield-Regular.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'honeyScript';
-  src: url(./fonts/honeyScript.ttf) format('truetype');
-}
 
 @font-face {
   font-family: 'Rhesmanisa';
@@ -34,7 +25,6 @@
   font-family: 'NanumSquareNeo';
   src: local('NanumSquareNeo'), url(./fonts/NanumSquareNeo.ttf) format('truetype');
 }
-
 
 * {
   font-family: 'DGM';
@@ -2277,7 +2267,7 @@ section {
 }
 
 .gameboyHead span {
-  font-family: Arial;
+  font-family: 'Gill Sans';
   font-size: 1rem;
 }
 
@@ -2319,7 +2309,7 @@ section {
 }
 
 .gameboySwitch {
-  font-family: Arial;
+  font-family: 'Gill Sans';
 }
 
 .gameboyScreen {
@@ -2355,7 +2345,7 @@ section {
 
 .gameboyLight span {
   font-size: 0.7rem;
-  font-family: Arial;
+  font-family: 'Gill Sans';
 }
 
 .gameboyLight {
@@ -2475,13 +2465,6 @@ section {
 }
 
 .buttonMove {
-  /* width: 15rem;
-  height: 15rem;
-  background-color: #070811;
-  clip-path: polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 35% 50%, 10% 50%);
-  box-shadow: 2px 0px 0px 0px #54526c inset;
-  border: 3px solid black; */
-  /* background: #54526c; */
   background: #090a13;
   height: 11.5rem;
   position: relative;

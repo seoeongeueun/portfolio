@@ -126,8 +126,8 @@ function Other(props) {
                 <div className='otherPageIntro'>
                     <p>Other</p>
                     <div className='otherPageLang'>
-                        <button onClick={() => props.setLang('Korean')} disabled={props.lang === 'Korean'}>한국어</button>
-                        <button onClick={() => props.setLang('English')} disabled={props.lang === 'English'}>ENGLISH</button>
+                      <button onClick={() => props.setLang(props.lang ==='Korean' ? 'English' : 'Korean')} style={{opacity: props.lang === 'Korean' && '0.5'}}>한국어</button>
+                      <button onClick={() => props.setLang(props.lang === 'English' ? 'Korean' : 'English')} style={{opacity: props.lang === 'English' && '0.5'}}>ENGLISH</button>
                     </div>
                 </div>
                 <div className='otherPageBody'>

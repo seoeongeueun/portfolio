@@ -80,8 +80,8 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                 <div className='projectPageIntro'>
                     <p>Project 1</p>
                     <div className='otherPageLang'>
-                        <button onClick={() => setLang('Korean')} disabled={lang === 'Korean'}>한국어</button>
-                        <button onClick={() => setLang('English')} disabled={lang === 'English'}>ENGLISH</button>
+                        <button onClick={() => setLang(lang ==='Korean' ? 'English' : 'Korean')} style={{opacity: lang === 'Korean' && '0.5'}}>한국어</button>
+                        <button onClick={() => setLang(lang === 'English' ? 'Korean' : 'English')} style={{opacity: lang === 'English' && '0.5'}}>ENGLISH</button>
                     </div>
                 </div>
                 <div className='project'>

@@ -263,8 +263,8 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                 <div className='aboutPageIntro'>
                     {titleHit ? <span className={changeFont.some(e => e.id === 'aboutMe') ? 'cardTitleChange' : 'cardTitleHit'} style={{margin: '2rem', fontSize: changeFont.some(e => e.id === 'aboutMe') ? '4rem' : '5rem', color: changeFont.some(e => e.id === 'aboutMe') && 'white'}}>About Me</span> : <span id='aboutMe' className='cardTitle' style={{margin: '2rem', fontSize: '5rem', WebkitAnimation: 'flicker-4 20s linear 3s both', animation: 'flicker-4 20s linear 3s both'}}>About Me</span>}
                     <div className='otherPageLang'>
-                        <button onClick={() => setLang('Korean')} disabled={lang === 'Korean'}>한국어</button>
-                        <button onClick={() => setLang('English')} disabled={lang === 'English'}>ENGLISH</button>
+                        <button onClick={() => setLang(lang ==='Korean' ? 'English' : 'Korean')} style={{opacity: lang === 'Korean' && '0.5'}}>한국어</button>
+                        <button onClick={() => setLang(lang === 'English' ? 'Korean' : 'English')} style={{opacity: lang === 'English' && '0.5'}}>ENGLISH</button>
                     </div>
                 </div>
                 <div className='aboutIntroduction' style={{marginTop: !help && '0rem'}}>
@@ -358,7 +358,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                     </div>
                     {!help && <div className='scrollHelp'>
                         {lang == 'English' ? <span>SCROLL DOWN TO VIEW</span> : <span>스크롤해서 더보기</span>}
-                        <KeyboardDoubleArrowDownRoundedIcon className='downArrow' sx={{fontSize: '2rem'}}/>
+                        <KeyboardDoubleArrowDownRoundedIcon className='downArrow' sx={{fontSize: '1.3rem'}}/>
                     </div>}
                 </div>
                 {help ? <div className='help'>

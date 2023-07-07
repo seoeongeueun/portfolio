@@ -9,7 +9,6 @@ import rootReducer from './modules';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(rootReducer, composeWithDevTools());
-console.log('store: ', store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

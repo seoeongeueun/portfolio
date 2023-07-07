@@ -16,6 +16,7 @@ import Stars from '../icons/stars.png';
 import { useEffect, useState, useRef } from 'react';
 import Theme2 from "../music/HoliznaCC0 - ICE temple.mp3"
 import Bleep from "../music/arcade-bleep-sound-6071.mp3";
+import { useForkRef } from '@mui/material';
 
 function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
     const [musicOn, setMusicOn] = useState(false);
@@ -114,18 +115,21 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
             top: window.innerHeight * 1,
             behavior: 'auto',
           });
+          setCurrent(1);
         }
         if (menu === 'other') {
           outerRef.current?.scrollTo({ 
             top: window.innerHeight * 4,
             behavior: 'auto',
           });
+          setCurrent(4)
         }
         if (menu === 'contact') {
           outerRef.current?.scrollTo({ 
             top: window.innerHeight * 5,
             behavior: 'auto',
           });
+          setCurrent(5)
         }
       }
     }, [menu, move])

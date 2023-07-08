@@ -148,78 +148,85 @@ function About({score, life, onSetScore, lang, setLang, current}) {
     }, [changeFont, titleHit, skillsHit, introHit, picHit])
 
     useEffect(() => {
-        let tmp = [...hit];
-        let trackMovement = setInterval(() => {
-            const element = document.querySelector('.missile');
-            if (!titleHit && element?.getBoundingClientRect().top <= title.y + title.h && element?.getBoundingClientRect().top >=  title.y - 10 && element?.getBoundingClientRect().left >= title.x - 20 && element?.getBoundingClientRect().left <= title.x + title.w + 20) {
-                onSetScore(score+100);
-                setShoot(false);
-                setTitleHit(true);
+        const element = document.querySelector('.missile');
+        if (shoot) {
+            let tmp = [...hit];
+            let trackMovement = setInterval(() => {
+                if (!titleHit && element?.getBoundingClientRect().top <= title.y + title.h && element?.getBoundingClientRect().top >=  title.y - 10 && element?.getBoundingClientRect().left >= title.x - 20 && element?.getBoundingClientRect().left <= title.x + title.w + 20) {
+                    onSetScore(score+100);
+                    setShoot(false);
+                    setTitleHit(true);
+                    clearInterval(trackMovement);
+                }
+                else if (!introHit && element?.getBoundingClientRect().top <= intro.y + intro.h && element?.getBoundingClientRect().top >=  intro.y - 10 && element?.getBoundingClientRect().left >= intro.x - 20&& element?.getBoundingClientRect().left <= intro.x + intro.w + 20) {
+                    onSetScore(score+100);
+                    setShoot(false);
+                    setIntroHit(true);
+                    clearInterval(trackMovement);
+                }
+                else if (!skillsHit && element?.getBoundingClientRect().top <= skills.y + skills.h && element?.getBoundingClientRect().top >=  skills.y - 10 && element?.getBoundingClientRect().left >= skills.x - 20&& element?.getBoundingClientRect().left <= skills.x + skills.w + 20) {
+                    onSetScore(score+100);
+                    setShoot(false);
+                    setSkillsHit(true);
+                    clearInterval(trackMovement);
+                }
+                else if (!picHit && element?.getBoundingClientRect().top <= pic.y + pic.h + 30 && element?.getBoundingClientRect().top >=  pic.y - 10 && element?.getBoundingClientRect().left >= pic.x - 30 && element?.getBoundingClientRect().left <= pic.x + pic.w + 30) {
+                    onSetScore(score+100);
+                    setShoot(false);
+                    setPicHit(true);
+                    clearInterval(trackMovement);
+                }
+                else if (hit.filter(e => e.id === 0).length === 0 && element?.getBoundingClientRect().top <= 300  && element?.getBoundingClientRect().top >= 140 && element?.getBoundingClientRect().left >= 80 && element?.getBoundingClientRect().left <=150) {
+                    setShoot(false);
+                    tmp.push({ id: 0, hit: true });
+                    setHit(tmp);
+                    onSetScore(score+100);
+                    clearInterval(trackMovement);
+                }
+                else if (hit.filter(e => e.id === 1).length === 0 && element?.getBoundingClientRect().top <= 500 && element?.getBoundingClientRect().top >= 260 && element?.getBoundingClientRect().left >= 490 && element?.getBoundingClientRect().left <= 570) {
+                    setShoot(false);
+                    tmp.push({ id: 1, hit: true });
+                    setHit(tmp);
+                    onSetScore(score+100);
+                    clearInterval(trackMovement);
+                }
+                else if (hit.filter(e => e.id === 2).length === 0 && element?.getBoundingClientRect().top >= 60 && element?.getBoundingClientRect().left <= 960 && element?.getBoundingClientRect().left >= 880) {
+                    setShoot(false);
+                    tmp.push({ id: 2, hit: true });
+                    setHit(tmp);
+                    onSetScore(score+100);
+                    clearInterval(trackMovement);
+                }
+                else if (hit.filter(e => e.id === 3).length === 0 && element?.getBoundingClientRect().top <= height-300+100 && element?.getBoundingClientRect().top >=  height-400 && element?.getBoundingClientRect().left >= width-170 && element?.getBoundingClientRect().left <= width-70) {
+                    setShoot(false);
+                    tmp.push({ id: 3, hit: true });
+                    setHit(tmp);
+                    onSetScore(score+100);
+                    clearInterval(trackMovement);
+                }
+                else if (hit.filter(e => e.id === 4).length === 0 && element?.getBoundingClientRect().top <= height-500+100 && element?.getBoundingClientRect().top >=  height-600 && element?.getBoundingClientRect().left >= width-520 && element?.getBoundingClientRect().left <= width-450) {
+                    setShoot(false);
+                    tmp.push({ id: 4, hit: true });
+                    setHit(tmp);
+                    onSetScore(score+100);
+                    clearInterval(trackMovement);
+                }
+                else if (element?.getBoundingClientRect().bottom <= 50) {
+                    setShoot(false);
+                    clearInterval(trackMovement);
+                } else {
+                    element?.addEventListener("animationend", () => {
+                        setShoot(false);
+                    });
+                }
+            }, [100]);
+            return () => {
                 clearInterval(trackMovement);
-            }
-            else if (!introHit && element?.getBoundingClientRect().top <= intro.y + intro.h && element?.getBoundingClientRect().top >=  intro.y - 10 && element?.getBoundingClientRect().left >= intro.x - 20&& element?.getBoundingClientRect().left <= intro.x + intro.w + 20) {
-                onSetScore(score+100);
-                setShoot(false);
-                setIntroHit(true);
-                clearInterval(trackMovement);
-            }
-            else if (!skillsHit && element?.getBoundingClientRect().top <= skills.y + skills.h && element?.getBoundingClientRect().top >=  skills.y - 10 && element?.getBoundingClientRect().left >= skills.x - 20&& element?.getBoundingClientRect().left <= skills.x + skills.w + 20) {
-                onSetScore(score+100);
-                setShoot(false);
-                setSkillsHit(true);
-                clearInterval(trackMovement);
-            }
-            else if (!picHit && element?.getBoundingClientRect().top <= pic.y + pic.h + 30 && element?.getBoundingClientRect().top >=  pic.y - 10 && element?.getBoundingClientRect().left >= pic.x - 30 && element?.getBoundingClientRect().left <= pic.x + pic.w + 30) {
-                onSetScore(score+100);
-                setShoot(false);
-                setPicHit(true);
-                clearInterval(trackMovement);
-            }
-            else if (hit.filter(e => e.id === 0).length === 0 && element?.getBoundingClientRect().top <= 300  && element?.getBoundingClientRect().top >= 140 && element?.getBoundingClientRect().left >= 80 && element?.getBoundingClientRect().left <=150) {
-                setShoot(false);
-                tmp.push({ id: 0, hit: true });
-                setHit(tmp);
-                onSetScore(score+100);
-                clearInterval(trackMovement);
-            }
-            else if (hit.filter(e => e.id === 1).length === 0 && element?.getBoundingClientRect().top <= 500 && element?.getBoundingClientRect().top >= 260 && element?.getBoundingClientRect().left >= 490 && element?.getBoundingClientRect().left <= 570) {
-                setShoot(false);
-                tmp.push({ id: 1, hit: true });
-                setHit(tmp);
-                onSetScore(score+100);
-                clearInterval(trackMovement);
-            }
-            else if (hit.filter(e => e.id === 2).length === 0 && element?.getBoundingClientRect().top >= 60 && element?.getBoundingClientRect().left <= 960 && element?.getBoundingClientRect().left >= 880) {
-                setShoot(false);
-                tmp.push({ id: 2, hit: true });
-                setHit(tmp);
-                onSetScore(score+100);
-                clearInterval(trackMovement);
-            }
-            else if (hit.filter(e => e.id === 3).length === 0 && element?.getBoundingClientRect().top <= height-300+100 && element?.getBoundingClientRect().top >=  height-400 && element?.getBoundingClientRect().left >= width-170 && element?.getBoundingClientRect().left <= width-70) {
-                setShoot(false);
-                tmp.push({ id: 3, hit: true });
-                setHit(tmp);
-                onSetScore(score+100);
-                clearInterval(trackMovement);
-            }
-            else if (hit.filter(e => e.id === 4).length === 0 && element?.getBoundingClientRect().top <= height-500+100 && element?.getBoundingClientRect().top >=  height-600 && element?.getBoundingClientRect().left >= width-520 && element?.getBoundingClientRect().left <= width-450) {
-                setShoot(false);
-                tmp.push({ id: 4, hit: true });
-                setHit(tmp);
-                onSetScore(score+100);
-                clearInterval(trackMovement);
-            }
-            else if (element?.getBoundingClientRect().bottom <= 50) {
-                setShoot(false);
-                clearInterval(trackMovement);
-            }
-            setShoot(false);
-            clearInterval(trackMovement);
-        }, [100]);
-        return () => {
-            clearInterval(trackMovement);
-        };
+                element?.removeEventListener("animationend", () => {
+                    setShoot(false);
+                });
+            };
+        }
     }, [mouseX, mouseY, hit, shoot, changeFont, intro]);
 
     useEffect(() => {

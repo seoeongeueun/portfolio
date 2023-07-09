@@ -12,7 +12,8 @@
 
 @font-face {
   font-family: 'Feasibly1';
-  src: url(./fonts/Feasibly1.ttf) format('truetype');
+  src: local('Feasibly1'), 
+    url(./fonts/Feasibly1.ttf) format('truetype');
 };
 
 @font-face {
@@ -1645,7 +1646,7 @@ section {
 }
 
 .cardTitle {
-  font-family: 'Feasibly1' !important;
+  font-family: 'Feasibly1';
   font-weight: bold;
   font-size: 4rem;
   color: white;

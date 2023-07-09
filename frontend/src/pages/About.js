@@ -214,7 +214,8 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                 else if (element?.getBoundingClientRect().bottom <= 50) {
                     setShoot(false);
                     clearInterval(trackMovement);
-                } else {
+                } 
+                else {
                     element?.addEventListener("animationend", () => {
                         setShoot(false);
                     });
@@ -377,7 +378,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                             <span className='score' style={{fontFamily: 'DGM'}}>SCORE</span>
                             <span style={{color: 'cyan', marginLeft: '1rem', fontFamily: 'DGM'}}>{score}</span>
                         </div>
-                        <span style={{marginLeft: '9rem'}}>{changeFont.length + hit.length}/9 TARGETS</span>
+                        <span style={{marginLeft: '8rem'}}>{changeFont.length + hit.length}/9 TARGETS</span>
                         <div className='livesInfo' style={{marginRight: '1rem'}}>
                             <span className='lives' style={{fontFamily: 'DGM'}}>LIVES</span>
                             {[...Array(life).keys()].map((item, index) => (

@@ -7,12 +7,12 @@
 
 @font-face {
   font-family: 'Gill Sans';
-  src: url(./fonts/Gill\ Sans.otf);
+  src: url(./fonts/Gill-Sans.ttf) format('truetype');
 };
 
 @font-face {
   font-family: 'Rhesmanisa';
-  src: url(./fonts/Rhesmanisa.otf);
+  src: url(./fonts/Rhesmanisa.ttf) format('truetype');
 }
 
 @font-face {

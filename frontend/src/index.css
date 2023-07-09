@@ -1646,8 +1646,8 @@ section {
 }
 
 .cardTitle {
-  font-family: 'NanumSqureNeo';
-  font-weight: bold;
+  font-family: 'Gill Sans';
+  font-weight: 200;
   font-size: 4rem;
   color: white;
   text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF;
@@ -1656,13 +1656,13 @@ section {
 }
 
 .cardTitleHit {
-  font-weight: bold;
+  font-weight: 200;
   font-size: 4rem;
   color: white;
   text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF;
   -webkit-animation: flicker-2 1.5s linear 1 both;
   animation: flicker-2 1.5s linear 1 both;
-  font-family: 'Feasibly1';
+  font-family: 'NanumSquareNeo';
 }
 
 .cardTitleChange {

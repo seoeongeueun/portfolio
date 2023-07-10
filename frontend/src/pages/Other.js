@@ -101,6 +101,7 @@ function Other(props) {
 
       useEffect(() => {
         if (checked && loading) {
+          audio.volume = 0.3;
           audio.play()
           setInterval(() => {
             setLoading(false);

@@ -44,11 +44,26 @@ function About({score, life, onSetScore, lang, setLang, current}) {
     const [skillsHit, setSkillsHit] = useState(false);
     const [reload, setReload] = useState(false);
 
+    useEffect(() => {
+        const resizeObserver = new ResizeObserver((event) => {
+            window.requestAnimationFrame(() => {
+                if (!Array.isArray(event) || !event.length) {
+                  return;
+                }
+                setWidth(event[0].contentBoxSize[0].inlineSize);
+                const bodyRef = document.getElementById("aboutPage");
+                if (bodyRef){
+                    setHeight(bodyRef.clientHeight)
+
+                }
+            });
+        });
+        resizeObserver.observe(document.getElementById("aboutPage"));
+    });
 
     useEffect(() => {
         if (current === 0) {
             onSetScore(score - 100*(hit.length + changeFont.length) <= 0 ? 0 : score - 100*(hit.length + changeFont.length));
-
             setTitleHit(false);
             setIntroHit(false);
             setSkillsHit(false);
@@ -58,7 +73,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
             setReload(true);
             setHelp(true);
         } else {
-            setReload(false)
+            setReload(false);
         }
     }, [current]);
 
@@ -83,7 +98,6 @@ function About({score, life, onSetScore, lang, setLang, current}) {
             let info = {x: element4.getBoundingClientRect().x, y: element4.getBoundingClientRect().y, w: element4.getBoundingClientRect().width, h: element4.getBoundingClientRect().height}
             setPic(info);
         }
-        
     }, [width, height]);
 
     useEffect(() => {
@@ -145,7 +159,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                 setChangeFont([...changeFont, {id: 'pic', change: true}]);
             });
         }
-    }, [changeFont, titleHit, skillsHit, introHit, picHit])
+    }, [changeFont, titleHit, skillsHit, introHit, picHit]);
 
     useEffect(() => {
         const element = document.querySelector('.missile');
@@ -214,38 +228,27 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                 else if (element?.getBoundingClientRect().bottom <= 50) {
                     setShoot(false);
                     clearInterval(trackMovement);
-                } 
-                else {
-                    element?.addEventListener("animationend", () => {
-                        setShoot(false);
-                    });
                 }
             }, [100]);
             return () => {
                 clearInterval(trackMovement);
-                element?.removeEventListener("animationend", () => {
-                    setShoot(false);
-                });
             };
         }
     }, [mouseX, mouseY, hit, shoot, changeFont, intro]);
 
     useEffect(() => {
-        const resizeObserver = new ResizeObserver((event) => {
-            window.requestAnimationFrame(() => {
-                if (!Array.isArray(event) || !event.length) {
-                  return;
+        if (shoot) {
+            let forceStop = setInterval(() => {
+                if (shoot) {
+                    setShoot(false);
+                    audio1.pause();
                 }
-                setWidth(event[0].contentBoxSize[0].inlineSize);
-                const bodyRef = document.getElementById("aboutPage");
-                if (bodyRef){
-                    setHeight(bodyRef.clientHeight)
-
-                }
-            });
-        });
-        resizeObserver.observe(document.getElementById("aboutPage"));
-    });
+            }, 1100);
+            return () => {
+                clearInterval(forceStop);
+            };
+        }
+    }, [shoot]);
 
     const handleMouseClick = (e) => {
         if (help) setHelp(false);
@@ -256,7 +259,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
     return(
         <main style={{backgroundImage: `url(${Stars})`}} key={current === 0 ? reload ? 2 : 1 : 2}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
-            <div id='aboutPage' className='aboutPage' onClick={(e) => {audio1.play(); setShoot(true); handleMouseClick(e)}} style={{ cursor: "url(" + Ufo + "), auto"}}>
+            <div id='aboutPage' className='aboutPage' onClick={(e) => {audio1.volume = 0.5; audio1.play(); setShoot(true); handleMouseClick(e)}} style={{ cursor: "url(" + Ufo + "), auto"}}>
                 {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '100px', top: '200px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '100px', top: '200px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both', 
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(1) infinite both'}}/>}
                 {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '500px', top: '400px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1s infinite both', 
@@ -365,7 +368,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                         </div>
                     </div>
                     {!help && <div className='scrollHelp'>
-                        {lang == 'English' ? <span>SCROLL DOWN TO VIEW</span> : <span>스크롤해서 더보기</span>}
+                        {lang === 'English' ? <span>SCROLL DOWN TO VIEW</span> : <span>스크롤해서 더보기</span>}
                         <KeyboardDoubleArrowDownRoundedIcon className='downArrow' sx={{fontSize: '1.3rem'}}/>
                     </div>}
                 </div>
@@ -375,12 +378,12 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                         </div>
                     : <div className='projectFooter' style={{width: '97vw'}}>
                         <div className='scoreInfo'>
-                            <span className='score' style={{fontFamily: 'DGM'}}>SCORE</span>
-                            <span style={{color: 'cyan', marginLeft: '1rem', fontFamily: 'DGM'}}>{score}</span>
+                            <span className='score' style={{fontFamily: 'DungGeunMo'}}>SCORE</span>
+                            <span style={{color: 'cyan', marginLeft: '1rem', fontFamily: 'DungGeunMo'}}>{score}</span>
                         </div>
                         <span style={{marginLeft: '8rem'}}>{changeFont.length + hit.length}/9 TARGETS</span>
                         <div className='livesInfo' style={{marginRight: '1rem'}}>
-                            <span className='lives' style={{fontFamily: 'DGM'}}>LIVES</span>
+                            <span className='lives' style={{fontFamily: 'DungGeunMo'}}>LIVES</span>
                             {[...Array(life).keys()].map((item, index) => (
                                 <img src={AlienCyan} key={index} alt='alienCyan' className='alienCyan'/>
                             ))}

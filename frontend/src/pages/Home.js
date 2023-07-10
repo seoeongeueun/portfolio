@@ -16,27 +16,24 @@ import Stars from '../icons/stars.png';
 import { useEffect, useState, useRef } from 'react';
 import Theme2 from "../music/HoliznaCC0 - ICE temple.mp3"
 import Bleep from "../music/arcade-bleep-sound-6071.mp3";
-import { useForkRef } from '@mui/material';
 
 function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
     const [musicOn, setMusicOn] = useState(false);
-    const [audio, setAudio] = useState();
+    const [audio] = useState(new Audio(Theme2));
     const [index, setIndex] = useState(0);
     const [jump, setJump] = useState(false);
     const [lang, setLang] = useState('English');
+    const [current, setCurrent] = useState(0);
     const outerRef = useRef();
     const menusList = ['about', 'project1', 'project2', 'project3', 'other', 'contact'];
-    const [current, setCurrent] = useState(0);
 
     useEffect(() => {
-      setAudio(new Audio(Theme2));
       onSetMove(false);
       onSetMenu(null);
     }, []);
       
     useEffect(() => {
         const wheelHandler = (e) => {
-
           const { deltaY } = e;
           if (deltaY > 0) {
             setCurrent(current === 5 ? 5 : current + 1)
@@ -55,7 +52,10 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
   }, [outerRef, move, current]);
 
     useEffect(() => {
-      if (audio) musicOn ? audio.play() : audio.pause()
+      if (audio) {
+        audio.volume = 0.4;
+        musicOn ? audio.play() : audio.pause()
+      }
     }, [musicOn, audio])
 
     useEffect(() => {
@@ -81,31 +81,31 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
     }, [clicked, onSetClicked]);
 
     useEffect(() => {
-        if (clicked === 'down'){
-            if (index + 1 > 4) {
-                onSetMenu(menusList[0]);
-                setIndex(0);
-            }
-            else {
-                onSetMenu(menusList[index+1])
-                setIndex(index+1);
-            }
-        }
-        else if (clicked === 'up'){
-            if (index - 1 < 0){
-                onSetMenu(menusList[4]);
-                setIndex(4);
-            }
-            else {
-                onSetMenu(menusList[index-1])
-                setIndex(index-1);
-            }
-        }
-        else {
-            if (['project', 'contact', 'other', 'about'].includes(clicked)){
-                onSetMenu(clicked);
-            }
-        }
+      if (clicked === 'down'){
+          if (index + 1 > 4) {
+              onSetMenu(menusList[0]);
+              setIndex(0);
+          }
+          else {
+              onSetMenu(menusList[index+1])
+              setIndex(index+1);
+          }
+      }
+      else if (clicked === 'up'){
+          if (index - 1 < 0){
+              onSetMenu(menusList[4]);
+              setIndex(4);
+          }
+          else {
+              onSetMenu(menusList[index-1])
+              setIndex(index-1);
+          }
+      }
+      else {
+          if (['project', 'contact', 'other', 'about'].includes(clicked)){
+              onSetMenu(clicked);
+          }
+      }
     }, [clicked]);
 
     useEffect(() => {
@@ -139,6 +139,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
     if (e === menu){
         setJump(true);
         const audio = new Audio(Bleep);
+        audio.volume = 0.3;
         audio.play();
         setTimeout(() => {
             onSetMove(true);

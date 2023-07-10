@@ -1,33 +1,45 @@
 @font-face {
-  font-family: 'DGM';
-  src: local('DGM'), 
-    url(./fonts/DGM.woff2) format('woff2'),
-    url(./fonts/DGM.ttf) format('truetype');
-};
+  font-family: 'DungGeunMo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
   font-family: 'Gill Sans';
-  src: url(./fonts/Gill-Sans.ttf) format('truetype');
-};
-
-@font-face {
-  font-family: 'Feasibly1';
-  src: local('Feasibly1'), 
-    url(./fonts/Feasibly1.ttf) format('truetype');
-};
+  src: url('./fonts/GillSans.woff2') format('woff2'),
+      url('./fonts/GillSans.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 @font-face {
   font-family: 'Rhesmanisa';
-  src: url(./fonts/Rhesmanisa.ttf) format('truetype');
+  src: url('./fonts/Rhesmanisa-Regular.woff2') format('woff2'),
+      url('./fonts/Rhesmanisa-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
+
 
 @font-face {
   font-family: 'NanumSquareNeo';
-  src: local('NanumSquareNeo'), url(./fonts/NanumSquareNeo.ttf) format('truetype');
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NanumBarunpen';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
-  font-family: 'DGM';
+  font-family: 'DungGeunMo';
   margin: 0;
   padding: 0;
 }
@@ -1070,7 +1082,7 @@ section {
 }
 
 .aboutIntroductionText {
-  font-size: 1rem;
+  font-size: 1.2rem;
   word-wrap: break-word;
   line-height: 1.8rem;
   width: 70%;
@@ -1085,7 +1097,7 @@ section {
 }
 
 .textContent span {
-  font-family: 'NanumSquareNeo';
+  font-family: 'NanumBarunPen';
   font-weight: light;
   line-height: 2rem;
 }
@@ -1445,7 +1457,7 @@ section {
 }
 
 .textContent {
-  font-family: 'NanumSquareNeo';
+  font-family: 'NanumBarunPen';
 }
 
 .detailCategoryContainer {
@@ -1465,8 +1477,8 @@ section {
 }
 
 .detailCategory span {
-  font-size: 1rem;
-  font-family: 'NanumSquareNeo';
+  font-size: 1.2rem;
+  font-family: 'NanumBarunPen';
   font-weight: light;
 }
 
@@ -1646,7 +1658,7 @@ section {
 }
 
 .cardTitle {
-  font-family: 'Feasibly1' !important;
+  font-family: 'Rhesmanisa' !important;
   font-weight: 200;
   font-size: 4rem;
   color: white;
@@ -1662,11 +1674,11 @@ section {
   text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF;
   -webkit-animation: flicker-2 1.5s linear 1 both;
   animation: flicker-2 1.5s linear 1 both;
-  font-family: 'Feasibly1' !important;
+  font-family: 'Rhesmanisa' !important;
 }
 
 .cardTitleChange {
-  font-family: 'DGM' !important;
+  font-family: 'DungGeunMo' !important;
   font-size: 3rem;
   color: cyan;
   text-shadow: none;
@@ -1779,7 +1791,7 @@ section {
 .scrollHelp span{
   font-size: 0.8rem;
   color: white;
-  font-family: 'NanumSquareNeo';
+  font-family: 'NanumBarunPen';
 }
 
 @-webkit-keyframes slide-bottom {
@@ -1851,7 +1863,7 @@ section {
 }
 
 .project span{
-  font-family: 'NanumSquareNeo';
+  font-family: 'NanumBarunPen';
 }
 
 .projectImageAndDetail {
@@ -1893,7 +1905,7 @@ section {
 }
 
 .projectImageButtons span{
-  font-family: 'DGM';
+  font-family: 'DungGeunMo';
 }
 
 .descriptionKor {
@@ -1920,7 +1932,7 @@ section {
 }
 
 .descriptionButtons span {
-  font-family: 'DGM';
+  font-family: 'DungGeunMo';
 }
 
 .projectName {
@@ -1948,13 +1960,13 @@ section {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-family: 'NanumSquareNeo' !important;
+  font-family: 'NanumBarunPen' !important;
   margin-right: 0.5rem;
 }
 
 .projectName span {
   font-size: 3rem;
-  font-family: 'DGM';
+  font-family: 'DungGeunMo';
 }
 
 .projectName img {
@@ -2191,7 +2203,7 @@ section {
 }
 
 .descTitle span {
-  font-family: 'NanumSquareNeo';
+  font-family: 'NanumBarunPen';
 }
 
 .descBody {
@@ -2292,7 +2304,7 @@ section {
 
 .gameboySwitch span {
   color: #817394;
-  font-family: 'Gill Sans' !important;
+  font-family: 'Gill Sans';
   font-weight: bold;
 }
 
@@ -2309,7 +2321,7 @@ section {
 }
 
 .gameboySwitch {
-  font-family: 'Gill Sans' !important;
+  font-family: 'Gill Sans';
 }
 
 .gameboyScreen {
@@ -2333,7 +2345,7 @@ section {
 
 .gameboyTopDeco span {
   font-size: 0.8rem;
-  font-family: 'Gill Sans' !important;
+  font-family: 'Gill Sans';
 }
 
 .gameboyBottomDeco {
@@ -2345,7 +2357,7 @@ section {
 
 .gameboyLight span {
   font-size: 0.7rem;
-  font-family: 'Gill Sans' !important;
+  font-family: 'Gill Sans';
 }
 
 .gameboyLight {
@@ -2542,10 +2554,11 @@ section {
   align-items: flex-end;
   justify-content: flex-start;
   margin-top: 0.7rem;
+  font-family: 'Gill Sans';
 }
 
 .title1 {
-  font-family: 'Gill Sans' !important;
+  font-family: 'Gill Sans';
   color: #443796;
   font-weight: 600;
   margin-bottom: 0.33rem;
@@ -2555,7 +2568,7 @@ section {
   font-size: 3rem;
   margin-left: 0.5rem;
   font-style: italic;
-  font-family: 'Gill Sans' !important;
+  font-family: 'Gill Sans';
   font-weight: bold;
   color: #443796;
 }

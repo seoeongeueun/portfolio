@@ -41,6 +41,7 @@ function Contact(props) {
     useEffect(() => {
         if (click) {
             setTimeout(() => {
+                audio3.volume = 0.4;
                 audio3.play();
             }, 1800);
             setTimeout(() => {
@@ -73,8 +74,9 @@ function Contact(props) {
                                 <div className='boardTitle'>
                                     <div className='boardContent'>
                                         {change ? <span>{[...Array(life).keys()].map((item, index) => (
-                                        <img key={index} src={AlienCyan} alt='alienCyan' className='alienCyan'/>
-                                        ))}</span> : <span><a href="https://github.com/seoeongeueun" target="_blank" rel="noreferrer"><img src={GithubIcon} alt='github' style={{cursor: 'pointer', marginTop: '5px'}}/></a>
+                                            <img key={index} src={AlienCyan} alt='alienCyan' className='alienCyan'/>
+                                        ))}</span>
+                                            : <span><a href="https://github.com/seoeongeueun" target="_blank" rel="noreferrer"><img src={GithubIcon} alt='github' style={{cursor: 'pointer', marginTop: '5px'}}/></a>
                                             <a href="https://www.linkedin.com/in/seongeun-park-43b73a195/" target="_blank" rel="noreferrer"><img src={LinkedInIcon} alt='linkedin' style={{cursor: 'pointer', marginTop: '5px'}}/></a></span>}
                                     </div>
                                 </div>
@@ -157,14 +159,14 @@ function Contact(props) {
                                     <span onClick={() => setName(name+'Y')}>Y</span>
                                     <span onClick={() => setName(name+'Z')}>Z</span>
                                     <span onClick={() => setName(name.substring(0, name.length - 1))}>DEL</span>
-                                    {name?.length === 3 ? <span style={{color: 'cyan'}} onClick={() => {setChange(true); audio.play();}}>ENT</span>
+                                    {name?.length === 3 ? <span style={{color: 'cyan'}} onClick={() => {setChange(true); audio.volume = 0.5; audio.play();}}>ENT</span>
                                     : <span style={{color: 'cyan'}}>ENT</span>}
 
                                 </div>
                             </div>}
                             {change && <div className='continue'>
                                 {!click && <span>CLICK COIN TO RESTART</span>}
-                                {click ? <div className='spinning-coin-fall'/> :<div className='coin' onClick={() => {setClick(true); audio2.play();}}/>}
+                                {click ? <div className='spinning-coin-fall'/> :<div className='coin' onClick={() => {setClick(true); audio2.volume = 0.5; audio2.play();}}/>}
                             </div>}
                         
                         

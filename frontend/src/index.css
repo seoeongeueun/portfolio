@@ -1958,10 +1958,46 @@ section {
   align-items: center;
 }
 
-.projectImage2 img{
+.image2 {
+  position: relative;
+}
+
+.image2 img{
   width: 50vw;
+  opacity: 1;
   -webkit-animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
   animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
+}
+.image2 span {
+  opacity: 0;
+}
+
+.image2Desc{
+  position: absolute;
+  width: 50%;
+  top: 5%;
+  left: 25%;
+  align-self: center;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image2DescContent {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  line-height: 1.7rem;
+  text-align: justify;
+}
+
+.image2:hover img{
+  opacity: 0.15;
+}
+
+.image2:hover span {
+  opacity: 1;
 }
 
 .projectImageButtons {
@@ -1971,14 +2007,17 @@ section {
   align-items: flex-end;
   color: black;
   margin-top: -1rem;
-  width: 5rem;
+  width: 6rem;
   background-color: white;
   border-radius: 5px;
   z-index: 3;
 }
 
 .projectImageButtons span{
-  font-family: 'DungGeunMo';
+  font-family: 'NanumBarunPen';
+  font-size: 1.2rem;
+  letter-spacing: 0.5rem;
+  font-weight: bold;
 }
 
 .descriptionKor {

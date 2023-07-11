@@ -45,7 +45,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
       if (doneLoading) {
         const show = setInterval(() => {
           setShowInput(true);
-        }, 1000);
+        }, 1500);
 
         return () => {
           clearInterval(show);

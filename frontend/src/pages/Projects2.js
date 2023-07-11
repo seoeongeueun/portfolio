@@ -75,7 +75,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
         <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div className='projectPage'>
                 <div className='projectPageIntro'>
-                    <p>Project 2</p>
+                    <p>PROJECT 2</p>
                     <div className='otherPageLang'>
                         <button onClick={() => setLang(lang ==='Korean' ? 'English' : 'Korean')} style={{opacity: lang === 'Korean' && '0.5'}}>한국어</button>
                         <button onClick={() => setLang(lang === 'English' ? 'Korean' : 'English')} style={{opacity: lang === 'English' && '0.5'}}>ENGLISH</button>
@@ -176,7 +176,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                             <span className='score'>SCORE</span>
                             <span style={{color: 'cyan', marginLeft: '1rem'}}>{score}</span>
                         </div>
-                        <span style={{marginLeft: '7rem'}}>{found}/2 FRUITS</span>
+                        <span style={{marginLeft: '7rem', fontSize: '1.3rem', marginTop: '0.5rem'}}>{found}/2 FRUITS</span>
                         <div className='livesInfo'>
                             <span className='lives'>LIVES</span>
                             {[...Array(life).keys()].map((item, index) => (

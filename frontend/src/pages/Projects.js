@@ -33,6 +33,7 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
 
     useEffect(() => {
         const audio = new Audio(CoinPick);
+        audio.volume = 0.3;
         audio.pause()
     }, []);
 
@@ -53,6 +54,7 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
         setShowScore(true);
         setClicked(e);
         const audio = new Audio(CoinPick);
+        audio.volume = 0.3;
         audio.play()
 
         setInterval(() => {
@@ -65,6 +67,7 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
     const handleClickThunder = (e) => {
         if (e === 'moon') setShowMoon(false);
         const audio = new Audio(Hurt);
+        audio.volume = 0.3;
         audio.play();
         if (life > 0) onSetLife(life-1)
         else onSetLife(0)
@@ -78,7 +81,7 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
         <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div className='projectPage'>
                 <div className='projectPageIntro'>
-                    <p>Project 1</p>
+                    <p>PROJECT 1</p>
                     <div className='otherPageLang'>
                         <button onClick={() => setLang(lang ==='Korean' ? 'English' : 'Korean')} style={{opacity: lang === 'Korean' && '0.5'}}>한국어</button>
                         <button onClick={() => setLang(lang === 'English' ? 'Korean' : 'English')} style={{opacity: lang === 'English' && '0.5'}}>ENGLISH</button>
@@ -169,7 +172,7 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                             <span className='score'>SCORE</span>
                             <span style={{color: 'cyan', marginLeft: '1rem'}}>{score}</span>
                         </div>
-                        <span style={{marginLeft: '7rem'}}>{found}/3 FRUITS</span>
+                        <span style={{marginLeft: '7rem', fontSize: '1.3rem', marginTop: '0.5rem'}}>{found}/3 FRUITS</span>
                         <div className='livesInfo'>
                             <span className='lives'>LIVES</span>
                             {[...Array(life).keys()].map((item, index) => (

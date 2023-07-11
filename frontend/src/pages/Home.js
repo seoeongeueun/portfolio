@@ -17,21 +17,64 @@ import { useEffect, useState, useRef } from 'react';
 import Theme2 from "../music/HoliznaCC0 - ICE temple.mp3"
 import Bleep from "../music/arcade-bleep-sound-6071.mp3";
 
-function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
+function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, onSetText}) {
     const [musicOn, setMusicOn] = useState(false);
     const [audio] = useState(new Audio(Theme2));
     const [index, setIndex] = useState(0);
     const [jump, setJump] = useState(false);
     const [lang, setLang] = useState('English');
     const [current, setCurrent] = useState(0);
+    const [doneLoading, setDoneLoading] = useState(false);
+    const [showInput, setShowInput] = useState(false);
     const outerRef = useRef();
-    const menusList = ['about', 'project1', 'project2', 'project3', 'other', 'contact'];
+    const menusList = ['about', 'project', 'other', 'contact'];
 
     useEffect(() => {
       onSetMove(false);
       onSetMenu(null);
+      const animation = document.querySelector('.intro');
+      animation?.addEventListener("animationend", () => {
+        setDoneLoading(true);
+      });
+      animation?.addEventListener("animationend", () => {
+        setDoneLoading(true);
+      });
     }, []);
+
+    useEffect(() => {
+      if (doneLoading) {
+        const show = setInterval(() => {
+          setShowInput(true);
+        }, 1000);
+
+        return () => {
+          clearInterval(show);
+        };
+      }
+    }, [doneLoading]);
       
+    useEffect(() => {
+      if (text.length >= 50) {
+        onSetText(text.substring(0, 49));
+      }
+      else if (text.toLowerCase() === 'projects') {
+        setIndex(1);
+        onSetMenu('project');
+      }
+      else if (text.toLowerCase() === 'about me' || text.toLowerCase() === 'aboutme') {
+        setIndex(0);
+        onSetMenu('about')
+      }
+      else if (text.toLowerCase() === 'other') {
+        setIndex(2);
+        onSetMenu('other');
+      }
+      else if (text.toLowerCase() === 'contact') {
+        setIndex(3);
+        onSetMenu('contact');
+      }
+    }, [text]);
+
     useEffect(() => {
         const wheelHandler = (e) => {
           const { deltaY } = e;
@@ -59,8 +102,10 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
     }, [musicOn, audio])
 
     useEffect(() => {
-        if (clicked === 'enter'){
-          onSetMove(true);
+        if (!move) {
+          if (clicked === 'enter'){
+            onSetMove(true);
+          }
         }
     }, [clicked, onSetMove]);
 
@@ -93,8 +138,8 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
       }
       else if (clicked === 'up'){
           if (index - 1 < 0){
-              onSetMenu(menusList[4]);
-              setIndex(4);
+            onSetMenu(menusList[4]);
+            setIndex(4);
           }
           else {
               onSetMenu(menusList[index-1])
@@ -155,8 +200,8 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked}) {
       {!move ? <main style={{backgroundImage: `url(${Stars})`}}>
         <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
         <div className='main-screen'>
-          <span style={{marginTop: "0rem", marginBottom: '2rem'}}>HELLO</span>
-          <span className='intro'>MY NAME IS SEONGEUN PARK AND WELCOME TO MY PAGE!</span>
+          <span className='homePageTitle' style={{marginTop: "0rem", marginBottom: '2rem'}}>HELLO</span>
+          {showInput ?  <div className='userInputContainer'><span className='textTitle'>TRY THE MINI KEYBOARD </span><div className='userInput'><span className='text'>{text}</span><div className='mouseCursor'/></div></div> : <span className='intro'>MY NAME IS SEONGEUN PARK AND WELCOME TO MY PAGE!</span>}
           <div className='menus'>
             <div className='menuKey'>
               <img className="play" src={Play} alt="play" style={ menu === 'about' ? {width: '25px', marginRight: '5px'} : {width: '25px', marginRight: '5px', display: 'none'}}/>

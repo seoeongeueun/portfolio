@@ -2000,6 +2000,49 @@ section {
   opacity: 1;
 }
 
+.image3 {
+  position: relative;
+}
+
+.image3 img{
+  width: 50vw;
+  border: 1px solid white;
+  opacity: 1;
+  -webkit-animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
+  animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
+}
+.image3 span {
+  opacity: 0;
+}
+
+.image3Desc{
+  position: absolute;
+  width: 50%;
+  top: 5%;
+  left: 25%;
+  align-self: center;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image3DescContent {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  line-height: 1.7rem;
+  text-align: justify;
+}
+
+.image3:hover img{
+  opacity: 0.15;
+}
+
+.image3:hover span {
+  opacity: 1;
+}
+
 .tip {
   font-size: 0.7rem;
   margin-bottom: 0.3rem;

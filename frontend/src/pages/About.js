@@ -313,7 +313,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                                 <span>Feel free to explore my portfolio to see examples of my work, and reach out if you have any questions!</span>
                             </div>
                             : <div className='textContent' style={{marginTop: !introHit ? '1.5rem' : '1rem'}}>
-                                <span>안녕하세요. 저는 성능과 시각적으로 흥미로운 인터페이스의 밸런스를 추구하는 프론트엔드 개발자입니다. </span>
+                                <span>안녕하세요. 저는 기능성과 시각적 재미를 늘 고민하는 프론트엔드 개발자 박성은입니다. </span>
                                 <span>창의적인 아이디어와 디테일함으로 유저 인터페이스를 흥미롭고, 직관적으로 만들기 위해 노력합니다. </span>
                                 <span>이 포트폴리오는 제 프로젝트를 소개하고, 다양한 기능을 테스트하기 위해 만들었습니다.</span>
                             </div>}

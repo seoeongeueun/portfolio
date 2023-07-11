@@ -9,13 +9,13 @@ import Cheese from '../icons/cheese.png';
 import CoinPick from "../music/coin-collect-retro-8-bit-sound-effect-145251.mp3"
 import Hurt from "../music/hurt_c_08-102842.mp3";
 
-import Project1Main from '../images/project1-main.png';
+import Project2Main from '../images/project2-main.png';
 import Project1Mypage from '../images/project1-mypage.png';
-import Project1Quizedit from '../images/project1-quizedit.png';
-import Project1Score from '../images/project1-score.png';
-import Project1Store from '../images/project1-store.png';
-import Project1Takequiz from '../images/project1-takequiz.png';
-import Project1Categories from '../images/project1-categories.png';
+import Project2Right from '../images/project2-right.png';
+import Project2Sticker from '../images/project2-sticker.png';
+import Project2Edit from '../images/project2-edit.png';
+import Project2Todo from '../images/project2-todo.png';
+import Project2Search from '../images/project2-search.png';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -29,7 +29,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
     const [index1, setIndex1] = useState(0);
     const [found, setFound] = useState(0);
 
-    const project1 = [Project1Main, Project1Mypage, Project1Quizedit, Project1Takequiz, Project1Score, Project1Store, Project1Categories];
+    const project1 = [Project2Main, Project2Sticker, Project2Edit, Project2Right, Project2Todo, Project2Search];
 
     useEffect(() => {
         const audio = new Audio(CoinPick);
@@ -83,7 +83,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                 </div>
                 <div className='project'>
                     <div className='projectImageAndDetail'>
-                        <div className='projectImage'>
+                        <div className='projectImage2'>
                             <img src={project1[index1]} alt='project1'/>
                             <div className='projectImageButtons'>
                                 <ArrowBackIosIcon sx={{fontSize: '1.2rem', color: 'black', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 > 0 ? index1-1 : project1.length-1)}/>

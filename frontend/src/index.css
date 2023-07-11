@@ -1948,6 +1948,22 @@ section {
   animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
 }
 
+.projectImage2 {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projectImage2 img{
+  width: 50vw;
+  -webkit-animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
+  animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
+}
+
 .projectImageButtons {
   display: flex;
   flex-direction: row;

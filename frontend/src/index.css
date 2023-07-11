@@ -2000,6 +2000,14 @@ section {
   opacity: 1;
 }
 
+.tip {
+  font-size: 0.7rem;
+  margin-bottom: 0.3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .projectImageButtons {
   display: flex;
   flex-direction: row;

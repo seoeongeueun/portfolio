@@ -87,7 +87,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                 <div className='project'>
                     <div className='projectImageAndDetail'>
                         <div className='projectImage2'>
-                        {lang === 'English' ? <span className='tip' style={{fontSize: '0.8rem'}}><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>Hover over image to read about each page</span> : <span className='tip'><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>이미지에 마우스를 올려 페이지 설명 읽기</span>}
+                        {lang === 'English' ? <span className='tip'><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>HOVER OVER IMAGE TO READ ABOUT EACH PAGE</span> : <span className='tip'><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>이미지에 마우스를 올려 페이지 설명 읽기</span>}
 
                             {index1 === 0 && <div className='image3'>
                                 <img src={Project3Main} alt='project3'/>
@@ -103,10 +103,11 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                     : <div className='image3Desc'>
                                         <span style={{marginBottom: '1rem'}}>메인 페이지</span>
                                         <div className='image3DescContent'>
-                                            <span>로그인 후 첫 페이지입니다. 왼쪽은 위젯, 오른쪽은 일기장 페이지입니다. 왼쪽과 오른쪽 컴포넌트로 나누어 설정 및 영역은 각각 적용되고, 위젯과 스티커는 왼쪽 영역 내에서 자유롭게 배치할 수 있습니다.</span>
-                                            <span>★ ResizeObserver를 통해 화면 크기 변화를 감지하여 화면이 작아져도 위젯이 왼쪽 페이지 영역을 벗어나지 않게 만들었습니다.</span>
-                                            <span>★ Redux를 이용해 현재 표시할 날짜를 저장해서 달력 위젯에서 원하는 날짜를 고르면 왼쪽 위젯과 오른쪽 일기가 바뀐 날짜에 맞춰 바뀌게 만들었습니다.</span>
-                                            <span>★ 로그인에 성공하면 서버에 이틀 후에 만료되는 쿠키를 저장하고, 클라이언트와 DB에는 유저 아이디가 담긴 토큰을 저장해서 로그인 상태를 유지하지만 쿠키가 만료되거나 유저가 로그아웃 하면 토큰을 지우게 했습니다.</span>
+                                            <span>레트로 게임 시작 화면처럼 디자인한 홈페이지입니다. x가 쳐진 몬스터를 클릭해서 구해주면 노래를 부릅니다. 마우스 클릭으로 메뉴를 선택하거나, 실제 키보드 위 아래 화살표를 누르거나, 화면 속 미니 키보드와 화살표를 클릭해서 메뉴를 이동할 수 있습니다. 
+                                                미니 키보드는 키를 누르는 대신 클릭하는 방식이며 실제 키보드와 똑같이 작동하고 My name is Seongeun Park 소개 메세지 애니메이션이 재생되고 난뒤 1500 ms 후 키보드를 테스트할 수 있는 화면으로 전환됩니다. </span>
+                                            <span>★ 몬스터에 keyframe 애니메이션을 적용해 유저가 메뉴를 선택하면 먼저 점프 애니메이션을 재생하고, setInterval로 일정 시간 뒤에 메뉴를 이동하게 만들었습니다.</span>
+                                            <span>★ 모든 메뉴 페이지는 한 div에 전부 포함시키고, 페이지 당 section 태그로 100vh 화면 크기를 정하고, scroll-snap 속성을 사용해 마우스 스크롤 시에 페이지가 전환되게 했습니다. </span>
+                                            <span>★ 메뉴 선택시에는 해당 메뉴의 순서를 window.innerHeight에 곱하고 scrollTo 함수를 사용해서 페이지를 이동합니다.</span>
                                         </div>
                                     </div>}
                             </div>}
@@ -123,12 +124,14 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                         </div>
                                     </div> 
                                     : <div className='image3Desc'>
-                                        <span style={{marginBottom: '1rem'}}>스티커 만들기</span>
+                                        <span style={{marginBottom: '1rem'}}>About Me 페이지</span>
                                         <div className='image3DescContent'>
-                                            <span>왼쪽 하단 스티커 추가 버튼을 누르고 유저가 원하는 사진을 고른 후 페이지입니다. 슬라이더를 움직여 원하는 수치대로 확대, 회전을 할 수 있고, 원형, 직사각형, 정사각형 세가지 프레임을 고를 수 있습니다. 
-                                                Done 버튼을 눌러서 완성한 뒤 다른 위젯처럼 위치를 이동할 수 있고, 왼쪽 페이지 하단의 스티커 설정을 눌러 임시로 보이지 않게 하거나 완전히 삭제할 수 있습니다.</span>
-                                            <span>★ 유저가 올린 스티커 이미지의 원본은 S3 버킷에 저장하고, 각 스티커의 확대, 회전 수치와 프레임 설정은 DB에 저장해서 적용되게 했습니다. </span>
-                                            <span>★ 유저가 스티커를 삭제하면 DB에 저장된 스티커 설정과 S3 버킷에 저장된 원본 이미지를 삭제하는 요청을 보내 완전히 삭제합니다. </span>
+                                            <span>마우스를 누르면 미사일을 발사하고 몬스터를 파괴할 수 있는 슈팅 게임을 포함한 소개 페이지입니다. 마우스 클릭으로 시작하면 몬스터가 나타나고 몬스터와 글씨를 포함해 총 9개의 타겟이 있습니다. 미사일을 쏴서 맞추면 몬스터는 파괴되고, 글씨는 네온사인이 꺼지고 픽셀화됩니다. 
+                                                기술 스택 아이콘 위에 마우스를 올려 아이콘 이름을 확인할 수 있습니다. </span>
+                                            <span>★ 마우스를 클릭하면 숨겨두었던 미사일 div를 보이게 하고 수직으로 이동하는 keyframe 애니메이션과 효과음을 재생합니다. </span>
+                                            <span>★ ResizeObserver와 element.getBoundingClientRect를 사용해서 화면 크기가 바뀌더라도 타겟의 위치를 가져올 수 있게했습니다. </span>
+                                            <span>★ document.querySelector를 사용해 이동하는 미사일의 위치를 가져오고 미사일과 타겟의 위치가 겹치면 해당 타겟이 파괴되는 원리입니다. </span>
+                                            <span>★ 애니메이션에 animationend eventlistener를 추가해서 미사일이 아무것도 맞추지 못해도 애니메이션이 종료되면 미사일을 다시 숨기고, 렉에 걸릴 경우를 대비해 setinterval을 사용하여 처음 발사 후 1100ms가 지나면 강제로 다시 미사일을 숨기게 만들었습니다. </span>
                                         </div>
                                     </div>}
                             </div>}

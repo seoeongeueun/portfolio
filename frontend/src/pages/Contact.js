@@ -41,7 +41,7 @@ function Contact(props) {
     useEffect(() => {
         if (click) {
             setTimeout(() => {
-                audio3.volume = 0.4;
+                audio3.volume = 0.7;
                 audio3.play();
             }, 1800);
             setTimeout(() => {

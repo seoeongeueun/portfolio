@@ -1975,7 +1975,7 @@ section {
 .image2Desc{
   position: absolute;
   width: 50%;
-  top: 5%;
+  top: 3%;
   left: 25%;
   align-self: center;
   font-size: 1.5rem;
@@ -2018,7 +2018,7 @@ section {
 .image3Desc{
   position: absolute;
   width: 50%;
-  top: 5%;
+  top: 3%;
   left: 25%;
   align-self: center;
   font-size: 1.5rem;
@@ -2057,17 +2057,19 @@ section {
   justify-content: center;
   align-items: flex-end;
   color: black;
-  margin-top: -1rem;
-  width: 6rem;
+  margin-top: -0.8rem;
+  width: 4.5rem;
   background-color: white;
   border-radius: 5px;
   z-index: 3;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px #000 inset; 
 }
 
 .projectImageButtons span{
   font-family: 'NanumBarunPen';
-  font-size: 1.2rem;
-  letter-spacing: 0.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
   font-weight: bold;
 }
 
@@ -2491,7 +2493,6 @@ section {
   z-index: 3;
   border-top: 3px solid #ebe4e8;
   box-shadow: 18px 1px 3px 0px rgba(245,240,240,255) inset, -18px -3px 7px 0px rgba(187,172,189,255) inset;
-  
 }
 
 .gameboySwitch {
@@ -2974,6 +2975,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 1rem;
 }
 
 .nameLine1 {

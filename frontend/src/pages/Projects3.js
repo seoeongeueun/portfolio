@@ -104,10 +104,10 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                         <span style={{marginBottom: '1rem'}}>메인 페이지</span>
                                         <div className='image3DescContent'>
                                             <span>레트로 게임 시작 화면처럼 디자인한 홈페이지입니다. x가 쳐진 몬스터를 클릭해서 구해주면 노래를 부릅니다. 마우스 클릭으로 메뉴를 선택하거나, 실제 키보드 위 아래 화살표를 누르거나, 화면 속 미니 키보드와 화살표를 클릭해서 메뉴를 이동할 수 있습니다. 
-                                                미니 키보드는 키를 누르는 대신 클릭하는 방식이며 실제 키보드와 똑같이 작동하고 My name is Seongeun Park 소개 메세지 애니메이션이 재생되고 난뒤 1500 ms 후 키보드를 테스트할 수 있는 화면으로 전환됩니다. </span>
+                                                미니 키보드는 키를 누르는 대신 클릭하는 방식이며 실제 키보드와 똑같이 작동하고 My name is Seongeun Park 소개 메세지 애니메이션이 재생되고난 뒤 1500 ms 후 키보드를 테스트할 수 있는 화면으로 전환됩니다. </span>
                                             <span>★ 몬스터에 keyframe 애니메이션을 적용해 유저가 메뉴를 선택하면 먼저 점프 애니메이션을 재생하고, setInterval로 일정 시간 뒤에 메뉴를 이동하게 만들었습니다.</span>
                                             <span>★ 모든 메뉴 페이지는 한 div에 전부 포함시키고, 페이지 당 section 태그로 100vh 화면 크기를 정하고, scroll-snap 속성을 사용해 마우스 스크롤 시에 페이지가 전환되게 했습니다. </span>
-                                            <span>★ 메뉴 선택시에는 해당 메뉴의 순서를 window.innerHeight에 곱하고 scrollTo 함수를 사용해서 페이지를 이동합니다.</span>
+                                            <span>★ 메뉴 선택시에는 해당 메뉴의 순서와 window.innerHeight를 곱하고 scrollTo 함수를 사용해서 페이지를 이동합니다.</span>
                                         </div>
                                     </div>}
                             </div>}
@@ -124,13 +124,13 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                         </div>
                                     </div> 
                                     : <div className='image3Desc'>
-                                        <span style={{marginBottom: '1rem'}}>About Me 페이지</span>
+                                        <span style={{marginBottom: '0.7rem'}}>About Me 페이지</span>
                                         <div className='image3DescContent'>
                                             <span>마우스를 누르면 미사일을 발사하고 몬스터를 파괴할 수 있는 슈팅 게임을 포함한 소개 페이지입니다. 마우스 클릭으로 시작하면 몬스터가 나타나고 몬스터와 글씨를 포함해 총 9개의 타겟이 있습니다. 미사일을 쏴서 맞추면 몬스터는 파괴되고, 글씨는 네온사인이 꺼지고 픽셀화됩니다. 
                                                 기술 스택 아이콘 위에 마우스를 올려 아이콘 이름을 확인할 수 있습니다. </span>
                                             <span>★ 마우스를 클릭하면 숨겨두었던 미사일 div를 보이게 하고 수직으로 이동하는 keyframe 애니메이션과 효과음을 재생합니다. </span>
                                             <span>★ ResizeObserver와 element.getBoundingClientRect를 사용해서 화면 크기가 바뀌더라도 타겟의 위치를 가져올 수 있게했습니다. </span>
-                                            <span>★ document.querySelector를 사용해 이동하는 미사일의 위치를 가져오고 미사일과 타겟의 위치가 겹치면 해당 타겟이 파괴되는 원리입니다. </span>
+                                            <span>★ document.querySelector를 사용해 이동하는 미사일의 위치를 가져오고 미사일과 타겟의 위치가 겹치면 해당 타겟이 파괴되는 방식입니다. </span>
                                             <span>★ 애니메이션에 animationend eventlistener를 추가해서 미사일이 아무것도 맞추지 못해도 애니메이션이 종료되면 미사일을 다시 숨기고, 렉에 걸릴 경우를 대비해 setinterval을 사용하여 처음 발사 후 1100ms가 지나면 강제로 다시 미사일을 숨기게 만들었습니다. </span>
                                         </div>
                                     </div>}
@@ -138,7 +138,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                             {index1 === 2 && <div className='image3'>
                                 <img src={Project3Other} alt='project3'/>
                                 {lang === 'English' ? <div className='image3Desc'>
-                                    <span style={{marginBottom: '1rem'}}>Move Mode</span>
+                                    <span style={{marginBottom: '0.7rem'}}>Move Mode</span>
                                     <div className='image3DescContent'>
                                             <span>This is after clicking Move button on the bottom right of the Left page. The yellow cross appears on the center of each widget and sticker, and users can click on the cross to freely drag the widgets within the Left boundary.
                                                  Clicking the Move button saves the current positions of all widgets and stickers.
@@ -148,11 +148,13 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                         </div>
                                     </div> 
                                     : <div className='image3Desc'>
-                                        <span style={{marginBottom: '1rem'}}>이동하기 모드</span>
+                                        <span style={{marginBottom: '0.7rem'}}>다른 프로젝트 페이지</span>
                                         <div className='image3DescContent'>
-                                            <span>왼쪽 페이지의 오른쪽 하단 버튼 중 이동하기 버튼을 누른 후 페이지입니다. 위젯과 스티커 가운데 노란 십자가 버튼을 클릭한 뒤 드래그해서 왼쪽 페이지 내에서 원하는 위치에 위젯을 둘 수 있습니다. 이동하기 버튼을 다시 누르면 설정을 저장합니다.</span>
-                                            <span>★ 위젯과 스티커의 위치는 DB에 저장해서 새로고침하거나 다시 로그인해도 위치가 바뀌지 않게 했습니다.</span>
-                                            <span>★ 기존 상태에선 드래그해도 위젯이 움직이지 않지만, Redux에 이동하기 모드를 boolean으로 저장해서 모드가 켜지면 모든 위젯 컴포넌트에서 드래그 가능하게 반응하게 했습니다. </span>
+                                            <span>CSS만으로 만든 게임기입니다. 게임기 상단 스위치를 클릭해서 전원을 켤 수 있고, 효과음과 함께 로딩 후 이미지가 나타납니다. 게임기 버튼을 클릭해서 다음 이미지를 볼 수 있고, 화면이 작아서 버튼이 다 보이지 않을 경우를 대비해 모든 버튼은 동일하게 다음 이미지를 보여주게 만들었습니다. 
+                                                또는 유저 키보드의 좌우 화살표 키를 눌러서 이전/다음 이미지를 볼 수 있습니다.
+                                            </span>
+                                            <span>★ Box-shadow와 outline을 사용해 디테일한 명암을 넣었습니다.</span>
+                                            <span>★ Keydown eventlistener를 적용해 키보드 좌우 화살표 키를 눌렀을 때 이미지를 전환하게 만들었습니다.</span>
                                         </div>
                                     </div>}
                             </div>}
@@ -169,13 +171,11 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                         </div>
                                     </div> 
                                     : <div className='image3Desc'>
-                                        <span style={{marginBottom: '1rem'}}>일기장 (SNS 테마)</span>
+                                        <span style={{marginBottom: '1rem'}}>연락처 페이지</span>
                                         <div className='image3DescContent'>
-                                            <span>오른쪽 페이지의 펜 버튼을 누른 후 일기를 작성할 수 있습니다. 제목을 쓰고, 날씨를 고르고, 사진 추가 버튼을 눌러 사진을 업로드할 수 있습니다. 기본 일기 테마는 사진이 포함된 SNS 스타일이지만, 톱니바퀴를 눌러 메모장 스타일로 변경해서 사진 없이 텍스트만 작성하거나, 그리드를 켜서 기존 흰 배경에서 모눈 배경으로 변경 할 수 있습니다. 
-                                                자물쇠 버튼을 누르면 비공개로 일기를 작성할 수 있으며, 친구들이 읽을 수 없게 바뀝니다. SAVE를 눌러 저장한 뒤에 일기를 북마크하거나, 스타일 설정을 변경하거나, 좋아요를 누르거나, 완전히 삭제할 수 있습니다.
+                                            <span>레트로 게임의 순위표처럼 디자인한 연락처 페이지입니다. 세글자 이니셜을 입력하고 ENT를 클릭해서 미니 게임 점수를 올린 뒤 모습입니다. 돌아가는 코인을 클릭하면 다시 홈페이지로 돌아갑니다.
                                             </span>
-                                            <span>★ 스타일 설정은 포스팅별로 DB에 저장되어 SNS / 메모장 테마와 모눈 설정은 일기별로 다르게 지정할 수 있습니다. </span>
-                                            <span>★ SAVE를 누르기 전에 업로드된 사진은 URL.createObjectURL을 이용해 임시로 나타나게 하고, SAVE를 눌러 후에는 S3 버킷에 저장합니다.</span>
+                                            <span>★ 유저의 현재 점수와 남은 목숨 상태는 Redux로 관리합니다.</span>
                                         </div>
                                     </div>}
                             </div>}
@@ -294,9 +294,9 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                     </div>}
                             </div>}
                             <div className='projectImageButtons'>
-                                <ArrowBackIosIcon sx={{marginLeft: '0.5rem', fontSize: '1.2rem', color: 'black', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 > 0 ? index1-1 : project1.length-1)}/>
+                                <ArrowBackIosIcon sx={{marginLeft: '0.6rem', fontSize: '1.2rem', color: 'black', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 > 0 ? index1-1 : project1.length-1)}/>
                                 <span>{index1+1}/{project1.length}</span>
-                                <ArrowForwardIosIcon sx={{fontSize: '1.2rem', color: 'black', cursor: 'pointer', marginBottom: '2px'}} onClick={() => setIndex1(index1 < project1.length-1 ? index1+1 : 0)}/>
+                                <ArrowForwardIosIcon sx={{fontSize: '1.2rem', color: 'black', cursor: 'pointer', marginBottom: '2px', marginRight: '0.3rem'}} onClick={() => setIndex1(index1 < project1.length-1 ? index1+1 : 0)}/>
                             </div>
                         </div>
                         <div className='projectLower'>

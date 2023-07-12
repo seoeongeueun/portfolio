@@ -86,7 +86,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                 </div>
                 <div className='project'>
                     <div className='projectImage2'>
-                    {lang === 'English' ? <span className='tip'><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>HOVER OVER IMAGE TO READ ABOUT EACH PAGE</span> : <span className='tip'><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>이미지에 마우스를 올려 페이지 설명 읽기</span>}
+                    {lang === 'English' ? <span className='tip'><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>HOVER OVER IMAGE TO READ ABOUT EACH PAGE</span> : <span className='tip'><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>마우스를 이미지에 올려 페이지 설명 읽기</span>}
                         {index1 === 0 && <div className='image2'>
                             <img src={Project2Main} alt='project2'/>
                             {lang === 'English' ? <div className='image2Desc'>

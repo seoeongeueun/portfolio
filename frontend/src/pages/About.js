@@ -324,12 +324,12 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                         <div className='aboutIntroductionText'>
                             {introHit ? <span className={changeFont.some(e => e.id === 'intro') ? 'cardTitleChange' : 'introductionHit'}>Introduction</span> : <span className='cardTitle' id='intro' style={{WebkitAnimation: 'flicker-4 10s linear 0s both', animation: 'flicker-4 10s linear 0s both'}}>Introduction</span>}
                             {lang === 'English' ? <div className='textContent' style={{marginTop: !introHit ? '1.5rem' : '1rem'}}>
-                                <span>Hello, I'm a frontend developer who is passionate about blending functionality and aesthetics. </span>
+                                <span>Hello, my name is Seongeun Park and I am a frontend developer who is passionate about designing. </span>
                                 <span>With my creative ideas and attention to subtle details, I hope to make the user interface visually appealing, intuitive, and interesting. </span>
                                 <span>Feel free to explore my portfolio to see examples of my work, and reach out if you have any questions!</span>
                             </div>
                             : <div className='textContent' style={{marginTop: !introHit ? '1.5rem' : '1rem'}}>
-                                <span>안녕하세요. 저는 기능성과 시각적 재미를 늘 고민하는 프론트엔드 개발자 박성은입니다. </span>
+                                <span>안녕하세요. 저는 프론트엔드 개발자 박성은입니다. </span>
                                 <span>창의적인 아이디어와 디테일함으로 유저 인터페이스를 흥미롭고, 직관적으로 만들기 위해 노력합니다. </span>
                                 <span>이 포트폴리오는 제 프로젝트를 소개하고, 다양한 기능을 테스트하기 위해 만들었습니다.</span>
                             </div>}

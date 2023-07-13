@@ -85,59 +85,60 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         {index1 === 0 && <div className='image3'>
                             <img src={Project3Main} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Main Page</span>
+                                <span style={{marginBottom: '0.5rem'}}>Home Page</span>
                                 <div className='image3DescContent'>
-                                        <span>This is the main page after logging in. Left side is for widgets, and right side is for writing posts. Left and Right are separate components, and thus the settings and boundaries apply individually. Widgets and stickers can be moved freely within the Left boundary.</span>
-                                        <span>★ I used ResizeObserver to detect window size change so that the widgets never leave the left page boundary even when screen size gets smaller.</span>
-                                        <span>★ I used Redux to store current displayed date, and clicking on any date on the Calendar widget allows both Left and Right to change according to the new picked date.</span>
-                                        <span>★ Cookie with max age 2 days is saved on the server when user logs in successfully and token is set for client side and DB to keep login state. And the token is deleted when cookie expires or when the user logs out.</span>
+                                        <span>This homepage is designed to look like a retro game start screen. You can click on the menu, press the up/down arrow keys on the actual keyboard, or click on the arrow keys on the mini keyboard to navigate the menu. 
+                                            The mini keyboard is clickable and operates in the same way as a real keyboard. 1500ms delay after the introduction animation, you can test the keyboard.</span>
+                                        <span>★ Monster icon has a keyframe animation that executes first when user selects a menu, and using setInterval, actual navigation of page occurs few seconds after.</span>
+                                        <span>★ All menu pages are divided into section tags with 100vh size, and scroll-snap property allows to transition pages on mouse wheel scroll.</span>
+                                        <span>★ When a menu is selected, page transition is made using scrollTo function with the order of the menu multiplied by widow.innerHeight.</span>
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>
                                     <span style={{marginBottom: '0.5rem'}}>홈페이지</span>
                                     <div className='image3DescContent'>
-                                        <span>레트로 게임 시작 화면처럼 디자인한 홈페이지입니다. 마우스 클릭으로 메뉴를 선택하거나, 실제 키보드 위 아래 화살표를 누르거나, 화면 속 미니 키보드와 화살표를 클릭해서 메뉴를 이동할 수 있습니다. 
-                                            미니 키보드는 키를 누르는 대신 클릭하는 방식이며 실제 키보드와 똑같이 작동하고 My name is 소개 메세지 애니메이션이 재생되고난 뒤 1500 ms 후 키보드를 테스트할 수 있는 화면으로 전환됩니다. </span>
-                                        <span>★ 몬스터에 keyframe 애니메이션을 적용해 유저가 메뉴를 선택하면 먼저 점프 애니메이션을 재생하고, setInterval로 일정 시간 뒤에 메뉴를 이동하게 만들었습니다.</span>
-                                        <span>★ 모든 메뉴 페이지는 한 div에 전부 포함시키고, 페이지 당 section 태그로 100vh 화면 크기를 정하고, scroll-snap 속성을 사용해 마우스 스크롤 시에 페이지가 전환되게 했습니다. </span>
-                                        <span>★ 메뉴 선택시에는 해당 메뉴의 순서와 window.innerHeight를 곱하고 scrollTo 함수를 사용해서 페이지를 이동합니다.</span>
+                                        <span>레트로 게임 시작 화면처럼 디자인한 홈페이지입니다. 마우스로 메뉴를 클릭하거나, 실제 키보드 위/아래 화살표를 누르거나, 화면 속 미니 키보드의 화살표를 클릭해서 메뉴를 이동할 수 있습니다. 
+                                            미니 키보드는 키를 클릭하는 방식이며 실제 키보드와 같은 방식으로 작동하고 My name is 소개 메세지 애니메이션이 재생된 뒤 1500 ms 후 키보드를 테스트할 수 있는 화면으로 전환됩니다. </span>
+                                        <span>★ 몬스터에 keyframe 애니메이션을 적용해 유저가 메뉴를 선택하면 점프 애니메이션을 재생하고, setInterval로 일정 시간이 지나면 메뉴를 이동합니다.</span>
+                                        <span>★ 모든 메뉴 페이지는 section 태그로 나눠 100vh 크기로 만들고, scroll-snap 속성을 사용해 마우스 스크롤 시에 페이지가 전환됩니다. </span>
+                                        <span>★ 메뉴를 선택하면 해당 메뉴의 순서와 window.innerHeight를 곱하고 scrollTo 함수를 사용해서 페이지를 이동합니다.</span>
                                     </div>
                                 </div>}
                         </div>}
                         {index1 === 1 && <div className='image3'>
                             <img src={Project3About} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Sticker Maker</span>
+                                <span style={{marginBottom: '0.5rem'}}>About Me Page</span>
                                 <div className='image3DescContent'>
-                                        <span>This is Sticker Maker, which shows up after user uploaded a picture of their choice through 'Add Pic' button on the bottom right side of the Left page. Users can move the sliders to zoom in and out, rotate the image, and choose a circle or rectangle or square frame for the sticker. 
-                                            After saving the settings by clicking DONE, the sticker is now movable like other widgets and could be temporary hidden or permanently deleted by changing settings.
+                                        <span>This introduction page is a shooting game that fires missiles on click. When a text target is hit, lights turn off and it become pixelated. Monster targets are destoryed on hit.
                                         </span>
-                                        <span>★ The original image of the sticker is saved to the S3 bucket, and zoom, rotate, frame values for each sticker are saved to the DB so that it applys correctly to the image.</span>
-                                        <span>★ When user removes the sticker, API request to remove the settings in the DB and the base image in S3 bucket is called so that the sticker is completely removed. </span>
+                                        <span>★ Mouse click makes the missile div visible and starts a keyframe animation that moves vertically from the x, y position of the mouse.</span>
+                                        <span>★ ResizeObserver and getBoundingClientRect are used to get targets positions even when the screen size changes.</span>
+                                        <span>★ QuerySelector gets the coordinates of the moving missile, and the target gets hidden when the its coordinates overlap with the missile's coordinates. </span>
+                                        <span>★ Animationend eventlistener added to the animation hides the missle div when the animation ends. If there is lag, setInterval hides the missile after 1000ms from the initial launch.</span>
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>
                                     <span style={{marginBottom: '0.5rem'}}>About Me 페이지</span>
                                     <div className='image3DescContent'>
-                                        <span>마우스를 누르면 미사일을 발사하고 몬스터를 파괴할 수 있는 슈팅 게임을 포함한 소개 페이지입니다. 마우스 클릭으로 시작하면 게임이 시작되고 몬스터와 글씨를 포함해 총 9개의 타겟이 있습니다. 미사일을 쏴서 맞추면 몬스터는 파괴되고, 글씨는 네온사인이 꺼지고 픽셀화됩니다. 
+                                        <span>클릭으로 미사일을 쏘는 슈팅 게임을 포함한 소개 페이지입니다. 마우스를 클릭하면 게임이 시작되고 몬스터와 글씨를 포함한 총 9개의 타겟이 있습니다. 미사일을 맞추면 몬스터는 파괴되고, 글씨는 네온사인이 꺼지고 픽셀화됩니다. 
                                         </span>
-                                        <span>★ 마우스를 클릭하면 숨겨두었던 미사일 div를 보이게 하고 클릭한 마우스 x, y 위치에서부터 수직으로 이동하는 keyframe 애니메이션과 효과음을 재생합니다. </span>
-                                        <span>★ ResizeObserver와 element.getBoundingClientRect를 사용해서 화면 크기가 바뀌더라도 타겟의 위치를 가져올 수 있게 했습니다. </span>
-                                        <span>★ Document.querySelector를 사용해 이동하는 미사일의 위치를 가져오고 미사일과 타겟의 위치가 겹치면 해당 타겟이 파괴됩니다. </span>
-                                        <span>★ 애니메이션에 animationend eventlistener를 추가해서 미사일이 아무것도 맞추지 않아도 애니메이션이 종료되면 미사일 div를 다시 숨기고, 렉에 걸릴 경우에 대비해 setinterval을 사용하여 처음 발사 후 1100ms가 지나면 미사일을 숨깁니다. </span>
+                                        <span>★ 마우스 클릭 시 미사일 div를 보이게 하고 마우스 x, y 좌표에서부터 수직으로 이동하는 keyframe 애니메이션과 효과음을 재생합니다. </span>
+                                        <span>★ ResizeObserver와 getBoundingClientRect를 사용해 화면 크기가 바뀌더라도 타겟의 위치를 가져올 수 있게 했습니다. </span>
+                                        <span>★ querySelector를 사용해 이동하는 미사일의 좌표를 가져오고 미사일과 타겟의 좌표가 겹치면 해당 타겟이 파괴됩니다. </span>
+                                        <span>★ 애니메이션에 animationend eventlistener를 추가해서 애니메이션이 끝나면 미사일 div를 숨기고, 렉에 걸릴 경우엔 setinterval을 사용하여 처음 발사 후 1000ms가 지나면 미사일을 숨깁니다. </span>
                                     </div>
                                 </div>}
                         </div>}
                         {index1 === 2 && <div className='image3'>
                             <img src={Project3Project} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Todo Widget & Diary Entries Slider</span>
+                                <span style={{marginBottom: '0.5rem'}}>Project Page</span>
                                 <div className='image3DescContent'>
-                                        <span>On the left is an example of editing Todo List widget. Click on + to add more todos, check button to save, x button to remove a todo. Or make the widget itself invisible by changing the settings. The default face on the bottom of the Todo Widget is the frowning face, but it turns into a smiling face when finishing all the todos. 
-                                            On the right is what the post looks like after saving it. Users can move the slider on the bottom or click on the arrow buttons to view other posts that have been written on different dates. Or directly choose a date on the Calendar widget on the left to view a post written on that date.
+                                        <span>This is a project introduction page that includes a mini-game where points are earned by clicking on fruit icons. Users can navigate to previous/next images by clicking on the arrow buttons at the bottom of the image, and hover over the image to read the descriptions. URL, GitHub buttons navigate to the corresponding website.
                                         </span>
-                                        <span>★ The Todo List is unique to each day so that users can have different goals everyday. </span>
-                                        <span>★ Todo list is saved each day with the user id, server retrieves all todo list of different dates with matching user id, and display the todo list of the selected date. </span>
+                                        <span>★ I made mouth open/close and translate X across the screen animations to make the pacman move along the border.</span>
+                                        <span>★ Score is displayed and disappears after a few seconds when a fruit is clicked. If the user clicks on an object that is not a fruit, one life is deducted and sound effect is played.</span>
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>
@@ -153,13 +154,13 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         {index1 === 3 && <div className='image3'>
                             <img src={Project3Other} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Move Mode</span>
+                                <span style={{marginBottom: '0.5rem'}}>Other Page</span>
                                 <div className='image3DescContent'>
-                                        <span>This is after clicking Move button on the bottom right of the Left page. The yellow cross appears on the center of each widget and sticker, and users can click on the cross to freely drag the widgets within the Left boundary.
-                                             Clicking the Move button saves the current positions of all widgets and stickers.
+                                        <span>This is gameboy made using only CSS. Clicking on the switch on the header turns on the gameboy. After a sound effect and a loading message, images appear on the screen. Any part of the buttons can be clicked to view next image, and all button work the same in case the screen is too small to display the entire shape of the buttons. 
+                                            Pressing arrow keys on a physical keyboard also shows previous/next images.
                                         </span>
-                                        <span>★ Positions of widgets and stickers are saved to the DB to preserve the positions when logging in fresh or refreshing the page.</span>
-                                        <span>★ Edit mode is save as boolean using Redux so that all widgets turns movable when edit mode is on. </span>
+                                        <span>★ Box-shadow and outline were used to add detailed shadows and lighting to the gameboy.</span>
+                                        <span>★ Keydown eventlistner detects key press on the physical keyboard and allows users to view images using their keyboard.</span>
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>
@@ -176,13 +177,12 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         {index1 === 4 && <div className='image3'>
                             <img src={Project3Contact} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Diary (Social Media Theme)</span>
+                                <span style={{marginBottom: '0.5rem'}}>Contact Page</span>
                                 <div className='image3DescContent'>
-                                        <span>Clicking on the pen button on the Right page opens diary writing page. Users can give it a title, select a weather, upload image. The default theme is Social Media theme with an image, but users can click on the gear settings button to change the theme to Plain Text or turn on the grid on the background. 
-                                                The Lock button makes the post private, and the user's friends can not view the post. After saving the post, users can bookmark the post, change style settings again, like the post, or permanently delete it.
+                                        <span>This contacts page is made to look like a leaderboard page of an arcade game. This is what the screen looks like after user registered their initial and their score. The spinning coin appears after, and it navigates back to home page on click.
                                         </span>
-                                        <span>★ Style settings is saved individually to the DB, so Social Media / Memo theme and grid background can be applied separately for each post. </span>
-                                        <span>★ Any image file uploaded before saving the post is temporary presented via URL.createObjectURL, and is saved to the S3 bucket on clicking SAVE. </span>
+                                        <span>★ With scroll up counted as -1 and down as +1, current page number is saved as a state. Using page number === 5 condition, key for the page div is set different so that title animation gets played again on leaving and revisiting the page by scrolling.</span>
+                                        <span>★ User's current score and remaining lives are retrieved from Redux store.</span>
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>

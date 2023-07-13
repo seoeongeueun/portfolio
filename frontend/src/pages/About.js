@@ -136,7 +136,6 @@ function About({score, life, onSetScore, lang, setLang, current}) {
         }
     }, [titleHit, skillsHit, introHit, picHit]);
 
-
     useEffect(() => {
         const animation = document.querySelector('.cardTitleHit');
         const animation2 = document.querySelector('.picHit');
@@ -160,32 +159,32 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                 setChangeFont([...changeFont, {id: 'pic', change: true}]);
             });
         }
-    }, [changeFont, titleHit, skillsHit, introHit, picHit]);
+    }, [changeFont]);
 
     useEffect(() => {
         const element = document.querySelector('.missile');
         if (shoot) {
             let tmp = [...hit];
             let trackMovement = setInterval(() => {
-                if (!titleHit && element?.getBoundingClientRect().top <= title.y + title.h && element?.getBoundingClientRect().top >=  title.y - 10 && element?.getBoundingClientRect().left >= title.x - 20 && element?.getBoundingClientRect().left <= title.x + title.w + 20) {
+                if (!titleHit && element?.getBoundingClientRect().top <= title.y + title.h && element?.getBoundingClientRect().top >=  title.y - 50 && element?.getBoundingClientRect().left >= title.x - 20 && element?.getBoundingClientRect().left <= title.x + title.w + 50) {
                     onSetScore(score+100);
                     setShoot(false);
                     setTitleHit(true);
                     clearInterval(trackMovement);
                 }
-                else if (!introHit && element?.getBoundingClientRect().top <= intro.y + intro.h && element?.getBoundingClientRect().top >=  intro.y - 10 && element?.getBoundingClientRect().left >= intro.x - 20&& element?.getBoundingClientRect().left <= intro.x + intro.w + 20) {
+                else if (!introHit && element?.getBoundingClientRect().top <= intro.y + intro.h && element?.getBoundingClientRect().top >=  intro.y - 50 && element?.getBoundingClientRect().left >= intro.x - 20&& element?.getBoundingClientRect().left <= intro.x + intro.w + 30) {
                     onSetScore(score+100);
                     setShoot(false);
                     setIntroHit(true);
                     clearInterval(trackMovement);
                 }
-                else if (!skillsHit && element?.getBoundingClientRect().top <= skills.y + skills.h && element?.getBoundingClientRect().top >=  skills.y - 10 && element?.getBoundingClientRect().left >= skills.x - 20&& element?.getBoundingClientRect().left <= skills.x + skills.w + 20) {
+                else if (!skillsHit && element?.getBoundingClientRect().top <= skills.y + skills.h && element?.getBoundingClientRect().top >=  skills.y - 50 && element?.getBoundingClientRect().left >= skills.x - 20&& element?.getBoundingClientRect().left <= skills.x + skills.w + 20) {
                     onSetScore(score+100);
                     setShoot(false);
                     setSkillsHit(true);
                     clearInterval(trackMovement);
                 }
-                else if (!picHit && element?.getBoundingClientRect().top <= pic.y + pic.h + 30 && element?.getBoundingClientRect().top >=  pic.y - 10 && element?.getBoundingClientRect().left >= pic.x - 30 && element?.getBoundingClientRect().left <= pic.x + pic.w + 30) {
+                else if (!picHit && element?.getBoundingClientRect().top <= pic.y + pic.h && element?.getBoundingClientRect().top >=  pic.y - 30 && element?.getBoundingClientRect().left >= pic.x - 50 && element?.getBoundingClientRect().left <= pic.x + pic.w + 50) {
                     onSetScore(score+100);
                     setShoot(false);
                     setPicHit(true);
@@ -205,7 +204,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                     onSetScore(score+100);
                     clearInterval(trackMovement);
                 }
-                else if (hit.filter(e => e.id === 2).length === 0 && element?.getBoundingClientRect().top >= 60 && element?.getBoundingClientRect().left <= 960 && element?.getBoundingClientRect().left >= 880) {
+                else if (hit.filter(e => e.id === 2).length === 0 && element?.getBoundingClientRect().top <= 350 && element?.getBoundingClientRect().top >= 60 && element?.getBoundingClientRect().left <= 960 && element?.getBoundingClientRect().left >= 880) {
                     setShoot(false);
                     tmp.push({ id: 2, hit: true });
                     setHit(tmp);

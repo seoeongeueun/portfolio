@@ -236,10 +236,10 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
             <AboutContainer lang={lang} setLang={setLang} current={current}/>
           </section>
           <section>
-            <ProjectsContainer lang={lang} setLang={setLang}/>
+            <ProjectsContainer2 lang={lang} setLang={setLang}/>
           </section>
           <section>
-            <ProjectsContainer2 lang={lang} setLang={setLang}/>
+            <ProjectsContainer lang={lang} setLang={setLang}/>
           </section>
           <section>
             <ProjectsContainer3 lang={lang} setLang={setLang}/>

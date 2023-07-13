@@ -102,7 +102,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                     <span style={{marginBottom: '0.5rem'}}>홈페이지</span>
                                     <div className='image3DescContent'>
                                         <span>레트로 게임 시작 화면처럼 디자인한 홈페이지입니다. x가 쳐진 몬스터를 클릭해서 구해주면 노래를 부릅니다. 마우스 클릭으로 메뉴를 선택하거나, 실제 키보드 위 아래 화살표를 누르거나, 화면 속 미니 키보드와 화살표를 클릭해서 메뉴를 이동할 수 있습니다. 
-                                            미니 키보드는 키를 누르는 대신 클릭하는 방식이며 실제 키보드와 똑같이 작동하고 My name is Seongeun Park 소개 메세지 애니메이션이 재생되고난 뒤 1500 ms 후 키보드를 테스트할 수 있는 화면으로 전환됩니다. </span>
+                                            미니 키보드는 키를 누르는 대신 클릭하는 방식이며 실제 키보드와 똑같이 작동하고 My name is 소개 메세지 애니메이션이 재생되고난 뒤 1500 ms 후 키보드를 테스트할 수 있는 화면으로 전환됩니다. </span>
                                         <span>★ 몬스터에 keyframe 애니메이션을 적용해 유저가 메뉴를 선택하면 먼저 점프 애니메이션을 재생하고, setInterval로 일정 시간 뒤에 메뉴를 이동하게 만들었습니다.</span>
                                         <span>★ 모든 메뉴 페이지는 한 div에 전부 포함시키고, 페이지 당 section 태그로 100vh 화면 크기를 정하고, scroll-snap 속성을 사용해 마우스 스크롤 시에 페이지가 전환되게 했습니다. </span>
                                         <span>★ 메뉴 선택시에는 해당 메뉴의 순서와 window.innerHeight를 곱하고 scrollTo 함수를 사용해서 페이지를 이동합니다.</span>
@@ -124,12 +124,12 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                 : <div className='image3Desc'>
                                     <span style={{marginBottom: '0.5rem'}}>About Me 페이지</span>
                                     <div className='image3DescContent'>
-                                        <span>마우스를 누르면 미사일을 발사하고 몬스터를 파괴할 수 있는 슈팅 게임을 포함한 소개 페이지입니다. 마우스 클릭으로 시작하면 몬스터가 나타나고 몬스터와 글씨를 포함해 총 9개의 타겟이 있습니다. 미사일을 쏴서 맞추면 몬스터는 파괴되고, 글씨는 네온사인이 꺼지고 픽셀화됩니다. 
-                                            기술 스택 아이콘 위에 마우스를 올려 아이콘 이름을 확인할 수 있습니다. </span>
-                                        <span>★ 마우스를 클릭하면 숨겨두었던 미사일 div를 보이게 하고 수직으로 이동하는 keyframe 애니메이션과 효과음을 재생합니다. </span>
-                                        <span>★ ResizeObserver와 element.getBoundingClientRect를 사용해서 화면 크기가 바뀌더라도 타겟의 위치를 가져올 수 있게했습니다. </span>
-                                        <span>★ document.querySelector를 사용해 이동하는 미사일의 위치를 가져오고 미사일과 타겟의 위치가 겹치면 해당 타겟이 파괴되는 방식입니다. </span>
-                                        <span>★ 애니메이션에 animationend eventlistener를 추가해서 미사일이 아무것도 맞추지 못해도 애니메이션이 종료되면 미사일을 다시 숨기고, 렉에 걸릴 경우를 대비해 setinterval을 사용하여 처음 발사 후 1100ms가 지나면 강제로 다시 미사일을 숨기게 만들었습니다. </span>
+                                        <span>마우스를 누르면 미사일을 발사하고 몬스터를 파괴할 수 있는 슈팅 게임을 포함한 소개 페이지입니다. 마우스 클릭으로 시작하면 게임이 시작되고 몬스터와 글씨를 포함해 총 9개의 타겟이 있습니다. 미사일을 쏴서 맞추면 몬스터는 파괴되고, 글씨는 네온사인이 꺼지고 픽셀화됩니다. 
+                                        </span>
+                                        <span>★ 마우스를 클릭하면 숨겨두었던 미사일 div를 보이게 하고 클릭한 마우스 x, y 위치에서부터 수직으로 이동하는 keyframe 애니메이션과 효과음을 재생합니다. </span>
+                                        <span>★ ResizeObserver와 element.getBoundingClientRect를 사용해서 화면 크기가 바뀌더라도 타겟의 위치를 가져올 수 있게 했습니다. </span>
+                                        <span>★ Document.querySelector를 사용해 이동하는 미사일의 위치를 가져오고 미사일과 타겟의 위치가 겹치면 해당 타겟이 파괴되는 방식입니다. </span>
+                                        <span>★ 애니메이션에 animationend eventlistener를 추가해서 미사일이 아무것도 맞추지 않아도 애니메이션이 종료되면 미사일 div를 다시 숨기고, 렉에 걸릴 경우에 대비해 setinterval을 사용하여 처음 발사 후 1100ms가 지나면 미사일을 숨기게 만들었습니다. </span>
                                     </div>
                                 </div>}
                         </div>}
@@ -152,16 +152,16 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                             또는 유저 키보드의 좌우 화살표 키를 눌러서 이전/다음 이미지를 볼 수 있습니다.
                                         </span>
                                         <span>★ Box-shadow와 outline을 사용해 디테일한 명암을 넣었습니다.</span>
-                                        <span>★ Keydown eventlistener를 적용해 키보드 좌우 화살표 키를 눌렀을 때 이미지를 전환하게 만들었습니다.</span>
+                                        <span>★ Keydown eventlistener를 적용해 키보드 좌우 화살표 키를 눌렀을 때도 이미지를 전환하게 만들었습니다.</span>
                                     </div>
                                 </div>}
                         </div>}
                         {index1 === 3 && <div className='image3'>
                             <img src={Project3Contact} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Journal (Social Media Theme)</span>
+                                <span style={{marginBottom: '0.5rem'}}>Diary (Social Media Theme)</span>
                                 <div className='image3DescContent'>
-                                        <span>Clicking on the pen button on the Right page opens journal writing page. Users can give it a title, select a weather, upload image. The default theme is Social Media theme with an image, but users can click on the gear settings button to change the theme to Plain Text or turn on the grid on the background. 
+                                        <span>Clicking on the pen button on the Right page opens diary writing page. Users can give it a title, select a weather, upload image. The default theme is Social Media theme with an image, but users can click on the gear settings button to change the theme to Plain Text or turn on the grid on the background. 
                                                 The Lock button makes the post private, and the user's friends can not view the post. After saving the post, users can bookmark the post, change style settings again, like the post, or permanently delete it.
                                         </span>
                                         <span>★ Style settings is saved individually to the DB, so Social Media / Memo theme and grid background can be applied separately for each post. </span>
@@ -173,14 +173,14 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                     <div className='image3DescContent'>
                                         <span>레트로 게임의 순위표처럼 디자인한 연락처 페이지입니다. 세글자 이니셜을 입력하고 ENT를 클릭해서 미니 게임 점수를 올린 뒤 모습입니다. 돌아가는 코인을 클릭하면 다시 홈페이지로 돌아갑니다.
                                         </span>
-                                        <span>★ 유저의 현재 점수와 남은 목숨 상태는 Redux로 관리합니다.</span>
+                                        <span>★ 유저의 현재 점수와 남은 목숨 상태를 Redux 스토어에서 가져옵니다.</span>
                                     </div>
                                 </div>}
                         </div>}
                         {index1 === 4 && <div className='image3'>
                             <img src={Project2Todo} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Todo Widget & Journal Posts Slider</span>
+                                <span style={{marginBottom: '0.5rem'}}>Todo Widget & Diary Entries Slider</span>
                                 <div className='image3DescContent'>
                                         <span>On the left is an example of editing Todo List widget. Click on + to add more todos, check button to save, x button to remove a todo. Or make the widget itself invisible by changing the settings. The default face on the bottom of the Todo Widget is the frowning face, but it turns into a smiling face when finishing all the todos. 
                                             On the right is what the post looks like after saving it. Users can move the slider on the bottom or click on the arrow buttons to view other posts that have been written on different dates. Or directly choose a date on the Calendar widget on the left to view a post written on that date.
@@ -287,9 +287,9 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         <div className='projectDetail'>
                             {lang === 'English' && <div className='descriptionKor'>
                                 <span>I made CheeseMe because while there are other blog-like applications out there, very few offer all those features within a single interface, along with the freedom to creatively decorate your pages. 
-                                CheeseMe is a personalized and customizable journal application for PC that brings together convenient widgets, journal entries, and social connections all in one place.</span>
+                                CheeseMe is a personalized and customizable diary application for PC that brings together convenient widgets, diary entries, and social connections all in one place.</span>
                             <div className='descriptionKor2'>
-                                <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Login, Todo List, Calendar, World Clock, Reminder, Notes, Journal Posts, Drag & Move Widgets, Sticker Widget Maker, Add Friends</span>
+                                <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Login, Todo List, Calendar, World Clock, Reminder, Notes, Diary Entries, Drag & Move Widgets, Sticker Widget Maker, Add Friends</span>
                                 <span style={{color: 'cyan'}}>My Roles</span><span style={{marginBottom: '1rem'}}>Design, Backend, Frontend, Deloyment</span>
                                 <span style={{color: 'cyan'}}>Stacks Used</span>
                                 <div className='stacks'>
@@ -299,13 +299,8 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                     <img alt='project2' src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
                                     <img alt='project2' src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
                                     <img alt='project2' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=Mui&logoColor=white"/>
-                                    <img alt='project2' src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
-                                    <img alt='project2' src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"/>
                                     <img alt='project2' src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
-                                    <img alt='project2' src="https://img.shields.io/badge/amazons3-FF9900?style=for-the-badge&logo=AmazonS3&logoColor=white"/>
                                     <img alt='project2' src="https://img.shields.io/badge/netlify-00C7B7?style=for-the-badge&logo=Netlify&logoColor=white"/>
-                                    <img alt='project2' src="https://img.shields.io/badge/fly.io-8D33E8?style=for-the-badge&logo=express&logoColor=white"/>
-                                    <img alt='project2' src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=Docker&logoColor=white"/>
                                 </div>
                             </div>    
                             </div>}
@@ -322,13 +317,8 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                     <img alt='project2' src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> 
                                     <img alt='project2' src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
                                     <img alt='project2' src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=Mui&logoColor=white"/>
-                                    <img alt='project2' src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white"/>
-                                    <img alt='project2' src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"/>
                                     <img alt='project2' src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
-                                    <img alt='project2' src="https://img.shields.io/badge/amazons3-FF9900?style=for-the-badge&logo=AmazonS3&logoColor=white"/>
                                     <img alt='project2' src="https://img.shields.io/badge/netlify-00C7B7?style=for-the-badge&logo=Netlify&logoColor=white"/>
-                                    <img alt='project2' src="https://img.shields.io/badge/fly.io-8D33E8?style=for-the-badge&logo=express&logoColor=white"/>
-                                    <img alt='project2' src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=Docker&logoColor=white"/>
                                 </div>
                             </div>    
                             </div>}

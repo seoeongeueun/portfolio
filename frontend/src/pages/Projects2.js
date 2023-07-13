@@ -78,7 +78,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
         <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
             <div className='projectPage'>
                 <div className='projectPageIntro'>
-                    <p>PROJECT 2</p>
+                    <p>PROJECT 1</p>
                     <div className='otherPageLang'>
                         <button onClick={() => setLang(lang ==='Korean' ? 'English' : 'Korean')} style={{opacity: lang === 'Korean' && '0.5'}}>한국어</button>
                         <button onClick={() => setLang(lang === 'English' ? 'Korean' : 'English')} style={{opacity: lang === 'English' && '0.5'}}>ENGLISH</button>
@@ -92,7 +92,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                             {lang === 'English' ? <div className='image2Desc'>
                                 <span style={{marginBottom: '0.5rem'}}>Main Page</span>
                                 <div className='image2DescContent'>
-                                        <span>This is the main page after logging in. Left side is for widgets, and right side is for writing posts. Left and Right are separate components, and thus the settings and boundaries apply individually. Widgets and stickers can be moved freely within the Left boundary.</span>
+                                        <span>This is the main page after logging in. Left side is for widgets, and right side is for writing diary entries. Left and Right are separate components, and thus the settings and boundaries apply individually. Widgets and stickers can be moved freely within the Left boundary.</span>
                                         <span>★ I used ResizeObserver to detect window size change so that the widgets never leave the left page boundary even when screen size gets smaller.</span>
                                         <span>★ I used Redux to store current displayed date, and clicking on any date on the Calendar widget allows both Left and Right to change according to the new picked date.</span>
                                         <span>★ Cookie with max age 2 days is saved on the server when user logs in successfully and token is set for client side and DB to keep login state. And the token is deleted when cookie expires or when the user logs out.</span>
@@ -154,13 +154,13 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         {index1 === 3 && <div className='image2'>
                             <img src={Project2Right} alt='project2'/>
                             {lang === 'English' ? <div className='image2Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Journal (Social Media Theme)</span>
+                                <span style={{marginBottom: '0.5rem'}}>Diary (Social Media Theme)</span>
                                 <div className='image2DescContent'>
-                                        <span>Clicking on the pen button on the Right page opens journal writing page. Users can give it a title, select a weather, upload image. The default theme is Social Media theme with an image, but users can click on the gear settings button to change the theme to Plain Text or turn on the grid on the background. 
-                                                The Lock button makes the post private, and the user's friends can not view the post. After saving the post, users can bookmark the post, change style settings again, like the post, or permanently delete it.
+                                        <span>Clicking on the pen button on the Right page opens diary writing page. Users can give it a title, select a weather, upload image. The default theme is Social Media theme with an image, but users can click on the gear settings button to change the theme to Plain Text or turn on the grid on the background. 
+                                                The Lock button makes the entry private, and the user's friends can not view the entry. After saving the entry, users can bookmark the entry, change style settings again, like it, or permanently delete it.
                                         </span>
-                                        <span>★ Style settings is saved individually to the DB, so Social Media / Memo theme and grid background can be applied separately for each post. </span>
-                                        <span>★ Any image file uploaded before saving the post is temporary presented via URL.createObjectURL, and is saved to the S3 bucket on clicking SAVE. </span>
+                                        <span>★ Style settings is saved individually to the DB, so Social Media / Memo theme and grid background can be applied separately for each entry. </span>
+                                        <span>★ Any image file uploaded before saving the entry is temporary presented via URL.createObjectURL, and is saved to the S3 bucket on clicking SAVE. </span>
                                     </div>
                                 </div> 
                                 : <div className='image2Desc'>
@@ -177,10 +177,10 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         {index1 === 4 && <div className='image2'>
                             <img src={Project2Todo} alt='project2'/>
                             {lang === 'English' ? <div className='image2Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Todo Widget & Journal Posts Slider</span>
+                                <span style={{marginBottom: '0.5rem'}}>Todo Widget & Diary Entries Slider</span>
                                 <div className='image2DescContent'>
                                         <span>On the left is an example of editing Todo List widget. Click on + to add more todos, check button to save, x button to remove a todo. Or make the widget itself invisible by changing the settings. The default face on the bottom of the Todo Widget is the frowning face, but it turns into a smiling face when finishing all the todos. 
-                                            On the right is what the post looks like after saving it. Users can move the slider on the bottom or click on the arrow buttons to view other posts that have been written on different dates. Or directly choose a date on the Calendar widget on the left to view a post written on that date.
+                                            On the right is what the entry looks like after saving it. Users can move the slider on the bottom or click on the arrow buttons to view other entries that have been written on different dates. Or directly choose a date on the Calendar widget on the left to view a entry written on that date.
                                         </span>
                                         <span>★ The Todo List is unique to each day so that users can have different goals everyday. </span>
                                         <span>★ Todo list is saved each day with the user id, server retrieves all todo list of different dates with matching user id, and display the todo list of the selected date. </span>
@@ -245,13 +245,13 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         {index1 === 7 && <div className='image2'>
                             <img src={Project2Friend} alt='project2'/>
                             {lang === 'English' ? <div className='image2Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Viewing Friend's Post</span>
+                                <span style={{marginBottom: '0.5rem'}}>Viewing Friend's Diary</span>
                                 <div className='image2DescContent'>
-                                        <span>Click on the Friend List button on the top right of the page to view the friends list. Click on the friend's name to view their posts and like each post. Contents for the posts that are set private by your friend are not visiable, but instead you see a message that the post is private. 
-                                            On the left are your widgets, but clicking on a date on the Calendar widget lets you view your friend's post written on that date. Click on the yellow bookmark with house icon on the far right to leave and go back to your own posts. 
+                                        <span>Click on the Friend List button on the top right of the page to view the friends list. Click on the friend's name to view their entries and like each entry. Contents for the entries that are set private by your friend are not visible, but instead you see a message that the entry is private. 
+                                            On the left are your widgets, but clicking on a date on the Calendar widget lets you view your friend's entry on that date. Click on the yellow bookmark with house icon on the far right to leave and go back to your own diary. 
                                         </span>
-                                        <span>★ On liking a post, your id is added to the list of users who liked the post, and the list is updated on the DB for the liked post.</span>
-                                        <span>★ If the list of users who liked the post contains your id, liking the post removes your id from the list in the DB and undo the like. </span>
+                                        <span>★ When you like a entry, your id is added to the list of users who liked the entry, and the list is updated on the DB for the liked entry.</span>
+                                        <span>★ If the list of users who liked the entry contains your id, liking the entry again removes your id from the list in the DB and undo the like. </span>
                                     </div>
                                 </div> 
                                 : <div className='image2Desc'>
@@ -305,9 +305,9 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         <div className='projectDetail'>
                             {lang === 'English' && <div className='descriptionKor'>
                                 <span>I made CheeseMe because while there are other blog-like applications out there, very few offer all those features within a single interface, along with the freedom to creatively decorate your pages. 
-                                CheeseMe is a personalized and customizable journal application for PC that brings together convenient widgets, journal entries, and social connections all in one place.</span>
+                                CheeseMe is a personalized and customizable diary application for PC that brings together convenient widgets, diary entries, and social connections all in one place.</span>
                             <div className='descriptionKor2'>
-                                <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Login, Todo List, Calendar, World Clock, Reminder, Notes, Journal Posts, Drag & Move Widgets, Sticker Widget Maker, Add Friends</span>
+                                <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Login, Todo List, Calendar, World Clock, Reminder, Notes, Diary Entries, Drag & Move Widgets, Sticker Widget Maker, Add Friends</span>
                                 <span style={{color: 'cyan'}}>My Roles</span><span style={{marginBottom: '1rem'}}>Design, Backend, Frontend, Deloyment</span>
                                 <span style={{color: 'cyan'}}>Stacks Used</span>
                                 <div className='stacks'>
@@ -358,7 +358,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                 </div>
                                 <div className='description'>
                                     {showThund && <img className='thunder' src={Thunder} alt='thunder' style={{width: '30px', height: '30px'}} onClick={() => handleClickThunder('thunder')}/>}
-                                    <a href="https://github.com/seoeseongeueun/cheeseme" rel="noopener noreferrer" target="_blank"><span>GITHUB</span></a>
+                                    <a href="https://github.com/seoeongeueun/cheeseme" rel="noopener noreferrer" target="_blank"><span>GITHUB</span></a>
                                 </div>
                                 <div className='description'>
                                     {showFruit4 && <img className="grape" src={Grape} alt="grape" style={{width: '30px', height: '35px', display: showFruit2, position: 'relative'}} onClick={() => handleClickFruit('grape')}/>}

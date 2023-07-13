@@ -1164,8 +1164,8 @@ section {
   height: 35px;
   background-color: white;
   position: absolute;
-  -webkit-animation: shoot-up 0.5s ease-out 1 both;
-  animation: shoot-up 0.5s ease-out 1 both;
+  -webkit-animation: shoot-up 0.4s ease-out 1 both;
+  animation: shoot-up 0.4s ease-out 1 both;
   z-index: 6;
 }
 
@@ -1703,6 +1703,26 @@ section {
 }
 
 .cardTitleHit {
+  font-weight: 200;
+  font-size: 4rem;
+  color: white;
+  text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF;
+  -webkit-animation: flicker-2 1.5s linear 1 both;
+  animation: flicker-2 1.5s linear 1 both;
+  font-family: 'Rhesmanisa' !important;
+}
+
+.introductionHit {
+  font-weight: 200;
+  font-size: 4rem;
+  color: white;
+  text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #0077ff, 0 0 10px #00FFFF;
+  -webkit-animation: flicker-2 1.5s linear 1 both;
+  animation: flicker-2 1.5s linear 1 both;
+  font-family: 'Rhesmanisa' !important;
+}
+
+.skillsHit {
   font-weight: 200;
   font-size: 4rem;
   color: white;

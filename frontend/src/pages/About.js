@@ -47,30 +47,33 @@ function About({score, life, onSetScore, lang, setLang, current}) {
     const [reload, setReload] = useState(false);
 
     useEffect(() => {
-        const resizeObserver = new ResizeObserver((event) => {
-            window.requestAnimationFrame(() => {
-                if (!Array.isArray(event) || !event.length) {
-                  return;
-                }
-                setWidth(event[0].contentBoxSize[0].inlineSize);
-                const bodyRef = document.getElementById("aboutPage");
-                if (bodyRef){
-                    setHeight(bodyRef.clientHeight)
-
-                }
+        if (current === 0) {
+            const resizeObserver = new ResizeObserver((event) => {
+                window.requestAnimationFrame(() => {
+                    if (!Array.isArray(event) || !event.length) {
+                      return;
+                    }
+                    setWidth(event[0].contentRect?.width);
+                    const bodyRef = document.getElementById("aboutPage");
+                    if (bodyRef){
+                        setHeight(bodyRef.clientHeight)
+    
+                    }
+                });
             });
-        });
-        resizeObserver.observe(document.getElementById("aboutPage"));
+            resizeObserver.observe(document.getElementById("aboutPage"));
+        }
     });
 
     useEffect(() => {
         if (current === 0) {
-            onSetScore(score - 100*(hit.length + changeFont.length) <= 0 ? 0 : score - 100*(hit.length + changeFont.length));
+            onSetScore(score - 100*(hit.length + changeFont.length + changeFont2.length) <= 0 ? 0 : score - 100*(hit.length + changeFont.length + changeFont2.length));
             setTitleHit(false);
             setIntroHit(false);
             setSkillsHit(false);
             setPicHit(false);
             setChangeFont([]);
+            setChangeFont2([]);
             setHit([]);
             setReload(true);
             setHelp(true);
@@ -81,32 +84,34 @@ function About({score, life, onSetScore, lang, setLang, current}) {
     }, [current]);
 
     useEffect(() => {
-        let element = document.getElementById('intro');
-        if (element) {
-            let info = {x: element.getBoundingClientRect().x, y: element.getBoundingClientRect().y, w: element.getBoundingClientRect().width, h: element.getBoundingClientRect().height}
-            setIntro(info);
-        }
-        let element2 = document.getElementById('skills');
-        if (element2) {
-            let info = {x: element2.getBoundingClientRect().x, y: element2.getBoundingClientRect().y, w: element2.getBoundingClientRect().width, h: element2.getBoundingClientRect().height}
-            setSkills(info);
-        }
-        let element3 = document.getElementById('aboutMe');
-        if (element3) {
-            let info = {x: element3.getBoundingClientRect().x, y: element3.getBoundingClientRect().y, w: element3.getBoundingClientRect().width, h: element3.getBoundingClientRect().height}
-            setTitle(info);
-        }
-        let element4 = document.getElementById('pic');
-        if (element4) {
-            let info = {x: element4.getBoundingClientRect().x, y: element4.getBoundingClientRect().y, w: element4.getBoundingClientRect().width, h: element4.getBoundingClientRect().height}
-            setPic(info);
+        if (width !== 0 && height !== 0) {
+            let element = document.getElementById('intro');
+            if (element) {
+                let info = {x: element.getBoundingClientRect().x, y: element.getBoundingClientRect().y, w: element.getBoundingClientRect().width, h: element.getBoundingClientRect().height}
+                setIntro(info);
+            }
+            let element2 = document.getElementById('skills');
+            if (element2) {
+                let info = {x: element2.getBoundingClientRect().x, y: element2.getBoundingClientRect().y, w: element2.getBoundingClientRect().width, h: element2.getBoundingClientRect().height}
+                setSkills(info);
+            }
+            let element3 = document.getElementById('aboutMe');
+            if (element3) {
+                let info = {x: element3.getBoundingClientRect().x, y: element3.getBoundingClientRect().y, w: element3.getBoundingClientRect().width, h: element3.getBoundingClientRect().height}
+                setTitle(info);
+            }
+            let element4 = document.getElementById('pic');
+            if (element4) {
+                let info = {x: element4.getBoundingClientRect().x, y: element4.getBoundingClientRect().y, w: element4.getBoundingClientRect().right, h: element4.getBoundingClientRect().height}
+                setPic(info);
+            }
         }
     }, [width, height]);
 
     useEffect(() => {
-        const animation = document.querySelector('.cardTitleHit');
         if (titleHit) {
             if (changeFont.filter(e => e.id === 'aboutMe').length === 0) {
+                const animation = document.querySelector('.cardTitleHit');
                 animation?.addEventListener("animationend", () => {
                     setChangeFont([...changeFont, {id: 'aboutMe', change: true}]);
                 });
@@ -114,7 +119,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
         } 
         if (introHit) {
             if (changeFont.filter(e => e.id === 'intro').length === 0) {
-                const animation = document.querySelector('.cardTitleHit');
+                const animation = document.querySelector('.introductionHit');
                 animation?.addEventListener("animationend", () => {
                     setChangeFont([...changeFont, {id: 'intro', change: true}]);
                 });              
@@ -122,13 +127,34 @@ function About({score, life, onSetScore, lang, setLang, current}) {
         }
         if (skillsHit) {
             if (changeFont.filter(e => e.id === 'skills').length === 0) {
-                const animation = document.querySelector('.cardTitleHit');
+                const animation = document.querySelector('.skillsHit');
                 animation?.addEventListener("animationend", () => {
                     setChangeFont([...changeFont, {id: 'skills', change: true}]);
                 });
             }
         }
-    }, [titleHit, skillsHit, introHit]);
+    }, [titleHit, skillsHit, introHit, changeFont]);
+
+    useEffect(() => {
+        if (changeFont.some(e => e.id === 'aboutMe')) {
+            const animation = document.querySelector('.cardTitleHit');
+            animation?.removeEventListener("animationend", () => {
+                setChangeFont([...changeFont, {id: 'aboutMe', change: true}]);
+            });
+        }
+        if (changeFont.some(e => e.id === 'intro')) {
+            const animation = document.querySelector('.introductionHit');
+            animation?.removeEventListener("animationend", () => {
+                setChangeFont([...changeFont, {id: 'intro', change: true}]);
+            });
+        }
+        if (changeFont.some(e => e.id === 'skills')) {
+            const animation = document.querySelector('skillsHit');
+            animation?.removeEventListener(".animationend", () => {
+                setChangeFont([...changeFont, {id: 'skills', change: true}]);
+            });
+        }
+    }, [changeFont, titleHit, introHit, skillsHit]);
 
     useEffect(() => {
         if (picHit) {
@@ -141,24 +167,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
         }
     }, [picHit]);
 
-    useEffect(() => {
-        const animation = document.querySelector('.cardTitleHit');
-        if (changeFont.some(e => e.id === 'aboutMe')) {
-            animation?.removeEventListener("animationend", () => {
-                setChangeFont([...changeFont, {id: 'aboutMe', change: true}]);
-            });
-        }
-        if (changeFont.some(e => e.id === 'intro')) {
-            animation?.removeEventListener("animationend", () => {
-                setChangeFont([...changeFont, {id: 'intro', change: true}]);
-            });
-        }
-        if (changeFont.some(e => e.id === 'skills')) {
-            animation?.removeEventListener("animationend", () => {
-                setChangeFont([...changeFont, {id: 'skills', change: true}]);
-            });
-        }
-    }, [changeFont, titleHit, introHit, skillsHit]);
+
 
     useEffect(() => {
         const animation2 = document.querySelector('.picHit');
@@ -180,19 +189,19 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                     setTitleHit(true);
                     clearInterval(trackMovement);
                 }
-                else if (!introHit && element?.getBoundingClientRect().top <= intro.y + intro.h + 300 && element?.getBoundingClientRect().top >=  intro.y + intro.h&& element?.getBoundingClientRect().left >= intro.x - 20&& element?.getBoundingClientRect().left <= intro.x + intro.w + 30) {
+                else if (!introHit && element?.getBoundingClientRect().top >= intro.y + intro.h + 10 && element?.getBoundingClientRect().left >= intro.x - 20 && element?.getBoundingClientRect().left <= intro.x + intro.w + 10) {
                     onSetScore(score+100);
                     setShoot(false);
                     setIntroHit(true);
                     clearInterval(trackMovement);
                 }
-                else if (!skillsHit && element?.getBoundingClientRect().top <= skills.y + skills.h - 10 && element?.getBoundingClientRect().top >= skills.y - skills.h && element?.getBoundingClientRect().left >= skills.x - 20&& element?.getBoundingClientRect().left <= skills.x + skills.w + 20) {
+                else if (!skillsHit && element?.getBoundingClientRect().top >= skills.y - skills.h && element?.getBoundingClientRect().left >= skills.x - 20&& element?.getBoundingClientRect().left <= skills.x + skills.w + 20) {
                     onSetScore(score+100);
                     setShoot(false);
                     setSkillsHit(true);
                     clearInterval(trackMovement);
                 }
-                else if (!picHit && element?.getBoundingClientRect().top <= pic.y + pic.h && element?.getBoundingClientRect().top >=  pic.y - 30 && element?.getBoundingClientRect().left >= pic.x - 50 && element?.getBoundingClientRect().left <= pic.x + pic.w + 50) {
+                else if (!picHit && element?.getBoundingClientRect().top >= pic.h && element?.getBoundingClientRect().left >= pic.x - 100 && element?.getBoundingClientRect().left <= pic.w + 100) {
                     onSetScore(score+100);
                     setShoot(false);
                     setPicHit(true);
@@ -251,7 +260,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                     setShoot(false);
                     audio1.pause();
                 }
-            }, 1100);
+            }, 1000);
             return () => {
                 clearInterval(forceStop);
             };
@@ -313,7 +322,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                             </div>
                         </div>
                         <div className='aboutIntroductionText'>
-                            {introHit ? <span className={changeFont.some(e => e.id === 'intro') ? 'cardTitleChange' : 'cardTitleHit'}>Introduction</span> : <span className='cardTitle' id='intro' style={{WebkitAnimation: 'flicker-4 10s linear 0s both', animation: 'flicker-4 10s linear 0s both'}}>Introduction</span>}
+                            {introHit ? <span className={changeFont.some(e => e.id === 'intro') ? 'cardTitleChange' : 'introductionHit'}>Introduction</span> : <span className='cardTitle' id='intro' style={{WebkitAnimation: 'flicker-4 10s linear 0s both', animation: 'flicker-4 10s linear 0s both'}}>Introduction</span>}
                             {lang === 'English' ? <div className='textContent' style={{marginTop: !introHit ? '1.5rem' : '1rem'}}>
                                 <span>Hello, I'm a frontend developer who is passionate about blending functionality and aesthetics. </span>
                                 <span>With my creative ideas and attention to subtle details, I hope to make the user interface visually appealing, intuitive, and interesting. </span>
@@ -327,7 +336,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                         </div>
                     </div>
                     <div className='aboutPageSkills'>
-                        {skillsHit ? <span className={changeFont.some(e => e.id === 'skills') ? 'cardTitleChange' : 'cardTitleHit'}>Skills</span> : <span className='cardTitle' id='skills' style={{WebkitAnimation: 'flicker-4 20s linear 5s both', animation: 'flicker-4 20s linear 5s both'}}>Skills</span>}
+                        {skillsHit ? <span className={changeFont.some(e => e.id === 'skills') ? 'cardTitleChange' : 'skillsHit'}>Skills</span> : <span className='cardTitle' id='skills' style={{WebkitAnimation: 'flicker-4 20s linear 5s both', animation: 'flicker-4 20s linear 5s both'}}>Skills</span>}
                         <div className='skillsIcon'>
                             <div className='icon'>
                                 <img alt='Javascript' src={Javascript}/>

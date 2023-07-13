@@ -175,11 +175,12 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                             {lang === 'English' ? <div className='image2Desc'>
                                 <span style={{marginBottom: '0.5rem'}}>Todo Widget & Diary Entries Slider</span>
                                 <div className='image2DescContent'>
-                                        <span>On the left is an example of editing Todo List widget. Click on + to add more todos, check button to save, x button to remove a todo. Or make the widget itself invisible by changing the settings. The default face on the bottom of the Todo Widget is the frowning face, but it turns into a smiling face when finishing all the todos. 
-                                            On the right is what the entry looks like after saving it. Users can move the slider on the bottom or click on the arrow buttons to view other entries that have been written on different dates. Or directly choose a date on the Calendar widget on the left to view a entry written on that date.
+                                        <span>On the left is an example of editing Todo List widget. Todos can be added, removed, and be checked as done. All widgets can be set invisible by changing the settings.
+                                            On the right is what the entry looks like after it's saved and posted. Users can move the slider on the bottom or click on the arrow buttons or directly choose a date on the Calendar widget on the left to view other entries that are written on different dates.
                                         </span>
                                         <span>★ The Todo List is unique to each day so that users can have different goals everyday. </span>
                                         <span>★ Todo list is saved each day with the user id, server retrieves all todo list of different dates with matching user id, and display the todo list of the selected date. </span>
+                                        <span>★ The default face on the bottom of the Todo Widget is the frowning face, but it turns into a smiling face when finishing all the todos. </span>
                                     </div>
                                 </div> 
                                 : <div className='image2Desc'>
@@ -201,7 +202,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                         <span>This is what the page looks like after clicking Sign up button when it's in guest mode (not logged in). On confirm, it checks if all fields are entered, if the username is unique, if the password matches the re-entered password. If there is no problem, a message welcoming the new user appears on the bottom. 
                                         </span>
                                         <span>★ It looks through the DB to see if the entered username is unique.</span>
-                                        <span>★ Using Bcrpyt, password is hashed before saving in the DB.</span>
+                                        <span>★ Using Bcrpyt, password is hashed before saving to the DB.</span>
                                     </div>
                                 </div> 
                                 : <div className='image2Desc'>
@@ -219,12 +220,12 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                             {lang === 'English' ? <div className='image2Desc'>
                                 <span style={{marginBottom: '0.5rem'}}>Notifications</span>
                                 <div className='image2DescContent'>
-                                        <span>Users can check notifications by clicking the Notifications button shaped like a bell on the top right of the page. If someone sent the user a friend request, the user can accept or decline the request on the notifications modal. 
+                                        <span>Users can check notifications by clicking the bell shaped button on the top right of the page. If someone sent the user a friend request, the user can accept or decline the request on the notifications modal. 
                                             On accepting the request, the request sender's name is added to the receiver's friend list and vice versa. A notification that the friend request is accepted is sent to the user who sent the friend request. 
-                                            On decline, declined friend request notification is sent to the request sender. Notifications are stored up to the latest 5.
+                                            On decline, declined friend request notification is sent to the original sender. Notifications are stored up to the latest 5.
                                         </span>
-                                        <span>★ Save the sender and receiver's id with the friend request in the DB, and switch the original sender and receiver and save the information with the receive/decline notification upon the receiver's action. </span>
-                                        <span>★ After action has been taken by the receiver, remove accept/decline buttons under the friend request notification.</span>
+                                        <span>★ The sender and receiver's id with the friend request are saved in the DB, and are switched places and saved upon the receiver's accept or decline action. </span>
+                                        <span>★ After action has been taken by the receiver, accept/decline buttons under the friend request notification are removed.</span>
                                     </div>
                                 </div> 
                                 : <div className='image2Desc'>
@@ -243,11 +244,11 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                             {lang === 'English' ? <div className='image2Desc'>
                                 <span style={{marginBottom: '0.5rem'}}>Viewing Friend's Diary</span>
                                 <div className='image2DescContent'>
-                                        <span>Click on the Friend List button on the top right of the page to view the friends list. Click on the friend's name to view their entries and like each entry. Contents for the entries that are set private by your friend are not visible, but instead you see a message that the entry is private. 
-                                            On the left are your widgets, but clicking on a date on the Calendar widget lets you view your friend's entry on that date. Click on the yellow bookmark with house icon on the far right to leave and go back to your own diary. 
+                                        <span>Users can click on the Friend List button on the top right of the page to view their friends list. Clicking on the friend's name navigates to the friend's diary, allowing the user to view their entries and like them. Contents for the entries that are set private by the friend are not visible, but instead shows a message that the entry is private. 
+                                            On the left are the user's (not the friend's) widgets, but users can click on a date on the Calendar widget to view the friend's entry on that date. Yellow bookmark with house icon on the far right takes the user back to their own diary on click. 
                                         </span>
-                                        <span>★ When you like a entry, your id is added to the list of users who liked the entry, and the list is updated on the DB for the liked entry.</span>
-                                        <span>★ If the list of users who liked the entry contains your id, liking the entry again removes your id from the list in the DB and undo the like. </span>
+                                        <span>★ When a user likes a entry, their id is added to the list of users who liked the entry, and the list is updated on the DB.</span>
+                                        <span>★ If the list of users who liked the entry contains the user's id, liking the entry again removes their id from the list in the DB and undo the like. </span>
                                     </div>
                                 </div> 
                                 : <div className='image2Desc'>
@@ -266,9 +267,10 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                             {lang === 'English' ? <div className='image2Desc'>
                                 <span style={{marginBottom: '0.5rem'}}>Search With Keyword</span>
                                 <div className='image2DescContent'>
-                                        <span>Type a keyword to look up to see all diary entries and widgets that contain the keyword. On the right, search option is available to look up by title or content. All sentences containing the keyword are shown in the preview with the title and date of the entry. If the sen 
+                                        <span>Type a keyword to look up and see all diary entries and widgets that contain the keyword. On the right, search option is available to look up by title or content. All sentences containing the keyword are shown in the preview with the title and date of the entry. 
+                                            If the sentence is too long, it's cut around the keywords.
                                         </span>
-                                        <span>★ Fetches all entries that have the same owner id as the user id and contains the keyword from the DB.</span>
+                                        <span>★ Fetches from the DB all entries that have the same owner id as the user id and contain the keyword.</span>
                                         <span>★ On click, change the display date in the Redux store to the date of the clicked entry or widget. </span>
                                     </div>
                                 </div> 

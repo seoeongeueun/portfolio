@@ -1163,12 +1163,19 @@ section {
   width: 6px;
   height: 35px;
   background-color: white;
-  animation-name: shoot-up;
   position: absolute;
-  animation-name: shoot-up;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-out;
+  -webkit-animation: shoot-up 0.5s ease-out 1 both;
+  animation: shoot-up 0.5s ease-out 1 both;
   z-index: 6;
+}
+
+@-webkit-keyframes shoot-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
 }
 
 @keyframes shoot-up {
@@ -1888,17 +1895,88 @@ section {
 .project {
   height: 85vh;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='yellow' stroke-width='5' stroke-dasharray='3%2c 16' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
-  border-radius: 20px;
+
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   padding: 1.5rem;
+  position: relative;
 }
 
 .project span{
   font-family: 'NanumBarunPen';
 }
+
+.pacBoy {
+  width: 0;
+  height: 0;
+  border-top: 15px solid #FFF200;
+  border-left: 15px solid #FFF200;
+  border-bottom: 15px solid #FFF200;
+  border-right: 15px solid transparent;
+  border-radius: 50%;
+  animation: move-x 20s linear 0.5s infinite both, mouth 0.5s steps(1, end) 0s infinite both;
+  -webkit-animation: move-x 20s linear 0.5s infinite both, mouth 0.5s steps(1, end) 0s infinite both;
+  z-index: 5;
+  position: absolute;
+  top: -15px;
+  left: 0;
+}
+
+@keyframes move-x {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(100vw);
+            transform: translateX(100vw);
+  }
+}
+
+@-webkit-keyframes move-x {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100vw);
+            transform: translateX(-100vw);
+  }
+}
+
+@keyframes mouth {
+  0% {
+    -webkit-border-right: 15px solid #FFF200;
+            border-right: 15px solid #FFF200;
+  }
+  50% {
+    -webkit-border-right: 15px solid transparent;
+            border-right: 15px solid transparent;
+  }
+  0% {
+    -webkit-border-right: 15px solid #FFF200;
+            border-right: 15px solid #FFF200;
+  }
+}
+
+@-webkit-keyframes mouth {
+  0% {
+    -webkit-border-right: 15px solid #FFF200;
+            border-right: 15px solid #FFF200;
+  }
+  50% {
+    -webkit-border-right: 15px solid transparent;
+            border-right: 15px solid transparent;
+  }
+  100% {
+    -webkit-border-right: 15px solid #FFF200;
+            border-right: 15px solid #FFF200;
+  }
+}
+
 
 .projectImage {
   margin-left: 1.5rem;
@@ -2247,6 +2325,10 @@ section {
   border-radius: 10px;
 }
 
+.otherPageInstruction span {
+  font-family: 'NanumBarunPen';
+}
+
 .instructionsContainer {
   display: flex;
   flex-direction: row;
@@ -2254,7 +2336,7 @@ section {
 }
 
 .instructionsContent {
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -2263,7 +2345,7 @@ section {
 }
 
 .instructionsContent span {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .steps {

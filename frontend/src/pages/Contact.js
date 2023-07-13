@@ -43,9 +43,12 @@ function Contact(props) {
             setTimeout(() => {
                 audio3.volume = 0.7;
                 audio3.play();
+                audio.pause();
             }, 1800);
             setTimeout(() => {
                 window.location.reload(false);
+                audio3.pause();
+                audio2.pause();
             }, 3500);
         }
     }, [click, audio3])

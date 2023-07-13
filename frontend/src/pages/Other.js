@@ -104,6 +104,7 @@ function Other(props) {
           audio.play()
           setInterval(() => {
             setLoading(false);
+            audio.pause();
           }, 3000);
         } else if (!checked) {
           setPage(0)
@@ -159,7 +160,7 @@ function Other(props) {
                     </div>
                     : <div className='otherPageDesc'>
                         <div className='otherPageInstruction'>
-                          <span style={{fontSize: '3.5rem', color: 'cyan', marginBottom: '1rem'}}>HELP</span>
+                          <span style={{fontSize: props.lang === 'Korean' ? '2.5rem' : '3rem', color: 'cyan', marginBottom: '1rem'}}>{props.lang === 'English' ? 'HELP' : '설명서'}</span>
                           <div className='instructionsContainer'>
                             <div className='instructionsContent'>
                               <div className='instructionsButtons'>

@@ -85,6 +85,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                     </div>
                 </div>
                 <div className='project'>
+                    <div className='pacBoy'/>
                     <div className='projectImage2'>
                     {lang === 'English' ? <span className='tip'><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>HOVER OVER IMAGE TO READ ABOUT EACH PAGE</span> : <span className='tip'><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>마우스를 이미지에 올려 페이지 설명 읽기</span>}
                         {index1 === 0 && <div className='image2'>
@@ -270,11 +271,10 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                             {lang === 'English' ? <div className='image2Desc'>
                                 <span style={{marginBottom: '0.5rem'}}>Search With Keyword</span>
                                 <div className='image2DescContent'>
-                                        <span>Click on the Friend List button on the top right of the page to view the friends list. Click on the friend's name to view their posts and like each post. Contents for the posts that are set private by your friend are not visiable, but instead you see a message that the post is private. 
-                                            On the left are your widgets, but clicking on a date on the Calendar widget lets you view your friend's post written on that date. Click on the yellow bookmark with house icon on the far right to leave and go back to your own posts. 
+                                        <span>Type a keyword to look up to see all diary entries and widgets that contain the keyword. On the right, search option is available to look up by title or content. All sentences containing the keyword are shown in the preview with the title and date of the entry. If the sen 
                                         </span>
-                                        <span>★ Search the DB for posts containing the given keyword and are owned by the user. </span>
-                                        <span>★ Upon clicking on the found item, change the date state of Redux store to date of the found item.</span>
+                                        <span>★ Fetches all entries that have the same owner id as the user id and contains the keyword from the DB.</span>
+                                        <span>★ On click, change the display date in the Redux store to the date of the clicked entry or widget. </span>
                                     </div>
                                 </div> 
                                 : <div className='image2Desc'>

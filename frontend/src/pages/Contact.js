@@ -43,12 +43,12 @@ function Contact(props) {
             setTimeout(() => {
                 audio3.volume = 0.7;
                 audio3.play();
-                audio.pause();
+                audio.remove();
             }, 1800);
             setTimeout(() => {
                 window.location.reload(false);
-                audio3.pause();
-                audio2.pause();
+                audio3.remove();
+                audio2.remove();
             }, 3500);
         }
     }, [click, audio3])

@@ -35,6 +35,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
     const [height, setHeight] = useState(0);
     const [help, setHelp] = useState(true);
     const [changeFont, setChangeFont] = useState([]);
+    const [changeFont2, setChangeFont2] = useState([]);
     const [intro, setIntro] = useState({});
     const [title, setTitle] = useState({});
     const [skills, setSkills] = useState({});
@@ -75,6 +76,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
             setHelp(true);
         } else {
             setReload(false);
+            audio1.remove();
         }
     }, [current]);
 
@@ -126,19 +128,21 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                 });
             }
         }
+    }, [titleHit, skillsHit, introHit]);
+
+    useEffect(() => {
         if (picHit) {
             if (changeFont.filter(e => e.id === 'pic').length === 0) {
                 const animation2 = document.querySelector('.picHit');
                 animation2?.addEventListener("animationend", () => {
-                    setChangeFont([...changeFont, {id: 'pic', change: true}]);
+                    setChangeFont2([...changeFont2, {id: 'pic', change: true}]);
                 });
             }
         }
-    }, [titleHit, skillsHit, introHit, picHit]);
+    }, [picHit]);
 
     useEffect(() => {
         const animation = document.querySelector('.cardTitleHit');
-        const animation2 = document.querySelector('.picHit');
         if (changeFont.some(e => e.id === 'aboutMe')) {
             animation?.removeEventListener("animationend", () => {
                 setChangeFont([...changeFont, {id: 'aboutMe', change: true}]);
@@ -154,31 +158,35 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                 setChangeFont([...changeFont, {id: 'skills', change: true}]);
             });
         }
-        if (changeFont.some(e => e.id === 'pic')) {
+    }, [changeFont, titleHit, introHit, skillsHit]);
+
+    useEffect(() => {
+        const animation2 = document.querySelector('.picHit');
+        if (changeFont2.some(e => e.id === 'pic')) {
             animation2?.removeEventListener("animationend", () => {
-                setChangeFont([...changeFont, {id: 'pic', change: true}]);
+                setChangeFont2([...changeFont2, {id: 'pic', change: true}]);
             });
         }
-    }, [changeFont]);
+    }, [changeFont2]);
 
     useEffect(() => {
         const element = document.querySelector('.missile');
         if (shoot) {
             let tmp = [...hit];
             let trackMovement = setInterval(() => {
-                if (!titleHit && element?.getBoundingClientRect().top <= title.y + title.h && element?.getBoundingClientRect().top >=  title.y - 50 && element?.getBoundingClientRect().left >= title.x - 20 && element?.getBoundingClientRect().left <= title.x + title.w + 50) {
+                if (!titleHit && element?.getBoundingClientRect().top >= title.y + title.h - 10 && element?.getBoundingClientRect().left >= title.x - 20 && element?.getBoundingClientRect().left <= title.x + title.w + 50) {
                     onSetScore(score+100);
                     setShoot(false);
                     setTitleHit(true);
                     clearInterval(trackMovement);
                 }
-                else if (!introHit && element?.getBoundingClientRect().top <= intro.y + intro.h && element?.getBoundingClientRect().top >=  intro.y - 50 && element?.getBoundingClientRect().left >= intro.x - 20&& element?.getBoundingClientRect().left <= intro.x + intro.w + 30) {
+                else if (!introHit && element?.getBoundingClientRect().top <= intro.y + intro.h + 300 && element?.getBoundingClientRect().top >=  intro.y + intro.h&& element?.getBoundingClientRect().left >= intro.x - 20&& element?.getBoundingClientRect().left <= intro.x + intro.w + 30) {
                     onSetScore(score+100);
                     setShoot(false);
                     setIntroHit(true);
                     clearInterval(trackMovement);
                 }
-                else if (!skillsHit && element?.getBoundingClientRect().top <= skills.y + skills.h && element?.getBoundingClientRect().top >=  skills.y - 50 && element?.getBoundingClientRect().left >= skills.x - 20&& element?.getBoundingClientRect().left <= skills.x + skills.w + 20) {
+                else if (!skillsHit && element?.getBoundingClientRect().top <= skills.y + skills.h - 10 && element?.getBoundingClientRect().top >= skills.y - skills.h && element?.getBoundingClientRect().left >= skills.x - 20&& element?.getBoundingClientRect().left <= skills.x + skills.w + 20) {
                     onSetScore(score+100);
                     setShoot(false);
                     setSkillsHit(true);
@@ -282,7 +290,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                     <div className='aboutCardContainer'>
                         <div className='aboutCard'>
                             <div className='aboutCardImageContainer'>
-                                {picHit ? <img className={changeFont.some(e => e.id === 'pic') ? 'picChange' : 'picHit'} alt='me' src={Me}/> : <img className='myPic' id='pic' alt='me' src={Me}/>}
+                                {picHit ? <img className={changeFont2.some(e => e.id === 'pic') ? 'picChange' : 'picHit'} alt='me' src={Me}/> : <img className='myPic' id='pic' alt='me' src={Me}/>}
                                 <div className='ring'/>
                             </div>
                             <div className='detailCategoryContainer'>

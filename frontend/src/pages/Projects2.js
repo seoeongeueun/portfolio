@@ -34,11 +34,6 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
 
     const project1 = [Project2Main, Project2Sticker, Project2Edit, Project2Right, Project2Todo, Project2Search, Project2Signup, Project2Friend, Project2Add];
 
-    useEffect(() => {
-        const audio = new Audio(CoinPick);
-        audio.pause();
-    }, [])
-
     const handleClickFruit = (e) => {
         if (e === 'cherry') {
             setShowFruit2(false);
@@ -57,7 +52,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
         setInterval(() => {
             setShowScore(false);
             setClicked('');
-            audio.pause();
+            audio.remove();
         }, 800);
     }
 
@@ -69,7 +64,7 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
         if (life > 0) onSetLife(life-1)
         else onSetLife(0)
         setInterval(() => {
-            audio.pause();
+            audio.remove();
         }, 400)
     }
 
@@ -94,9 +89,9 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                 <span style={{marginBottom: '0.5rem'}}>Main Page</span>
                                 <div className='image2DescContent'>
                                         <span>This is the main page after logging in. Left side is for widgets, and right side is for writing diary entries. Left and Right are separate components, and thus the settings and boundaries apply individually. Widgets and stickers can be moved freely within the Left boundary.</span>
-                                        <span>★ I used ResizeObserver to detect window size change so that the widgets never leave the left page boundary even when screen size gets smaller.</span>
+                                        <span>★ I used ResizeObserver to detect window size change so that the widgets never leave the left page boundary even when the screen size gets smaller.</span>
                                         <span>★ I used Redux to store current displayed date, and clicking on any date on the Calendar widget allows both Left and Right to change according to the new picked date.</span>
-                                        <span>★ Cookie with max age 2 days is saved on the server when user logs in successfully and token is set for client side and DB to keep login state. And the token is deleted when cookie expires or when the user logs out.</span>
+                                        <span>★ A cookie with max age 2 days is saved on the server when user logs in, and a token is set on the client side and DB to preserve the login state. And the token is deleted when the cookie expires or when the user logs out.</span>
                                     </div>
                                 </div> 
                                 : <div className='image2Desc'>
@@ -114,11 +109,11 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                             {lang === 'English' ? <div className='image2Desc'>
                                 <span style={{marginBottom: '0.5rem'}}>Sticker Maker</span>
                                 <div className='image2DescContent'>
-                                        <span>This is Sticker Maker, which shows up after user uploaded a picture of their choice through 'Add Pic' button on the bottom right side of the Left page. Users can move the sliders to zoom in and out, rotate the image, and choose a circle or rectangle or square frame for the sticker. 
+                                        <span>This is Sticker Maker, which shows up when the user uploaded a picture of their choice via 'Add Pic' button on the bottom right side of the Left page. Users can move the sliders to zoom in and out, rotate the image, and choose a circle or rectangle or square frame for the sticker. 
                                             After saving the settings by clicking DONE, the sticker is now movable like other widgets and could be temporary hidden or permanently deleted by changing settings.
                                         </span>
-                                        <span>★ The original image of the sticker is saved to the S3 bucket, and zoom, rotate, frame values for each sticker are saved to the DB so that it applys correctly to the image.</span>
-                                        <span>★ When user removes the sticker, API request to remove the settings in the DB and the base image in S3 bucket is called so that the sticker is completely removed. </span>
+                                        <span>★ The original image of the sticker is saved to the S3 bucket, and zoom, rotate, frame values for each sticker are saved to the DB so that it applys correctly to the sticker.</span>
+                                        <span>★ When the user removes a sticker, an API request is made to remove the corresponding settings from the DB and delete the base image from the S3 bucket. </span>
                                     </div>
                                 </div> 
                                 : <div className='image2Desc'>
@@ -137,10 +132,10 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                 <span style={{marginBottom: '0.5rem'}}>Move Mode</span>
                                 <div className='image2DescContent'>
                                         <span>This is after clicking Move button on the bottom right of the Left page. The yellow cross appears on the center of each widget and sticker, and users can click on the cross to freely drag the widgets within the Left boundary.
-                                             Clicking the Move button saves the current positions of all widgets and stickers.
+                                             Clicking the Move button again saves the current positions of all widgets and stickers.
                                         </span>
-                                        <span>★ Positions of widgets and stickers are saved to the DB to preserve the positions when logging in fresh or refreshing the page.</span>
-                                        <span>★ Edit mode is save as boolean using Redux so that all widgets turns movable when edit mode is on. </span>
+                                        <span>★ The positions of widgets and stickers are saved to the database, preserving their current locations for new logins or page refreshes.</span>
+                                        <span>★ Edit mode is saved as a boolean using Redux so that all widgets turns movable when edit mode is on. </span>
                                     </div>
                                 </div> 
                                 : <div className='image2Desc'>
@@ -157,11 +152,11 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                             {lang === 'English' ? <div className='image2Desc'>
                                 <span style={{marginBottom: '0.5rem'}}>Diary (Social Media Theme)</span>
                                 <div className='image2DescContent'>
-                                        <span>Clicking on the pen button on the Right page opens diary writing page. Users can give it a title, select a weather, upload image. The default theme is Social Media theme with an image, but users can click on the gear settings button to change the theme to Plain Text or turn on the grid on the background. 
+                                        <span>Clicking on the pen button on the Right page opens the diary writing page. Users can give it a title, select a weather, and upload image. The default theme is Social Media allowing image upload, but users can click on the gear settings button to change the theme to Plain Text or turn on the grid on the background. 
                                                 The Lock button makes the entry private, and the user's friends can not view the entry. After saving the entry, users can bookmark the entry, change style settings again, like it, or permanently delete it.
                                         </span>
-                                        <span>★ Style settings is saved individually to the DB, so Social Media / Memo theme and grid background can be applied separately for each entry. </span>
-                                        <span>★ Any image file uploaded before saving the entry is temporary presented via URL.createObjectURL, and is saved to the S3 bucket on clicking SAVE. </span>
+                                        <span>★ Style settings is saved individually to the DB, so Social Media / Plaintext theme and grid background can be applied separately for each entry. </span>
+                                        <span>★ Any image files uploaded before saving the entry is temporary presented using URL.createObjectURL, and is saved to the S3 bucket on clicking SAVE. </span>
                                     </div>
                                 </div> 
                                 : <div className='image2Desc'>
@@ -304,8 +299,9 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         </div>
                         <div className='projectDetail'>
                             {lang === 'English' && <div className='descriptionKor'>
-                                <span>I made CheeseMe because while there are other blog-like applications out there, very few offer all those features within a single interface, along with the freedom to creatively decorate your pages. 
-                                CheeseMe is a personalized and customizable diary application for PC that brings together convenient widgets, diary entries, and social connections all in one place.</span>
+                                <span>CheeseMe is a personalized and customizable diary application for PC that brings together convenient widgets, diary entries, and social connections all in one place.
+                                    I made CheeseMe because while there are other blog-like applications out there, very few offer all those features within a single interface, along with the freedom to creatively decorate your pages. 
+                                </span>
                             <div className='descriptionKor2'>
                                 <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Login, Todo List, Calendar, World Clock, Reminder, Notes, Diary Entries, Drag & Move Widgets, Sticker Widget Maker, Add Friends</span>
                                 <span style={{color: 'cyan'}}>My Roles</span><span style={{marginBottom: '1rem'}}>Design, Backend, Frontend, Deloyment</span>

@@ -16,7 +16,6 @@ function Other(props) {
     const [checked, setChecked] = useState(false);
     const [page, setPage] = useState(0);
     const [loading, setLoading] = useState(true);
-    const [audio] = useState(new Audio(Loading));
 
     const IOSSwitch = styled((props) => (
         <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -100,16 +99,17 @@ function Other(props) {
 
       useEffect(() => {
         if (checked && loading) {
+          const audio = new Audio(Loading);
           audio.volume = 0.3;
           audio.play()
           setInterval(() => {
             setLoading(false);
-            audio.pause();
+            audio.remove();
           }, 3000);
         } else if (!checked) {
           setPage(0)
         }
-      }, [checked, loading, audio]);
+      }, [checked, loading]);
 
       useEffect(() => {
         if (!checked) {

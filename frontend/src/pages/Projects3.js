@@ -30,11 +30,6 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
 
     const project1 = [Project3Main, Project3About, Project3Project, Project3Other, Project3Contact];
 
-    useEffect(() => {
-        const audio = new Audio(CoinPick);
-        audio.pause();
-    }, [])
-
     const handleClickFruit = (e) => {
         if (e === 'cherry') {
             setShowFruit2(false);
@@ -57,7 +52,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
         setInterval(() => {
             setShowScore(false);
             setClicked('');
-            audio.pause();
+            audio.remove();
         }, 800);
     }
 
@@ -68,7 +63,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
         if (life > 0) onSetLife(life-1)
         else onSetLife(0)
         setInterval(() => {
-            audio.pause();
+            audio.remove();
         }, 400)
     }
 
@@ -217,7 +212,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         </div>
                         <div className='projectDetail'>
                             {lang === 'English' && <div className='descriptionKor'>
-                                <span>This portfolio is a frontend project to implement different ideas I had and try out various functions. Main theme is retro arcade game, but each page has its own concept inspired by different arcade games. 
+                                <span>This portfolio is a frontend project to implement different ideas I had and try out various functions. The main inspiration is retro arcade games, with each page featuring its own concept inspired by different arcade games. 
                                 </span>
                             <div className='descriptionKor2'>
                                 <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Mini CSS keyboard, audio sound effects, scrollable sections, shooting game, keyframe animations, pure CSS gameboy</span>

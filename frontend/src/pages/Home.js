@@ -188,7 +188,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
         audio.play();
         setTimeout(() => {
             onSetMove(true);
-            audio.pause();
+            audio.remove();
         }, 1500);
     } else {
         onSetMenu(e);

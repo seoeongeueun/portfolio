@@ -6,9 +6,6 @@ import Grape from '../icons/grape.png';
 import AlienCyan from '../icons/alien-cyan.png';
 import Thunder from '../icons/thunder.png';
 import Cheese from '../icons/cheese.png';
-import CoinPick from "../music/coin-collect-retro-8-bit-sound-effect-145251.mp3"
-import Hurt from "../music/hurt_c_08-102842.mp3";
-
 import Project2Main from '../images/project2-main.png';
 import Project2Signup from '../images/project2-signup.png';
 import Project2Right from '../images/project2-right.png';
@@ -21,6 +18,8 @@ import Project2Friend from '../images/project2-friend.png';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import MouseIcon from '@mui/icons-material/Mouse';
+import audioControls from '../modules/audioControls.js';
+
 
 function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu}) {
     const [showFruit2, setShowFruit2] = useState(true);
@@ -46,25 +45,22 @@ function Projects2({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
         onSetScore(score + 100);
         setShowScore(true);
         setClicked(e);
-        const audio = new Audio(CoinPick);
-        audio.play()
-
+        audioControls.play('coin')
         setInterval(() => {
             setShowScore(false);
             setClicked('');
-            audio.remove();
+            audioControls.pause('coin');
         }, 800);
     }
 
     const handleClickThunder = (e) => {
         if (e === 'thunder') setShowThund(false);
         if (e === 'cheese') setShowCheese(false);
-        const audio = new Audio(Hurt);
-        audio.play();
+        audioControls.play('hurt');
         if (life > 0) onSetLife(life-1)
         else onSetLife(0)
         setInterval(() => {
-            audio.remove();
+            audioControls.pause('hurt');
         }, 400)
     }
 

@@ -10,7 +10,7 @@ import Project4 from '../icons/project4.png';
 import Project5 from '../icons/project5.png';
 import Project6 from '../icons/project6.png';
 import Project7 from '../icons/project7.png';
-import Loading from '../music/mixkit-arcade-bonus-alert-767.wav';
+import audioControls from '../modules/audioControls.js';
 
 function Other(props) {
     const [checked, setChecked] = useState(false);
@@ -99,12 +99,10 @@ function Other(props) {
 
       useEffect(() => {
         if (checked && loading) {
-          const audio = new Audio(Loading);
-          audio.volume = 0.3;
-          audio.play()
+          audioControls.play('loading');
           setInterval(() => {
             setLoading(false);
-            audio.remove();
+            audioControls.pause('loading');
           }, 3000);
         } else if (!checked) {
           setPage(0)

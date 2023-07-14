@@ -14,12 +14,10 @@ import Play from '../icons/play.png';
 import Twinkling from '../icons/twinkling.png';
 import Stars from '../icons/stars.png';
 import { useEffect, useState, useRef } from 'react';
-import Theme2 from "../music/HoliznaCC0 - ICE temple.mp3"
-import Bleep from "../music/arcade-bleep-sound-6071.mp3";
+import audioControls from '../modules/audioControls.js';
 
 function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, onSetText}) {
     const [musicOn, setMusicOn] = useState(false);
-    const [audio] = useState(new Audio(Theme2));
     const [index, setIndex] = useState(0);
     const [jump, setJump] = useState(false);
     const [lang, setLang] = useState('English');
@@ -92,14 +90,11 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
             outerRefCurr.removeEventListener("wheel", wheelHandler);
         };
       }
-  }, [outerRef, move, current]);
+  }, [outerRef, move]);
 
     useEffect(() => {
-      if (audio) {
-        audio.volume = 0.4;
-        musicOn ? audio.play() : audio.pause()
-      }
-    }, [musicOn, audio])
+      musicOn ? audioControls.play('theme2') : audioControls.pause('theme2');
+    }, [musicOn])
 
     useEffect(() => {
         if (!move) {
@@ -155,6 +150,13 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
 
     useEffect(() => {
       if (move) {
+        if (menu === 'about') {
+          outerRef.current?.scrollTo({ 
+            top: window.innerHeight * 0,
+            behavior: 'auto',
+          });
+          setCurrent(0);
+        }
         if (menu === 'project') {
           outerRef.current?.scrollTo({ 
             top: window.innerHeight * 1,
@@ -177,18 +179,20 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
           setCurrent(5)
         }
       }
-    }, [menu, move])
+    }, [menu, move]);
+
+    useEffect(() => {
+      console.log(current)
+    }, [current])
 
 
   const handleClick = (e) => {
     if (e === menu){
         setJump(true);
-        const audio = new Audio(Bleep);
-        audio.volume = 0.3;
-        audio.play();
+        audioControls.play('bleep');
         setTimeout(() => {
             onSetMove(true);
-            audio.remove();
+            audioControls.pause('bleep');
         }, 1500);
     } else {
         onSetMenu(e);

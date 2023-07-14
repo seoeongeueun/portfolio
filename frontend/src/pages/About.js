@@ -24,12 +24,12 @@ import Amazons3 from '../svg/amazons3-color.svg';
 import ExpressIcon from '../svg/express-color.svg';
 import KeyboardDoubleArrowDownRoundedIcon from '@mui/icons-material/KeyboardDoubleArrowDownRounded';
 import Rocket from '../icons/rocket.png';
+import audioControls from '../modules/audioControls.js';
 
 function About({score, life, onSetScore, lang, setLang, current}) {
     const [mouseX, setMouseX] = useState(0);
     const [mouseY, setMouseY] = useState(0);
     const [shoot, setShoot] = useState(false);
-    const [audio1] = useState(new Audio(Zap));
     const [hit, setHit] = useState([]);
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
@@ -79,7 +79,6 @@ function About({score, life, onSetScore, lang, setLang, current}) {
             setHelp(true);
         } else {
             setReload(false);
-            audio1.remove();
         }
     }, [current]);
 
@@ -258,9 +257,9 @@ function About({score, life, onSetScore, lang, setLang, current}) {
             let forceStop = setInterval(() => {
                 if (shoot) {
                     setShoot(false);
-                    audio1.pause();
+                    audioControls.pause('zap');
                 }
-            }, 1000);
+            }, 900);
             return () => {
                 clearInterval(forceStop);
             };
@@ -268,15 +267,20 @@ function About({score, life, onSetScore, lang, setLang, current}) {
     }, [shoot]);
 
     const handleMouseClick = (e) => {
+        audioControls.pause('zap');
         if (help) setHelp(false);
         setMouseX(e.clientX);
         setMouseY(e.clientY);
+        if (!shoot) {
+            setShoot(true);
+            audioControls.play('zap');
+        }
     };
 
     return(
         <main style={{backgroundImage: `url(${Stars})`}} key={current === 0 ? reload ? 2 : 1 : 2}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
-            <div id='aboutPage' className='aboutPage' onClick={(e) => {audio1.volume = 0.5; audio1.play(); setShoot(true); handleMouseClick(e)}} style={{ cursor: "url(" + Rocket + "), auto"}}>
+            <div id='aboutPage' className='aboutPage' onClick={(e) => handleMouseClick(e)} style={{ cursor: "url(" + Rocket + "), auto"}}>
                 {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '100px', top: '200px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '100px', top: '200px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both', 
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(1) infinite both'}}/>}
                 {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '500px', top: '400px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1s infinite both', 
@@ -398,7 +402,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                             <span className='score' style={{fontFamily: 'DungGeunMo'}}>SCORE</span>
                             <span style={{color: 'cyan', marginLeft: '1rem', fontFamily: 'DungGeunMo'}}>{score}</span>
                         </div>
-                        <span style={{marginLeft: '8rem'}}>{changeFont.length + hit.length}/9 TARGETS</span>
+                        <span style={{marginLeft: '8rem'}}>{changeFont.length + hit.length + changeFont2.length}/9 TARGETS</span>
                         <div className='livesInfo' style={{marginRight: '1rem'}}>
                             <span className='lives' style={{fontFamily: 'DungGeunMo'}}>LIVES</span>
                             {[...Array(life).keys()].map((item, index) => (

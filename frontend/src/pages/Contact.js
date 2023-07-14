@@ -5,16 +5,11 @@ import GithubIcon from '../icons/github.png';
 import LinkedInIcon from '../icons/linkedin.png'; 
 import { useSelector } from 'react-redux';
 import AlienCyan from '../icons/alien-cyan.png';
-import Zap from "../music/zap_c_07-82067.mp3"
-import Coin from "../music/coin-collect-retro-8-bit-sound-effect-145251.mp3";
-import Drop from "../music/dropping-single-coin-on-floor-2-38987.mp3";
+import audioControls from '../modules/audioControls.js';
 
 function Contact(props) {
     const [name, setName] = useState('');
     const [change, setChange] = useState(false);
-    const [audio] = useState(new Audio(Zap));
-    const [audio2] = useState(new Audio(Coin));
-    const [audio3] = useState(new Audio(Drop));
     const [reload, setReload] = useState(false);
     const { score, life } = useSelector(state => ({
         score: state.score.score,
@@ -41,17 +36,14 @@ function Contact(props) {
     useEffect(() => {
         if (click) {
             setTimeout(() => {
-                audio3.volume = 0.7;
-                audio3.play();
-                audio.remove();
+                audioControls.play('drop');
             }, 1800);
             setTimeout(() => {
                 window.location.reload(false);
-                audio3.remove();
-                audio2.remove();
+                audioControls.pause('drop');
             }, 3500);
         }
-    }, [click, audio3])
+    }, [click])
 
     return(
         <main style={{backgroundImage: `url(${Stars})`}} key={props.current === 5 ? reload ? 2 : 1 : 2}>
@@ -162,14 +154,14 @@ function Contact(props) {
                                     <span onClick={() => setName(name+'Y')}>Y</span>
                                     <span onClick={() => setName(name+'Z')}>Z</span>
                                     <span onClick={() => setName(name.substring(0, name.length - 1))}>DEL</span>
-                                    {name?.length === 3 ? <span style={{color: 'cyan'}} onClick={() => {setChange(true); audio.volume = 0.5; audio.play();}}>ENT</span>
+                                    {name?.length === 3 ? <span style={{color: 'cyan'}} onClick={() => {setChange(true); audioControls.play('zap');}}>ENT</span>
                                     : <span style={{color: 'cyan'}}>ENT</span>}
 
                                 </div>
                             </div>}
                             {change && <div className='continue'>
                                 {!click && <span>CLICK COIN TO RESTART</span>}
-                                {click ? <div className='spinning-coin-fall'/> :<div className='coin' onClick={() => {setClick(true); audio2.volume = 0.5; audio2.play();}}/>}
+                                {click ? <div className='spinning-coin-fall'/> :<div className='coin' onClick={() => {setClick(true); audioControls.play('coin');}}/>}
                             </div>}
                         
                         

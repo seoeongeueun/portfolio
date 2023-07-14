@@ -6,9 +6,6 @@ import Grape from '../icons/banana.png';
 import AlienCyan from '../icons/alien-cyan.png';
 import Strawberry from '../icons/strawberry.png';
 import Cheese from '../icons/dollar.png';
-import CoinPick from "../music/coin-collect-retro-8-bit-sound-effect-145251.mp3"
-import Hurt from "../music/hurt_c_08-102842.mp3";
-
 import Project3Main from '../images/project3-main.png';
 import Project3Contact from '../images/project3-contact.png';
 import Project3About from '../images/project3-about.png';
@@ -17,6 +14,8 @@ import Project3Project from '../images/project3-project.png';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import MouseIcon from '@mui/icons-material/Mouse';
+import audioControls from '../modules/audioControls.js';
+
 
 function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu}) {
     const [showFruit2, setShowFruit2] = useState(true);
@@ -46,24 +45,22 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
         onSetScore(score + 100);
         setShowScore(true);
         setClicked(e);
-        const audio = new Audio(CoinPick);
-        audio.play()
+        audioControls.play('coin')
 
         setInterval(() => {
             setShowScore(false);
             setClicked('');
-            audio.remove();
+            audioControls.pause('coin');
         }, 800);
     }
 
     const handleClickThunder = (e) => {
         if (e === 'cheese') setShowCheese(false);
-        const audio = new Audio(Hurt);
-        audio.play();
+        audioControls.play('hurt');
         if (life > 0) onSetLife(life-1)
         else onSetLife(0)
         setInterval(() => {
-            audio.remove();
+            audioControls.pause('hurt');
         }, 400)
     }
 
@@ -115,7 +112,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                         <span>★ Mouse click makes the missile div visible and starts a keyframe animation that moves vertically from the x, y position of the mouse.</span>
                                         <span>★ ResizeObserver and getBoundingClientRect are used to get targets positions even when the screen size changes.</span>
                                         <span>★ QuerySelector gets the coordinates of the moving missile, and the target gets hidden when the its coordinates overlap with the missile's coordinates. </span>
-                                        <span>★ Animationend eventlistener added to the animation hides the missle div when the animation ends. If there is lag, setInterval hides the missile after 1000ms from the initial launch.</span>
+                                        <span>★ Animationend eventlistener added to the animation hides the missle div when the animation ends. If there is lag, setInterval hides the missile after 900ms from the initial launch.</span>
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>
@@ -126,7 +123,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                         <span>★ 마우스 클릭 시 미사일 div를 보이게 하고 마우스 x, y 좌표에서부터 수직으로 이동하는 keyframe 애니메이션과 효과음을 재생합니다. </span>
                                         <span>★ ResizeObserver와 getBoundingClientRect를 사용해 화면 크기가 바뀌더라도 타겟의 위치를 가져올 수 있게 했습니다. </span>
                                         <span>★ querySelector를 사용해 이동하는 미사일의 좌표를 가져오고 미사일과 타겟의 좌표가 겹치면 해당 타겟이 파괴됩니다. </span>
-                                        <span>★ 애니메이션에 animationend eventlistener를 추가해서 애니메이션이 끝나면 미사일 div를 숨기고, 렉에 걸릴 경우엔 setinterval을 사용하여 처음 발사 후 1000ms가 지나면 미사일을 숨깁니다. </span>
+                                        <span>★ 애니메이션에 animationend eventlistener를 추가해서 애니메이션이 끝나면 미사일 div를 숨기고, 렉에 걸릴 경우엔 setinterval을 사용하여 처음 발사 후 900ms가 지나면 미사일을 숨깁니다. </span>
                                     </div>
                                 </div>}
                         </div>}

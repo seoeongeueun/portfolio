@@ -18,6 +18,7 @@ import Project1Takequiz from '../images/project1-takequiz.png';
 import Project1Categories from '../images/project1-categories.png';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import audioControls from '../modules/audioControls.js';
 
 function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [showFruit, setShowFruit] = useState(true);
@@ -30,12 +31,6 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
     const [found, setFound] = useState(0)
 
     const project1 = [Project1Main, Project1Mypage, Project1Quizedit, Project1Takequiz, Project1Score, Project1Store, Project1Categories];
-
-    useEffect(() => {
-        const audio = new Audio(CoinPick);
-        audio.volume = 0.3;
-        audio.pause()
-    }, []);
 
     const handleClickFruit = (e) => {
         if (e === 'apple') {
@@ -53,26 +48,22 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
         onSetScore(score + 100);
         setShowScore(true);
         setClicked(e);
-        const audio = new Audio(CoinPick);
-        audio.volume = 0.3;
-        audio.play()
+        audioControls.play('coin')
 
         setInterval(() => {
             setShowScore(false);
             setClicked('');
-            audio.pause();
+            audioControls.pause('coin');
         }, 800);
     }
 
     const handleClickThunder = (e) => {
         if (e === 'moon') setShowMoon(false);
-        const audio = new Audio(Hurt);
-        audio.volume = 0.3;
-        audio.play();
+        audioControls.play('hurt');
         if (life > 0) onSetLife(life-1)
         else onSetLife(0)
         setInterval(() => {
-            audio.pause();
+            audioControls.pause('hurt');
         }, 400)
     }
 

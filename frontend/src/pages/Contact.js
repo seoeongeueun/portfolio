@@ -25,7 +25,7 @@ function Contact(props) {
         } else {
             setReload(false)
         }
-    }, [props.current]);
+    }, [props]);
 
     useEffect(() => {
         if (name.length > 3 ) {

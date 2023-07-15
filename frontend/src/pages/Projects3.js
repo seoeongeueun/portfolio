@@ -76,7 +76,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                     </div>
                 </div>
                 <div className='project'>
-                    <div className='pacBoy'/>
+                    <div className='pacBoy' style={{top: '-15px'}}/>
                     <div className='projectImage2'>
                     {lang === 'English' ? <span className='tip'><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>HOVER OVER IMAGE TO READ ABOUT EACH PAGE</span> : <span className='tip'><MouseIcon sx={{fontSize: '1rem', color: 'white', marginRight: '5px'}}/>마우스를 이미지에 올려 페이지 설명 읽기</span>}
                         {index1 === 0 && <div className='image3'>

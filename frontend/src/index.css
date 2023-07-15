@@ -1935,7 +1935,6 @@ section {
   -webkit-animation: move-x 20s linear 0.5s infinite both, mouth 0.5s steps(1, end) 0s infinite both;
   z-index: 5;
   position: absolute;
-  top: -15px;
   left: 0;
 }
 
@@ -1993,19 +1992,11 @@ section {
 
 
 .projectImage {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.projectImage img{
-  height: 79vh;
-  -webkit-animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
-  animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) linear both;
+  width: 45%;
 }
 
 .projectImage2 {
@@ -2014,6 +2005,50 @@ section {
   justify-content: center;
   align-items: center;
   width: 50%;
+}
+
+.image1 {
+  position: relative;
+}
+
+.image1 img{
+  height: 70vh;
+  opacity: 1;
+}
+
+.image1 span {
+  opacity: 0;
+}
+
+.image1Desc{
+  position: absolute;
+  width: 65%;
+  top: 2%;
+  left: 18%;
+  align-self: center;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 96%;
+}
+
+.image1DescContent {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  line-height: 1.7rem;
+  text-align: justify;
+  overflow-y: scroll;
+}
+
+.image1:hover img{
+  opacity: 0.15;
+  z-index: 5;
+}
+
+.image1:hover span {
+  opacity: 1;
 }
 
 .image2 {
@@ -2039,6 +2074,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 96%;
 }
 
 .image2DescContent {
@@ -2047,6 +2083,7 @@ section {
   font-size: 1rem;
   line-height: 1.7rem;
   text-align: justify;
+  overflow-y: scroll;
 }
 
 .image2:hover img{
@@ -2082,6 +2119,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 96%;
 }
 
 .image3DescContent {
@@ -2090,6 +2128,7 @@ section {
   font-size: 1rem;
   line-height: 1.7rem;
   text-align: justify;
+  overflow-y: scroll;
 }
 
 .image3:hover img{

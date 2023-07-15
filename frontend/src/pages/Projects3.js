@@ -178,16 +178,14 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                 <div className='image3DescContent'>
                                         <span>This contacts page is made to look like a leaderboard page of an arcade game. This is what the screen looks like after user registered their initial and their score. The spinning coin appears after, and it navigates back to home page on click.
                                         </span>
-                                        <span>★ With scroll up counted as -1 and down as +1, current page number is saved as a state. Using page number === 5 condition, key for the page div is set different so that title animation gets played again on leaving and revisiting the page by scrolling.</span>
                                         <span>★ User's current score and remaining lives are retrieved from Redux store.</span>
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>
                                     <span style={{marginBottom: '0.5rem'}}>Contact 페이지</span>
                                     <div className='image3DescContent'>
-                                        <span>레트로 게임의 순위표처럼 디자인한 연락처 페이지입니다. 세글자 이니셜을 입력하고 ENT를 클릭해서 미니 게임 점수를 올린 뒤 모습입니다. 돌아가는 코인을 클릭하면 다시 홈페이지로 돌아갑니다.
+                                        <span>레트로 게임의 순위표처럼 디자인한 연락처 페이지입니다. 세 글자 이니셜을 입력하고 ENT를 클릭해서 미니 게임 점수를 올린 뒤 모습입니다. 돌아가는 코인을 클릭하면 다시 홈페이지로 돌아갑니다.
                                         </span>
-                                        <span>★ 스크롤을 올릴때는 -1, 내릴때는 +1으로 현재 스크롯 횟수를 상태에 저장하고 페이지 번호 === 5 조건문으로 페이지 div의 key를 다르게 설정해 스크롤해서 다른 페이지로 나갔다 돌아와도 CONTACT 제목 애니메이션이 재생되게 했습니다.</span>
                                         <span>★ 유저의 현재 점수와 남은 목숨 상태를 Redux 스토어에서 가져옵니다.</span>
                                         <span>★ 깃허브와 링크드인 아이콘을 눌러 해당 페이지로 이동할 수 있습니다.</span>
                                     </div>

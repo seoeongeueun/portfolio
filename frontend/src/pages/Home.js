@@ -77,10 +77,9 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
         const wheelHandler = (e) => {
           const { deltaY } = e;
           if (deltaY > 0) {
-            setCurrent(current === 5 ? 5 : current + 1)
-          } else {
-            setCurrent(current === 0 ? 0 : current - 1);
-
+            setCurrent((prev) => Math.min(prev + 1, 6 - 1));
+          } else if (deltaY < 0) {
+            setCurrent((prev) => Math.max(prev - 1, 0));
           }
       };
       const outerRefCurr = outerRef?.current;

@@ -86,10 +86,52 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                             {lang === 'English' ? <div className='image1Desc'>
                                 <span style={{marginBottom: '0.5rem'}}>Main Page</span>
                                 <div className='image1DescContent'>
-                                        <span>This is the main page after logging in. Left side is for widgets, and right side is for writing diary entries. Left and Right are separate components, and thus the settings and boundaries apply individually. Widgets and stickers can be moved freely within the Left boundary.</span>
-                                        <span>★ I used ResizeObserver to detect window size change so that the widgets never leave the left page boundary even when the screen size gets smaller.</span>
-                                        <span>★ I used Redux to store current displayed date, and clicking on any date on the Calendar widget allows both Left and Right to change according to the new picked date.</span>
-                                        <span>★ A cookie with max age 2 days is saved on the server when user logs in, and a token is set on the client side and DB to preserve the login state. And the token is deleted when the cookie expires or when the user logs out.</span>
+                                        <span>This is the main page. For the main page, I worked on the design and frontend. For the overall design, I wanted to make it simple and clear with blue and gray as the theme colors. Since users can upload banners and pictures they want to decorate their platforms, and it might look messy if there's a lot of colors used. For most parts, I used thin borders with no background color instead of using full background colors. On the top half of the page are draggable category cards. They can be dragged left and right to view more cards, and clicking on each card redirects the page show all quizzes under the selected category. 
+                                            On the bottom half are recently created quizzes and platforms. 
+                                        </span>
+                                        <span>★ On the bottom of each platform card, it shows the owner of the platform and number of subscribers it has at the moment.</span>
+                                        <span>★ There are heart buttons on the platform users can click to subsribe to them without having to actually visit the platform.</span>
+                                    </div>
+                                </div> 
+                                : <div className='image1Desc'>
+                                    <span style={{marginBottom: '0.5rem'}}>메인 페이지</span>
+                                    <div className='image1DescContent'>
+                                        <span>로그인 후 첫 페이지입니다. 왼쪽은 위젯, 오른쪽은 일기장 페이지입니다. 왼쪽과 오른쪽 컴포넌트로 나누어 설정 및 영역은 각각 적용되고, 위젯과 스티커는 왼쪽 영역 내에서 자유롭게 배치할 수 있습니다.</span>
+                                        <span>★ ResizeObserver를 통해 화면 크기 변화를 감지하여 화면이 작아져도 위젯이 왼쪽 페이지 영역을 벗어나지 않게 만들었습니다.</span>
+                                        <span>★ Redux를 이용해 현재 표시할 날짜를 저장하고 달력 위젯에서 원하는 날짜를 고르면 왼쪽 위젯과 오른쪽 일기가 바뀐 날짜에 맞춰 바뀝니다.</span>
+                                        <span>★ 로그인에 성공하면 서버에 이틀 후에 만료되는 쿠키를 저장하고, 클라이언트와 DB에는 유저 아이디가 담긴 토큰을 저장해서 로그인 상태를 유지하지만 쿠키가 만료되거나 유저가 로그아웃 하면 토큰을 지웁니다.</span>
+                                    </div>
+                            </div>}
+                        </div>}
+                        {index1 === 0 && <div className='image1'>
+                            <img src={Project1MyPage} alt='project2'/>
+                            {lang === 'English' ? <div className='image1Desc'>
+                                <span style={{marginBottom: '0.5rem'}}>My Page</span>
+                                <div className='image1DescContent'>
+                                        <span>This is what the My Page looks like. For the this page, I worked on the design and frontend. The user can click on the gear icon to change their username and profile picture. On the right side, it shows the platforms the user owns and subscribed platforms.  
+                                        </span>
+                                        <span>★ Accuracy is the percentage of user's correct answer to the number of questions user has answered, and both values are saved in the DB for each user. </span>
+                                        <span>★ User's exp bar shows how close the user is to leveling up, which is calculated by dividing user's exp to the required exp for the next level</span>
+                                    </div>
+                                </div> 
+                                : <div className='image1Desc'>
+                                    <span style={{marginBottom: '0.5rem'}}>메인 페이지</span>
+                                    <div className='image1DescContent'>
+                                        <span>유저 프로필을 바꿀 수 있는 마이페이지입니다. 왼쪽과 오른쪽 컴포넌트로 나누어 설정 및 영역은 각각 적용되고, 위젯과 스티커는 왼쪽 영역 내에서 자유롭게 배치할 수 있습니다.</span>
+                                        <span>★ ResizeObserver를 통해 화면 크기 변화를 감지하여 화면이 작아져도 위젯이 왼쪽 페이지 영역을 벗어나지 않게 만들었습니다.</span>
+                                        <span>★ Redux를 이용해 현재 표시할 날짜를 저장하고 달력 위젯에서 원하는 날짜를 고르면 왼쪽 위젯과 오른쪽 일기가 바뀐 날짜에 맞춰 바뀝니다.</span>
+                                        <span>★ 로그인에 성공하면 서버에 이틀 후에 만료되는 쿠키를 저장하고, 클라이언트와 DB에는 유저 아이디가 담긴 토큰을 저장해서 로그인 상태를 유지하지만 쿠키가 만료되거나 유저가 로그아웃 하면 토큰을 지웁니다.</span>
+                                    </div>
+                            </div>}
+                        </div>}
+                        {index1 === 0 && <div className='image1'>
+                            <img src={Project1QuizEdit} alt='project2'/>
+                            {lang === 'English' ? <div className='image1Desc'>
+                                <span style={{marginBottom: '0.5rem'}}>My Page</span>
+                                <div className='image1DescContent'>
+                                        <span>This is the quiz edit page for creating a quiz or editing an existing quiz. For the this page, I only worked on the design.
+                                        <span>★ On the bottom of each platform card, it shows the owner of the platform and number of subscribers it has at the moment.</span>
+                                        <span>★ There are heart buttons on the platform users can click to subsribe to them without having to actually visit the platform.</span>
                                     </div>
                                 </div> 
                                 : <div className='image1Desc'>

@@ -76,13 +76,13 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
     useEffect(() => {
         const wheelHandler = (e) => {
           const { deltaY, target } = e;
-          if (target.classList.contains('image1Desc')) {
+          if (target.classList.contains('image1DescContent')) {
             return;
           }
-          else if (target.classList.contains('image2Desc')) {
+          else if (target.classList.contains('image2DescContent')) {
             return;
           }
-          else if (target.classList.contains('image3Desc')) {
+          else if (target.classList.contains('image3DescContent')) {
             return;
           }
           if (deltaY > 0) {

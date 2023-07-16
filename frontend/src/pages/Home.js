@@ -25,6 +25,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
     const [doneLoading, setDoneLoading] = useState(false);
     const [showInput, setShowInput] = useState(false);
     const outerRef = useRef();
+    const sectionRefs = useRef([]);
     const menusList = ['about', 'project', 'other', 'contact'];
 
     useEffect(() => {
@@ -247,13 +248,13 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
           <section>
             <AboutContainer lang={lang} setLang={setLang} current={current}/>
           </section>
-          <section>
+          <section ref={(ref) => sectionRefs.current[1] = ref}>
             <ProjectsContainer2 lang={lang} setLang={setLang}/>
           </section>
-          <section>
+          <section ref={(ref) => sectionRefs.current[2] = ref}>
             <ProjectsContainer lang={lang} setLang={setLang}/>
           </section>
-          <section>
+          <section ref={(ref) => sectionRefs.current[3] = ref}>
             <ProjectsContainer3 lang={lang} setLang={setLang}/>
           </section>
           <section>

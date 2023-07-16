@@ -73,17 +73,10 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
         onSetMenu('contact');
       }
     }, [text]);
-
-    useEffect(() => {
-        const wheelHandler = (e) => {
+    
+    const wheelHandler = (e) => {
           const { deltaY, target } = e;
-          if (target.classList.contains('image1DescContent')) {
-            return;
-          }
-          else if (target.classList.contains('image2DescContent')) {
-            return;
-          }
-          else if (target.classList.contains('image3DescContent')) {
+          if (target.classList.contains('image1DescContent') || target.classList.contains('image2DescContent') || target.classList.contains('image3DescContent')) {
             return;
           }
           if (deltaY > 0) {
@@ -92,14 +85,15 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
             setCurrent((prev) => Math.max(prev - 1, 0));
           }
       };
-      const outerRefCurr = outerRef?.current;
-      if (outerRefCurr) {
-          outerRefCurr.addEventListener("wheel", wheelHandler);
-          return () => {
-            outerRefCurr.removeEventListener("wheel", wheelHandler);
+    
+    useEffect(() => {
+        const container = document.querySelector('.outer');
+        container.addEventListener('wheel', handleWheel);
+
+        return () => {
+          container.removeEventListener('wheel', handleWheel);
         };
-      }
-  }, [outerRef, move]);
+  }, []);
 
     useEffect(() => {
       musicOn ? audioControls.play('theme2') : audioControls.pause('theme2');

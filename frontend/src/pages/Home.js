@@ -24,7 +24,6 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
     const [current, setCurrent] = useState(0);
     const [doneLoading, setDoneLoading] = useState(false);
     const [showInput, setShowInput] = useState(false);
-    const outerRef = useRef();
     const sectionRefs = useRef([]);
     const menusList = ['about', 'project', 'other', 'contact'];
 
@@ -238,7 +237,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
         </div>
         <KeyboardContainer/>
       </main>
-      : <div ref={outerRef} className='outer'>
+      : <div className='outer'>
           <section>
             <AboutContainer lang={lang} setLang={setLang} current={current}/>
           </section>

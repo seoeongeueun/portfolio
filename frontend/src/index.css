@@ -2022,9 +2022,9 @@ section {
 
 .image1Desc{
   position: absolute;
-  width: 65%;
+  width: 75%;
   top: 2%;
-  left: 18%;
+  left: 14%;
   align-self: center;
   font-size: 1.2rem;
   display: flex;
@@ -2066,15 +2066,15 @@ section {
 
 .image2Desc{
   position: absolute;
-  width: 65%;
+  width: 68%;
   top: 3%;
-  left: 18%;
+  left: 17%;
   align-self: center;
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 96%;
+  height: 94%;
 }
 
 .image2DescContent {
@@ -2111,15 +2111,15 @@ section {
 
 .image3Desc{
   position: absolute;
-  width: 65%;
+  width: 68%;
   top: 3%;
-  left: 18%;
+  left: 17%;
   align-self: center;
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 96%;
+  height: 94%;
 }
 
 .image3DescContent {

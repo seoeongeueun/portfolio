@@ -82,17 +82,17 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         {index1 === 0 && <div className='image3'>
                             <img src={Project3Main} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Home Page</span>
+                                <span style={{marginBottom: '0.3rem'}}>Home Page</span>
                                 <div className='image3DescContent'>
                                         <span>This homepage is designed to look like a retro game start screen. You can click on the menu, press the up/down arrow keys on the actual keyboard, or click on the arrow keys on the mini keyboard to navigate the menu. 
                                             The mini keyboard is clickable and operates in the same way as a real keyboard. 1500ms delay after the introduction animation, you can test the keyboard.</span>
                                         <span>★ Monster icon has a keyframe animation that executes first when user selects a menu, and using setInterval, actual navigation of page occurs few seconds after.</span>
                                         <span>★ All menu pages are divided into section tags with 100vh size, and scroll-snap property allows to transition pages on mouse wheel scroll.</span>
-                                        <span>★ When a menu is selected, page transition is made using scrollTo function with the order of the menu multiplied by widow.innerHeight.</span>
+                                        <span>★ When a menu is selected, page transition is made using scrollTo function with the order of the menu multiplied by widow.innerHeight.</span><br/>
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>
-                                    <span style={{marginBottom: '0.5rem'}}>홈페이지</span>
+                                    <span style={{marginBottom: '0.3rem'}}>홈페이지</span>
                                     <div className='image3DescContent'>
                                         <span>레트로 게임 시작 화면처럼 디자인한 홈페이지입니다. 마우스로 메뉴를 클릭하거나, 실제 키보드 위/아래 화살표를 누르거나, 화면 속 미니 키보드의 화살표를 클릭해서 메뉴를 이동할 수 있습니다. 
                                             미니 키보드는 키를 클릭하는 방식이며 실제 키보드와 같은 방식으로 작동하고 My name is 소개 메세지 애니메이션이 재생된 뒤 1500 ms 후 키보드를 테스트할 수 있는 화면으로 전환됩니다. </span>
@@ -105,18 +105,18 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         {index1 === 1 && <div className='image3'>
                             <img src={Project3About} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>About Me Page</span>
+                                <span style={{marginBottom: '0.3rem'}}>About Me Page</span>
                                 <div className='image3DescContent'>
                                         <span>This introduction page is a shooting game that fires missiles on click. When a text target is hit, lights turn off and it become pixelated. Monster targets are destoryed on hit.
                                         </span>
                                         <span>★ Mouse click makes the missile div visible and starts a keyframe animation that moves vertically from the x, y position of the mouse.</span>
                                         <span>★ ResizeObserver and getBoundingClientRect are used to get targets positions even when the screen size changes.</span>
                                         <span>★ QuerySelector gets the coordinates of the moving missile, and the target gets hidden when the its coordinates overlap with the missile's coordinates. </span>
-                                        <span>★ Animationend eventlistener added to the animation hides the missle div when the animation ends. If there is lag, setInterval hides the missile after 900ms from the initial launch.</span>
+                                        <span>★ Animationend eventlistener added to the animation hides the missle div when the animation ends. If there is lag, setInterval hides the missile after 900ms from the initial launch.</span><br/>
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>
-                                    <span style={{marginBottom: '0.5rem'}}>About Me 페이지</span>
+                                    <span style={{marginBottom: '0.3rem'}}>About Me 페이지</span>
                                     <div className='image3DescContent'>
                                         <span>클릭으로 미사일을 쏘는 슈팅 게임을 포함한 소개 페이지입니다. 마우스를 클릭하면 게임이 시작되고 몬스터와 글씨를 포함한 총 9개의 타겟이 있습니다. 미사일을 맞추면 몬스터는 파괴되고, 글씨는 네온사인이 꺼지고 픽셀화됩니다. 
                                         </span>
@@ -130,7 +130,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         {index1 === 2 && <div className='image3'>
                             <img src={Project3Project} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Project Page</span>
+                                <span style={{marginBottom: '0.3rem'}}>Project Page</span>
                                 <div className='image3DescContent'>
                                         <span>This is a project introduction page that includes a mini-game where points are earned by clicking on fruit icons. Users can navigate to previous/next images by clicking on the arrow buttons at the bottom of the image, and hover over the image to read the descriptions. URL, GitHub buttons navigate to the corresponding website.
                                         </span>
@@ -139,7 +139,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>
-                                    <span style={{marginBottom: '0.5rem'}}>Projects 페이지</span>
+                                    <span style={{marginBottom: '0.3rem'}}>Projects 페이지</span>
                                     <div className='image3DescContent'>
                                         <span>과일 아이콘을 눌러 점수를 얻는 미니 게임을 포함한 프로젝트 소개 페이지입니다. 이미지 하단 화살표를 눌러 이전/다음 이미지로 넘길 수 있고, 마우스를 올려 설명을 읽을 수 있습니다. 배포 주소, 깃허브 버튼 등을 눌러 해당 웹사이트로 이동할 수 있습니다.
                                         </span>
@@ -151,7 +151,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         {index1 === 3 && <div className='image3'>
                             <img src={Project3Other} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Other Page</span>
+                                <span style={{marginBottom: '0.3rem'}}>Other Page</span>
                                 <div className='image3DescContent'>
                                         <span>This is gameboy made using only CSS. Clicking on the switch on the header turns on the gameboy. After a sound effect and a loading message, images appear on the screen. Any part of the buttons can be clicked to view next image, and all button work the same in case the screen is too small to display the entire shape of the buttons. 
                                             Pressing arrow keys on a physical keyboard also shows previous/next images.
@@ -161,7 +161,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>
-                                    <span style={{marginBottom: '0.5rem'}}>Other 페이지</span>
+                                    <span style={{marginBottom: '0.3rem'}}>Other 페이지</span>
                                     <div className='image3DescContent'>
                                         <span>CSS만으로 만든 게임기입니다. 게임기 상단 스위치를 클릭해서 전원을 켤 수 있고, 효과음과 함께 로딩 후 이미지가 나타납니다. 게임기 버튼을 클릭해서 다음 이미지를 볼 수 있고, 화면이 작아서 버튼이 다 보이지 않을 경우를 대비해 모든 버튼은 동일하게 다음 이미지를 보여주게 만들었습니다. 
                                             또는 유저 키보드의 좌우 화살표 키를 눌러서 이전/다음 이미지를 볼 수 있습니다.
@@ -174,7 +174,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                         {index1 === 4 && <div className='image3'>
                             <img src={Project3Contact} alt='project2'/>
                             {lang === 'English' ? <div className='image3Desc'>
-                                <span style={{marginBottom: '0.5rem'}}>Contact Page</span>
+                                <span style={{marginBottom: '0.3rem'}}>Contact Page</span>
                                 <div className='image3DescContent'>
                                         <span>This contacts page is made to look like a leaderboard page of an arcade game. This is what the screen looks like after user registered their initial and their score. The spinning coin appears after, and it navigates back to home page on click.
                                         </span>
@@ -182,7 +182,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                     </div>
                                 </div> 
                                 : <div className='image3Desc'>
-                                    <span style={{marginBottom: '0.5rem'}}>Contact 페이지</span>
+                                    <span style={{marginBottom: '0.3rem'}}>Contact 페이지</span>
                                     <div className='image3DescContent'>
                                         <span>레트로 게임의 순위표처럼 디자인한 연락처 페이지입니다. 세 글자 이니셜을 입력하고 ENT를 클릭해서 미니 게임 점수를 올린 뒤 모습입니다. 돌아가는 코인을 클릭하면 다시 홈페이지로 돌아갑니다.
                                         </span>

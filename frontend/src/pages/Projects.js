@@ -103,8 +103,8 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                                     </div>
                             </div>}
                         </div>}
-                        {index1 === 0 && <div className='image1'>
-                            <img src={Project1MyPage} alt='project2'/>
+                        {index1 === 1 && <div className='image1'>
+                            <img src={Project1Mypage} alt='project2'/>
                             {lang === 'English' ? <div className='image1Desc'>
                                 <span style={{marginBottom: '0.5rem'}}>My Page</span>
                                 <div className='image1DescContent'>
@@ -124,12 +124,12 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                                     </div>
                             </div>}
                         </div>}
-                        {index1 === 0 && <div className='image1'>
-                            <img src={Project1QuizEdit} alt='project2'/>
+                        {index1 === 2 && <div className='image1'>
+                            <img src={Project1Quizedit} alt='project2'/>
                             {lang === 'English' ? <div className='image1Desc'>
                                 <span style={{marginBottom: '0.5rem'}}>My Page</span>
                                 <div className='image1DescContent'>
-                                        <span>This is the quiz edit page for creating a quiz or editing an existing quiz. For the this page, I only worked on the design.
+                                        <span>This is the quiz edit page for creating a quiz or editing an existing quiz. For the this page, I only worked on the design.</span>
                                         <span>★ On the bottom of each platform card, it shows the owner of the platform and number of subscribers it has at the moment.</span>
                                         <span>★ There are heart buttons on the platform users can click to subsribe to them without having to actually visit the platform.</span>
                                     </div>

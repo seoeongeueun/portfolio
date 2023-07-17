@@ -24,6 +24,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
     const [current, setCurrent] = useState(0);
     const [doneLoading, setDoneLoading] = useState(false);
     const [showInput, setShowInput] = useState(false);
+    const outerRef = useRef();
     const sectionRefs = useRef([]);
     const menusList = ['about', 'project', 'other', 'contact'];
 
@@ -73,9 +74,10 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
       }
     }, [text]);
     
-    const wheelHandler = (e) => {
+    const handleWheel = (e) => {
           const { deltaY, target } = e;
-          if (target.classList.contains('image1DescContent') || target.classList.contains('image2DescContent') || target.classList.contains('image3DescContent')) {
+          console.log(target.classList)
+          if (target.className === '') {
             return;
           }
           if (deltaY > 0) {
@@ -87,12 +89,12 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
     
     useEffect(() => {
         const container = document.querySelector('.outer');
-        container.addEventListener('wheel', handleWheel);
+        container?.addEventListener('wheel', handleWheel);
 
         return () => {
-          container.removeEventListener('wheel', handleWheel);
+          container?.removeEventListener('wheel', handleWheel);
         };
-  }, []);
+    }, [document.querySelector('.outer')]);
 
     useEffect(() => {
       musicOn ? audioControls.play('theme2') : audioControls.pause('theme2');
@@ -237,7 +239,7 @@ function Home({menu, onSetMenu, clicked, onSetMove, move, onSetClicked, text, on
         </div>
         <KeyboardContainer/>
       </main>
-      : <div className='outer'>
+      : <div className='outer' ref={outerRef}>
           <section>
             <AboutContainer lang={lang} setLang={setLang} current={current}/>
           </section>

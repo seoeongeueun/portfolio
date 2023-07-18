@@ -178,7 +178,6 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                                     <span style={{marginBottom: '0.3rem'}}>메인 페이지</span>
                                     <div className='image1DescContent'>
                                         <span>프로필을 꾸밀 수 있는 아이템인 아이콘과 칭호를 구매할 수 있는 상점 페이지입니다. 프론트엔드와 백엔드 작업을 했습니다. 아이템을 구매하면 포인트가 차감됩니다. Preview를 눌러 헤더에서 아이템을 장착하면 어떤 모습일지 프로필을 미리보기 할 수 있습니다.</span>
-                                        <span>★ ResizeObserver를 통해 화면 크기 변화를 감지하여 화면이 작아져도 위젯이 왼쪽 페이지 영역을 벗어나지 않게 만들었습니다.</span>
                                         <span>★ Pagination 라이브러리를 사용해서 한번에 보여지는 상점 아이템 갯수를 조절했습니다. </span>
                                         <span>★ 팝업 창의 확정을 눌러 구매가 확정되면 DB에 변경사항을 업데이트하고, 아이템은 즉시 장착됩니다.</span>
                                     </div>

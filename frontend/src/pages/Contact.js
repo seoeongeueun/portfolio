@@ -46,9 +46,9 @@ function Contact(props) {
     }, [click])
 
     return(
-        <main style={{backgroundImage: `url(${Stars})`}} key={props.current === 5 ? reload ? 2 : 1 : 2}>
+        <main style={{backgroundImage: `url(${Stars})`}}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
-            <div className='contactPage'>
+            <div className='contactPage' key={props.current === 5 ? reload ? 2 : 1 : 2}>
                 <div className='contactPageIntro'>
                     <span className="contactTitle">CONTACT</span>
                     <span className='contactDesc'>CONNECT WITH ME!</span>

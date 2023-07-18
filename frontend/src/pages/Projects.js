@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Twinkling from '../icons/twinkling.png';
 import Stars from '../icons/stars.png';
 import Apple from '../icons/apple.png';
@@ -9,7 +9,6 @@ import Watermelon from '../icons/watermelon.png';
 
 import Project1Main from '../images/project1-main.png';
 import Project1Mypage from '../images/project1-mypage.png';
-import Project1Quizedit from '../images/project1-quizedit.png';
 import Project1Score from '../images/project1-score.png';
 import Project1Store from '../images/project1-store.png';
 import Project1Takequiz from '../images/project1-takequiz.png';

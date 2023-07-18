@@ -278,9 +278,9 @@ function About({score, life, onSetScore, lang, setLang, current}) {
     };
 
     return(
-        <main style={{backgroundImage: `url(${Stars})`}} key={current === 0 ? reload ? 2 : 1 : 2}>
+        <main style={{backgroundImage: `url(${Stars})`}}>
             <div className='twinkling' style={{background: `transparent url(${Twinkling}) repeat top center`}}></div>
-            <div id='aboutPage' className='aboutPage' onClick={(e) => handleMouseClick(e)} style={{ cursor: "url(" + Rocket + "), auto"}}>
+            <div key={current === 0 ? reload ? 2 : 1 : 2} id='aboutPage' className='aboutPage' onClick={(e) => handleMouseClick(e)} style={{ cursor: "url(" + Rocket + "), auto"}}>
                 {hit.some(e => e.id === 0) ? <img className='boom' src={Boom} alt='boom' style={{left: '100px', top: '200px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '100px', top: '200px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both', 
                     animation: 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.2*(1) infinite both'}}/>}
                 {hit.some(e => e.id === 1) ? <img className='boom' src={Boom} alt='boom' style={{left: '500px', top: '400px'}}/> : !help && <img className='monster' src={Monster1} alt='monster' style={{left: '500px', top: '400px', 'WebkitAnimation': 'shake-horizontal 15s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1s infinite both', 
@@ -394,7 +394,7 @@ function About({score, life, onSetScore, lang, setLang, current}) {
                     </div>}
                 </div>
                 {help ? <div className='help'>
-                            <span>CLICK ANYWHERE TO FIRE!</span>
+                            <span className='helpTitle'>CLICK ANYWHERE TO FIRE!</span>
                             <span style={{fontSize: '2rem', color: 'white'}}>0/9 TARGETS</span>
                         </div>
                     : <div className='projectFooter' style={{width: '97vw'}}>

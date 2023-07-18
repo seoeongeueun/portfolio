@@ -448,6 +448,7 @@ section {
 .menuKey img {
   margin-top: 0rem;
   animation: blink-effect 1s step-end infinite;
+  -webkit-animation: blink-effect 1s step-end infinite;
 }
 
 /* start of keyboard */
@@ -1832,6 +1833,11 @@ section {
 .help span {
   font-size: 3rem;
   color: cyan;
+}
+
+.helpTitle {
+  animation: blink-effect 3s ease-in 1s infinite;
+  -webkit-animation: blink-effect 3s ease-in 1s infinite;
 }
 
 .scrollHelp {

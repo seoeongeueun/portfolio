@@ -151,7 +151,7 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                             {lang === 'English' ? <div className='image1Desc'>
                                 <span style={{marginBottom: '0.3rem'}}>My Page</span>
                                 <div className='image1DescContent'>
-                                        <span>This is store page, and I worked frontend and backend for this page. Users can purchase icons or titles to customize their profile. A preview is available before purchase. On the header, it shows remaining points the user has and a preview of what the profile would look like with the new item. </span>
+                                        <span>This is store page, and I worked both frontend and backend for this page. Users can purchase icons or titles to customize their profile. A preview is available before purchase. On the header, it shows remaining points the user has and a preview of what the profile would look like with the new item. </span>
                                         <span>★ Pagination library was used to keep the number of items display at once. </span>
                                         <span>★ Changes are made to the DB upon purchase, and the items are instantly equipped.</span>
                                     </div>
@@ -171,7 +171,7 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                             {lang === 'English' ? <div className='image1Desc'>
                                 <span style={{marginBottom: '0.3rem'}}>My Page</span>
                                 <div className='image1DescContent'>
-                                        <span>This is what the My Page looks like. For the this page, I worked on the design and frontend. The user can click on the gear icon to change their username and profile picture. On the right side, it shows the platforms the user owns and subscribed platforms.  
+                                        <span>This is what the My Page looks like. For the this page, I only worked on the frontend. The user can click on the gear icon to change their username and profile picture. On the right side, it shows the platforms the user owns and subscribed platforms.  
                                         </span>
                                         <span>★ The accuracy percentage is calculated as the ratio of the number of correct answers to the total number of questions the user has answered, and both values are saved in the database for each user.</span>
                                         <span>★ The user's experience (exp) bar shows how close the user is to leveling up. It is calculated by dividing the user's current exp by the required experience points for the next level.</span>
@@ -212,9 +212,9 @@ function Projects({score, life, onSetScore, onSetLife, lang, setLang}) {
                             {lang === 'English' ? <div className='image1Desc'>
                                 <span style={{marginBottom: '0.3rem'}}>Leaderboard</span>
                                 <div className='image1DescContent'>
-                                        <span>This is the leaderboard page, and I worked both frontend and backend.</span>
-                                        <span>★ On the bottom of each platform card, it shows the owner of the platform and number of subscribers it has at the moment.</span>
-                                        <span>★ There are heart buttons on the platform users can click to subsribe to them without having to actually visit the platform.</span>
+                                        <span>This is the leaderboard page, and I worked on both the frontend and backend. The leaderboard is one big table and is sorted by level by default. Users can sort it by level, accuracy, or play count by clicking on the corresponding column. </span>
+                                        <span>★ At the top, it shows the current rank of the user, and it changes according to the modifications made to the leaderboard.</span>
+                                        <span>★ The icon, profile picture, and title on the leaderboard reflect the items users have equipped at the moment. </span>
                                     </div>
                                 </div> 
                                 : <div className='image1Desc'>

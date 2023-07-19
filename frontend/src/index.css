@@ -1836,8 +1836,8 @@ section {
 }
 
 .helpTitle {
-  animation: blink-effect 3s ease-in 1s infinite;
-  -webkit-animation: blink-effect 3s ease-in 1s infinite;
+  animation: blink-effect 2s ease-in 1.5s infinite;
+  -webkit-animation: blink-effect 2s ease-in 1.5s infinite;
 }
 
 .scrollHelp {

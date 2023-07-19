@@ -211,7 +211,7 @@ function Projects3({score, life, onSetScore, onSetLife, lang, setLang, onSetMenu
                                 </span>
                             <div className='descriptionKor2'>
                                 <span style={{color: 'cyan'}}>Major Features</span><span style={{marginBottom: '1rem'}}>Mini CSS keyboard, audio sound effects, scrollable sections, shooting game, keyframe animations, pure CSS gameboy</span>
-                                <span style={{color: 'cyan'}}>My Roles</span><span style={{marginBottom: '1rem'}}>Design, Frontend, Deloyment</span>
+                                <span style={{color: 'cyan'}}>My Roles</span><span style={{marginBottom: '1rem'}}>Design, Frontend, Deployment</span>
                                 <span style={{color: 'cyan'}}>Stacks Used</span>
                                 <div className='stacks'>
                                     <img alt='project2' src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>

@@ -1,12 +1,12 @@
-import { combineReducers } from 'redux';
-import input from './input';
-import menus from './menu';
-import score from './score';
+import { combineReducers } from "redux";
+import input from "./input";
+import menus from "./menu";
+import score from "./score";
 
 const rootReducer = combineReducers({
   input,
   menus,
-  score
+  score,
 });
 
 export default rootReducer;

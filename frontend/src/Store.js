@@ -7,43 +7,43 @@ import reducer from "./reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 const initialState = {
-    clicked: '',
-    text: ''
+  clicked: "",
+  text: "",
 };
 
-const CHANGE_TEXT = 'CHANGE_TEXT';
-const CLICKED_BUTTON = 'CLICKED_BUTTON';
+const CHANGE_TEXT = "CHANGE_TEXT";
+const CLICKED_BUTTON = "CLICKED_BUTTON";
 
 const changeText = (text) => ({
-    type: CHANGE_TEXT,
-    text
+  type: CHANGE_TEXT,
+  text,
 });
 
 const clickedButton = (clicked) => ({
-    type: CLICKED_BUTTON,
-    clicked
-})
+  type: CLICKED_BUTTON,
+  clicked,
+});
 
 function reducer(state = initialState, action) {
-    switch (action.type) {
-        case CHANGE_TEXT:
-            return {
-            ...state,
-            text: text.concat(action.text)
-            };
-        case CLICKED_BUTTON:
-            return {
-            ...state,
-            clicked: action.clicked
-            };
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case CHANGE_TEXT:
+      return {
+        ...state,
+        text: text.concat(action.text),
+      };
+    case CLICKED_BUTTON:
+      return {
+        ...state,
+        clicked: action.clicked,
+      };
+    default:
+      return state;
+  }
 }
 
 const store = createStore(reducer);
 
-console.log('store: ', store.getState());
+console.log("store: ", store.getState());
 
 const listener = () => {
   const state = store.getState();
